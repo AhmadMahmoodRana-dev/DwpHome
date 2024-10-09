@@ -55,7 +55,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
   ///console.log(chartData2);
 
   return (
-    <div className="second-div w-[289px] 2xl:w-[23.5%] 2xl:pb-[1.4vw]  h-auto rounded-[6px]  pb-3 px-3 ">
+    <div className="second-div w-[289px] 2xl:w-[23.5%] 2xl:pb-[1.4vw] min-h-[650px] h-auto rounded-[6px]  pb-3 px-3 ">
       <div className="content pt-3 pb-2 flex gap-3">
         <div>
           <h1 className="text-white font-bold text-[20px] ml-1 2xl:text-[1.2vw] mt-[-8px]">

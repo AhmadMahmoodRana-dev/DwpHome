@@ -52,7 +52,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
 
   ///  console.log(chartData2);
   return (
-    <div className="first-div w-[289px] 2xl:w-[23.5%] min-h-[650px]  2xl:pb-[.8vw] h-auto rounded-[6px]">
+    <div className="first-div w-[289px] 2xl:w-[23.5%] min-h-[650px]  2xl:pb-[1.2vw] h-auto rounded-[6px]">
       <div className="content-container flex justify-between mt-2 2xl:mt-[.4vw]">
         {data.map((item) => (
           <div
@@ -209,12 +209,12 @@ const FirstCard = ({ startWeek, endWeek }) => {
           ))}
         </table>
       </div>
-      <div className="ml-2 2xl:h-[7.4vw] h-[105px]">
+      <div className="ml-2 2xl:ml-[.4vw] 2xl:h-[6.7vw] h-[105px] mt-3">
         <AreaChartee chartData={chartData2} />
       </div>
       {/* ### DIV REC DATA */}
       {data.map((item) => (
-        <div className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] mt-[6px] 2xl:[1.2vw]">
+        <div className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] mt-[6px] 2xl:mt-[1.2vw]">
           <div className="first flex justify-between items-center data w-[263px] 2xl:w-[91.5%] 2xl:h-[4vw] h-[62.98px] rounded-[3px] ">
             <div className="flex flex-col items-center gap-3 min-w-[120px]">
               <p className="text-[12px] text-white font-bold ml-1 2xl:text-[.8vw]">

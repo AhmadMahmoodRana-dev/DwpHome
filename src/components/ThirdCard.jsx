@@ -109,7 +109,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
 
   ///console.log('chart data',pieChartData);
   return (
-    <div className="third-div w-[289px] 2xl:w-[23.5%]  h-auto rounded-[6px]  py-3  2xl:py-[.8vw]  px-4">
+    <div className="third-div w-[289px] 2xl:w-[23.5%] min-h-[650px] h-auto rounded-[6px]  py-3  2xl:py-[.8vw]  px-4">
       <h1 className="text-white font-bold text-[20px] pb-[1.5vw] 2xl:text-[1.2vw] mt-[-1.1vw] 2xl:mt-[-1vw] 2xl:pb-[1.2vw] pt-2">
         As On Pending
       </h1>
@@ -180,7 +180,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
             <div className="2xl:hidden block ml-[30px] mt-[-20px] pb-5">
               <PieChart chartData={pieChartData} />
             </div>
-            <div className="2xl:block hidden pb-[.5vw] mt-[-.9vw] ml-[20px] 2xl:ml-[1.5vw]">
+            <div className="2xl:block hidden pb-[.5vw] mt-[-.9vw] ml-[20px] 2xl:ml-[1.5vw] pie-second">
               <SecondaryPiechart chartData={pieChartData} />
             </div>
           </div>
