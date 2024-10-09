@@ -128,7 +128,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
                 </div>
               )}
             </div>
-            <div className="flex items-center mt-1 gap-[1.9vw]">
+            <div className="flex items-center mt-1 gap-[1vw]">
                 <h1 className="text-white font-bold text-[15px] 2xl:text-[1vw]">
                   OTC
                 </h1>
@@ -173,7 +173,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
         ))}
       </div>
       {/* TAble */}
-      <div className="px-4 mt-3 2xl:mt-[.6vw]">
+      <div className="px-4 mt-3 2xl:mt-[.7vw]">
         <h1 className="text-white font-bold text-[14px] 2xl:text-[1.1vw]">
           Nation Wide Week Trend
         </h1>

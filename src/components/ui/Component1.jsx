@@ -74,22 +74,22 @@ export function Component1({ chartData }) {
           <Bar
             dataKey="PART_WAITING"
             name={chartConfig.PART_WAITING.label}
-            fill={chartConfig.PART_WAITING.color}
+            fill="red"
             radius={4}
           />
           <Bar
             dataKey="UNDER_REPAIR"
             name={chartConfig.UNDER_REPAIR.label}
-            fill={chartConfig.UNDER_REPAIR.color}
+            fill="yellow"
             radius={4}
           />
           <Bar
             dataKey="COMPLETED"
             name={chartConfig.COMPLETED.label}
-            fill={chartConfig.COMPLETED.color}
+            fill="#05ff00"
             radius={4}
           />
-          <Bar dataKey="OTHER" name={chartConfig.OTHER.label} fill={chartConfig.OTHER.color} radius={4} />
+          <Bar dataKey="OTHER" name={chartConfig.OTHER.label} fill="#1793ff" radius={4} />
         </BarChart>
       </ResponsiveContainer>
     </ChartContainer>
