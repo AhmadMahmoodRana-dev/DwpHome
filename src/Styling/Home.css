@@ -1,0 +1,28 @@
+.first-div{
+    background: linear-gradient(-45deg, #025ade, #07295d, #043e95, #3f7edc);
+}
+.data{
+    background: linear-gradient(-45deg, #025ade, #043e95, #3f7edc);
+}
+.second-div{
+    background: linear-gradient(-45deg, #025ade, #07295d, #043e95, #3f7edc);
+}
+.third-div{
+    background: linear-gradient(135deg,#953333 0%, #7F2929 33%, #270101 100%);
+}
+.fourth-div{
+    background: linear-gradient(-45deg, #025ade, #07295d, #043e95, #3f7edc);
+}
+.main{
+    background: linear-gradient(-45deg, #025ade, #07295d, #043e95, #3f7edc);
+}
+.main-heading,h1,h2,h3,h4,h5,p{
+    font-family: "Inter", sans-serif;
+}
+.Sidebar{
+    border-radius: 10px;
+    
+}
+.main-container{
+  background:radial-gradient(#0352C8, #01205C) ;  
+}

@@ -1,0 +1,403 @@
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  /* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');  */
+  @layer base {
+    :root {
+      --chart-1: 12 76% 61%;
+      --chart-2: 173 58% 39%;
+      --chart-3: 197 37% 24%;
+      --chart-4: 43 74% 66%;
+      --chart-5: 27 87% 67%;
+    }
+  
+    .dark {
+      --chart-1: 220 70% 50%;
+      --chart-2: 160 60% 45%;
+      --chart-3: 30 80% 55%;
+      --chart-4: 280 65% 60%;
+      --chart-5: 340 75% 55%;
+    }
+  }
+  
+.chart-gradient{
+ background: linear-gradient(135deg, #060C29, #040C30);   
+border-radius: 10px;
+padding: 1px 0;
+}
+.sidebar{
+  background: linear-gradient(135deg, #010618, #043681); 
+}
+.mobile-sidebar{
+  background: linear-gradient(135deg, #010618, #043681); 
+}
+.bottom-table{
+  background: radial-gradient(#121557, #050858, #160447);
+}
+.bottom-table-box{
+  background: linear-gradient(-45deg,#040981, #030773,#19015C);
+}
+
+h1,h2,h3,h4,h5,li,p{
+  font-family: "Inter", sans-serif
+}
+.tooltip-text {
+  visibility: hidden;
+  opacity: 0;
+  width: 60px;
+  background-color: darkblue;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 50%; /* Position in the middle vertically */
+  left: calc(100% + 10px); /* Position to the right of the icon */
+  transform: translateY(-50%); /* Center vertically */
+  transition: opacity 0.3s;
+  font-size: 12px;
+}
+
+.tooltip-text::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -5px; /* Position the arrow on the left side */
+  transform: translateY(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent darkblue transparent transparent; /* Arrow color matches the tooltip */
+}
+
+/* Tooltip visibility when the group is hovered */
+.group:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+/*
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 222.2 84% 4.9%;
+      --card: 0 0% 100%;
+      --card-foreground: 222.2 84% 4.9%;
+      --popover: 0 0% 100%;
+      --popover-foreground: 222.2 84% 4.9%;
+      --primary: 222.2 47.4% 11.2%;
+      --primary-foreground: 210 40% 98%;
+      --secondary: 210 40% 96.1%;
+      --secondary-foreground: 222.2 47.4% 11.2%;
+      --muted: 210 40% 96.1%;
+      --muted-foreground: 215.4 16.3% 46.9%;
+      --accent: 210 40% 96.1%;
+      --accent-foreground: 222.2 47.4% 11.2%;
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 214.3 31.8% 91.4%;
+      --input: 214.3 31.8% 91.4%;
+      --ring: 222.2 84% 4.9%;
+      --radius: 0.5rem;
+      --chart-1: 12 76% 61%;
+      --chart-2: 173 58% 39%;
+      --chart-3: 197 37% 24%;
+      --chart-4: 43 74% 66%;
+      --chart-5: 27 87% 67%;
+    }
+
+    .dark {
+      --background: 222.2 84% 4.9%;
+      --foreground: 210 40% 98%;
+      --card: 222.2 84% 4.9%;
+      --card-foreground: 210 40% 98%;
+      --popover: 222.2 84% 4.9%;
+      --popover-foreground: 210 40% 98%;
+      --primary: 210 40% 98%;
+      --primary-foreground: 222.2 47.4% 11.2%;
+      --secondary: 217.2 32.6% 17.5%;
+      --secondary-foreground: 210 40% 98%;
+      --muted: 217.2 32.6% 17.5%;
+      --muted-foreground: 215 20.2% 65.1%;
+      --accent: 217.2 32.6% 17.5%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 217.2 32.6% 17.5%;
+      --input: 217.2 32.6% 17.5%;
+      --ring: 212.7 26.8% 83.9%;
+      --chart-1: 220 70% 50%;
+      --chart-2: 160 60% 45%;
+      --chart-3: 30 80% 55%;
+      --chart-4: 280 65% 60%;
+      --chart-5: 340 75% 55%;
+    }
+  }
+
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
+  }*/
+  
+
+@media (max-width : 681px) and (min-width : 319px){
+
+.bottom-table{
+  width: 289px;
+  /* justify-content: center; */
+  margin-top: 10px;
+}
+.data-center{
+  width: 99%;
+  justify-content: center;
+  display: flex;
+}
+.tableline-chart{
+  margin-left: -60px;
+  width: 300px;
+}
+.chartt-1{
+  margin-left: -15px;
+}
+.chartt-2{
+  margin-left: -15px;
+}
+.chartt-3{
+  margin-left: -15px;
+}
+.gauge{
+margin-top: 20px;
+margin-left: 7px;
+}
+}
+@media (max-width:1280px) and (min-width:1280px){
+  .weather{
+    width: 880px;
+  }
+  .bottom-table{
+    width: 880px;
+    justify-content: space-between;
+    
+  }
+  .multi-charts {
+    width: 784px;
+  }
+}
+@media (max-width:1024px) and (min-width:1024px){
+  .weather{
+    width: 584px;
+  }
+  .bottom-table{
+    width: 584px;
+    justify-content: space-between;
+    
+  }
+  .multi-charts{
+    width: 488px;
+  }
+}
+
+@media (max-width : 1500px) and (min-width: 1426px){
+.sidebar{
+  width: 250px !important;
+  background-color: black !important;
+}
+.weather{
+  width: 1180px;
+}
+.bottom-table{
+  width: 1180px;
+}
+}
+@media (max-width : 1446px) and (min-width: 1280px){
+.sidebar{
+  width: 67px !important;
+  background-color: yellow !important;
+}
+.removal-side{
+  display: none;
+}
+.image{
+  display: none;
+}
+.icons{
+  margin-top: 20px;
+}
+.holdder{
+  margin-left: 0;
+}
+.main-handle{
+  display: flex ;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.weather{
+  width: 1180px;
+}
+.bottom-table{
+  width: 1180px;
+}
+.bottom-h1{
+  font-size: 14px !important;
+}
+.arrows{
+  margin-top: -10px;
+}
+.arrows1{
+  margin-top: -10px;
+}
+.arrow-2{
+  margin-top: -10px;
+}
+
+  .multi-charts{
+    margin-left: -0px !important;
+  }
+   .hover1:hover .home{
+    background-color: red  !important;
+  }
+}
+@media (max-width : 1498px) and (min-width: 1425px){
+  .weather{
+    width: 1180px !important;
+  }
+  .bottom-table{
+    width: 1180px;}
+    .multi-charts{
+      margin-left: 40px;
+    }
+  }
+
+@media (max-width : 1279px) and (min-width:1107px){
+  .weather{
+    width: 880px;
+  }
+  .bottom-table{
+    width: 880px;
+  }
+}
+@media (max-width:1106px) and (min-width:797px){
+.allcards{
+  justify-content: center;
+}
+.weather{
+  width: 586px;
+}
+.bottom-table{
+  width: 586px;
+}
+}
+@media (max-width: 796px) and (min-width: 320px){
+.weather{
+  display: none;
+}
+}
+@media (max-width:515px) and (min-width:320px){
+  .sidebar{
+    display: none;
+  }
+  .mobileNavbar{
+    display: block;
+  }
+}
+
+@media (max-width:1426px) and (min-width:1280px){
+  .arrows{
+    margin-top: -10px;
+  }
+  .arrows1{
+    margin-top: -10px;
+  }
+  .third-arrow{
+    margin-top: -8px;
+  }
+  .holdder1{
+    width: 35px;
+    height: 30px;
+  }
+  .icon-1{
+    margin-top: -1px;
+  }
+  .multi-charts{
+    margin-left: 40px;
+  }
+ .gauge{
+  margin-left: -10px;
+ }
+ .multi-charts{
+  width: 98% !important;
+  /* margin-left: -30px !important; */
+ }
+ .tableline-chart{
+  width: 734px;
+  margin-left: -50px;
+ }
+.main-handle{
+  margin-left: -10px;
+}
+
+
+}
+
+@media (max-width: 768px) {
+.bottom-table{
+  width: 300px;
+  display: flex;
+  justify-content: space-between;
+}
+}
+
+
+
+.responsive-pie-chart canvas {
+  font-size: 1.4vw; /* Base size for large screens */
+
+  /* Medium screens (Tablets, smaller laptops) */
+  @media (max-width: 1200px) {
+    font-size: 1.5vw;
+  }
+
+  /* Small screens (Mobiles) */
+  @media (max-width: 768px) {
+    font-size: 2.5vw;
+  }
+
+  /* Extra small screens */
+  @media (max-width: 480px) {
+    font-size: 3.5vw;
+  }
+}
+
+/* Media Query for Specific Resolutions */
+@media (min-width: 1280px) and (max-width: 1420px) {
+  /* Ensure tooltips are visible only within this resolution range */
+  .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .group:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+/* Media Query for All Other Resolutions */
+@media (max-width: 1279px), (min-width: 1421px) {
+  .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .group:hover .tooltip-text {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
