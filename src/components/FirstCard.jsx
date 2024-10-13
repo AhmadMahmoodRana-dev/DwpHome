@@ -173,12 +173,12 @@ const FirstCard = ({ startWeek, endWeek }) => {
         ))}
       </div>
       {/* TAble */}
-      <div className="px-4 mt-3 2xl:mt-[.7vw]">
+      <div className="px-4 mt-3 2xl:mt-[.3vw] firstTable">
         <h1 className="text-white font-bold text-[14px] 2xl:text-[1.1vw]">
           Nation Wide Week Trend
         </h1>
 
-        <table className="w-[256px] 2xl:w-[100%] mt-[10px] 2xl:mt-0">
+        <table className="w-[256px] 2xl:w-[100%] mt-[10px] 2xl:mt-[.4vw]">
           <tr className="text-white">
             <th></th>
             <th className="text-[10px] 2xl:text-[.7vw] font-normal text-right pr-4">
@@ -214,7 +214,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
       </div>
       {/* ### DIV REC DATA */}
       {data.map((item) => (
-        <div className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] mt-[6px] 2xl:mt-[1.2vw]">
+        <div className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] py-1 2xl:pb-0 mt-[6px] 2xl:mt-[.2vw] ">
           <div className="first flex justify-between items-center data w-[263px] 2xl:w-[91.5%] 2xl:h-[4vw] h-[62.98px] rounded-[3px] ">
             <div className="flex flex-col items-center gap-3 min-w-[120px]">
               <p className="text-[12px] text-white font-bold ml-1 2xl:text-[.8vw]">

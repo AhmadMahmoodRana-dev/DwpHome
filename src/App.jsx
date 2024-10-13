@@ -5,6 +5,7 @@ import Home from './Pages/Home';
 
 import Privatecomponent from './Pages/Privatecomponent';
 import Profile from './Pages/Profile';
+import SemiCircularProgressive from './components/SemiCircularProgressive';
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
               <Route path="/" element={<LoginPage />} />
             </Routes>
         </Router>
+        {/* <SemiCircularProgressive/> */}
         </div>
         </>
     );

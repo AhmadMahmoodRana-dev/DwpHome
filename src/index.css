@@ -402,8 +402,34 @@ margin-left: 7px;
   }
 }
 
-@media (max-width:2565px) and (min-width:2555px) {
+@media (max-width:2565px) and (min-width:2255px) {
   .pie-second{
-    padding-bottom: 0px;
+    padding-bottom:0px;
+    margin-top: -27px;
   }
+.regionalData{
+  padding-top: 8px !important;
+}
+.firstTable{
+  margin-top: 20px !important;
+}
+.forthTable{
+  margin-top: 20px !important;
+}
+}
+
+@media (max-width:20000px) and (min-width:2600px){
+.pie-second{
+  margin-top: -50px !important;
+}
+.regionalData{
+  padding-top: 8px !important;
+}
+.firstTable{
+  margin-top: 24px !important;
+}
+.forthTable{
+  margin-top: 20px !important;
+}
+
 }
