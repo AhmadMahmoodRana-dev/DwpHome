@@ -250,7 +250,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
         </div>
       ))}
       {/* TAble */}
-      <div className="px-1 2xl:mt-[.4vw] 2xl:px-[.2vw] mt-3 pb-2">
+      <div className="px-1 2xl:mt-[.4vw] 2xl:px-[.2vw] mt-3 pb-2 secondTable">
         <table className="w-[255px] 2xl:w-full">
           <tr className="text-white">
             <th></th>

@@ -173,7 +173,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
         ))}
       </div>
       {/* TAble */}
-      <div className="px-4 mt-3 2xl:mt-[.3vw] firstTable">
+      <div className="px-4 mt-3 2xl:mt-[.3vw] firstTable table-heading">
         <h1 className="text-white font-bold text-[14px] 2xl:text-[1.1vw]">
           Nation Wide Week Trend
         </h1>
