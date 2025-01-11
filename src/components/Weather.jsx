@@ -116,16 +116,13 @@ const Weather = ({
               <FaCaretUp className="2xl:text-[.6vw]" onClick={addStartWeek} />
               <FaCaretDown className="2xl:text-[.6vw]" onClick={subStartWeek} />
             </div>
-            {/* {startWeekError && <div className="text-red-500 text-sm mt-2">{startWeekError}</div>} */}
           </span>
           <span className="2xl:ml-[.6vw] 2xl:text-[.9vw] font-normal text-white 2xl:gap-[.3vw] flex justify-center items-center">
             End Week <span className="font-bold">{endWeek}</span>
-            {/* Disabled controls for End Week */}
             <div>
               <FaCaretUp className="2xl:text-[.6vw] text-white cursor-not-allowed" />
               <FaCaretDown className="2xl:text-[.6vw] text-white cursor-not-allowed" />
             </div>
-            {/* {endWeekError && <div className="text-red-500 text-sm mt-2">{endWeekError}</div>} */}
           </span>
         </div>
         <div className="flex items-center">

@@ -1,33 +1,34 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import LoginPage from './Pages/LoginPage'; // Adjust the path if necessary
-import Home from './Pages/Home';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LoginPage from "./Pages/LoginPage"; // Adjust the path if necessary
 
-import Privatecomponent from './Pages/Privatecomponent';
-import Profile from './Pages/Profile';
-import SemiCircularProgressive from './components/SemiCircularProgressive';
+import Privatecomponent from "./Pages/Privatecomponent";
+import Profile from "./Pages/Profile";
+import SecondPage from "./Pages/SecondPage";
+import PublicRoutes from "./Pages/PublicRoutes";
+import Home from "./Pages/Home";
 
 const App = () => {
-    return (
-     <>
-   <div className='main-container w-full min-h-screen h-auto'>
+  return (
+    <>
+      <div className="main-container w-full min-h-screen h-auto">
         <Router>
-            <Routes>
-            <Route  element={<Privatecomponent/>} >
-                
-                <Route path="/home" element={<Home/>} />
-             
-                <Route path="/Profile" element={<Profile />} />
-              </Route>  
+          <Routes>
+            <Route element={<Privatecomponent />}>
+              <Route path="/Home" element={<Home />} />
+              <Route path="/secondPage" element={<SecondPage />} />
 
+              <Route path="/Profile" element={<Profile />} />
+            </Route>
+            <Route element={<PublicRoutes />}>
               <Route path="/LoginPage" element={<LoginPage />} />
               <Route path="/" element={<LoginPage />} />
-            </Routes>
+            </Route>
+          </Routes>
         </Router>
-        {/* <SemiCircularProgressive/> */}
-        </div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default App;

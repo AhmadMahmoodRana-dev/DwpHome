@@ -431,6 +431,14 @@ margin-left: 7px;
 .forthTable{
   margin-top: 20px !important;
 }
+.glide__arrow {
+  position: absolute;
+  display: block;
+  top: 50%;
+  z-index: 2;
+  opacity: 1;
+  transform: translateY(-50%);
+}
 
 }
 

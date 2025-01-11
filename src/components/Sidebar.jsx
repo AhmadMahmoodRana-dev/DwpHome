@@ -17,16 +17,16 @@ const Sidebar = () => {
   const imageUrl = 'https://dwpcare.com.pk/uploads/dwpcarewhite.PNG';
 
   return (
-    <div className='sidebar w-[230px] 2xl:w-[20%] h-[600px] 2xl:h-[80vh] mt-3 rounded-[10px] ml-3 flex flex-col justify-between'>
+    <div className='sidebar w-[380px] 2xl:w-[20%] h-[600px] 2xl:h-[80vh] mt-3 rounded-[10px] ml-3 flex flex-col justify-between'>
       <div className='main-handle pt-2 2xl:pt-[.5vw]'>
         <div className='image ml-2 2xl:ml-[.7vw]'>
           <img src={imageUrl} alt="" className='w-[110px] 2xl:w-[8vw]' />
         </div>
-        <div className='flex items-center gap-3 ml-3 2xl:ml-[.7vw] mt-4 2xl:mt-[1vw] holdder1 bg-[#101e42dd] w-[75%] rounded-[6px] py-1 pl-2 group relative'>
+        <Link to={'/secondPage'} className='flex items-center gap-3 ml-3 2xl:ml-[.7vw] mt-4 2xl:mt-[1vw] holdder1 bg-[#101e42dd] w-[75%] rounded-[6px] py-1 pl-2 group relative'>
           <IoHomeSharp className='text-white icon-1 icons 2xl:text-[1.2vw]' />
           <p className='text-[14px] 2xl:text-[.9vw] removal-side text-white font-bold'>Summary</p>
           <span className="tooltip-text">Summary</span>
-        </div>
+        </Link>
         <div className='flex items-center gap-3 ml-3 mt-1 2xl:ml-[.7vw] 2xl:mt-[.7vw] holdder pl-2 py-1 group relative'>
           <RiBarChart2Line className='text-white icons 2xl:text-[1.2vw]' />
           <p className='text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium'>Inset Out</p>
