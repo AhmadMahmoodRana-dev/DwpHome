@@ -125,25 +125,22 @@
 //   );
 // }
 
-
-
-
-
-
 // ##########   MAIN   ##########
 
-import React from 'react'
-
+import MainCard from "@/components/SecondPage/MainCard";
+import React from "react";
+import SmallCard from "@/components/SecondPage/SmallCard"
 const SecondPage = () => {
   return (
-    <div>
-      
+    <div className="w-full min-h-screen h-auto flex">
+      <div className="w-[300px] 2xl:w-[32%]">
+        <MainCard />
+      </div>
+      <div className="w-full h-screen bg-black">
+        <SmallCard/>
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default SecondPage
-
-
-
-
+export default SecondPage;
