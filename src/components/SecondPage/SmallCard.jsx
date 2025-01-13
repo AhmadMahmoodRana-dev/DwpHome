@@ -3,7 +3,7 @@ import { RiTriangleFill } from "react-icons/ri";
 import BarChart1 from "./charts/BarChart";
 import SmallCardFlowChart from "./charts/SmallCardFlowChart";
 
-const MainCard = () => {
+const MainCard = ({name}) => {
   const TableData = [
     {
       id: 1,
@@ -84,10 +84,10 @@ const MainCard = () => {
           {/* LEFT */}
           <div className="left_content_div w-[68%]">
             <h1 className="text-white font-bold  tracking-wide">
-              Nation Wide Inset
+              {name}
             </h1>
             <div className="flex justify-center items-center">
-              <p className=" text-white font-bold mt-2 text-[30px]  leading-6">
+              <p className=" text-white font-bold mt-2 text-[25px]  leading-6">
                 1,314
               </p>
 
@@ -100,7 +100,7 @@ const MainCard = () => {
               Nation Wide Outset
             </h3>
             <div className="flex justify-center items-center">
-              <p className=" text-white font-bold mt-2 text-[30px] leading-6">
+              <p className=" text-white font-bold mt-2 text-[25px] leading-6">
                 1,314
               </p>
 
@@ -182,14 +182,14 @@ const MainCard = () => {
       <div className="w-full  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2">
         {/* FIRST  */}
         <div>
-          <h1 className="text-green-500 font-semibold text-[14px]  tracking-wide text-center">
+          <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw]  tracking-wide text-center">
             Nation Wide Outset Category Wise
           </h1>
           {/* TABLE */}
 
           <div className="px-1">
             <table className="w-full mt-3  mb-6">
-              <tr className="text-white text-[10px]  border-b">
+              <tr className="text-white text-[10px] 2xl:text-[.6vw]  border-b">
                 <th className="font-medium border-r-2 text-left">Weeks</th>
                 <th className="font-medium border-r-2">Gree Ac</th>
                 <th className="font-medium border-r-2">ES - AC</th>
@@ -231,14 +231,14 @@ const MainCard = () => {
 
         {/* Second Card */}
         <div className="mt-5">
-          <h1 className="text-green-500 font-semibold text-[14px]  tracking-wide text-center">
+          <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
             Nation Wide Inset Category Wise
           </h1>
           {/* TABLE */}
 
           <div className="px-1">
             <table className="w-full mt-3  mb-6">
-              <tr className="text-white text-[10px]  border-b">
+              <tr className="text-white text-[10px] 2xl:text-[.6vw] border-b">
                 <th className="font-medium border-r-2 text-left">Weeks</th>
                 <th className="font-medium border-r-2">Gree Ac</th>
                 <th className="font-medium border-r-2">ES - AC</th>
