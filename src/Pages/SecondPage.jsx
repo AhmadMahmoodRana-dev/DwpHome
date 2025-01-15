@@ -1,52 +1,49 @@
-import SmallCard from "@/components/SecondPage/SmallCard"
+import SmallCard from "@/components/SecondPage/SmallCard";
 import MainCard from "@/components/SecondPage/MainCard";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
-import { ArrowRight } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { RxTriangleLeft } from "react-icons/rx";
 import { useEffect, useState } from "react";
 
 const products = [
   {
     id: 1,
-    name:"Lahore",
+    name: "Lahore",
     image: "https://via.placeholder.com/300",
     description: "Product 1 Description",
   },
   {
     id: 2,
-    name:"Multan",
+    name: "Multan",
     image: "https://via.placeholder.com/300",
     description: "Product 2 Description",
   },
   {
     id: 3,
-    name:"Faislabad",
+    name: "Faislabad",
     image: "https://via.placeholder.com/300",
     description: "Product 3 Description",
   },
   {
     id: 4,
-    name:"Gujranwala",
+    name: "Gujranwala",
     image: "https://via.placeholder.com/300",
     description: "Product 4 Description",
   },
   {
     id: 5,
-    name:"RawalPindi",
+    name: "RawalPindi",
     image: "https://via.placeholder.com/300",
     description: "Product 5 Description",
   },
   {
     id: 6,
-    name:"Karachi",
+    name: "Karachi",
     image: "https://via.placeholder.com/300",
     description: "Product 6 Description",
   },
   {
     id: 7,
-    name:"Hyderabad",
+    name: "Hyderabad",
     image: "https://via.placeholder.com/300",
     description: "Product 6 Description",
   },
@@ -58,15 +55,15 @@ export default function SecondPage() {
 
   const nextProduct = () => {
     setCurrentIndex((prevIndex) => {
-      const newIndex = (prevIndex + 1) % products.length;
-      return newIndex + productsPerSlide > products.length ? 0 : newIndex;
+      return prevIndex + 1 + productsPerSlide <= products.length
+        ? prevIndex + 1
+        : prevIndex;
     });
   };
-  
+
   const previousProduct = () => {
     setCurrentIndex((prevIndex) => {
-      const newIndex = (prevIndex - 1 + products.length) % products.length;
-      return newIndex;
+      return prevIndex - 1 >= 0 ? prevIndex - 1 : prevIndex;
     });
   };
 
@@ -95,50 +92,47 @@ export default function SecondPage() {
     currentIndex + productsPerSlide
   );
 
+  const isFirstSlide = currentIndex === 0;
+  const isLastSlide = currentIndex + productsPerSlide >= products.length;
+
   return (
-    <div className="flex px-7 gap-4 lg:flex-nowrap flex-wrap justify-center">
+    <div className="flex px-7 xl:gap-4 gap-12 lg:flex-nowrap flex-wrap justify-center">
       <div className="w-[300px] 2xl:w-[37%] max-w-[600px]">
         <MainCard />
       </div>
-
-      <Card className="lg:w-full lg:max-w-5xl md:w-[305px]  bg-black  mx-auto lg:px-7 border-none">
-     
+      {/* 2xl:max-w-[90%] */}
+      <Card className=" 2xl:max-w-full lg:w-full lg:max-w-5xl md:w-[305px] mx-auto 2xl:px-7 xl:pl-7 border-none">
         <CardContent className="relative p-0 w-[300px] md:w-auto">
           <div className="flex justify-center items-center space-x-6">
             {currentProducts.map((product) => (
               <div key={product.id} className="w-full">
-                <SmallCard name={product?.name}  />
+                <SmallCard name={product?.name} />
               </div>
             ))}
           </div>
-          <div className="flex justify-between mt-6">
-            <button variant="outline" onClick={previousProduct}>
-              <ArrowRight className="w-4 h-4 rotate-180" />
-            </button>
-            <button variant="outline" onClick={nextProduct}>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
+          <button
+            variant="outline"
+            className={`absolute top-[24.5%] 2xl:left-[-4.4%] xl:left-[-4.1%] lg:left-[-13%] md:left-[-13%] ${
+              isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            onClick={previousProduct}
+            disabled={isFirstSlide}
+          >
+            <RxTriangleLeft size={50} className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]" />
+          </button>
+          <button
+            variant="outline"
+            onClick={nextProduct}
+            className={`absolute rotate-180 top-[24.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%]  ${
+              isLastSlide ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+            disabled={isLastSlide}
+          >
+            <RxTriangleLeft size={50} className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]" />
+          </button>
         </CardContent>
       </Card>
     </div>
   );
 }
 
-// ##########   MAIN   ##########
-
-// import React from "react";
-// const SecondPage = () => {
-//   return (
-//     <div className="w-full min-h-screen h-auto flex">
-//       <div className="w-[300px] 2xl:w-[32%]">
-//         <MainCard />
-//       </div>
-//       <div className="w-full h-screen bg-black">
-//         <SmallCard/>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default SecondPage;

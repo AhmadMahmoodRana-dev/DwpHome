@@ -78,12 +78,12 @@ const MainCard = () => {
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
         {/* Top Container */}
+            <h1 className="text-white font-bold 2xl:text-[1.4vw] tracking-wide">
+              Nation Wide Inset
+            </h1>
         <div className="SecondMainContainer flex">
           {/* LEFT */}
           <div className="left_content_div w-[68%]">
-            <h1 className="text-white font-bold 2xl:text-[1.1vw] tracking-wide">
-              Nation Wide Inset
-            </h1>
             <div className="flex justify-center items-center">
               <p className=" text-white font-bold mt-2 text-[30px] 2xl:text-[2vw] leading-6">
                 1,314
@@ -96,7 +96,7 @@ const MainCard = () => {
                 </h1>
               </div>
             </div>
-            <h3 className="text-white font-bold 2xl:text-[1.1vw] tracking-wide pt-4">
+            <h3 className="text-white font-bold 2xl:text-[1vw] tracking-wide pt-4">
               Nation Wide Outset
             </h3>
             <div className="flex justify-center items-center">

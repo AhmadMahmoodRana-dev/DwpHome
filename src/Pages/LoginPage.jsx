@@ -189,7 +189,7 @@ import { useNavigate } from 'react-router-dom';
 const LoginPage = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(''); 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
