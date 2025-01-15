@@ -74,7 +74,10 @@ export default function SecondPage() {
         setProductsPerSlide(1); // For small screens
       } else if (screenWidth < 1025) {
         setProductsPerSlide(1); // For medium screens
-      } else {
+      } else if (screenWidth > 1200 && screenWidth < 1230 ){
+        setProductsPerSlide(2); // For large screens
+      }
+       else {
         setProductsPerSlide(3); // For large screens
       }
     };
@@ -96,14 +99,14 @@ export default function SecondPage() {
   const isLastSlide = currentIndex + productsPerSlide >= products.length;
 
   return (
-    <div className="flex px-7 xl:gap-4 gap-12 lg:flex-nowrap flex-wrap justify-center">
+    <div className="flex px-7 xl:gap-4 gap-12 lg:flex-nowrap flex-wrap justify-center second-main-div">
       <div className="w-[300px] 2xl:w-[37%] max-w-[600px]">
         <MainCard />
       </div>
       {/* 2xl:max-w-[90%] */}
-      <Card className=" 2xl:max-w-full lg:w-full lg:max-w-5xl md:w-[305px] mx-auto 2xl:px-7 xl:pl-7 border-none">
+      <Card className=" 2xl:max-w-full lg:w-full lg:max-w-5xl md:w-[305px] mx-auto 2xl:px-7 xl:pl-7 slider-main-card border-none">
         <CardContent className="relative p-0 w-[300px] md:w-auto">
-          <div className="flex justify-center items-center space-x-6">
+          <div className="flex justify-center items-center spacer gap-6">
             {currentProducts.map((product) => (
               <div key={product.id} className="w-full">
                 <SmallCard name={product?.name} />
@@ -112,7 +115,7 @@ export default function SecondPage() {
           </div>
           <button
             variant="outline"
-            className={`absolute top-[24.5%] 2xl:left-[-4.4%] xl:left-[-4.1%] lg:left-[-13%] md:left-[-13%] ${
+            className={`absolute top-[24.5%] 2xl:left-[-4.4%] xl:left-[-4.1%] lg:left-[-13%] md:left-[-13%] secondpage-back-arrow ${
               isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
             }`}
             onClick={previousProduct}
@@ -123,7 +126,7 @@ export default function SecondPage() {
           <button
             variant="outline"
             onClick={nextProduct}
-            className={`absolute rotate-180 top-[24.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%]  ${
+            className={`absolute rotate-180 top-[24.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] secondpage-front-arrow ${
               isLastSlide ? "opacity-50 cursor-not-allowed" : ""
             }`}
             disabled={isLastSlide}

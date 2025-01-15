@@ -77,7 +77,7 @@ const SecondPage = ({name}) => {
 
   return (
     <>
-      <div className="w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
+      <div className="smallcardMain w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
         {/* Top Container */}
             <h1 className="text-white font-bold 2xl:text-[1.4vw] tracking-wide">
              {name}
@@ -186,7 +186,7 @@ const SecondPage = ({name}) => {
 
 {/* ###########################   SECOND ROW ######################### */}
 
-      <div className="w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
+      <div className="smallcardMain w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
         {/* FIRST  */}
         <div>
           <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
