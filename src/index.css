@@ -489,6 +489,9 @@ p {
   .slider-main-card{
     padding-right: 30px;
   }
+  .secondheader{
+    padding: 0 !important;
+  }
 }
 @media (min-width: 1202px) and (max-width: 1528px) {
  .spacer{
@@ -497,5 +500,13 @@ p {
  .smallcardMain{
   max-width: 284px !important;
  }
+ .secondheader{
+  padding-right: 30px!important;
+ }
 }
 
+@media (min-width:1430px) and (max-width:1441px){
+  .secondheader{
+    padding-right: 50px!important;
+  }
+}

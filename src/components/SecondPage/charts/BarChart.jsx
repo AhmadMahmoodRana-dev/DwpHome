@@ -69,24 +69,24 @@ const BarChart1 = () => {
       </ResponsiveContainer>
       <div className="w-full flex gap-1">
         <div className="flex justify-center items-center gap-1">
-          <div className="w-[15px] h-[9px] bg-white"></div>
-          <p className="text-[7px] text-white">Gree Ac</p>
+          <div className="w-[15px] 2xl:w-[1.1vw] h-[9px] 2xl:h-[.7vw] bg-white"></div>
+          <p className="text-[7px] 2xl:text-[.44vw] text-white">Gree Ac</p>
         </div>
         <div className="flex justify-center items-center gap-1">
-          <div className="w-[15px] h-[9px] bg-[#cd0164]"></div>
-          <p className="text-[7px] text-white">Ecostar Ac</p>
+          <div className="w-[15px] 2xl:w-[1.1vw] 2xl:h-[.7vw] h-[9px] bg-[#cd0164]"></div>
+          <p className="text-[7px] 2xl:text-[.44vw]  text-white">Ecostar Ac</p>
         </div>
         <div className="flex justify-center items-center gap-1">
-          <div className="w-[15px] h-[9px] bg-[#49dd80]"></div>
-          <p className="text-[7px] text-white">Ecostar LED-TV</p>
+          <div className="w-[15px] 2xl:w-[1.1vw] 2xl:h-[.7vw] h-[9px] bg-[#49dd80]"></div>
+          <p className="text-[7px] 2xl:text-[.44vw] text-white">Ecostar LED-TV</p>
         </div>
         <div className="flex justify-center items-center gap-1">
-          <div className="w-[15px] h-[9px] bg-[#953333]"></div>
-          <p className="text-[7px] text-white">Refrigerator</p>
+          <div className="w-[15px] 2xl:w-[1.1vw] 2xl:h-[.7vw] h-[9px] bg-[#953333]"></div>
+          <p className="text-[7px] 2xl:text-[.44vw] text-white">Refrigerator</p>
         </div>
         <div className="flex justify-center items-center gap-1">
-          <div className="w-[15px] h-[9px] bg-[#ae8003]"></div>
-          <p className="text-[7px] text-white">Other</p>
+          <div className="w-[15px] 2xl:w-[1.1vw] 2xl:h-[.7vw] h-[9px] bg-[#ae8003]"></div>
+          <p className="text-[7px] 2xl:text-[.44vw] text-white">Other</p>
         </div>
       </div>
     </div>

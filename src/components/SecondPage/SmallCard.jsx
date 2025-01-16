@@ -200,7 +200,7 @@ const SecondPage = ({name}) => {
                 <th className="font-medium border-r-2 text-left">Weeks</th>
                 <th className="font-medium border-r-2">Gree Ac</th>
                 <th className="font-medium border-r-2">ES - AC</th>
-                <th className="font-medium border-r-2">ES - LED's</th>
+                <th className="font-medium border-r-2">LED</th>
                 <th className="font-medium border-r-2">Ref</th>
                 <th className="font-medium">Others</th>
               </tr>
@@ -208,19 +208,19 @@ const SecondPage = ({name}) => {
               {NationWideInsetData.map((data, index) => {
                 return (
                   <tr>
-                    <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.75vw]  font-medium text-white">
+                    <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.65vw] px-1  font-normal text-white">
                       {data?.weeks}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center  text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center  text-white">
                       {data?.greeAc}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
                       {data.es_Ac}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
                       {data.es_Led}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
                       {data.ref}
                     </td>
                     <td className="text-right pt-2  2xl:text-[.75vw] pr-1 text-[12px] font-semibold  text-white">
@@ -249,7 +249,7 @@ const SecondPage = ({name}) => {
                 <th className="font-medium border-r-2 text-left">Weeks</th>
                 <th className="font-medium border-r-2">Gree Ac</th>
                 <th className="font-medium border-r-2">ES - AC</th>
-                <th className="font-medium border-r-2">ES - LED's</th>
+                <th className="font-medium border-r-2">LED</th>
                 <th className="font-medium border-r-2">Ref</th>
                 <th className="font-medium">Others</th>
               </tr>
@@ -257,19 +257,19 @@ const SecondPage = ({name}) => {
               {NationWideInsetData.map((data, index) => {
                 return (
                   <tr>
-                    <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.75vw]  font-medium text-white">
+                    <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.65vw] px-1  font-normal text-white">
                       {data?.weeks}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center  text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center  text-white">
                       {data?.greeAc}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
                       {data.es_Ac}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
                       {data.es_Led}
                     </td>
-                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.75vw]  font-normal text-center text-white">
+                    <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
                       {data.ref}
                     </td>
                     <td className="text-right pt-2  2xl:text-[.75vw] pr-1 text-[12px] font-semibold  text-white">

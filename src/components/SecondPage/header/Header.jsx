@@ -57,12 +57,12 @@
 
     return (
       <>
-        <div className="flex flex-wrap bg-[#07295d]  items-center rounded-xl h-[50px] mt-2">
+        <div className="flex bg-[#07295d]  items-center rounded-xl 2xl:h-[4vw] h-[50px] mt-2">
           <div className="flex title-font font-medium items-center text-gray-900">
-            <span className="ml-3 text-[15px] text-white font-normal">
+            <span className="ml-3 xl:text-[1vw] text-[10px] text-white">
               Current : Week<span className="font-bold pl-1">{Week}</span>
             </span>
-            <span className="ml-3 text-[15px] text-white gap-1 flex justify-center items-center">
+            <span className="ml-3 xl:text-[1vw] text-[10px] text-white gap-1 flex justify-center items-center">
               Start Week <span className="font-bold">{startWeek}</span>
               <div>
                 <FaCaretUp className="text-[10px]" onClick={addStartWeek} />
@@ -70,23 +70,23 @@
               </div>
               {/* {startWeekError && <div className="text-red-500 text-sm mt-2">{startWeekError}</div>} */}
             </span>
-            <span className="ml-3 text-[15px] text-white gap-1 flex justify-center items-center">
+            <span className="ml-3 xl:text-[1vw] text-[10px] text-white gap-1 flex justify-center items-center">
               End Week <span className="font-bold">{endWeek}</span>
               {/* Disabled controls for End Week */}
               <div>
-                <FaCaretUp className="text-[10px] text-gray-500 cursor-not-allowed" />
-                <FaCaretDown className="text-[10px] text-gray-500 cursor-not-allowed" />
+                <FaCaretUp className="text-[10px]  cursor-not-allowed" />
+                <FaCaretDown className="text-[10px]  cursor-not-allowed" />
               </div>
             </span>
           </div>
-          {/* <nav className="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
-              <h1 className="text-[12px] font-semibold">Weather Forecast :</h1>
+          <nav className="md:mr-auto md:ml-8 md:py-1 md:pl-4 md:border-l md:border-gray-400 flex flex-wrap items-center text-base justify-center">
+              {/* <h1 className="text-[12px] font-semibold">Weather Forecast :</h1> */}
               {forecast.map((day) => (
                 <div key={day.date} className="flex justify-center items-center">
-                  <h3 className="text-[8px] flex justify-center items-center gap-[3.5px] mt-[1.5px] ml-1">
+                  <h3 className="text-[1vw] flex justify-center items-center gap-[5.5px] mt-[1.5px] ml-1 text-white">
                     {getDayName(day.date)}
                     <img
-                      className="w-[20px]"
+                      className="w-[2vw]"
                       src={day.day.condition.icon}
                       alt={day.day.condition.text}
                     />
@@ -94,7 +94,7 @@
                   </h3>
                 </div>
               ))}
-            </nav> */}
+            </nav>
         </div>
       </>
     );
