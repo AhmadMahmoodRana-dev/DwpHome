@@ -8,43 +8,43 @@ import Header from "@/components/SecondPage/header/Header";
 const products = [
   {
     id: 1,
-    name: "Lahore",
+    name: "RawalPindi",
     image: "https://via.placeholder.com/300",
     description: "Product 1 Description",
   },
   {
     id: 2,
-    name: "Multan",
+    name: "Faisalabad",
     image: "https://via.placeholder.com/300",
     description: "Product 2 Description",
   },
   {
     id: 3,
-    name: "Faislabad",
+    name: "Gujranwala",
     image: "https://via.placeholder.com/300",
     description: "Product 3 Description",
   },
   {
     id: 4,
-    name: "Gujranwala",
+    name: "Lahore",
     image: "https://via.placeholder.com/300",
     description: "Product 4 Description",
   },
   {
     id: 5,
-    name: "RawalPindi",
+    name: "Multan",
     image: "https://via.placeholder.com/300",
     description: "Product 5 Description",
   },
   {
     id: 6,
-    name: "Karachi",
+    name: "Hyderabad",
     image: "https://via.placeholder.com/300",
     description: "Product 6 Description",
   },
   {
     id: 7,
-    name: "Hyderabad",
+    name: "Karachi",
     image: "https://via.placeholder.com/300",
     description: "Product 6 Description",
   },
@@ -104,7 +104,7 @@ export default function SecondPage() {
         <Header />
       </div>
 
-      <div className="flex px-7 xl:gap-4 gap-12 lg:flex-nowrap flex-wrap justify-center second-main-div">
+      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 gap-12 lg:flex-nowrap flex-wrap justify-center second-main-div">
         <div className="w-[300px] 2xl:w-[37%] max-w-[600px]">
           <MainCard />
         </div>
@@ -119,7 +119,7 @@ export default function SecondPage() {
             </div>
             <button
               variant="outline"
-              className={`absolute top-[24.5%] 2xl:left-[-4.4%] xl:left-[-4.1%] lg:left-[-13%] md:left-[-13%] secondpage-back-arrow ${
+              className={`absolute top-[24.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-16%] secondpage-back-arrow ${
                 isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={previousProduct}
@@ -133,7 +133,36 @@ export default function SecondPage() {
             <button
               variant="outline"
               onClick={nextProduct}
-              className={`absolute rotate-180 top-[24.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] secondpage-front-arrow ${
+              className={`absolute rotate-180 top-[24.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-16%] secondpage-front-arrow ${
+                isLastSlide ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              disabled={isLastSlide}
+            >
+              <RxTriangleLeft
+                size={50}
+                className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]"
+              />
+            </button>
+
+{/* SECOND ARROWS */}
+
+            <button
+              variant="outline"
+              className={`absolute bottom-[30.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-16%] secondpage-back-arrow ${
+                isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
+              }`}
+              onClick={previousProduct}
+              disabled={isFirstSlide}
+            >
+              <RxTriangleLeft
+                size={50}
+                className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]"
+              />
+            </button>
+            <button
+              variant="outline"
+              onClick={nextProduct}
+              className={`absolute rotate-180 bottom-[30.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-16%] secondpage-front-arrow ${
                 isLastSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={isLastSlide}

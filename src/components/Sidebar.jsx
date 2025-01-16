@@ -34,7 +34,7 @@ const Sidebar = () => {
         </Link>
         <div className='flex items-center gap-3 ml-3 mt-1 2xl:ml-[.7vw] 2xl:mt-[.7vw] holdder pl-2 py-1 group relative'>
           <CiSettings className='text-white icons 2xl:text-[1.2vw]' />
-          <p className='text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium'>Tat</p>
+          <p className='text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium'>TAT</p>
           <span className="tooltip-text">Settings</span>
         </div>
         <div className='flex items-center gap-3 ml-3 2xl:ml-[.7vw] 2xl:mt-[.7vw] mt-1 holdder pl-2 py-1 group relative'>

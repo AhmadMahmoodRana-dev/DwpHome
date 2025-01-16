@@ -98,7 +98,7 @@ const SecondPage = ({name}) => {
               </div>
             </div>
             <h3 className="text-white font-bold 2xl:text-[1vw] tracking-wide pt-4">
-              Nation Wide Outset
+              {name} Outset
             </h3>
             <div className="flex justify-center items-center">
               <p className=" text-white font-bold mt-2 text-[30px] 2xl:text-[2vw] leading-6">
@@ -190,7 +190,7 @@ const SecondPage = ({name}) => {
         {/* FIRST  */}
         <div>
           <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
-            Nation Wide Outset Category Wise
+            {name} Outset Category Wise
           </h1>
           {/* TABLE */}
 
@@ -239,7 +239,7 @@ const SecondPage = ({name}) => {
         {/* Second Card */}
         <div className="mt-5">
           <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
-            Nation Wide Inset Category Wise
+            {name} Inset Category Wise
           </h1>
           {/* TABLE */}
 
