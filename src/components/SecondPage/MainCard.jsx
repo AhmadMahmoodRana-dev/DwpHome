@@ -110,6 +110,11 @@ const MainCard = () => {
                   +90%
                 </h1>
               </div>
+              
+            </div>
+            <div className="flex items-center gap-3">
+              <p className="text-white font-bold 2xl:text-[1vw] tracking-wide pt-3">OTC</p>
+              <p className="pt-3 text-[12px] font-bold text-green-400 2xl:text-[.8vw] ">60%</p>
             </div>
           </div>
           {/* RIGHT */}
@@ -188,7 +193,7 @@ const MainCard = () => {
       <div className="w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
         {/* FIRST  */}
         <div>
-          <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.9vw] tracking-wide text-center">
+          <h1 className="text-white font-semibold text-[14px] 2xl:text-[.9vw] tracking-wide text-center">
             Nation Wide Outset Category Wise
           </h1>
           {/* TABLE */}
@@ -237,7 +242,7 @@ const MainCard = () => {
 
         {/* Second Card */}
         <div className="mt-5">
-          <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.9vw] tracking-wide text-center">
+          <h1 className="text-white font-semibold text-[14px] 2xl:text-[.9vw] tracking-wide text-center">
             Nation Wide Inset Category Wise
           </h1>
           {/* TABLE */}

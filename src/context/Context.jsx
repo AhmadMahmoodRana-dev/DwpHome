@@ -1,66 +1,52 @@
+import axios from "axios";
 import { createContext, useEffect, useState } from "react";
 
 export const Context = createContext();
 
 const ContextProvider = (props) => {
-  const [startWeek, setStartWeek] = useState(0);
-  const [endWeek, setEndWeek] = useState(0);
-  const [CurrentWeek, setCurrentWeek] = useState(0);
-  const [Week, setWeek] = useState(0);
-  const [error, setError] = useState(null);
   const [openSidebar, setOpenSidebar] = useState(true);
+  const [data, setData] = useState([]);
+  const [week, setWeek] = useState(0);
+  const [filteredData, setFilteredData] = useState([]);
+  const currentWeek = data[0]?.END_WEEK;
+  const fetchApi = async () => {
+    const response = await axios.get("https://dwpcare.com.pk/dwp/currentWeek");
+    setData(response.data);
+    console.log(response.data, "response");
+  };
 
   useEffect(() => {
-    const fetchWeekData = async () => {
-      try {
-        const response = await fetch("https://dwpcare.com.pk/dwp/currentWeek");
-        const data = await response.json();
-
-        // Check if the data is an array and extract the first element
-        if (Array.isArray(data) && data.length > 0) {
-          const weekData = data[0]; // Extract the object from the array
-
-          // Log the extracted data
-          /// console.log("Extracted week data:", weekData);
-
-          // Access the properties and set state
-          setStartWeek(Number(weekData.START_WEEK));
-          setEndWeek(Number(weekData.END_WEEK));
-          setCurrentWeek(Number(weekData.START_WEEK));
-          setWeek(Number(weekData.END_WEEK));
-        } else {
-          console.log("Invalid response format");
-        }
-      } catch (err) {
-        setError(err);
-        console.error("Error fetching week data:", err);
-      }
-    };
-
-    fetchWeekData();
+    fetchApi();
   }, []);
 
   useEffect(() => {
-    if (startWeek !== null) {
-      setEndWeek(startWeek + 3);
-    }
-  }, [startWeek]);
+    const filtered = data[week];
+    setFilteredData(filtered ? [filtered] : []);
+    console.log(filtered, "filtered data");
+  }, [week, data]);
 
-  const handleStartWeekChange = (newStartWeek) => {
-    setStartWeek(newStartWeek);
+  // Increment the week index, looping back to 0 if necessary
+  const nextWeek = () => {
+    setWeek((prevWeek) => (prevWeek < data.length - 1 ? prevWeek + 1 : 0));
+  };
+
+  // Decrement the week index, looping back to the last item if necessary (except when at index 0)
+  const previousWeek = () => {
+    if (week > 0) {
+      setWeek((prevWeek) => prevWeek - 1); // Only decrement if not at the first index
+    }
   };
   // ######################################################################################################################################
 
   const contextValue = {
     openSidebar,
     setOpenSidebar,
-    startWeek,
-    setStartWeek,
-    endWeek,
-    setEndWeek,
-    CurrentWeek,
-    Week,
-    handleStartWeekChange,
+    filteredData,
+    currentWeek,
+    nextWeek,
+    previousWeek,
+    week,
+    setWeek
   };
 
   return (

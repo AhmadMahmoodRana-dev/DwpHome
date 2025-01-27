@@ -79,10 +79,10 @@ const SecondPage = ({name}) => {
     <>
       <div className="smallcardMain w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
         {/* Top Container */}
-            <h1 className="text-white font-bold 2xl:text-[1.4vw] tracking-wide">
-             {name}
+            <h1 className="text-white font-bold 2xl:text-[1.25vw] tracking-wide">
+             {name} Inset
             </h1>
-        <div className="SecondMainContainer flex">
+        <div className="SecondMainContainer flex mt-1">
           {/* LEFT */}
           <div className="left_content_div w-[68%]">
             <div className="flex justify-center items-center">
@@ -111,6 +111,11 @@ const SecondPage = ({name}) => {
                   +90%
                 </h1>
               </div>
+              
+            </div>
+            <div className="flex items-center gap-3">
+              <p className="text-white font-bold 2xl:text-[.8vw] tracking-wide pt-3">OTC</p>
+              <p className="pt-3 text-[12px] font-bold text-green-400 2xl:text-[.6vw] ">60%</p>
             </div>
           </div>
           {/* RIGHT */}
@@ -184,12 +189,12 @@ const SecondPage = ({name}) => {
       </div>
 
 
-{/* ###########################   SECOND ROW ######################### */}
+
 
       <div className="smallcardMain w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
         {/* FIRST  */}
         <div>
-          <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
+          <h1 className="text-white font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
             {name} Outset Category Wise
           </h1>
           {/* TABLE */}
@@ -238,7 +243,7 @@ const SecondPage = ({name}) => {
 
         {/* Second Card */}
         <div className="mt-5">
-          <h1 className="text-green-500 font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
+          <h1 className="text-white font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
             {name} Inset Category Wise
           </h1>
           {/* TABLE */}

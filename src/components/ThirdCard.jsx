@@ -123,7 +123,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
               </p>
               {item.TOTAL_PENDING_PER >= 0 ? (
                 <div className="icons flex flex-col justify-center third-arrow items-center ml-2 arrow-2">
-                  <RiTriangleFill className="text-[#BE1A1A] w-[22px] h-[22px] 2xl:w-[1.4vw] 2xl:h-[1.4vw] " />
+                  <RiTriangleFill className="text-[#BE1A1A] w-[22px] h-[22px] 2xl:w-[1.4vw] 2xl:h-[1.4vw] mt-[-10px] " />
                   <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-[#BE1A1A]">
                     +
                     {Math.abs(item.TOTAL_PENDING_PER).toString().length === 1

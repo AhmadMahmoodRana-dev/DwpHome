@@ -8,28 +8,37 @@ import { Context } from "@/context/Context";
 import React, { useContext } from "react";
 
 const Home = () => {
-  const { startWeek, endWeek,setStartWeek,setEndWeek,CurrentWeek,Week,handleStartWeekChange } = useContext(Context);
+  const {
+    week, setWeek, filteredData,
+    currentWeek,
+    nextWeek,
+    previousWeek } = useContext(Context);
   return (
     <div>
       <div className="flex flex-col items-center justify-center w-full">
         <Weather
-          startWeek={startWeek}
-          setStartWeek={setStartWeek}
-          endWeek={endWeek}
-          setEndWeek={setEndWeek}
-          CurrentWeek={CurrentWeek}
-          Week={Week}
-          onChange={(e) => handleStartWeekChange(parseInt(e.target.value))}
+          startWeek={filteredData[0]?.START_WEEK}
+          endWeek={filteredData[0]?.END_WEEK}
+          week={week}
+          setWeek={setWeek}
+          nextWeek={nextWeek}
+          previousWeek={previousWeek}
+          currentWeek={currentWeek}
         />
       </div>
       <div className="allcards bg-transparent items-center justify-center  w-full  h-auto  pt-2 flex flex-wrap gap-2 2xl:pt-[.6vw] 2xl:gap-[.5vw]">
-        <FirstCard startWeek={startWeek} endWeek={endWeek} />
-        <SecondCard startWeek={startWeek} endWeek={endWeek} />
-        <ThirdCard startWeek={startWeek} endWeek={endWeek} />
-        <FourthCard startWeek={startWeek} endWeek={endWeek} />
+        <FirstCard startWeek={filteredData[0]?.ID}
+          endWeek={filteredData[0]?.ID} />
+        <SecondCard startWeek={filteredData[0]?.ID}
+          endWeek={filteredData[0]?.ID} />
+        <ThirdCard startWeek={filteredData[0]?.ID}
+          endWeek={filteredData[0]?.ID} />
+        <FourthCard startWeek={filteredData[0]?.ID}
+          endWeek={filteredData[0]?.ID} />
       </div>
       <div className="data-center w-full flex justify-center">
-        <BottomTable startWeek={startWeek} endWeek={endWeek} />
+        <BottomTable startWeek={filteredData[0]?.ID}
+          endWeek={filteredData[0]?.ID} />
       </div>
     </div>
   );

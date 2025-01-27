@@ -8,7 +8,7 @@ import Header from "@/components/SecondPage/header/Header";
 const products = [
   {
     id: 1,
-    name: "RawalPindi",
+    name: "Rawalpindi",
     image: "https://via.placeholder.com/300",
     description: "Product 1 Description",
   },
@@ -119,7 +119,7 @@ export default function SecondPage() {
             </div>
             <button
               variant="outline"
-              className={`absolute top-[24.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-16%] secondpage-back-arrow ${
+              className={`absolute top-[17.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-16%] secondpage-back-arrow ${
                 isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={previousProduct}
@@ -133,7 +133,7 @@ export default function SecondPage() {
             <button
               variant="outline"
               onClick={nextProduct}
-              className={`absolute rotate-180 top-[24.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-16%] secondpage-front-arrow ${
+              className={`absolute rotate-180 top-[17.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-16%] secondpage-front-arrow ${
                 isLastSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={isLastSlide}

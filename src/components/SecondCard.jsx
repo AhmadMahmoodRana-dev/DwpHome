@@ -190,7 +190,6 @@ const SecondCard = ({ startWeek, endWeek }) => {
             <div className="box-sigm-3 flex items-center">
               <div className="color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3.7vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[1.1vw]">
-                  {/* 70 <span className="text-green-600 text-[12px]">+15%</span> */}
                   {item.DAY4_7}
                   {item.DAY4_7_PER >= 0 ? (
                     <span className="text-yellow-600 text-[12px] 2xl:text-[.8vw]">
