@@ -37,7 +37,7 @@ const ThirdSmallCardBottom = ({ name }) => {
     },
   ];
   return (
-    <div className="w-[300px] smallcardMain 2xl:w-[100%] z-[10] first-div min-h-[40vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
+    <div className="w-[300px] smallcardMain 2xl:w-[100%] z-[10] first-div min-h-[40vh] h-auto rounded-[10px] px-3 pb-5 pt-2 mt-3">
       {/* FIRST  */}
       <div>
         <h1 className="text-white font-semibold text-[13px] 2xl:text-[.8vw] tracking-wide text-center">
