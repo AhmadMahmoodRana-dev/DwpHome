@@ -8,6 +8,8 @@ import SecondPage from "./Pages/SecondPage";
 import PublicRoutes from "./Pages/PublicRoutes";
 import Home from "./Pages/Home";
 import ThirdPage from "./Pages/ThirdPage";
+import FourthMainCard from "./components/FourthPage.jsx/FourthMainCard";
+import FourthPage from "./Pages/FourthPage";
 
 const App = () => {
   return (
@@ -19,6 +21,7 @@ const App = () => {
               <Route path="/Home" element={<Home />} />
               <Route path="/secondPage" element={<SecondPage />} />
               <Route path="/thirdPage" element={<ThirdPage />} />
+              <Route path="/fourthPage" element={<FourthPage />} />
               <Route path="/Profile" element={<Profile />} />
             </Route>
             <Route element={<PublicRoutes />}>

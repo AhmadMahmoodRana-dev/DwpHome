@@ -2,7 +2,7 @@ import React from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import { BsCaretRightFill } from "react-icons/bs";
 import { ThirdMainChart } from "./charts/ThirdMainChart";
-import ThirdMainBarChart from "./charts/ThirdMainBarChart";
+
 
 const ThirdMainCard = () => {
   const TableData = [
