@@ -39,11 +39,11 @@ const FourthMainCard = () => {
   ];
   return (
     <>
-      <div className="w-[300px] 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
-        <h1 className="text-white font-semibold text-xl">As On Pending</h1>
+      <div className="w-[300px] 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] 2xl:pt-[.7vw]  py-2 mt-3">
+        <h1 className="text-white font-semibold text-xl 2xl:text-[1.3vw]">As On Pending</h1>
 
         <div className="heading_container flex gap-4 items-center pt-2 pb-4">
-          <h1 className="text-5xl font-bold text-red-500">173</h1>
+          <h1 className="text-5xl 2xl:text-[3vw] font-bold text-red-500">173</h1>
           <div className="flex flex-col justify-center items-center gap-1">
             <BsTriangleFill color="#b91c1c" size={20} />
             <h1 className="text-red-700 font-semibold">+05%</h1>
@@ -52,7 +52,7 @@ const FourthMainCard = () => {
 
         <div className="chart-main-container flex">
           <div className="chart-content-container w-[60%] h-10 justify-center items-center flex flex-col gap-1 mt-2">
-            <h1 className="text-white uppercase">Aging Days</h1>
+            <h1 className="text-white uppercase 2xl:text-[1vw]">Aging Days</h1>
             <div className="flex gap-4">
               <h1 className="flex flex-col text-xs justify-center items-center text-yellow-500">
                 Above 7<span className="text-white">12</span>
