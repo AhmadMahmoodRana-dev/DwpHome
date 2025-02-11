@@ -8,7 +8,7 @@ import SecondPage from "./Pages/SecondPage";
 import PublicRoutes from "./Pages/PublicRoutes";
 import Home from "./Pages/Home";
 import ThirdPage from "./Pages/ThirdPage";
-import FourthMainCard from "./components/FourthPage.jsx/FourthMainCard";
+import FourthMainCard from "./components/FourthPage/FourthMainCard";
 import FourthPage from "./Pages/FourthPage";
 
 const App = () => {

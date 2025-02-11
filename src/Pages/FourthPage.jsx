@@ -1,9 +1,9 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { RxTriangleLeft } from "react-icons/rx";
 import { useEffect, useState } from "react";
-import FourthMainCard from "@/components/FourthPage.jsx/FourthMainCard";
-import FourthSmallCard from "@/components/FourthPage.jsx/FourthSmallCard";
-import FourthSmallCardBottom from "@/components/FourthPage.jsx/FourthSmallCardBottom";
+import FourthMainCard from "@/components/FourthPage/FourthMainCard";
+import FourthSmallCard from "@/components/FourthPage/FourthSmallCard";
+import FourthSmallCardBottom from "@/components/FourthPage/FourthSmallCardBottom";
 import Header from "@/components/SecondPage/header/Header";
 
 const products = [
