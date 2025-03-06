@@ -42,11 +42,11 @@ const Sidebar = () => {
           <p className='text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium'>Pending</p>
           <span className="tooltip-text">Pending</span>
         </Link>
-        <div className='flex items-center gap-3 ml-3 2xl:ml-[.7vw] 2xl:mt-[.7vw] mt-1 holdder pl-2 py-1 group relative'>
+        <Link to={'/fifthPage'} className='flex items-center gap-3 ml-3 2xl:ml-[.7vw] 2xl:mt-[.7vw] mt-1 holdder pl-2 py-1 group relative'>
           <IoBarChartOutline className='text-white icons 2xl:text-[1.2vw]' />
           <p className='text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium'>Revenue</p>
           <span className="tooltip-text">Revenue</span>
-        </div>
+        </Link>
       </div>
       <div className='profile-section pb-4'>
         <div className='hold flex items-center'>

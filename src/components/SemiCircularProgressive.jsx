@@ -37,7 +37,7 @@ const SemiCircularProgressive = ({ percentage }) => {
           />
         </svg>
         <div className="absolute inset-0 flex justify-center items-center h-[2.4vw]">
-          <p className=" 2xl:text-[.5vw] text-[8px] font-bold text-blue-500">{percentage}1%</p>
+          <p className=" 2xl:text-[.5vw] text-[8px] font-bold text-blue-500">{percentage}%</p>
         </div>
       </div>
     </div>

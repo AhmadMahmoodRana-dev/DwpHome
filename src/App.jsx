@@ -1,15 +1,14 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import LoginPage from "./Pages/LoginPage"; // Adjust the path if necessary
-
 import Privatecomponent from "./Pages/Privatecomponent";
 import Profile from "./Pages/Profile";
 import SecondPage from "./Pages/SecondPage";
 import PublicRoutes from "./Pages/PublicRoutes";
 import Home from "./Pages/Home";
 import ThirdPage from "./Pages/ThirdPage";
-import FourthMainCard from "./components/FourthPage/FourthMainCard";
 import FourthPage from "./Pages/FourthPage";
+import FifthPage from "./Pages/FifthPage";
 
 const App = () => {
   return (
@@ -22,6 +21,7 @@ const App = () => {
               <Route path="/secondPage" element={<SecondPage />} />
               <Route path="/thirdPage" element={<ThirdPage />} />
               <Route path="/fourthPage" element={<FourthPage />} />
+              <Route path="/fifthPage" element={<FifthPage/>} />
               <Route path="/Profile" element={<Profile />} />
             </Route>
             <Route element={<PublicRoutes />}>

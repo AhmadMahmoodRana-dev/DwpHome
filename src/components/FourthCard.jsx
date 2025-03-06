@@ -2,9 +2,7 @@ import React, { useEffect, useState } from "react";
 // import FourthBarChart from "./FourthBarChart";
 import FourthChart from "./FourthChart";
 import FourthChart2 from "./FourthChart2";
-import FourthChart3 from "./FourthChart3";
 import { RiTriangleFill } from "react-icons/ri";
-import SemiCircleProgressBar from "react-progressbar-semicircle";
 import { Component2 } from "../components/ui/Component2";
 import SemiCircularProgressive from "./SemiCircularProgressive";
 const FourthCard = ({ startWeek, endWeek }) => {
