@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LoginPage from "./Pages/LoginPage"; // Adjust the path if necessary
+import LoginPage from "./Pages/LoginPage";
 import Privatecomponent from "./Pages/Privatecomponent";
 import Profile from "./Pages/Profile";
 import SecondPage from "./Pages/SecondPage";
@@ -18,10 +18,10 @@ const App = () => {
           <Routes>
             <Route element={<Privatecomponent />}>
               <Route path="/Home" element={<Home />} />
-              <Route path="/secondPage" element={<SecondPage />} />
-              <Route path="/thirdPage" element={<ThirdPage />} />
-              <Route path="/fourthPage" element={<FourthPage />} />
-              <Route path="/fifthPage" element={<FifthPage/>} />
+              <Route path="/inset-out" element={<SecondPage />} />
+              <Route path="/atat" element={<ThirdPage />} />
+              <Route path="/pending" element={<Home />} />
+              <Route path="/revenue" element={<Home/>} />
               <Route path="/Profile" element={<Profile />} />
             </Route>
             <Route element={<PublicRoutes />}>
@@ -29,6 +29,7 @@ const App = () => {
               <Route path="/" element={<LoginPage />} />
             </Route>
           </Routes>
+          
         </Router>
       </div>
     </>

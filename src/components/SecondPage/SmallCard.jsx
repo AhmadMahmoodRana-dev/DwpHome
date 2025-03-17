@@ -1,40 +1,9 @@
 import React from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import FlowChart from "./charts/FlowChart";
-import BarChart1 from "./charts/BarChart";
 import SmallBarChart from "./charts/SmallBarChart";
 
-const SecondPage = ({name}) => {
-  const TableData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "64%",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "64%",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "64%",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "64%",
-    },
-  ];
+const SecondPage = ({name,TableData}) => {
 
   const NationWideInsetData = [
     {
@@ -85,12 +54,12 @@ const SecondPage = ({name}) => {
         <div className="SecondMainContainer flex mt-1">
           {/* LEFT */}
           <div className="left_content_div w-[68%]">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center gap-2">
               <p className=" text-white font-bold mt-2 text-[30px] 2xl:text-[2vw] leading-6">
                 1,314
               </p>
 
-              <div className="icons flex flex-col justify-center items-center ml-1 arrows">
+              <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                 <RiTriangleFill className="text-green-400  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
                 <h1 className="text-[12px] font-bold text-green-400 2xl:text-[.7vw] ">
                   +90%
@@ -100,12 +69,12 @@ const SecondPage = ({name}) => {
             <h3 className="text-white font-bold 2xl:text-[1vw] tracking-wide pt-4">
               {name} Outset
             </h3>
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center gap-2">
               <p className=" text-white font-bold mt-2 text-[30px] 2xl:text-[2vw] leading-6">
                 1,314
               </p>
 
-              <div className="icons flex flex-col justify-center items-center ml-1 arrows">
+              <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                 <RiTriangleFill className="text-green-400  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
                 <h1 className="text-[12px] font-bold text-green-400 2xl:text-[.7vw] ">
                   +90%
@@ -238,7 +207,7 @@ const SecondPage = ({name}) => {
             <hr className="2xl:mt-8" />
           </div>
           <SmallBarChart />
-          <hr className="mt-5" />
+          <hr className="mt-[2vw]" />
         </div>
 
         {/* Second Card */}
@@ -284,7 +253,7 @@ const SecondPage = ({name}) => {
                 );
               })}
             </table>
-            <hr className="2xl:mt-7" />
+            <hr />
           </div>
 
           <SmallBarChart />

@@ -67,7 +67,7 @@ const BarChart1 = () => {
           <Bar dataKey="Other" fill="#ae8003" name="Other" />
         </BarChart>
       </ResponsiveContainer>
-      <div className="w-full flex gap-1">
+      <div className="w-full flex justify-center items-center gap-[.25vw]">
         <div className="flex justify-center items-center gap-1">
           <div className="w-[15px] 2xl:w-[1.1vw] h-[9px] 2xl:h-[.7vw] bg-white"></div>
           <p className="text-[7px] 2xl:text-[.44vw] text-white">Gree Ac</p>

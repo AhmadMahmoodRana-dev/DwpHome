@@ -67,10 +67,10 @@ const SmallBarChart = () => {
           <Bar dataKey="Other" fill="#ae8003" name="Other" />
         </BarChart>
       </ResponsiveContainer>
-      <div className="w-full flex gap-1">
+      <div className="w-full flex gap-[.25vw] justify-center items-center">
         <div className="flex justify-center items-center gap-1">
           <div className="w-[9px] 2xl:w-[.6vw] 2xl:h-[.4vw] h-[6px] bg-white"></div>
-          <p className="text-[6px] 2xl:text-[.4vw] text-white">Gree Ac</p>
+          <p className="text-[6px] 2xl:text-[.45vw] text-white">Gree Ac</p>
         </div>
         <div className="flex justify-center items-center gap-1">
           <div className="w-[9px] 2xl:w-[.6vw] 2xl:h-[.4vw] h-[6px] bg-[#cd0164]"></div>

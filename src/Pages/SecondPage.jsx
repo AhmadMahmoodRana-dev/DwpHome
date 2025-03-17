@@ -5,48 +5,86 @@ import { RxTriangleLeft } from "react-icons/rx";
 import { useEffect, useState } from "react";
 import Header from "@/components/SecondPage/header/Header";
 
+const TableData = [
+  {
+    id: 1,
+    weeks: "Week 30",
+    Inset: "2,308",
+    Outset: "2,378",
+    OTC: "64%",
+  },
+  {
+    id: 2,
+    weeks: "Week 40",
+    Inset: "2,308",
+    Outset: "2,378",
+    OTC: "64%",
+  },
+  {
+    id: 3,
+    weeks: "Week 41",
+    Inset: "2,308",
+    Outset: "2,378",
+    OTC: "64%",
+  },
+  {
+    id: 4,
+    weeks: "Week 42",
+    Inset: "2,308",
+    Outset: "2,378",
+    OTC: "64%",
+  },
+];
+
 const products = [
   {
     id: 1,
     name: "Rawalpindi",
     image: "https://via.placeholder.com/300",
     description: "Product 1 Description",
+    TableData: TableData,
   },
   {
     id: 2,
     name: "Faisalabad",
     image: "https://via.placeholder.com/300",
     description: "Product 2 Description",
+    TableData: TableData,
   },
   {
     id: 3,
     name: "Gujranwala",
     image: "https://via.placeholder.com/300",
     description: "Product 3 Description",
+    TableData: TableData,
   },
   {
     id: 4,
     name: "Lahore",
     image: "https://via.placeholder.com/300",
     description: "Product 4 Description",
+    TableData: TableData,
   },
   {
     id: 5,
     name: "Multan",
     image: "https://via.placeholder.com/300",
     description: "Product 5 Description",
+    TableData: TableData,
   },
   {
     id: 6,
     name: "Hyderabad",
     image: "https://via.placeholder.com/300",
     description: "Product 6 Description",
+    TableData: TableData,
   },
   {
     id: 7,
     name: "Karachi",
     image: "https://via.placeholder.com/300",
     description: "Product 6 Description",
+    TableData: TableData,
   },
 ];
 
@@ -82,8 +120,8 @@ export default function SecondPage() {
       }
     };
 
-    handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize); // Update on resize
+    handleResize(); 
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize); // Cleanup
@@ -94,7 +132,6 @@ export default function SecondPage() {
     currentIndex,
     currentIndex + productsPerSlide
   );
-
   const isFirstSlide = currentIndex === 0;
   const isLastSlide = currentIndex + productsPerSlide >= products.length;
 
@@ -113,7 +150,10 @@ export default function SecondPage() {
             <div className="flex justify-center items-center spacer gap-[1vw]">
               {currentProducts.map((product) => (
                 <div key={product.id} className="w-full">
-                  <SmallCard name={product?.name} />
+                  <SmallCard
+                    name={product?.name}
+                    TableData={product?.TableData}
+                  />
                 </div>
               ))}
             </div>
@@ -144,7 +184,7 @@ export default function SecondPage() {
               />
             </button>
 
-{/* SECOND ARROWS */}
+            {/* SECOND ARROWS */}
 
             <button
               variant="outline"

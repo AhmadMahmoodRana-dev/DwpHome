@@ -89,7 +89,7 @@ const ThirdSmallCard = ({name}) => {
 
         {/* BOXES */}
        <hr className="mx-7 2xl:mt-[1.4vw] mb-4 mt-[1vw]"/>
-        <div className=" flex  mt-2">
+        <div className="2xl:mt-[.9vw] mt-2 flex">
           <div className="box-1 flex flex-col">
             <div className="box-sigm-1 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">

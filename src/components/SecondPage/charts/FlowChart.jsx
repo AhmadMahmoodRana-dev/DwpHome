@@ -37,7 +37,7 @@ const CustomTooltip = ({ active, payload, label }) => {
       <div
         style={{
           marginTop: '-85px',
-          marginLeft: '80px',
+          marginLeft: '50px',
           backgroundColor: '#000000',
           borderRadius: '10px',
           padding: '4px',
@@ -57,7 +57,7 @@ const CustomTooltip = ({ active, payload, label }) => {
               marginBottom: '20px', 
               paddingLeft: '3px', 
               display: 'flex', 
-              justifyContent: 'space-between' 
+              // justifyContent: 'space-between' 
             }}
           >
             <span>{entry.name}</span>
