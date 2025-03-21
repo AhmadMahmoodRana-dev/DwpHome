@@ -55,8 +55,8 @@ const SmallBarChart = () => {
           <XAxis
             dataKey="week"
             tick={{ fill: "white", fontSize: "10px", color: "white" }}
-            interval={0} // Ensures every tick is displayed
-            angle={0} // Keeps the text horizontal
+            interval={0}
+            angle={0}
           />
           <YAxis tick={{ fill: "white", fontSize: "6px" }} />
           <Tooltip />

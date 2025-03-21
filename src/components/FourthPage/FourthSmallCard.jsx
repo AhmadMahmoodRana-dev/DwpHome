@@ -122,10 +122,10 @@ const FourthSmallCard = ({name}) => {
             <FourthBarChart />
           </div>
           <div className="main-content">
-            <h1 className="text-white font-semibold text-[14px] 2xl:text-[.7vw] mt-3 2xl:mt-[.7vw]">
+            <h1 className="text-white font-semibold text-[14px] 2xl:text-[.7vw] mt-3 2xl:mt-[1vw]">
               Aging Wise Pending
             </h1>
-            <div className="heading flex text-sm text-white pt-1 2xl:pt-[.3vw] 2xl:gap-[1.5vw] gap-[1.5rem] mt-3 2xl:mt-0">
+            <div className="heading flex text-sm text-white pt-1 2xl:pt-[.3vw] 2xl:gap-[1.5vw] gap-[1.5rem] mt-2 2xl:mt-0">
               <p className="ml-[4rem] 2xl:ml-[3vw] text-[10px] 2xl:text-[.5vw] font-normal">
                 Day 1
               </p>

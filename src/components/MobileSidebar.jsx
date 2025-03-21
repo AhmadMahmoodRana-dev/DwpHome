@@ -20,6 +20,41 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar }) => {
     localStorage.clear();
     navigate("/");
   };
+
+   const sidebarField = [
+      {
+        id: "1",
+        icon: <IoHomeSharp className="text-white icons 2xl:text-[1.2vw]" />,
+        title: "Summary",
+        link: "/Home",
+      },
+      {
+        id: "2",
+        icon: <RiBarChart2Line className="text-white icons 2xl:text-[1.2vw]" />,
+        title: "Inset Out",
+        link: "/inset-out",
+      },
+      {
+        id: "3",
+        icon: <CiSettings className="text-white icons 2xl:text-[1.2vw]" />,
+        title: "ATAT",
+        link: "/atat",
+      },
+      {
+        id: "4",
+        icon: (
+          <PiClockClockwiseLight className="text-white icons 2xl:text-[1.2vw]" />
+        ),
+        title: "Pending",
+        link: "/pending",
+      },
+      {
+        id: "5",
+        icon: <IoBarChartOutline className="text-white icons 2xl:text-[1.2vw]" />,
+        title: "Revenue",
+        link: "/revenue",
+      },
+    ];
   return (
     <div className="w-[200px] mobile-sidebar  h-[72vh] absolute z-50 left-0 pr-2">
       <GoSidebarExpand
@@ -31,36 +66,23 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar }) => {
         <div className="image ml-2 2xl:ml-[.7vw]">
           <img src={imageUrl} alt="" className="w-[110px] 2xl:w-[8vw]" />
         </div>
-        <div className="flex items-center gap-3 ml-3 2xl:ml-[.7vw] mt-4 2xl:mt-[1vw] holdder1 bg-[#101e42dd] w-[75%] rounded-[6px] py-1 pl-2">
-          <IoHomeSharp className="text-white icon-1 icons 2xl:text-[1.2vw]" />
-          <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-bold ">
-            Summary
-          </p>
-        </div>
-        <div className="flex items-center gap-3 ml-3 mt-1 2xl:ml-[.7vw] 2xl:mt-[.7vw] holdder pl-2 py-1">
-          <RiBarChart2Line className="text-white icons 2xl:text-[1.2vw]" />
-          <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium ">
-            Inset Out{" "}
-          </p>
-        </div>
-        <div className="flex items-center gap-3 ml-3 mt-1 2xl:ml-[.7vw] 2xl:mt-[.7vw] holdder pl-2 py-1">
-          <CiSettings className="text-white icons 2xl:text-[1.2vw]" />
-          <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium ">
-            TAT
-          </p>
-        </div>
-        <div className="flex items-center gap-3 ml-3 2xl:ml-[.7vw] 2xl:mt-[.7vw] mt-1 holdder pl-2 py-1">
-          <PiClockClockwiseLight className="text-white icons 2xl:text-[1.2vw]" />
-          <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium ">
-            Pending
-          </p>
-        </div>
-        <div className="flex items-center gap-3 ml-3 2xl:ml-[.7vw] 2xl:mt-[.7vw] mt-1 holdder pl-2 py-1">
-          <IoBarChartOutline className="text-white icons 2xl:text-[1.2vw]" />
-          <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-medium ">
-            Revenue
-          </p>
-        </div>
+        {sidebarField.map((data) => {
+                  return (
+                    <Link
+                      key={data.id}
+                      to={data.link}
+                      className={`flex items-center gap-3 ml-3 2xl:ml-[.7vw] xl:ml-4  mt-4 2xl:mt-[1vw] ${
+                        location.pathname == data.link ? "bg-[#1a1f37]" : ""
+                      }  w-[75%] rounded-[6px] py-1 pl-2 group relative`}
+                    >
+                      {data.icon}
+                      <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-bold">
+                        {data.title}
+                      </p>
+                      <span className="tooltip-text">{data.title}</span>
+                    </Link>
+                  );
+                })}
       </div>
       <div className="profile-section pb-4 mt-40">
         <div className="hold flex items-center ">

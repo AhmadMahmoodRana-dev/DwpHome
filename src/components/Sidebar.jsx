@@ -1,5 +1,10 @@
 import React from "react";
-import {IoPerson,IoHomeSharp,IoLogOut,IoBarChartOutline} from "react-icons/io5";
+import {
+  IoPerson,
+  IoHomeSharp,
+  IoLogOut,
+  IoBarChartOutline,
+} from "react-icons/io5";
 import { RiBarChart2Line } from "react-icons/ri";
 import { CiSettings } from "react-icons/ci";
 import { PiClockClockwiseLight } from "react-icons/pi";
@@ -62,7 +67,9 @@ const Sidebar = () => {
             <Link
               key={data.id}
               to={data.link}
-              className={`flex items-center gap-3 ml-3 2xl:ml-[.7vw] xl:pl-4  xl:ml-0 mt-4 2xl:mt-[1vw] holdder1 ${location.pathname == data.link ? "bg-[#1a1f37]" : ""}  w-[75%] rounded-[6px] py-1 pl-2 group relative`}
+              className={`flex items-center gap-3 ml-3 2xl:ml-[.7vw] xl:ml-4  mt-4 2xl:mt-[1vw] ${
+                location.pathname == data.link ? "bg-[#1a1f37]" : ""
+              }  w-[75%] rounded-[6px] py-1 pl-2 group relative`}
             >
               {data.icon}
               <p className="text-[14px] 2xl:text-[.9vw] removal-side text-white font-bold">

@@ -159,28 +159,26 @@ export default function SecondPage() {
             </div>
             <button
               variant="outline"
-              className={`absolute top-[17.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-16%] secondpage-back-arrow ${
+              className={`absolute top-[17.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
                 isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={previousProduct}
               disabled={isFirstSlide}
             >
               <RxTriangleLeft
-                size={50}
-                className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]"
+                className="text-[#4ade80] xl:w-[3vw] xl:h-[3vw] lg:w-[4vw] lg:h-[4vw] md:w-[6vw] md:h-[6vw] w-[9vw] h-[9vw] "
               />
             </button>
             <button
               variant="outline"
               onClick={nextProduct}
-              className={`absolute rotate-180 top-[17.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-16%] secondpage-front-arrow ${
+              className={`absolute rotate-180 top-[17.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-11%] secondpage-front-arrow ${
                 isLastSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={isLastSlide}
             >
               <RxTriangleLeft
-                size={50}
-                className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]"
+                className="text-[#4ade80] xl:w-[3vw] xl:h-[3vw] lg:w-[4vw] lg:h-[4vw] md:w-[6vw] md:h-[6vw] w-[9vw] h-[9vw] "
               />
             </button>
 
@@ -188,28 +186,26 @@ export default function SecondPage() {
 
             <button
               variant="outline"
-              className={`absolute bottom-[30.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-16%] secondpage-back-arrow ${
+              className={`absolute bottom-[30.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
                 isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               onClick={previousProduct}
               disabled={isFirstSlide}
             >
               <RxTriangleLeft
-                size={50}
-                className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]"
+                className="text-[#4ade80] xl:w-[3vw] xl:h-[3vw] lg:w-[4vw] lg:h-[4vw] md:w-[6vw] md:h-[6vw] w-[9vw] h-[9vw]"
               />
             </button>
             <button
               variant="outline"
               onClick={nextProduct}
-              className={`absolute rotate-180 bottom-[30.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-16%] secondpage-front-arrow ${
+              className={`absolute rotate-180 bottom-[30.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-11%] secondpage-front-arrow ${
                 isLastSlide ? "opacity-50 cursor-not-allowed" : ""
               }`}
               disabled={isLastSlide}
             >
               <RxTriangleLeft
-                size={50}
-                className="text-[#4ade80] 2xl:w-[3vw] 2xl:h-[3vw]"
+                className="text-[#4ade80] xl:w-[3vw] xl:h-[3vw] lg:w-[4vw] lg:h-[4vw] md:w-[6vw] md:h-[6vw] w-[9vw] h-[9vw]"
               />
             </button>
           </CardContent>
