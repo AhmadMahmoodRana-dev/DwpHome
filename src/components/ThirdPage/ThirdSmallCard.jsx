@@ -59,8 +59,8 @@ const ThirdSmallCard = ({name}) => {
                 6.49
                 <div className="2xl:mt-5">
                   <div className="icons flex flex-col justify-center items-center ml-2">
-                    <h1 className="text-[16px] 2xl:text-[.9vw] font-bold text-[#BE1A1A]">
-                      +44%
+                    <h1 className="text-[12px] 2xl:text-[.9vw] font-bold text-[#BE1A1A]">
+                      + 44 %
                     </h1>
                     <RiTriangleFill className="text-[#BE1A1A] w-[22px] h-[22px] 2xl:w-[1vw] 2xl:h-[1vw]" />
                   </div>
