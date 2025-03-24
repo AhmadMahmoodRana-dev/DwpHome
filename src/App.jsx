@@ -19,7 +19,7 @@ const App = () => {
             <Route element={<Privatecomponent />}>
               <Route path="/Home" element={<Home />} />
               <Route path="/inset-out" element={<SecondPage />} />
-              {/* <Route path="/atat" element={<ThirdPage />} /> */}
+              <Route path="/atat" element={<ThirdPage />} />
               {/* <Route path="/pending" element={<FourthPage />} /> */}
               {/* <Route path="/revenue" element={<FifthPage/>} /> */}
               <Route path="/Profile" element={<Profile />} />
