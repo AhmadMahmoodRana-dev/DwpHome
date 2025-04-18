@@ -285,7 +285,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
                     <p className="font-normal text-center text-[12px] leading-[14px] 2xl:text-[.8vw] 2xl:leading-[.9vw]">
                       {item.DAY2_3}{" "}
                       {item.DAY2_3_PER >= 0 ? (
-                        <span className=" text-[#BE1A1A] text-[10px] font-bold 2xl:text-[.6vw]">
+                        <span className=" text-[#BE1A1A] flex flex-col text-[10px] font-bold 2xl:text-[.6vw]">
                           +
                           {Math.abs(item.DAY2_3_PER).toString().length === 1
                             ? "0" + Math.abs(item.DAY2_3_PER)
@@ -293,7 +293,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
                           %
                         </span>
                       ) : (
-                        <span className=" text-green-600 text-[10px] font-bold 2xl:text-[.6vw]">
+                        <span className=" text-green-600 flex flex-col text-[10px] font-bold 2xl:text-[.6vw]">
                           -
                           {Math.abs(item.DAY2_3_PER).toString().length === 1
                             ? "0" + Math.abs(item.DAY2_3_PER)

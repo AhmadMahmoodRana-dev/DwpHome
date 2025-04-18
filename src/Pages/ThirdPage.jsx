@@ -199,7 +199,7 @@ export default function ThirdPage() {
               </div>
               <button
                 variant="outline"
-                className={`absolute top-[17.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
+                className={`absolute top-[50%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
                   isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 onClick={previousProduct}
@@ -213,7 +213,7 @@ export default function ThirdPage() {
               <button
                 variant="outline"
                 onClick={nextProduct}
-                className={`absolute rotate-180 top-[17.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-11%] secondpage-front-arrow ${
+                className={`absolute rotate-180 top-[50%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-11%] secondpage-front-arrow ${
                   isLastSlide ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={isLastSlide}
@@ -238,7 +238,7 @@ export default function ThirdPage() {
               </div>
               <button
                 variant="outline"
-                className={`absolute bottom-[30.5%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
+                className={`absolute bottom-[50%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
                   isFirstBottomSlide ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 onClick={previousBottomProduct}
@@ -252,7 +252,7 @@ export default function ThirdPage() {
               <button
                 variant="outline"
                 onClick={nextBottomProduct}
-                className={`absolute rotate-180 bottom-[30.5%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-11%] secondpage-front-arrow ${
+                className={`absolute rotate-180 bottom-[50%] 2xl:right-[-4.4%] xl:right-[-4.1%] lg:right-[-10%] md:right-[-13%] right-[-11%] secondpage-front-arrow ${
                   isLastBottomSlide ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 disabled={isLastBottomSlide}

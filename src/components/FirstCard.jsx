@@ -80,7 +80,6 @@ const FirstCard = ({ startWeek, endWeek }) => {
                 </div>
               ) : (
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows">
-                  {/* <h1 className="text-[16px] font-bold text-[#BE1A1A]">-{Math.abs(item.IN_SETS_PER)}%</h1> */}
                   <h1 className="text-[12px] font-bold text-[#BE1A1A] 2xl:text-[.7vw]">
                     {" "}
                     -
@@ -104,7 +103,6 @@ const FirstCard = ({ startWeek, endWeek }) => {
               {item.OUT_SETS_PER >= 0 ? (
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows">
                   <RiTriangleFill className="text-green-400  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw]" />
-                  {/* <h1 className="text-[16px] font-bold text-[#148D00]">+{Math.abs(item.OUT_SETS_PER)}%</h1> */}
                   <h1 className="text-[12px] font-bold text-green-400 2xl:text-[.7vw]">
                     {" "}
                     +
@@ -116,7 +114,6 @@ const FirstCard = ({ startWeek, endWeek }) => {
                 </div>
               ) : (
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows">
-                  {/* <h1 className="text-[16px] font-bold text-[#BE1A1A]">-{Math.abs(item.OUT_SETS_PER)}%</h1> */}
                   <h1 className="text-[12px] font-bold text-[#BE1A1A] 2xl:text-[.7vw]">
                     -
                     {Math.abs(item.OUT_SETS_PER).toString().length === 1
