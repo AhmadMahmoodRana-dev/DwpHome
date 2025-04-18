@@ -1,7 +1,7 @@
 import React from "react";
 import { RiTriangleFill } from "react-icons/ri";
-import FlowChart from "./charts/FlowChart";
 import SmallBarChart from "./charts/SmallBarChart";
+import SmallCardFlowChart from "./charts/SmallCardFlowChart";
 
 const SecondPage = ({name,TableData}) => {
 
@@ -153,7 +153,7 @@ const SecondPage = ({name,TableData}) => {
           <hr />
         </div>
         <div className="2xl:h-[7.7vw] h-[105px] mt-3">
-          <FlowChart />
+          <SmallCardFlowChart />
         </div>
       </div>
 

@@ -72,7 +72,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-export function ThirdMainChart() {
+export function ThirdMainChart({chartData}) {
   return (
     <ChartContainer
       config={chartConfig}
@@ -83,7 +83,7 @@ export function ThirdMainChart() {
         height="100%"
         className={"ml-[-20px] pt-4"}
       >
-        <BarChart data={fixedData} className="text-white">
+        <BarChart data={chartData} className="text-white">
           <XAxis dataKey="week" tick={<CustomTick />} interval={0} />
           <YAxis tick={<CustomTick />} interval={0} />
           <Tooltip content={<CustomTooltip />} />
