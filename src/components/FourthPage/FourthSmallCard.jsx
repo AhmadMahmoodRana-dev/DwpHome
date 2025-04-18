@@ -2,6 +2,7 @@ import React from "react";
 import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
 import FourthPagePiechart from "./charts/FourthPagePiechart";
 import { FourthBarChart } from "./charts/FourthBarChart";
+import FourthPageSmallPiechart from "./charts/FourthPageSmallPiechart";
 const FourthSmallCard = ({name}) => {
   const TableData = [
     {
@@ -46,7 +47,7 @@ const FourthSmallCard = ({name}) => {
 
         <div className="heading_container flex gap-4 items-center pt-2 pb-4">
           <h1 className="text-5xl 2xl:text-[2.8vw] font-bold text-red-500">
-            173
+          1,036
           </h1>
           <div className="flex flex-col justify-center items-center gap-1">
             <BsTriangleFill
@@ -70,13 +71,13 @@ const FourthSmallCard = ({name}) => {
               </h1>
             </div>
           </div>
-          <div className="chart w-[40%] 2xl:w-[50%] mt-[-50px] 2xl:mt-[-40px] h-auto">
-            <FourthPagePiechart />
+          <div className="chart w-[40%] 2xl:w-[50%] mt-[-40px] 2xl:mt-[-20px] h-auto">
+            <FourthPageSmallPiechart />
           </div>
         </div>
 
         {/* TAble */}
-        <div className="w-full px-1 mt-9 2xl:px-[.2vw] 2xl:mt-[2.4vw]">
+        <div className="w-full px-1 mt-9 2xl:px-[.2vw] 2xl:mt-[1.7vw]">
           <table className="w-full mt-3 mb-6">
             <tr className="text-white">
               <th></th>

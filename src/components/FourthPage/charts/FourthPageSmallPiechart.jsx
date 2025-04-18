@@ -5,9 +5,8 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
-const FourthPagePiechart = ({chartData}) => {
-  console.log(chartData,"111")
-  const fixedData = {
+const FourthPageSmallPiechart = () => {
+      const fixedData = {
     labels: ['Red', 'Blue', 'Yellow',"Green"],
     datasets: [
       {
@@ -53,16 +52,16 @@ const FourthPagePiechart = ({chartData}) => {
       },
     },                                                                 
   };
-  if (!chartData) {
+  if (!fixedData) {
     return <div>Loading...</div>;
   }
 
 
   return (
     <div className='2xl:w-[7vw] 2xl:h-[7vw] w-[100px] h-[100px]'>
-      <Doughnut data={chartData} options={options} />
+      <Doughnut data={fixedData} options={options} />
     </div>
   );
 };
 
-export default FourthPagePiechart;
+export default FourthPageSmallPiechart;

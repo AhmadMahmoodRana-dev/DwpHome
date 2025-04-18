@@ -10,20 +10,20 @@ import {
 import { ChartContainer } from "@/components/ui/chart";
 
 const chartConfig = {
-  day_0: {
-    label: "Day 0",
+  PART_WAITING: {
+    label: "Part Waiting",
     color: "#953333",
   },
-  day2_3: {
-    label: "Day 2-3",
+  UNDER_REPAIR: {
+    label: "Under Repair",
     color: "#025ade",
   },
-  day4_7: {
-    label: "Day 4-7",
+  COMPLETED: {
+    label: "Completed",
     color: "#ae8104",
   },
-  day8_above: {
-    label: "Day 8+",
+  OTHER: {
+    label: "Other",
     color: "#ce0265",
   },
 };
@@ -72,7 +72,7 @@ const CustomTooltip = ({ active, payload, label }) => {
   return null;
 };
 
-export function FourthBarChart() {
+export function FourthBarChart({chartData}) {
   return (
     <ChartContainer
       config={chartConfig}
@@ -83,32 +83,32 @@ export function FourthBarChart() {
         height="100%"
         className={"ml-[-20px] pt-4"}
       >
-        <BarChart data={fixedData} className="text-white">
+        <BarChart data={chartData} className="text-white">
           <XAxis dataKey="week" tick={<CustomTick />} interval={0} />
           <YAxis tick={<CustomTick />} interval={0} />
           <Tooltip content={<CustomTooltip />} />
           <Bar
-            dataKey="day_0"
-            name={chartConfig.day_0.label}
-            fill={chartConfig.day_0.color}
+            dataKey="PART_WAITING"
+            name={chartConfig.PART_WAITING.label}
+            fill={chartConfig.PART_WAITING.color}
             radius={4}
           />
           <Bar
-            dataKey="day2_3"
-            name={chartConfig.day2_3.label}
-            fill={chartConfig.day2_3.color}
+            dataKey="UNDER_REPAIR"
+            name={chartConfig.UNDER_REPAIR.label}
+            fill={chartConfig.UNDER_REPAIR.color}
             radius={4}
           />
           <Bar
-            dataKey="day4_7"
-            name={chartConfig.day4_7.label}
-            fill={chartConfig.day4_7.color}
+            dataKey="COMPLETED"
+            name={chartConfig.COMPLETED.label}
+            fill={chartConfig.COMPLETED.color}
             radius={4}
           />
           <Bar
-            dataKey="day8_above"
-            name={chartConfig.day8_above.label}
-            fill={chartConfig.day8_above.color}
+            dataKey="OTHER"
+            name={chartConfig.OTHER.label}
+            fill={chartConfig.OTHER.color}
             radius={4}
           />
         </BarChart>
