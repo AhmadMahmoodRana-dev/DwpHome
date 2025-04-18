@@ -86,21 +86,12 @@ const CustomDotBlack = (props) => {
   );
 };
 
-// Dummy data
-const dummyData = [
-  { Week: 1, in_sets: 50, out_sets: 40 },
-  { Week: 2, in_sets: 50, out_sets: 40 },
-  { Week: 3, in_sets: 50, out_sets: 60 },
-  { Week: 4, in_sets: 60, out_sets: 60 },
-  { Week: 5, in_sets: 60, out_sets: 50 },
-];
-
-export default function FlowChart() {
+export default function FlowChart({chartData}) {
   return (
     <ChartContainer config={chartConfig} className="w-full h-[100%]">
       <ResponsiveContainer width="107%" height="100%" className={"pt-4"}>
         <AreaChart
-          data={dummyData}
+          data={chartData}
           className="ml-[-30px] text-white"
         >
           <XAxis dataKey="Week" tick={<CustomTick />} interval={0} tickFormatter={weekFormatter} />

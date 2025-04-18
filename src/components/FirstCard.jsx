@@ -8,7 +8,6 @@ const FirstCard = ({ startWeek, endWeek }) => {
   const [data2, setData2] = useState([]);
 
   useEffect(() => {
-    // Fetch data from first API
     fetch(`https://dwpcare.com.pk/dwp/inset?EDATE=${endWeek}`)
       .then((response) => {
         if (!response.ok) {
@@ -17,14 +16,9 @@ const FirstCard = ({ startWeek, endWeek }) => {
         return response.json();
       })
       .then((data) => {
-        // console.log(data);
         setData(data);
-        //setLoading1(false);
       });
-    /*.catch((error) => {
-        setError1(error);
-        setLoading1(false);
-      });*/
+   
 
     fetch(
       `https://dwpcare.com.pk/dwp/inset?SDATE=${startWeek}&EDATE=${endWeek}`
@@ -42,7 +36,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
 
   const formatDataForChart = (data) => {
     return data.map((item) => ({
-      Week: item.SHORT_WEEKS, // Assuming NO_OF_WEEKS is the month identifier
+      Week: item.SHORT_WEEKS,
       in_sets: item.IN_SETS,
       out_sets: item.OUT_SETS,
     }));
@@ -50,7 +44,6 @@ const FirstCard = ({ startWeek, endWeek }) => {
 
   const chartData2 = formatDataForChart(data2);
 
-  ///  console.log(chartData2);
   return (
     <div className="first-div w-[289px] min-w-[289px] 2xl:w-[23.5%] min-h-[650px]  2xl:pb-[1.2vw] h-auto rounded-[6px]">
       <div className="content-container flex justify-between mt-2 2xl:mt-[.4vw]">
