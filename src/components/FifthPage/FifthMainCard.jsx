@@ -1,9 +1,56 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
+import { Context } from "@/context/Context";
 
 const FifthMainCard = () => {
+  const {filteredData} = useContext(Context)
+ const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
+  useEffect(() => {
+    // Fetch data from first API
+    fetch(`https://dwpcare.com.pk/dwp/revenue?ENDWEEK=${filteredData[0]?.ID}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData(data);
+      });
+ 
+    fetch(
+      `https://dwpcare.com.pk/dwp/revenue?STARTWEEK=${filteredData[0]?.ID}&ENDWEEK=${filteredData[0]?.ID}`
+    )
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setData2(data);
+      });
+  }, [filteredData[0]?.ID, filteredData[0]?.ID]);
+
+  const formatDataForChart = (data) => {
+    return data.map((item) => ({
+      Week: item.SHORT_WEEKS,
+      PARTS: item.PARTS,
+      SERVICE: item.SERVICE,
+      CHARGES: item.VISIT_CHARGES,
+      INSTALL: item.INSTALL_CORPORATE,
+    }));
+  };
+
+  
+
+  const chartData = formatDataForChart(data2);
+
+
+  // ##########################
   const TableData = [
     {
       id: 1,
@@ -51,15 +98,33 @@ const FifthMainCard = () => {
           <div className="w-[65%]">
             <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
               <p className="text-white 2xl:text-[3.7vw] font-bold text-[50px] flex justify-center">
-                7.28
+              {data[0]?.TOTAL_REVENUE.toLocaleString()}
                 <div className="2xl:mt-5">
-                  <div className="icons flex flex-col justify-center items-center ml-2">
+                {
+                  data[0]?.TOTAL_REVENUE_PER >= 0 ?(
+                    <div className="icons flex flex-col justify-center items-center ml-2">
                     <RiTriangleFill className="text-green-500 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                     <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-500">
-                      + 44 %
+                    +
+                    {Math.abs(data[0]?.TOTAL_REVENUE_PER).toString().length === 1
+                      ? "0" + Math.abs(data[0]?.TOTAL_REVENUE_PER)
+                      : Math.abs(data[0]?.TOTAL_REVENUE_PER)}
+                    %
                     </h1>
                   </div>
-
+                  ):(
+                    <div className="icons flex flex-col justify-center items-center ml-2">
+                    <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
+                    -
+                    {Math.abs(data[0]?.TOTAL_REVENUE_PER).toString().length === 1
+                      ? "0" + Math.abs(data[0]?.TOTAL_REVENUE_PER)
+                      : Math.abs(data[0]?.TOTAL_REVENUE_PER)}
+                    %
+                    </h1>
+                    <RiTriangleFill className="text-red-600 w-[22px] rotate-180 h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
+                  </div>
+                  )
+                }
                   <h1 className="text-white text-[16px] 2xl:text-[1.1vw] text-center">
                     Millions
                   </h1>
@@ -74,7 +139,7 @@ const FifthMainCard = () => {
               Revenue
             </h1>
             <h1 className="text-white font-semibold tracking-wider  2xl:text-[1.3vw]">
-              297.75
+            {data[0]?.YTD_REVENUE}
             </h1>
             <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
               Millions
@@ -89,7 +154,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={"10"} />
+              <SemiCircularProgressive percentage={data[0]?.PARTS} />
             </div>
           </div>
           <div className="handle-progress">
@@ -98,7 +163,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={"10"} />
+              <SemiCircularProgressive percentage={data[0]?.SERVICE_PER} />
             </div>
           </div>
           <div className="handle-progress">
@@ -107,7 +172,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={"10"} />
+              <SemiCircularProgressive percentage={data[0]?.VISIT_PER} />
             </div>
           </div>
           <div className="handle-progress">
@@ -116,7 +181,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={"10"} />
+              <SemiCircularProgressive percentage={data[0]?.INSTALL_PER} />
             </div>
           </div>
         </div>
@@ -131,23 +196,23 @@ const FifthMainCard = () => {
               <th className="font-medium">Ints/Corp</th>
             </tr>
 
-            {TableData.map((data, index) => {
+            {data2.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                    {data?.weeks}
+                    {data?.WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                    {data?.Inset}
+                  {parseFloat(data?.PARTS).toFixed(2)}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.Outset}
+                  {parseFloat(data?.SERVICE).toFixed(2)}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.OTC1}
+                  {parseFloat(data?.VISIT_CHARGES).toFixed(2)}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data.OTC}
+                  {parseFloat(data?.INSTALL_CORPORATE).toFixed(2)}
                   </td>
                 </tr>
               );
@@ -155,7 +220,7 @@ const FifthMainCard = () => {
           </table>
         </div>
         <div className="pr-4">
-          <FifthMainChart />
+          <FifthMainChart chartData={chartData}  />
         </div>
       </div>
 

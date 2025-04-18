@@ -186,8 +186,6 @@ const FourthCard = ({ startWeek, endWeek }) => {
 
   const chartData = formatDataForChart(data2);
 
-  ///console.log(data);
-
   return (
     <>
       <div className="fourth-div 2xl:w-[23.5%]  w-[289px] min-h-[650px] h-auto rounded-[6px] pt-5 px-4 2xl:pt-[1.3vw]">
