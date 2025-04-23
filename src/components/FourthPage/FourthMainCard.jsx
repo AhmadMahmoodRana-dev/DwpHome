@@ -3,45 +3,52 @@ import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
 import FourthPagePiechart from "./charts/FourthPagePiechart";
 import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
+import axios from "axios";
 const FourthMainCard = () => {
-
-// TOP SECTION APIS
-
+  // TOP SECTION APIS
   const { filteredData } = useContext(Context);
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
   const [pieChartData, setPieChartData] = useState(null);
 
   useEffect(() => {
-    fetch(`https://dwpcare.com.pk/dwp/pending?ENDWEEK=${filteredData[0]?.ID}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-        const formattedData = formatPieChartData(data);
-        setPieChartData(formattedData);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    const fetchData = async () => {
+      try {
+        const endWeekId = filteredData[0]?.ID;
 
-    fetch(
-      `https://dwpcare.com.pk/dwp/pending?STARTWEEK=${filteredData[0]?.ID}&ENDWEEK=${filteredData[0]?.ID}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData2(data);
-      });
-  }, [filteredData[0]?.ID, filteredData[0]?.ID]);
+        if (!endWeekId) return;
+
+        const pendingRes = await axios.get(
+          `https://dwpcare.com.pk/dwp/pending`,
+          {
+            params: { ENDWEEK: endWeekId },
+          }
+        );
+
+        setData(pendingRes.data);
+        const formattedData = formatPieChartData(pendingRes.data);
+        setPieChartData(formattedData);
+
+        const pendingRangeRes = await axios.get(
+          `https://dwpcare.com.pk/dwp/pending`,
+          {
+            params: {
+              STARTWEEK: endWeekId,
+              ENDWEEK: endWeekId,
+            },
+          }
+        );
+
+        setData2(pendingRangeRes.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, [filteredData[0]?.ID]);
+
+  // ###########################################################################
 
   const formatPieChartData = (data) => {
     if (data.length > 0) {
@@ -56,9 +63,9 @@ const FourthMainCard = () => {
               item.COMPLETED,
               item.OTHER,
             ],
-            backgroundColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"], // Segment colors
-            borderColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"], // Border colors
-            borderWidth: 1, // Border width
+            backgroundColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
+            borderColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
+            borderWidth: 1,
           },
         ],
       };

@@ -3,38 +3,39 @@ import { RiTriangleFill } from "react-icons/ri";
 import FlowChart from "./charts/FlowChart";
 import BarChart1 from "./charts/BarChart";
 import { Context } from "@/context/Context";
+import axios from "axios";
 
 const MainCard = () => {
 // FIRST SECTION APIS
-  const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+const { filteredData } = useContext(Context);
+const [data, setData] = useState([]);
+const [data2, setData2] = useState([]);
 
-  useEffect(() => {
-    fetch(`https://dwpcare.com.pk/dwp/inset?EDATE=${filteredData[0]?.ID}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-      });
+useEffect(() => {
+  const fetchInsetData = async () => {
+    try {
+      const dateId = filteredData[0]?.ID;
+      if (!dateId) return;
 
-    fetch(
-      `https://dwpcare.com.pk/dwp/inset?SDATE=${filteredData[0]?.ID}&EDATE=${filteredData[0]?.ID}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData2(data);
+      // First API call
+      const response1 = await axios.get('https://dwpcare.com.pk/dwp/inset', {
+        params: { EDATE: dateId }
       });
-  }, [filteredData[0]?.ID, filteredData[0]?.ID]);
+      setData(response1.data);
+
+      // Second API call
+      const response2 = await axios.get('https://dwpcare.com.pk/dwp/inset', {
+        params: { SDATE: dateId, EDATE: dateId }
+      });
+      setData2(response2.data);
+
+    } catch (error) {
+      console.error('Error fetching inset data:', error);
+    }
+  };
+
+  fetchInsetData();
+}, [filteredData[0]?.ID]);
 
   const formatDataForChart = (data) => {
     return data.map((item) => ({

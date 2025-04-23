@@ -15,6 +15,7 @@ const ContextProvider = (props) => {
     console.log(response.data, "response");
   };
 
+
   useEffect(() => {
     fetchApi();
   }, []);
@@ -24,6 +25,9 @@ const ContextProvider = (props) => {
     setFilteredData(filtered ? [filtered] : []);
     console.log(filtered, "filtered data");
   }, [week, data]);
+
+
+console.log(filteredData,"FilterData")
 
   // Increment the week index, looping back to 0 if necessary
   const nextWeek = () => {

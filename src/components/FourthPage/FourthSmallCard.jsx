@@ -1,6 +1,5 @@
 import React from "react";
 import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
-import FourthPagePiechart from "./charts/FourthPagePiechart";
 import { FourthBarChart } from "./charts/FourthBarChart";
 import FourthPageSmallPiechart from "./charts/FourthPageSmallPiechart";
 const FourthSmallCard = ({name}) => {
