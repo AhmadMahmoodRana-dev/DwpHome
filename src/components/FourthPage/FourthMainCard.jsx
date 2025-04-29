@@ -426,7 +426,7 @@ const FourthMainCard = () => {
           </div>
           <hr className="mx-6" />
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
-            <FourthBarChart />
+            <FourthBarChart chartData={chartData2} />
           </div>
         </div>
       </div>

@@ -1,9 +1,63 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import { BsCaretRightFill } from "react-icons/bs";
 import { ThirdMainChart } from "./charts/ThirdMainChart";
+import { Context } from "@/context/Context";
+import axios from "axios";
 
 const ThirdSmallCard = ({name}) => {
+
+// FIRST SECTION APIS
+  const { filteredData } = useContext(Context);
+  const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
+
+  useEffect(() => {
+    const fetchTatData = async () => {
+      try {
+        const dateId = filteredData[0]?.ID;
+        if (!dateId) return;
+
+        // First API call
+        const response1 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
+          params: { EDATE: dateId },
+        });
+        setData(response1.data);
+
+        // Second API call
+        const response2 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
+          params: { SDATE: dateId, EDATE: dateId },
+        });
+        setData2(response2.data); 
+      } catch (error) {
+        console.error('Error fetching TAT data:', error);
+      }
+    };
+
+    fetchTatData();
+  }, [filteredData[0]?.ID]);
+
+  const formatDataForChart = (data) => {
+    return data.map((item) => ({
+      week: item.SHORT_WEEKS.toString(),
+      day_0: item.DAY_0,
+      day2_3: item.DAY2_3,
+      day4_7: item.DAY4_7,
+      day8_above: item.DAY8_ABOVE,
+    }));
+  };
+
+  const chartData2 = formatDataForChart(data2);
+
+
+
+
+
+
+
+
+
+
   const TableData = [
     {
       id: 1,
@@ -215,7 +269,7 @@ const ThirdSmallCard = ({name}) => {
         </div>
         <hr className="mx-6"/>
         <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
-          <ThirdMainChart />
+          <ThirdMainChart chartData={chartData2} />
         </div>
       </div>
 

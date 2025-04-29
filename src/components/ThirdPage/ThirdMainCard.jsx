@@ -7,7 +7,7 @@ import axios from "axios";
 
 const ThirdMainCard = () => {
 // FIRST SECTION APIS
-    const { filteredData } = useContext(Context);
+  const { filteredData } = useContext(Context);
   const [data, setData] = useState([]);
   const [data2, setData2] = useState([]);
 
@@ -354,7 +354,7 @@ const ThirdMainCard = () => {
           </div>
           <hr className="mx-6" />
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
-            <ThirdMainChart />
+            <ThirdMainChart chartData={chartData2} />
           </div>
         </div>
       </div>

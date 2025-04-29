@@ -1,7 +1,108 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FourthBarChart } from "./charts/FourthBarChart";
+import { Context } from "@/context/Context";
+import axios from "axios";
 
 const FourthSmallCardBottom = ({ name }) => {
+// TOP SECTION APIS
+ const { filteredData } = useContext(Context);
+ const [data, setData] = useState([]);
+ const [data2, setData2] = useState([]);
+ const [pieChartData, setPieChartData] = useState(null);
+
+ useEffect(() => {
+   const fetchData = async () => {
+     try {
+       const endWeekId = filteredData[0]?.ID;
+
+       if (!endWeekId) return;
+
+       const pendingRes = await axios.get(
+         `https://dwpcare.com.pk/dwp/pending`,
+         {
+           params: { ENDWEEK: endWeekId },
+         }
+       );
+
+       setData(pendingRes.data);
+       const formattedData = formatPieChartData(pendingRes.data);
+       setPieChartData(formattedData);
+
+       const pendingRangeRes = await axios.get(
+         `https://dwpcare.com.pk/dwp/pending`,
+         {
+           params: {
+             STARTWEEK: endWeekId,
+             ENDWEEK: endWeekId,
+           },
+         }
+       );
+
+       setData2(pendingRangeRes.data);
+     } catch (error) {
+       console.error(error);
+     }
+   };
+
+   fetchData();
+ }, [filteredData[0]?.ID]);
+
+ // ###########################################################################
+
+ const formatPieChartData = (data) => {
+   if (data.length > 0) {
+     const item = data[0];
+     return {
+       labels: ["Part Waiting", "Under Repair", "Completed", "Other"],
+       datasets: [
+         {
+           data: [
+             item.PART_WAITING,
+             item.UNDER_REPAIR,
+             item.COMPLETED,
+             item.OTHER,
+           ],
+           backgroundColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
+           borderColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
+           borderWidth: 1,
+         },
+       ],
+     };
+   }
+   return {
+     labels: [],
+     datasets: [
+       {
+         data: [],
+         backgroundColor: [],
+       },
+     ],
+   };
+ };
+
+ const formatDataForChart = (data) => {
+   return data.map((item) => ({
+     week: item.SHORT_WEEKS.toString(),
+     PART_WAITING: item.PART_WAITING,
+     UNDER_REPAIR: item.UNDER_REPAIR,
+     COMPLETED: item.COMPLETED,
+     OTHER: item.OTHER,
+   }));
+ };
+
+ const chartData2 = formatDataForChart(data2);
+
+
+
+
+
+
+
+
+
+
+
+
   const TableData = [
     {
       id: 1,
@@ -80,7 +181,7 @@ const FourthSmallCardBottom = ({ name }) => {
         </div>
         <hr className="mx-6" />
         <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.6vw]">
-          <FourthBarChart />
+          <FourthBarChart chartData={chartData2} />
         </div>
       </div>
     </div>

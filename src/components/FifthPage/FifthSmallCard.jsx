@@ -1,9 +1,64 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
+import { Context } from "@/context/Context";
+import axios from "axios";
 
 const FifthSmallCard = () => {
+const { filteredData } = useContext(Context);
+  const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
+
+  useEffect(() => {
+    const fetchRevenueData = async () => {
+      try {
+        const weekId = filteredData[0]?.ID;
+
+        if (!weekId) return;
+        // First API call
+        const response1 = await axios.get(
+          "https://dwpcare.com.pk/dwp/revenue",
+          {
+            params: { ENDWEEK: weekId },
+          }
+        );
+        setData(response1.data);
+        // Second API call
+        const response2 = await axios.get(
+          "https://dwpcare.com.pk/dwp/revenue",
+          {
+            params: { STARTWEEK: weekId, ENDWEEK: weekId },
+          }
+        );
+        setData2(response2.data);
+      } catch (error) {
+        console.error("Error fetching revenue data:", error);
+      }
+    };
+
+    fetchRevenueData();
+  }, [filteredData[0]?.ID]);
+
+  const formatDataForChart = (data) => {
+    return data.map((item) => ({
+      Week: item.SHORT_WEEKS,
+      PARTS: item.PARTS,
+      SERVICE: item.SERVICE,
+      CHARGES: item.VISIT_CHARGES,
+      INSTALL: item.INSTALL_CORPORATE,
+    }));
+  };
+
+  const chartData = formatDataForChart(data2);
+
+
+
+
+
+
+
+
   const TableData = [
     {
       id: 1,
@@ -153,7 +208,7 @@ const FifthSmallCard = () => {
         </table>
       </div>
       <div className="pr-4">
-        <FifthMainChart />
+        <FifthMainChart chartData={chartData} />
       </div>
     </div>
   );

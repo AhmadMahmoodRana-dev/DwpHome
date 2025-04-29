@@ -267,7 +267,7 @@ const FifthMainCard = () => {
         </div>
 
         <div className="pr-4">
-          <FifthMainChart />
+          <FifthMainChart chartData={chartData} />
           <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
             <div className="w-4 h-2 bg-[#953333]"></div>
             <h1 className="text-[10px]">parts</h1>

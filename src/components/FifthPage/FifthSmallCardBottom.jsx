@@ -1,7 +1,65 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FifthMainChart } from "./charts/FifthMainChart";
+import axios from "axios";
+import { Context } from "@/context/Context";
 
 const FifthSmallCardBottom = ({ name }) => {
+const { filteredData } = useContext(Context);
+  const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
+
+  useEffect(() => {
+    const fetchRevenueData = async () => {
+      try {
+        const weekId = filteredData[0]?.ID;
+
+        if (!weekId) return;
+        // First API call
+        const response1 = await axios.get(
+          "https://dwpcare.com.pk/dwp/revenue",
+          {
+            params: { ENDWEEK: weekId },
+          }
+        );
+        setData(response1.data);
+        // Second API call
+        const response2 = await axios.get(
+          "https://dwpcare.com.pk/dwp/revenue",
+          {
+            params: { STARTWEEK: weekId, ENDWEEK: weekId },
+          }
+        );
+        setData2(response2.data);
+      } catch (error) {
+        console.error("Error fetching revenue data:", error);
+      }
+    };
+
+    fetchRevenueData();
+  }, [filteredData[0]?.ID]);
+
+  const formatDataForChart = (data) => {
+    return data.map((item) => ({
+      Week: item.SHORT_WEEKS,
+      PARTS: item.PARTS,
+      SERVICE: item.SERVICE,
+      CHARGES: item.VISIT_CHARGES,
+      INSTALL: item.INSTALL_CORPORATE,
+    }));
+  };
+
+  const chartData = formatDataForChart(data2);
+
+
+
+
+
+
+
+
+
+
+
     const TableData = [
         {
           id: 1,
@@ -77,7 +135,7 @@ const FifthSmallCardBottom = ({ name }) => {
       </div>
 
       <div className="pr-4">
-        <FifthMainChart />
+        <FifthMainChart chartData={chartData} />
         <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
           <div className="w-4 h-2 bg-[#953333]"></div>
           <h1 className="text-[10px]">parts</h1>

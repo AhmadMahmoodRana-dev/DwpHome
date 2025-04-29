@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../Styling/Home.css";
 import { RiTriangleFill } from "react-icons/ri";
 import { AreaChartee } from "./ui/AreaChartee";
+import RegionCard from "./RegionCard";
 
 const FirstCard = ({ startWeek, endWeek }) => {
   const [data, setData] = useState([]);
@@ -203,244 +204,35 @@ const FirstCard = ({ startWeek, endWeek }) => {
         <AreaChartee chartData={chartData2} />
       </div>
       {/* ### DIV REC DATA */}
-      {data.map((item) => (
-        <div className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] py-1 2xl:pb-0 mt-[6px] 2xl:mt-[.2vw] ">
-          <div className="first flex justify-between items-center data w-[263px] 2xl:w-[91.5%] 2xl:h-[4vw] h-[62.98px] rounded-[3px] ">
-            <div className="flex flex-col items-center gap-3 min-w-[120px]">
-              <p className="text-[12px] text-white font-bold ml-1 2xl:text-[.8vw]">
-                Center Region
-              </p>
-              <p className="text-[12px] text-white font-bold  ml-1 2xl:text-[.8vw]">
-           OTC  {item.IOF_CENTER.toLocaleString()} %
-              </p>
-            </div>
-            <div className="flex flex-col pr-2">
-              <div className=" flex justify-center items-center gap-2">
-                <div className="2xl:max-w-[3.7vw] 2xl:min-w-[3.7vw] max-w-[60px] min-w-[60px]">
-                  <p className="text-white text-[10px] flex flex-col mt-[2px] font-bold  2xl:text-[.6vw] ml-[8px]">
-                    Inset{" "}
-                    <span className="text-[12px] 2xl:text-[.7vw] font-bold">
-                      {item.IN_CENTRAL.toLocaleString()}
-                    </span>{" "}
-                  </p>
-                </div>
-                {item.IN_CENTRAL_PER >= 0 ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <RiTriangleFill className="text-green-400 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-                    <h1 className=" text-green-400 2xl:text-[.7vw] text-[12px]">
-                      +
-                      {Math.abs(item.IN_CENTRAL_PER).toString().length === 1
-                        ? "0" + Math.abs(item.IN_CENTRAL_PER)
-                        : Math.abs(item.IN_CENTRAL_PER)}
-                      %
-                    </h1>
-                  </div>
-                ) : (
-                  <div className="icons flex flex-col justify-center items-center arrows">
-                    <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-[#BE1A1A]  ml-[-3px]">
-                      -
-                      {Math.abs(item.IN_CENTRAL_PER).toString().length === 1
-                        ? "0" + Math.abs(item.IN_CENTRAL_PER)
-                        : Math.abs(item.IN_CENTRAL_PER)}
-                      %
-                    </h1>
-                    <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />
-                  </div>
-                )}
-              </div>
-              <div className=" flex justify-center items-center gap-2">
-                <div className="2xl:max-w-[3.7vw] 2xl:min-w-[3.7vw]  max-w-[60px] min-w-[60px]">
-                  <p className="text-white flex flex-col text-[10px] font-bold ml-[8px] 2xl:text-[.6vw]">
-                    Outset{" "}
-                    <span className="text-[12px] 2xl:text-[.7vw] font-bold">
-                      {item.OUT_CENTRAL.toLocaleString()}
-                    </span>{" "}
-                  </p>
-                </div>
-                {item.OUT_CENTRAL_PER >= 0 ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <RiTriangleFill className="text-green-400  2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-                    <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-green-400  ml-[-3px]">
-                      +
-                      {Math.abs(item.OUT_CENTRAL_PER).toString().length === 1
-                        ? "0" + Math.abs(item.OUT_CENTRAL_PER)
-                        : Math.abs(item.OUT_CENTRAL_PER)}
-                      %
-                    </h1>
-                  </div>
-                ) : (
-                  <div className=" flex flex-col justify-center items-center">
-                    <h1 className=" text-[#BE1A1A] 2xl:text-[.7vw] font-bold text-[12px]">
-                      -
-                      {Math.abs(item.OUT_CENTRAL_PER).toString().length === 1
-                        ? "0" + Math.abs(item.OUT_CENTRAL_PER)
-                        : Math.abs(item.OUT_CENTRAL_PER)}
-                      %
-                    </h1>
-                    <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="first flex justify-between items-center data w-[263px] 2xl:w-[91.5%] 2xl:h-[4vw] h-[62.98px] rounded-[3px] ">
-            <div className="flex flex-col items-center gap-3 min-w-[120px]">
-              <p className="text-[12px] text-white font-bold ml-1 2xl:text-[.8vw]">
-                North Region
-              </p>
-              <p className="text-[12px] text-white font-bold  ml-1 2xl:text-[.8vw]">
-              OTC {item.IOF_NORTH.toLocaleString()} %
-              </p>
-            </div>
-            <div className="flex flex-col pr-2">
-              <div className=" flex justify-center items-center gap-2">
-                <div className="2xl:max-w-[3.7vw] 2xl:min-w-[3.7vw] max-w-[60px] min-w-[60px]">
-                  <p className="text-white text-[10px] flex flex-col mt-[2px] font-bold  2xl:text-[.6vw] ml-[8px]">
-                    Inset{" "}
-                    <span className="text-[12px] 2xl:text-[.7vw] font-bold">
-                      {item.IN_NORTH.toLocaleString()}
-                    </span>{" "}
-                  </p>
-                </div>
-                {item.IN_NORTH_PER >= 0 ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <RiTriangleFill className="text-green-400 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-                    <h1 className=" text-green-400 2xl:text-[.7vw] text-[12px] ">
-                      +
-                      {Math.abs(item.IN_NORTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.IN_NORTH_PER)
-                        : Math.abs(item.IN_NORTH_PER)}
-                      %
-                    </h1>
-                  </div>
-                ) : (
-                  <div className="icons flex flex-col justify-center items-center arrows">
-                    <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-[#BE1A1A]  ml-[-3px]">
-                      -
-                      {Math.abs(item.IN_NORTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.IN_NORTH_PER)
-                        : Math.abs(item.IN_NORTH_PER)}
-                      %
-                    </h1>
-                    <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />
-                  </div>
-                )}
-              </div>
-              <div className=" flex justify-center items-center gap-2">
-                <div className="2xl:max-w-[3.7vw] 2xl:min-w-[3.7vw]  max-w-[60px] min-w-[60px]">
-                  <p className="text-white flex flex-col text-[10px] font-bold ml-[8px] 2xl:text-[.6vw]">
-                    Outset{" "}
-                    <span className="text-[12px] 2xl:text-[.7vw] font-bold">
-                      {item.OUT_NORTH.toLocaleString()}
-                    </span>{" "}
-                  </p>
-                </div>
-                {item.OUT_NORTH_PER >= 0 ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <RiTriangleFill className="text-green-400  2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-                    <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-green-400  ml-[-3px]">
-                      +
-                      {Math.abs(item.OUT_NORTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.OUT_NORTH_PER)
-                        : Math.abs(item.OUT_NORTH_PER)}
-                      %
-                    </h1>
-                  </div>
-                ) : (
-                  <div className=" flex flex-col justify-center items-center">
-                    <h1 className=" text-[#BE1A1A] 2xl:text-[.7vw] font-bold text-[12px]">
-                      -
-                      {Math.abs(item.OUT_NORTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.OUT_NORTH_PER)
-                        : Math.abs(item.OUT_NORTH_PER)}
-                      %
-                    </h1>
-                    <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-          <div className="first flex justify-between items-center data w-[263px] 2xl:w-[91.5%] 2xl:h-[4vw] h-[62.98px] rounded-[3px] ">
-            <div className="flex flex-col items-center gap-3 min-w-[120px]">
-              <p className="text-[12px] text-white font-bold ml-1 2xl:text-[.8vw]">
-                South Region
-              </p>
-              <p className="text-[12px] text-white font-bold  ml-1 2xl:text-[.8vw]">
-              OTC {item.IOF_SOUTH.toLocaleString()} %
-              </p>
-            </div>
-            <div className="flex flex-col pr-2">
-              <div className=" flex justify-center items-center gap-2">
-                <div className="2xl:max-w-[3.7vw] 2xl:min-w-[3.7vw] max-w-[60px] min-w-[60px]">
-                  <p className="text-white text-[10px] flex flex-col mt-[2px] font-bold  2xl:text-[.6vw] ml-[8px]">
-                    Inset{" "}
-                    <span className="text-[12px] 2xl:text-[.7vw] font-bold ">
-                      {item.IN_SOUTH.toLocaleString()}
-                    </span>{" "}
-                  </p>
-                </div>
-                {item.IN_SOUTH_PER >= 0 ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <RiTriangleFill className="text-green-400 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-                    <h1 className=" text-green-400 2xl:text-[.7vw] text-[12px] ">
-                      +
-                      {Math.abs(item.IN_SOUTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.IN_SOUTH_PER)
-                        : Math.abs(item.IN_SOUTH_PER)}
-                      %
-                    </h1>
-                  </div>
-                ) : (
-                  <div className="icons flex flex-col justify-center items-center arrows">
-                    <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-[#BE1A1A]  ml-[-3px]">
-                      -
-                      {Math.abs(item.IN_SOUTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.IN_SOUTH_PER)
-                        : Math.abs(item.IN_SOUTH_PER)}
-                      %
-                    </h1>
-                    <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />
-                  </div>
-                )}
-              </div>
-              <div className=" flex justify-center items-center gap-2">
-                <div className="2xl:max-w-[3.7vw] 2xl:min-w-[3.7vw]  max-w-[60px] min-w-[60px]">
-                  <p className="text-white flex flex-col text-[10px] font-bold ml-[8px] 2xl:text-[.6vw]">
-                    Outset{" "}
-                    <span className="text-[12px] 2xl:text-[.7vw] font-bold">
-                      {item.OUT_SOUTH.toLocaleString()}
-                    </span>{" "}
-                  </p>
-                </div>
-                {item.OUT_SOUTH_PER >= 0 ? (
-                  <div className="flex flex-col justify-center items-center">
-                    <RiTriangleFill className="text-green-400 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-                    <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-green-400  ml-[-3px]">
-                      +
-                      {Math.abs(item.OUT_SOUTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.OUT_SOUTH_PER)
-                        : Math.abs(item.OUT_SOUTH_PER)}
-                      %
-                    </h1>
-                  </div>
-                ) : (
-                  <div className=" flex flex-col justify-center items-center">
-                    <h1 className=" text-[#BE1A1A] 2xl:text-[.7vw] font-bold text-[12px]">
-                      -
-                      {Math.abs(item.OUT_SOUTH_PER).toString().length === 1
-                        ? "0" + Math.abs(item.OUT_SOUTH_PER)
-                        : Math.abs(item.OUT_SOUTH_PER)}
-                      %
-                    </h1>
-                    <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />
-                   
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        
+      {data.map((item,index) => (
+        <div
+          key={index}
+          className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] py-1 2xl:pb-0 mt-[6px] 2xl:mt-[.2vw]"
+        >
+          <RegionCard
+            regionName="Center Region"
+            otc={item.IOF_CENTER}
+            inset={item.IN_CENTRAL}
+            insetPer={item.IN_CENTRAL_PER}
+            outset={item.OUT_CENTRAL}
+            outsetPer={item.OUT_CENTRAL_PER}
+          />
+          <RegionCard
+            regionName="North Region"
+            otc={item.IOF_NORTH}
+            inset={item.IN_NORTH}
+            insetPer={item.IN_NORTH_PER}
+            outset={item.OUT_NORTH}
+            outsetPer={item.OUT_NORTH_PER}
+          />
+          <RegionCard
+            regionName="South Region"
+            otc={item.IOF_SOUTH}
+            inset={item.IN_SOUTH}
+            insetPer={item.IN_SOUTH_PER}
+            outset={item.OUT_SOUTH}
+            outsetPer={item.OUT_SOUTH_PER}
+          />
         </div>
       ))}
     </div>
