@@ -27,7 +27,7 @@ const ThirdMainCard = () => {
         const response2 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
           params: { SDATE: dateId, EDATE: dateId },
         });
-        setData2(response2.data);
+        setData2(response2.data); 
       } catch (error) {
         console.error('Error fetching TAT data:', error);
       }

@@ -223,7 +223,7 @@ const FourthCard = ({ startWeek, endWeek }) => {
                 </div>
               )}
 
-              <hr className="border border-white h-[85px] 2xl:h-[5.4vw] 2xl:mt-[-1.6vw] mt-[-30px] 2xl:ml-[1.6vw] ml-3" />
+              <hr className="border border-white h-[85px] 2xl:h-[5.4vw] 2xl:mt-[-1.6vw] mt-[-30px] 2xl:ml-[.5vw]" />
               <div className="ml-3">
                 <h1 className="font-bold text-white text-[16px] 2xl:text-[1vw] mt-[-30px] 2xl:mt-[-2vw]">
                   YTD
