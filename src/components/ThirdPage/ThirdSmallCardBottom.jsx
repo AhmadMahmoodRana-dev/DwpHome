@@ -95,7 +95,7 @@ const ThirdSmallCardBottom = ({ name }) => {
           {/* FIRST  */}
           <div>
             <h1 className="text-white font-semibold text-[13px] 2xl:text-[.8vw] tracking-wide text-center">
-             {name} Zone ATAT Category Wise
+             {name} Ac ATAT Nation Wise
             </h1>
             {/* TABLE DIV */}
             <div className="w-full px-1 mt-4 2xl:px-[.2vw]">

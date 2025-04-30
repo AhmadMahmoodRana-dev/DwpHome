@@ -1,8 +1,9 @@
 import { RiTriangleFill } from "react-icons/ri";
+import { FaPlus, FaMinus } from "react-icons/fa";
 
 const RegionCard = ({ regionName, otc, inset, insetPer, outset, outsetPer }) => {
   const formatPercentage = (value) =>
-    `${value >= 0 ? "+" : "-"}${Math.abs(value).toString().padStart(2, "0")}%`;
+    `${value >= 0 ? "" : ""}${Math.abs(value).toString().padStart(2, "0")}%`;
 
   const renderChange = (value) => {
     const isPositive = value >= 0;
@@ -11,13 +12,15 @@ const RegionCard = ({ regionName, otc, inset, insetPer, outset, outsetPer }) => 
         {isPositive ? (
           <>
             <RiTriangleFill className="text-green-400 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px]" />
-            <h1 className="text-green-400 2xl:text-[.7vw] text-[12px] ml-[-3px]">
-              {formatPercentage(value)}
+            <h1 className="text-green-400 flex justify-center items-center gap-1 2xl:text-[.7vw] text-[10px] ml-[-3px]">
+            <FaPlus className="text-green-400 text-[8px] 2xl:text-[.5vw]" />
+            {formatPercentage(value)}
             </h1>
           </>
         ) : (
           <>
-            <h1 className="text-[12px] 2xl:text-[.7vw] font-bold text-[#BE1A1A] ml-[-3px]">
+            <h1 className="text-[10px] flex justify-center items-center gap-1 2xl:text-[.7vw] font-bold text-[#BE1A1A] ml-[-3px]">
+            <FaMinus className="text-red-600 text-[8px] 2xl:text-[.5vw]" />
               {formatPercentage(value)}
             </h1>
             <RiTriangleFill className="text-[#BE1A1A] 2xl:text-[.6vw] mt-[-2px] w-[10px] h-[10px] 2xl:w-[.7vw] 2xl:h-[.7vw] ml-[-3px] rotate-180" />

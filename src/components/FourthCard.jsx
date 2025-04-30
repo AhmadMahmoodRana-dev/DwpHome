@@ -192,7 +192,7 @@ const FourthCard = ({ startWeek, endWeek }) => {
         <h3 className="text-white font-bold text-[14px] 2xl:text-[1.1vw] leading-10 mt-[-22px] 2xl:leading-[2.4vw] 2xl:mt-[-1.2vw]">
           Weekly Revenue
         </h3>
-        <div className="flex gap-3 2xl:gap-[.5vw]">
+        <div className="flex gap-2 2xl:gap-[.3vw]">
           {data.map((item) => (
             <>
               <p className=" text-white font-bold mt-2 2xl:mt-[.5vw] text-[45px] leading-9 2xl:text-[3.1vw] 2xl:leading-[2.5vw]">
