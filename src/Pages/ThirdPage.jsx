@@ -54,13 +54,13 @@ const products = [
 const bottomProducts = [
   {
     id: 1,
-    name: "Ecostar",
+    name: "Ecostar AC",
     image: "https://via.placeholder.com/300",
     description: "Product 1 Description",
   },
   {
     id: 2,
-    name: "Refrigerr",
+    name: "Refrigerator",
     image: "https://via.placeholder.com/300",
     description: "Product 2 Description",
   },

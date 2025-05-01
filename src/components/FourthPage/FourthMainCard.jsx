@@ -256,7 +256,7 @@ const FourthMainCard = () => {
               return (
                 <>
                   <div className="color-boxes-cotainer flex mt-[.6vw] items-center">
-                    <h1 className="text-white bottom-h1 text-[14px] 2xl:text-[.9vw]">
+                    <h1 className="text-white  text-[12px] 2xl:text-[.48vw] pr-1">
                       {item.WEEKS}
                     </h1>
                     <div className="box-1 pl-3 flex flex-col">
