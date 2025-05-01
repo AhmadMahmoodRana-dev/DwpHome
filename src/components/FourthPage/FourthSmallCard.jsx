@@ -130,7 +130,7 @@ const FourthSmallCard = ({name}) => {
   ];
   return (
     <>
-      <div className="w-[290px] smallcardMain 2xl:min-w-[10px] min-w-[300px]  2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
+      <div className="w-[300px] smallcardMain 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
         <h1 className="text-white font-semibold 2xl:text-[1.1vw] text-[1.3rem] text-center">
          {name}
         </h1>
@@ -234,8 +234,8 @@ const FourthSmallCard = ({name}) => {
               return (
                 <>
                   <div className="color-boxes-cotainer flex mt-[.6vw] items-center">
-                    <h1 className="text-white  text-[13px] 2xl:text-[.48vw] pr-1">
-                      Week 39
+                    <h1 className="text-white  text-[10px] 2xl:text-[.45vw] pr-1">
+                      WEEK 39
                     </h1>
                     <div className="box-1 pl-1 flex flex-col">
                       <div className="box-sigm-1 flex items-center">

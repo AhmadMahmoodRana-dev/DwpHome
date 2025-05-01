@@ -198,7 +198,7 @@ export default function ThirdPage() {
               </div>
               <button
                 variant="outline"
-                className={`absolute bottom-[50%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
+                className={`absolute bottom-[50%] 2xl:left-[-4.4%] xl:left-[-3.5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
                   isFirstSlide ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 onClick={previousProduct}
@@ -231,7 +231,7 @@ export default function ThirdPage() {
               </div>
               <button
                 variant="outline"
-                className={`absolute bottom-[50%] 2xl:left-[-4.4%] xl:left-[-5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
+                className={`absolute bottom-[50%] 2xl:left-[-4.4%] xl:left-[-3.5%] lg:left-[-15%] md:left-[-13%] left-[-11%] secondpage-back-arrow ${
                   isFirstBottomSlide ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 onClick={previousBottomProduct}
