@@ -99,7 +99,7 @@ const FifthMainCard = () => {
           {/* LEFT */}
           <div className="w-[65%]">
             <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
-              <p className="text-white 2xl:text-[3.7vw] font-bold text-[50px] flex justify-center">
+              <p className="text-white 2xl:text-[3.2vw] font-bold text-[47px] flex justify-center">
                 {data[0]?.TOTAL_REVENUE.toLocaleString()}
                 <div className="2xl:mt-5">
                   {data[0]?.TOTAL_REVENUE_PER >= 0 ? (

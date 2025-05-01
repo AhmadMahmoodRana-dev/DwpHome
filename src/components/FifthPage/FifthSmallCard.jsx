@@ -101,9 +101,9 @@ const { filteredData } = useContext(Context);
       </h1>
       <div className="SecondMainContainer flex mt-3">
         {/* LEFT */}
-        <div className="w-[65%] 2xl:w-[65   %]">
+        <div className="w-[65%] 2xl:w-[65%]">
           <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
-            <p className="text-white 2xl:text-[3vw] font-bold text-[50px] flex justify-center">
+            <p className="text-white 2xl:text-[3vw] font-bold text-[47px] flex justify-center">
               7.28
               <div className="2xl:mt-5">
                 <div className="icons flex flex-col justify-center items-center ml-2">
@@ -135,7 +135,7 @@ const { filteredData } = useContext(Context);
         </div>
       </div>
       {/* Bottom Container */}
-      <div className="semi_progress_bar flex justify-between pr-4 mt-5">
+      <div className="semi_progress_bar flex justify-between pr-4 mt-4">
         <div className="handle-progress">
           <h1 className="text-[12px] pb-1 2xl:text-[.7vw] font-semibold text-white text-center">
             Parts
