@@ -19,7 +19,7 @@ const data = [
   },
   {
     week: "Week - 40",
-GreeAC: 2400,
+    GreeAC: 2400,
     EcoStarAC: 2000,
     EcostarLED: 1500,
     Refrigerator: 1000,
@@ -35,7 +35,7 @@ GreeAC: 2400,
   },
   {
     week: "Week - 42",
-   GreeAC: 2400,
+    GreeAC: 2400,
     EcoStarAC: 2000,
     EcostarLED: 1500,
     Refrigerator: 1000,
@@ -59,7 +59,15 @@ const BarChart1 = () => {
             angle={0}
           />
           <YAxis tick={{ fill: "white", fontSize: "6px" }} />
-          <Tooltip />
+          <Tooltip
+            contentStyle={{
+              backgroundColor: "#000", // Your desired background color
+              border: "none",
+              borderRadius: "4px",
+              color: "white", // Text color
+              fontSize: "12px", // Optional: control text size
+            }}
+          />{" "}
           <Bar dataKey="GreeAC" fill="#ffffff" name="Gree AC" />
           <Bar dataKey="EcoStarAC" fill="#cd0164" name="EcoStar AC" />
           <Bar dataKey="EcostarLED" fill="#49dd80" name="Ecostar LED-TV" />
@@ -78,7 +86,9 @@ const BarChart1 = () => {
         </div>
         <div className="flex justify-center items-center gap-1">
           <div className="w-[15px] 2xl:w-[1.1vw] 2xl:h-[.7vw] h-[9px] bg-[#49dd80]"></div>
-          <p className="text-[7px] 2xl:text-[.44vw] text-white">Ecostar LED-TV</p>
+          <p className="text-[7px] 2xl:text-[.44vw] text-white">
+            Ecostar LED-TV
+          </p>
         </div>
         <div className="flex justify-center items-center gap-1">
           <div className="w-[15px] 2xl:w-[1.1vw] 2xl:h-[.7vw] h-[9px] bg-[#953333]"></div>

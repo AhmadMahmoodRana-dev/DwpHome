@@ -59,8 +59,15 @@ const SmallBarChart = () => {
             angle={0}
           />
           <YAxis tick={{ fill: "white", fontSize: "6px" }} />
-          <Tooltip />
-          <Bar dataKey="GreeAC" fill="#ffffff" name="Gree AC" />
+   <Tooltip
+  contentStyle={{
+    backgroundColor: "#000",  // Your desired background color
+    border: "none",
+    borderRadius: "4px",
+    color: "white",              // Text color
+    fontSize: "12px",            // Optional: control text size
+  }}
+/>            <Bar dataKey="GreeAC" fill="#ffffff" name="Gree AC" />
           <Bar dataKey="EcoStarAC" fill="#cd0164" name="EcoStar AC" />
           <Bar dataKey="EcostarLED" fill="#49dd80" name="Ecostar LED-TV" />
           <Bar dataKey="Refrigerator" fill="#953333" name="Refrigerator" />

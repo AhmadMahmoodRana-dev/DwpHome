@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import "../Styling/Home.css";
 import Sidebar from "../components/Sidebar";
-import Weather from "@/components/Weather";
 import { GoSidebarCollapse } from "react-icons/go";
 import MobileSidebar from "@/components/MobileSidebar";
 import { Context } from "@/context/Context";
