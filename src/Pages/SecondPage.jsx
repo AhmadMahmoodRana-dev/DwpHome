@@ -112,23 +112,21 @@ export default function SecondPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
+  
       if (screenWidth < 640) {
-        setProductsPerSlide(1); // For small screens
+        setProductsPerSlide(1); 
       } else if (screenWidth < 1025) {
-        setProductsPerSlide(1); // For medium screens
-      } else if (screenWidth > 1200 && screenWidth < 1230) {
-        setProductsPerSlide(2); // For large screens
+        setProductsPerSlide(1); // Medium screens
+      } else if (screenWidth >= 1025 && screenWidth < 1280) {
+        setProductsPerSlide(2); // ✅ 2 cards for 1025px–1279px
       } else {
-        setProductsPerSlide(3); // For large screens
+        setProductsPerSlide(3); // 1280px and above
       }
     };
-
-    handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize); // Update on resize
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup
-    };
+  
+    handleResize(); // Initial call
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const currentProducts = products.slice(
@@ -161,23 +159,21 @@ export default function SecondPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
+  
       if (screenWidth < 640) {
-        setBottomProductsPerSlide(1); // For small screens
+        setBottomProductsPerSlide(1); // Small screens
       } else if (screenWidth < 1025) {
-        setBottomProductsPerSlide(1); // For medium screens
-      } else if (screenWidth > 1200 && screenWidth < 1230) {
-        setBottomProductsPerSlide(2); // For large screens
+        setBottomProductsPerSlide(1); // Medium screens
+      } else if (screenWidth >= 1025 && screenWidth < 1280) {
+        setBottomProductsPerSlide(2); // ✅ 2 cards for 1025px–1279px
       } else {
-        setBottomProductsPerSlide(3); // For large screens
+        setBottomProductsPerSlide(3); // 1280px and above
       }
     };
-
-    handleResize(); // Set initial value
-    window.addEventListener("resize", handleResize); // Update on resize
-
-    return () => {
-      window.removeEventListener("resize", handleResize); // Cleanup
-    };
+  
+    handleResize(); // Initial call
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const currentBottomProducts = products.slice(

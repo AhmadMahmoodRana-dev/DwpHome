@@ -93,7 +93,7 @@ useEffect(() => {
       <div className="w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
         {/* Top Container */}
         <h1 className="text-white font-bold 2xl:text-[1.4vw] tracking-wide">
-          Nation Wide Inset
+          Nation Wide Outset
         </h1>
         <div className="SecondMainContainer flex">
           {/* LEFT */}
@@ -249,7 +249,7 @@ useEffect(() => {
         {/* FIRST  */}
         <div>
           <h1 className="text-white font-semibold text-[14px] 2xl:text-[.9vw] tracking-wide text-center">
-            Nation Wide Outset Category Wise
+            Nation Wide Inset Category Wise
           </h1>
           {/* TABLE */}
 

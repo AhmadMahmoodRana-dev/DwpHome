@@ -45,7 +45,7 @@ const SmallCardBottom = ({ name }) => {
       {/* FIRST  */}
       <div>
         <h1 className="text-white font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
-          {name} Outset Category Wise
+          {name} Inset Category Wise
         </h1>
         {/* TABLE */}
 

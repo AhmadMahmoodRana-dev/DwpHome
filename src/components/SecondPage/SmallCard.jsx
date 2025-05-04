@@ -9,7 +9,7 @@ const SecondPage = ({name,TableData}) => {
       <div className="smallcardMain w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
         {/* Top Container */}
             <h1 className="text-white font-bold 2xl:text-[1.25vw] tracking-wide">
-             {name} Inset
+             {name} Outset
             </h1>
         <div className="SecondMainContainer flex mt-1">
           {/* LEFT */}

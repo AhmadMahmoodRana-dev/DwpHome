@@ -45,7 +45,7 @@ const data = [
 
 const BarChart1 = () => {
   return (
-    <div className="w-full h-[200px] rounded-lg mt-4">
+    <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg mt-4">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
@@ -61,7 +61,7 @@ const BarChart1 = () => {
           <YAxis tick={{ fill: "white", fontSize: "6px" }} />
           <Tooltip
             contentStyle={{
-              backgroundColor: "#000", // Your desired background color
+              backgroundColor: "#000", 
               border: "none",
               borderRadius: "4px",
               color: "white", // Text color

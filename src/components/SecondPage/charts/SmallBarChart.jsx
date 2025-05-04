@@ -45,7 +45,7 @@ GreeAC: 2400,
 
 const SmallBarChart = () => {
   return (
-    <div className="w-full h-[200px] rounded-lg mt-4">
+    <div className="w-full h-[150px] rounded-lg mt-4">
       <ResponsiveContainer width="100%" height="100%">
         <BarChart
           data={data}
