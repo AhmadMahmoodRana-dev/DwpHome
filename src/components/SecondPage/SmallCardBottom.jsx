@@ -94,7 +94,7 @@ const SmallCardBottom = ({ name }) => {
       {/* Second Card */}
       <div className="mt-5">
         <h1 className="text-white font-semibold text-[14px] 2xl:text-[.85vw] tracking-wide text-center">
-          {name} Inset Category Wise
+          {name} Outset Category Wise
         </h1>
         {/* TABLE */}
 

@@ -49,47 +49,38 @@ const ThirdSmallCard = ({name}) => {
 
   const chartData2 = formatDataForChart(data2);
 
-
-
-
-
-
-
-
-
-
   const TableData = [
     {
       id: 1,
       weeks: "Week 39",
       Inset: "2,308",
       Outset: "2,378",
-      OTC: "64%",
-      OTC1: "64%",
+      OTC: "1345",
+      OTC1: "1345",
     },
     {
       id: 2,
       weeks: "Week 40",
       Inset: "2,308",
       Outset: "2,378",
-      OTC: "64%",
-      OTC1: "64%",
+      OTC: "1345",
+      OTC1: "1345",
     },
     {
       id: 3,
       weeks: "Week 41",
       Inset: "2,308",
       Outset: "2,378",
-      OTC: "64%",
-      OTC1: "64%",
+      OTC: "1345",
+      OTC1: "1345",
     },
     {
       id: 4,
       weeks: "Week 42",
       Inset: "2,308",
       Outset: "2,378",
-      OTC: "64%",
-      OTC1: "64%",
+      OTC: "1345",
+      OTC1: "1345",
     },
   ];
 
@@ -272,8 +263,6 @@ const ThirdSmallCard = ({name}) => {
           <ThirdMainChart chartData={chartData2} />
         </div>
       </div>
-
-      
     </>
   );
 };
