@@ -412,18 +412,21 @@ p {
 @media (min-width: 1199px) and (max-width: 1251px) {
   .secondpage-back-arrow {
     /* display: none !important; */
-    left: -42px !important;
+    left: -38px !important;
   }
   .secondpage-front-arrow {
     /* display: none !important; */
-    right: -42px !important;
+    right: -30px !important;
   }
   .second-main-div{
     padding: 0 !important;
-    gap: 40px;
+    gap: 30px;
+  }
+  .sidebar{
+    width: 280px !important;
   }
   /* .slider-main-card{
-    padding-right: 30px;
+    padding-right: 20px;
   } */
   .secondheader{
     padding: 0 !important;
