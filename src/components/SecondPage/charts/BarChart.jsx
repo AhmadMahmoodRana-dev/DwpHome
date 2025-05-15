@@ -8,42 +8,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-const data = [
-  {
-    week: "Week - 39",
-    GreeAC: 2400,
-    EcoStarAC: 2000,
-    EcostarLED: 1500,
-    Refrigerator: 1000,
-    Other: 500,
-  },
-  {
-    week: "Week - 40",
-    GreeAC: 2400,
-    EcoStarAC: 2000,
-    EcostarLED: 1500,
-    Refrigerator: 1000,
-    Other: 500,
-  },
-  {
-    week: "Week - 41",
-    GreeAC: 2400,
-    EcoStarAC: 2000,
-    EcostarLED: 1500,
-    Refrigerator: 1000,
-    Other: 500,
-  },
-  {
-    week: "Week - 42",
-    GreeAC: 2400,
-    EcoStarAC: 2000,
-    EcostarLED: 1500,
-    Refrigerator: 1000,
-    Other: 500,
-  },
-];
 
-const BarChart1 = () => {
+const BarChart1 = ({data}) => {
   return (
     <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg mt-4">
       <ResponsiveContainer width="100%" height="100%">
