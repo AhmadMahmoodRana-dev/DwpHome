@@ -1,45 +1,30 @@
 import React from "react";
 import SmallBarChart from "./charts/SmallBarChart";
 
-const SmallCardBottom = ({ name }) => {
-  const NationWideInsetData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      greeAc: "4,000",
-      es_Ac: "293",
-      es_Led: "139",
-      ref: "123",
-      others: "111",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      greeAc: "4,000",
-      es_Ac: "293",
-      es_Led: "139",
-      ref: "123",
-      others: "111",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      greeAc: "4,000",
-      es_Ac: "293",
-      es_Led: "139",
-      ref: "123",
-      others: "111",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      greeAc: "4,000",
-      es_Ac: "293",
-      es_Led: "139",
-      ref: "123",
-      others: "111",
-    },
-  ];
+const SmallCardBottom = ({ name,bottomTable1,bottomTable2 }) => {
+  const formatDataInsetBarChart = (data) =>{
+    return data.map((item) => ({
+    week: item?.NO_OF_WEEKS,
+    GreeAC:  item?.IN_GREE_AC ,
+    EcoStarAC:  item?.IN_ECOSTAR_AC,
+    EcostarLED:  item?.IN_ECOSTAR_LED_TV,
+    Refrigerator:  item?.IN_REFRIGERATOR,
+    Other:  item?.IN_OTHERS,
+  }));
+}
+const insetBarChart = formatDataInsetBarChart(bottomTable1);
+const formatDataOutsetBarChart = (data) =>{
+  return data.map((item) => ({
+  week: item.NO_OF_WEEKS,
+  GreeAC:  item.OUT_GREE_AC ,
+  EcoStarAC:  item.OUT_ECOSTAR_AC,
+  EcostarLED:  item.OUT_ECOSTAR_LED_TV,
+  Refrigerator:  item.OUT_REFRIGERATOR,
+  Other:  item.OUT_OTHERS,
+}));
+}
+const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
+ 
   return (
     <div className="smallcardMain w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
       {/* FIRST  */}
@@ -60,26 +45,26 @@ const SmallCardBottom = ({ name }) => {
               <th className="font-medium">Others</th>
             </tr>
 
-            {NationWideInsetData.map((data, index) => {
+            {bottomTable1.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.65vw] px-1  font-normal text-white">
-                    {data?.weeks}
+                    {data?.NO_OF_WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center  text-white">
-                    {data?.greeAc}
+                  {data?.IN_GREE_AC.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data.es_Ac}
+                  {data?.IN_ECOSTAR_AC.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data.es_Led}
+                  {data?.IN_ECOSTAR_LED_TV.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data.ref}
+                  {data?.IN_REFRIGERATOR.toLocaleString()}
                   </td>
                   <td className="text-right pt-2  2xl:text-[.75vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data.others}
+                  {data?.IN_OTHERS.toLocaleString()}
                   </td>
                 </tr>
               );
@@ -87,7 +72,7 @@ const SmallCardBottom = ({ name }) => {
           </table>
           <hr className="2xl:mt-8" />
         </div>
-        <SmallBarChart />
+        <SmallBarChart data={insetBarChart} />
         <hr className="mt-[2vw]" />
       </div>
 
@@ -109,26 +94,26 @@ const SmallCardBottom = ({ name }) => {
               <th className="font-medium">Others</th>
             </tr>
 
-            {NationWideInsetData.map((data, index) => {
+            {bottomTable2.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.65vw] px-1  font-normal text-white">
-                    {data?.weeks}
+                    {data?.NO_OF_WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center  text-white">
-                    {data?.greeAc}
+                    {data?.OUT_GREE_AC}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data.es_Ac}
+                    {data.OUT_ECOSTAR_AC}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data.es_Led}
+                    {data.OUT_ECOSTAR_LED_TV}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data.ref}
+                    {data.OUT_REFRIGERATOR}
                   </td>
                   <td className="text-right pt-2  2xl:text-[.75vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data.others}
+                    {data.OUT_OTHERS}
                   </td>
                 </tr>
               );
@@ -137,7 +122,7 @@ const SmallCardBottom = ({ name }) => {
           <hr />
         </div>
 
-        <SmallBarChart />
+        <SmallBarChart data={outsetBarChart} />
       </div>
     </div>
   );

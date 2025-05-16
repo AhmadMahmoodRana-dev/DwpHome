@@ -7,38 +7,6 @@ import Header from "@/components/SecondPage/header/Header";
 import SmallCardBottom from "@/components/SecondPage/SmallCardBottom";
 import { Context } from "@/context/Context";
 
-const TableData = [
-  {
-    id: 1,
-    weeks: "Week 30",
-    Inset: "2,308",
-    Outset: "2,378",
-    OTC: "64%",
-  },
-  {
-    id: 2,
-    weeks: "Week 40",
-    Inset: "2,308",
-    Outset: "2,378",
-    OTC: "64%",
-  },
-  {
-    id: 3,
-    weeks: "Week 41",
-    Inset: "2,308",
-    Outset: "2,378",
-    OTC: "64%",
-  },
-  {
-    id: 4,
-    weeks: "Week 42",
-    Inset: "2,308",
-    Outset: "2,378",
-    OTC: "64%",
-  },
-];
-
-
 export default function SecondPage() {
   const {
     OthersRawalpindiData,
@@ -54,7 +22,21 @@ export default function SecondPage() {
     topTableLahoreData,
     topTableMultanData,
     topTableHyderabadData,
-    topTableKarachiData
+    topTableKarachiData,
+    bottomTable1RawalpindiData,
+    bottomTable1FaisalabadData,
+    bottomTable1GujranwalaData,
+    bottomTable1LahoreData,
+    bottomTable1MultanData,
+    bottomTable1HyderabadData,
+    bottomTable1KarachiData,
+    bottomTable2RawalpindiData,
+    bottomTable2FaisalabadData,
+    bottomTable2GujranwalaData,
+    bottomTable2LahoreData,
+    bottomTable2MultanData,
+    bottomTable2HyderabadData,
+    bottomTable2KarachiData,
   } = useContext(Context);
 
   const products = [
@@ -62,50 +44,57 @@ export default function SecondPage() {
       id: 1,
       name: "Rawalpindi",
       others: OthersRawalpindiData,
-      description: "Product 1 Description",
       TableData: topTableRawalpindiData,
+      bottomTable1: bottomTable1RawalpindiData,
+      bottomTable2: bottomTable2RawalpindiData,
     },
     {
       id: 2,
       name: "Faisalabad",
       others: OthersFaisalabadData,
-      description: "Product 2 Description",
       TableData: topTableFaisalabadData,
+      bottomTable1: bottomTable1FaisalabadData,
+      bottomTable2: bottomTable2FaisalabadData,
     },
     {
       id: 3,
       name: "Gujranwala",
       others: OthersGujranwalaData,
-      description: "Product 3 Description",
       TableData: topTableGujranwalaData,
+      bottomTable1: bottomTable1GujranwalaData,
+      bottomTable2: bottomTable2GujranwalaData,
     },
     {
       id: 4,
       name: "Lahore",
       others: OthersLahoreData,
-      description: "Product 4 Description",
       TableData: topTableLahoreData,
+      bottomTable1: bottomTable1LahoreData,
+      bottomTable2: bottomTable2LahoreData,
     },
     {
       id: 5,
       name: "Multan",
       others: OthersMultanData,
-      description: "Product 5 Description",
       TableData: topTableMultanData,
+      bottomTable1: bottomTable1MultanData,
+      bottomTable2: bottomTable2MultanData,
     },
     {
       id: 6,
       name: "Hyderabad",
       others: OthersHyderabadData,
-      description: "Product 6 Description",
       TableData: topTableHyderabadData,
+      bottomTable1: bottomTable1HyderabadData,
+      bottomTable2: bottomTable2HyderabadData,
     },
     {
       id: 7,
       name: "Karachi",
       others: OthersKarachiData,
-      description: "Product 6 Description",
       TableData: topTableKarachiData,
+      bottomTable1: bottomTable1KarachiData,
+      bottomTable2: bottomTable2KarachiData,
     },
   ];
 
@@ -257,7 +246,7 @@ export default function SecondPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts?.map((product) => (
                   <div key={product.id} className="w-full">
-                    <SmallCardBottom name={product?.name}  />
+                    <SmallCardBottom name={product?.name} bottomTable1={product?.bottomTable1} bottomTable2={product?.bottomTable2}  />
                   </div>
                 ))}
               </div>

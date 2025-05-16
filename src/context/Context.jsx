@@ -140,6 +140,44 @@ const topTableMultanData = extractMultipleFields(table, fieldsToExtractMultantop
 const topTableHyderabadData = extractMultipleFields(table, fieldsToExtractHyderabadtopTable, topTableCustomFieldNames);
 const topTableKarachiData = extractMultipleFields(table, fieldsToExtractKarachitopTable, topTableCustomFieldNames);
 
+// BOTTOM SMALL CARD FIRST TABLE
+const bottomTable1CustomFieldNames = ["NO_OF_WEEKS", "IN_GREE_AC", "IN_ECOSTAR_AC","IN_ECOSTAR_LED_TV","IN_REFRIGERATOR","IN_OTHERS"];
+
+const fieldsToExtractRawalpindibottomTable1 = ["NO_OF_WEEKS","RWP_IN_GREE_AC","RWP_IN_ECOSTAR_AC","RWP_IN_ECOSTAR_LED_TV","RWP_IN_REFRIGERATOR","RWP_IN_OTHERS"];
+const fieldsToExtractFaisalabadbottomTable1 = ["NO_OF_WEEKS","FSD_IN_GREE_AC","FSD_IN_ECOSTAR_AC","FSD_IN_ECOSTAR_LED_TV","FSD_IN_REFRIGERATOR","FSD_IN_OTHERS"];
+const fieldsToExtractGujranwalabottomTable1 = ["NO_OF_WEEKS", "GUJ_IN_GREE_AC","GUJ_IN_ECOSTAR_AC","GUJ_IN_ECOSTAR_LED_TV","GUJ_IN_REFRIGERATOR","GUJ_IN_OTHERS"];
+const fieldsToExtractLahorebottomTable1 =     ["NO_OF_WEEKS","LHE_IN_GREE_AC","LHE_IN_ECOSTAR_AC","LHE_IN_ECOSTAR_LED_TV","LHE_IN_REFRIGERATOR","LHE_IN_OTHERS"];
+const fieldsToExtractMultanbottomTable1 =     ["NO_OF_WEEKS","MUL_IN_GREE_AC","MUL_IN_ECOSTAR_AC","MUL_IN_ECOSTAR_LED_TV","MUL_IN_REFRIGERATOR","MUL_IN_OTHERS"];
+const fieldsToExtractHyderabadbottomTable1 =  ["NO_OF_WEEKS","HYD_IN_GREE_AC","HYD_IN_ECOSTAR_AC","HYD_IN_ECOSTAR_LED_TV","HYD_IN_REFRIGERATOR","HYD_IN_OTHERS"];
+const fieldsToExtractKarachibottomTable1 =    ["NO_OF_WEEKS","KHI_IN_GREE_AC","KHI_IN_ECOSTAR_AC","KHI_IN_ECOSTAR_LED_TV","KHI_IN_REFRIGERATOR","KHI_IN_OTHERS"];
+
+const bottomTable1RawalpindiData = extractMultipleFields(table, fieldsToExtractRawalpindibottomTable1, bottomTable1CustomFieldNames);
+const bottomTable1FaisalabadData = extractMultipleFields(table, fieldsToExtractFaisalabadbottomTable1, bottomTable1CustomFieldNames);
+const bottomTable1GujranwalaData = extractMultipleFields(table, fieldsToExtractGujranwalabottomTable1, bottomTable1CustomFieldNames);
+const bottomTable1LahoreData = extractMultipleFields(table, fieldsToExtractLahorebottomTable1, bottomTable1CustomFieldNames);
+const bottomTable1MultanData = extractMultipleFields(table, fieldsToExtractMultanbottomTable1, bottomTable1CustomFieldNames);
+const bottomTable1HyderabadData = extractMultipleFields(table, fieldsToExtractHyderabadbottomTable1, bottomTable1CustomFieldNames);
+const bottomTable1KarachiData = extractMultipleFields(table, fieldsToExtractKarachibottomTable1, bottomTable1CustomFieldNames);
+
+// BOTTOM SMALL CARD SECOND TABLE
+const bottomTable2CustomFieldNames = ["NO_OF_WEEKS", "OUT_GREE_AC", "OUT_ECOSTAR_AC","OUT_ECOSTAR_LED_TV","OUT_REFRIGERATOR","OUT_OTHERS"];
+
+const fieldsToExtractRawalpindibottomTable2 = ["NO_OF_WEEKS","RWP_OUT_GREE_AC","RWP_OUT_ECOSTAR_AC","RWP_OUT_ECOSTAR_LED_TV","RWP_OUT_REFRIGERATOR","RWP_OUT_OTHERS"];
+const fieldsToExtractFaisalabadbottomTable2 = ["NO_OF_WEEKS","FSD_OUT_GREE_AC","FSD_OUT_ECOSTAR_AC","FSD_OUT_ECOSTAR_LED_TV","FSD_OUT_REFRIGERATOR","FSD_OUT_OTHERS"];
+const fieldsToExtractGujranwalabottomTable2 = ["NO_OF_WEEKS", "GUJ_OUT_GREE_AC","GUJ_OUT_ECOSTAR_AC","GUJ_OUT_ECOSTAR_LED_TV","GUJ_OUT_REFRIGERATOR","GUJ_OUT_OTHERS"];
+const fieldsToExtractLahorebottomTable2 =     ["NO_OF_WEEKS","LHE_OUT_GREE_AC","LHE_OUT_ECOSTAR_AC","LHE_OUT_ECOSTAR_LED_TV","LHE_OUT_REFRIGERATOR","LHE_OUT_OTHERS"];
+const fieldsToExtractMultanbottomTable2 =     ["NO_OF_WEEKS","MUL_OUT_GREE_AC","MUL_OUT_ECOSTAR_AC","MUL_OUT_ECOSTAR_LED_TV","MUL_OUT_REFRIGERATOR","MUL_OUT_OTHERS"];
+const fieldsToExtractHyderabadbottomTable2 =  ["NO_OF_WEEKS","HYD_OUT_GREE_AC","HYD_OUT_ECOSTAR_AC","HYD_OUT_ECOSTAR_LED_TV","HYD_OUT_REFRIGERATOR","HYD_OUT_OTHERS"];
+const fieldsToExtractKarachibottomTable2 =    ["NO_OF_WEEKS","KHI_OUT_GREE_AC","KHI_OUT_ECOSTAR_AC","KHI_OUT_ECOSTAR_LED_TV","KHI_OUT_REFRIGERATOR","KHI_OUT_OTHERS"];
+
+const bottomTable2RawalpindiData = extractMultipleFields(table, fieldsToExtractRawalpindibottomTable2, bottomTable2CustomFieldNames);
+const bottomTable2FaisalabadData = extractMultipleFields(table, fieldsToExtractFaisalabadbottomTable2, bottomTable2CustomFieldNames);
+const bottomTable2GujranwalaData = extractMultipleFields(table, fieldsToExtractGujranwalabottomTable2, bottomTable2CustomFieldNames);
+const bottomTable2LahoreData = extractMultipleFields(table, fieldsToExtractLahorebottomTable2, bottomTable2CustomFieldNames);
+const bottomTable2MultanData = extractMultipleFields(table, fieldsToExtractMultanbottomTable2, bottomTable2CustomFieldNames);
+const bottomTable2HyderabadData = extractMultipleFields(table, fieldsToExtractHyderabadbottomTable2, bottomTable2CustomFieldNames);
+const bottomTable2KarachiData = extractMultipleFields(table, fieldsToExtractKarachibottomTable2, bottomTable2CustomFieldNames);
+
 
 
   // ######################################################################################################################################
@@ -168,7 +206,23 @@ const topTableKarachiData = extractMultipleFields(table, fieldsToExtractKarachit
     topTableLahoreData,
     topTableMultanData,
     topTableHyderabadData,
-    topTableKarachiData
+    topTableKarachiData,
+    // #####################  SECOND PAGE BOTTOM TABLE 1  #########################
+    bottomTable1RawalpindiData,
+    bottomTable1FaisalabadData,
+    bottomTable1GujranwalaData,
+    bottomTable1LahoreData,
+    bottomTable1MultanData,
+    bottomTable1HyderabadData,
+    bottomTable1KarachiData,
+    // #####################  SECOND PAGE BOTTOM TABLE 2  #########################
+    bottomTable2RawalpindiData,
+    bottomTable2FaisalabadData,
+    bottomTable2GujranwalaData,
+    bottomTable2LahoreData,
+    bottomTable2MultanData,
+    bottomTable2HyderabadData,
+    bottomTable2KarachiData,
   };
 
   return (
