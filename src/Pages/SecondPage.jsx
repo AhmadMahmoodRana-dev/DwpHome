@@ -2,9 +2,10 @@ import SmallCard from "@/components/SecondPage/SmallCard";
 import MainCard from "@/components/SecondPage/MainCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { RxTriangleLeft } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "@/components/SecondPage/header/Header";
 import SmallCardBottom from "@/components/SecondPage/SmallCardBottom";
+import { Context } from "@/context/Context";
 
 const TableData = [
   {
@@ -37,59 +38,77 @@ const TableData = [
   },
 ];
 
-const products = [
-  {
-    id: 1,
-    name: "Rawalpindi",
-    image: "https://via.placeholder.com/300",
-    description: "Product 1 Description",
-    TableData: TableData,
-  },
-  {
-    id: 2,
-    name: "Faisalabad",
-    image: "https://via.placeholder.com/300",
-    description: "Product 2 Description",
-    TableData: TableData,
-  },
-  {
-    id: 3,
-    name: "Gujranwala",
-    image: "https://via.placeholder.com/300",
-    description: "Product 3 Description",
-    TableData: TableData,
-  },
-  {
-    id: 4,
-    name: "Lahore",
-    image: "https://via.placeholder.com/300",
-    description: "Product 4 Description",
-    TableData: TableData,
-  },
-  {
-    id: 5,
-    name: "Multan",
-    image: "https://via.placeholder.com/300",
-    description: "Product 5 Description",
-    TableData: TableData,
-  },
-  {
-    id: 6,
-    name: "Hyderabad",
-    image: "https://via.placeholder.com/300",
-    description: "Product 6 Description",
-    TableData: TableData,
-  },
-  {
-    id: 7,
-    name: "Karachi",
-    image: "https://via.placeholder.com/300",
-    description: "Product 6 Description",
-    TableData: TableData,
-  },
-];
 
 export default function SecondPage() {
+  const {
+    OthersRawalpindiData,
+    OthersFaisalabadData,
+    OthersGujranwalaData,
+    OthersLahoreData,
+    OthersMultanData,
+    OthersHyderabadData,
+    OthersKarachiData,
+    topTableRawalpindiData,
+    topTableFaisalabadData,
+    topTableGujranwalaData,
+    topTableLahoreData,
+    topTableMultanData,
+    topTableHyderabadData,
+    topTableKarachiData
+  } = useContext(Context);
+
+  const products = [
+    {
+      id: 1,
+      name: "Rawalpindi",
+      others: OthersRawalpindiData,
+      description: "Product 1 Description",
+      TableData: topTableRawalpindiData,
+    },
+    {
+      id: 2,
+      name: "Faisalabad",
+      others: OthersFaisalabadData,
+      description: "Product 2 Description",
+      TableData: topTableFaisalabadData,
+    },
+    {
+      id: 3,
+      name: "Gujranwala",
+      others: OthersGujranwalaData,
+      description: "Product 3 Description",
+      TableData: topTableGujranwalaData,
+    },
+    {
+      id: 4,
+      name: "Lahore",
+      others: OthersLahoreData,
+      description: "Product 4 Description",
+      TableData: topTableLahoreData,
+    },
+    {
+      id: 5,
+      name: "Multan",
+      others: OthersMultanData,
+      description: "Product 5 Description",
+      TableData: topTableMultanData,
+    },
+    {
+      id: 6,
+      name: "Hyderabad",
+      others: OthersHyderabadData,
+      description: "Product 6 Description",
+      TableData: topTableHyderabadData,
+    },
+    {
+      id: 7,
+      name: "Karachi",
+      others: OthersKarachiData,
+      description: "Product 6 Description",
+      TableData: topTableKarachiData,
+    },
+  ];
+
   // Upper Part
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -112,9 +131,9 @@ export default function SecondPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-  
+
       if (screenWidth < 640) {
-        setProductsPerSlide(1); 
+        setProductsPerSlide(1);
       } else if (screenWidth < 1025) {
         setProductsPerSlide(1); // Medium screens
       } else if (screenWidth >= 1025 && screenWidth < 1280) {
@@ -123,7 +142,7 @@ export default function SecondPage() {
         setProductsPerSlide(3); // 1280px and above
       }
     };
-  
+
     handleResize(); // Initial call
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -143,8 +162,7 @@ export default function SecondPage() {
 
   const nextBottomProduct = () => {
     setBottomCurrentIndex((prevBottomIndex) => {
-      return prevBottomIndex + 1 + bottomProductsPerSlide <=
-        products.length
+      return prevBottomIndex + 1 + bottomProductsPerSlide <= products.length
         ? prevBottomIndex + 1
         : prevBottomIndex;
     });
@@ -159,7 +177,7 @@ export default function SecondPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-  
+
       if (screenWidth < 640) {
         setBottomProductsPerSlide(1); // Small screens
       } else if (screenWidth < 1025) {
@@ -170,7 +188,7 @@ export default function SecondPage() {
         setBottomProductsPerSlide(3); // 1280px and above
       }
     };
-  
+
     handleResize(); // Initial call
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -200,7 +218,7 @@ export default function SecondPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts?.map((product) => (
                   <div key={product?.id} className="w-full">
-                    <SmallCard TableData={TableData} name={product?.name} />
+                    <SmallCard TableData={product?.TableData} name={product?.name} others={product?.others} />
                   </div>
                 ))}
               </div>
@@ -239,7 +257,7 @@ export default function SecondPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts?.map((product) => (
                   <div key={product.id} className="w-full">
-                    <SmallCardBottom name={product?.name} />
+                    <SmallCardBottom name={product?.name}  />
                   </div>
                 ))}
               </div>

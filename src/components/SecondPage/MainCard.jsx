@@ -50,7 +50,7 @@ const MainCard = () => {
   
   const formatDataInsetBarChart = (data) =>{
     return data.map((item) => ({
-      week: item.NO_OF_WEEKS,
+    week: item.NO_OF_WEEKS,
     GreeAC:  item.IN_GREE_AC ,
     EcoStarAC:  item.IN_ECOSTAR_AC,
     EcostarLED:  item.IN_ECOSTAR_LED_TV,
@@ -62,7 +62,7 @@ const insetBarChart = formatDataInsetBarChart(data2);
 
   const formatDataOutsetBarChart = (data) =>{
     return data.map((item) => ({
-      week: item.NO_OF_WEEKS,
+    week: item.NO_OF_WEEKS,
     GreeAC:  item.OUT_GREE_AC ,
     EcoStarAC:  item.OUT_ECOSTAR_AC,
     EcostarLED:  item.OUT_ECOSTAR_LED_TV,
@@ -258,19 +258,19 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                       {data?.NO_OF_WEEKS}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                      {data?.IN_GREE_AC}
+                      {data?.IN_GREE_AC.toLocaleString()}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                      {data?.IN_ECOSTAR_AC}
+                      {data?.IN_ECOSTAR_AC.toLocaleString()}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                      {data?.IN_ECOSTAR_LED_TV}
+                      {data?.IN_ECOSTAR_LED_TV.toLocaleString()}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                      {data?.IN_REFRIGERATOR}
+                      {data?.IN_REFRIGERATOR.toLocaleString()}
                     </td>
                     <td className="text-right pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                      {data?.IN_OTHERS}
+                      {data?.IN_OTHERS.toLocaleString()}
                     </td>
                   </tr>
                 );
@@ -279,6 +279,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
             <hr />
           </div>
           <BarChart1 data={insetBarChart} />
+          {/* <ResponsiveLineChart/> */}
           <hr className="mt-[2vw]" />
         </div>
 
