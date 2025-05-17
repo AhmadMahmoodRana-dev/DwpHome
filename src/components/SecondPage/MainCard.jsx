@@ -4,6 +4,7 @@ import FlowChart from "./charts/FlowChart";
 import BarChart1 from "./charts/BarChart";
 import { Context } from "@/context/Context";
 import axios from "axios";
+import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
 const MainCard = () => {
   // FIRST SECTION APIS
@@ -228,6 +229,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
         <div className="2xl:h-[7.7vw] h-[105px] mt-3">
           <FlowChart chartData={chartData2} />
         </div>
+          <ResponsiveLineChart/>
       </div>
 
       {/* ###########################   SECOND ROW ######################### */}
@@ -278,8 +280,9 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
             </table>
             <hr />
           </div>
-          <BarChart1 data={insetBarChart} />
-          {/* <ResponsiveLineChart/> */}
+          {/* <BarChart1 data={insetBarChart} /> */}
+          <ResponsiveLineChart/>
+
           <hr className="mt-[2vw]" />
         </div>
 
@@ -329,7 +332,8 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
             <hr />
           </div>
 
-          <BarChart1 data={outsetBarChart} />
+          {/* <BarChart1 data={outsetBarChart} /> */}
+          <ResponsiveLineChart/>
         </div>
       </div>
     </>

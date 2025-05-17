@@ -4,6 +4,7 @@ import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import { Context } from "@/context/Context";
 import axios from "axios";
+import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthMainCard = () => {
   const { filteredData } = useContext(Context);
@@ -188,7 +189,7 @@ const FifthMainCard = () => {
           </div>
         </div>
         {/* TABLE DIV */}
-        <div className="w-full px-1 mt-4  2xl:mt-[1.4vw] pr-4">
+        <div className="w-full px-1 mt-3  2xl:mt-[.8vw] pr-4">
           <table className="w-full mt-3 mb-6">
             <tr className="text-white 2xl:text-[.7vw] text-[14px] border-b">
               <th className="font-medium border-r-2 text-left">Weeks</th>
@@ -222,7 +223,9 @@ const FifthMainCard = () => {
           </table>
         </div>
         <div className="pr-4">
-          <FifthMainChart chartData={chartData} />
+          {/* <FifthMainChart chartData={chartData} /> */}
+                    <ResponsiveLineChart/>
+          
         </div>
       </div>
 
@@ -267,8 +270,10 @@ const FifthMainCard = () => {
         </div>
 
         <div className="pr-4">
-          <FifthMainChart chartData={chartData} />
-          <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
+          {/* <FifthMainChart chartData={chartData} /> */}
+                    <ResponsiveLineChart/>
+          
+          {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
             <div className="w-4 h-2 bg-[#953333]"></div>
             <h1 className="text-[10px]">parts</h1>
             <div className="w-4 h-2 bg-[#025ade]"></div>
@@ -277,7 +282,7 @@ const FifthMainCard = () => {
             <h1 className="text-[10px]">charges</h1>
             <div className="w-4 h-2 bg-[#ce0265]"></div>
             <h1 className="text-[10px]">inst/corp</h1>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

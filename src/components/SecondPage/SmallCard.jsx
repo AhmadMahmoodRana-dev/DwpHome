@@ -2,6 +2,7 @@ import React from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import SmallCardFlowChart from "./charts/SmallCardFlowChart";
 import FlowChart from "./charts/FlowChart";
+import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
 const SecondPage = ({ name, TableData, others }) => {
   const formatDataForChart = (data) => {
@@ -93,7 +94,7 @@ const SecondPage = ({ name, TableData, others }) => {
             </div>
           </div>
           {/* RIGHT */}
-          <div className="right_content_div w-[32%] border-l-white border-l pl-5">
+          <div className="right_content_div w-[32%] border-l-white border-l pl-3">
             <h1 className="text-white font-semibold 2xl:text-[1.2vw]">YTD</h1>
             <div className="leading-5 2xl:leading-[1.1vw]">
               <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
@@ -168,6 +169,7 @@ const SecondPage = ({ name, TableData, others }) => {
         <div className="2xl:h-[7.7vw] h-[105px] mt-3">
           <FlowChart chartData={chartData} />
         </div>
+        <ResponsiveLineChart/>
       </div>
     </>
   );

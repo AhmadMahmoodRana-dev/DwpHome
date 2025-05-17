@@ -4,6 +4,7 @@ import { BsCaretRightFill } from "react-icons/bs";
 import { ThirdMainChart } from "./charts/ThirdMainChart";
 import { Context } from "@/context/Context";
 import axios from "axios";
+import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const ThirdSmallCard = ({name}) => {
 
@@ -260,7 +261,9 @@ const ThirdSmallCard = ({name}) => {
         </div>
         <hr className="mx-6"/>
         <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
-          <ThirdMainChart chartData={chartData2} />
+          {/* <ThirdMainChart chartData={chartData2} /> */}
+                    <ResponsiveLineChart/>
+          
         </div>
       </div>
     </>

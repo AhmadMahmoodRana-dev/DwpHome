@@ -4,6 +4,7 @@ import { FourthBarChart } from "./charts/FourthBarChart";
 import FourthPageSmallPiechart from "./charts/FourthPageSmallPiechart";
 import { Context } from "@/context/Context";
 import axios from "axios";
+import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 const FourthSmallCard = ({name}) => {
  // TOP SECTION APIS
  const { filteredData } = useContext(Context);
@@ -210,7 +211,9 @@ const FourthSmallCard = ({name}) => {
             })}
           </table>
           <div>
-            <FourthBarChart chartData={chartData2} />
+            {/* <FourthBarChart chartData={chartData2} /> */}
+                      <ResponsiveLineChart/>
+            
           </div>
           <div className="main-content">
             <h1 className="text-white font-semibold text-[14px] 2xl:text-[.7vw] mt-3 2xl:mt-[1vw]">

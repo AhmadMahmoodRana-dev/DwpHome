@@ -34,8 +34,7 @@ const data = [
 
 const ResponsiveLineChart = () => {
   return (
-    <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg shadow-md bg-[#001f4d] p-2">
-      <h2 className="text-center text-white text-lg font-semibold mb-2">Pending Auction Price</h2>
+    <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg p-3">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={data} margin={{ left: -30, right: 0, top: 0, bottom: 0 }}>
           {/* Removed CartesianGrid to eliminate dotted lines */}

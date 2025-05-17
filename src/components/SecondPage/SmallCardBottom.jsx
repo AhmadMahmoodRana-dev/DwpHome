@@ -1,30 +1,31 @@
 import React from "react";
 import SmallBarChart from "./charts/SmallBarChart";
+import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
-const SmallCardBottom = ({ name,bottomTable1,bottomTable2 }) => {
-  const formatDataInsetBarChart = (data) =>{
+const SmallCardBottom = ({ name, bottomTable1, bottomTable2 }) => {
+  const formatDataInsetBarChart = (data) => {
     return data.map((item) => ({
-    week: item?.NO_OF_WEEKS,
-    GreeAC:  item?.IN_GREE_AC ,
-    EcoStarAC:  item?.IN_ECOSTAR_AC,
-    EcostarLED:  item?.IN_ECOSTAR_LED_TV,
-    Refrigerator:  item?.IN_REFRIGERATOR,
-    Other:  item?.IN_OTHERS,
-  }));
-}
-const insetBarChart = formatDataInsetBarChart(bottomTable1);
-const formatDataOutsetBarChart = (data) =>{
-  return data.map((item) => ({
-  week: item.NO_OF_WEEKS,
-  GreeAC:  item.OUT_GREE_AC ,
-  EcoStarAC:  item.OUT_ECOSTAR_AC,
-  EcostarLED:  item.OUT_ECOSTAR_LED_TV,
-  Refrigerator:  item.OUT_REFRIGERATOR,
-  Other:  item.OUT_OTHERS,
-}));
-}
-const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
- 
+      week: item?.NO_OF_WEEKS,
+      GreeAC: item?.IN_GREE_AC,
+      EcoStarAC: item?.IN_ECOSTAR_AC,
+      EcostarLED: item?.IN_ECOSTAR_LED_TV,
+      Refrigerator: item?.IN_REFRIGERATOR,
+      Other: item?.IN_OTHERS,
+    }));
+  };
+  const insetBarChart = formatDataInsetBarChart(bottomTable1);
+  const formatDataOutsetBarChart = (data) => {
+    return data.map((item) => ({
+      week: item.NO_OF_WEEKS,
+      GreeAC: item.OUT_GREE_AC,
+      EcoStarAC: item.OUT_ECOSTAR_AC,
+      EcostarLED: item.OUT_ECOSTAR_LED_TV,
+      Refrigerator: item.OUT_REFRIGERATOR,
+      Other: item.OUT_OTHERS,
+    }));
+  };
+  const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
+
   return (
     <div className="smallcardMain w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
       {/* FIRST  */}
@@ -52,19 +53,19 @@ const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
                     {data?.NO_OF_WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center  text-white">
-                  {data?.IN_GREE_AC.toLocaleString()}
+                    {data?.IN_GREE_AC.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                  {data?.IN_ECOSTAR_AC.toLocaleString()}
+                    {data?.IN_ECOSTAR_AC.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                  {data?.IN_ECOSTAR_LED_TV.toLocaleString()}
+                    {data?.IN_ECOSTAR_LED_TV.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                  {data?.IN_REFRIGERATOR.toLocaleString()}
+                    {data?.IN_REFRIGERATOR.toLocaleString()}
                   </td>
                   <td className="text-right pt-2  2xl:text-[.75vw] pr-1 text-[12px] font-semibold  text-white">
-                  {data?.IN_OTHERS.toLocaleString()}
+                    {data?.IN_OTHERS.toLocaleString()}
                   </td>
                 </tr>
               );
@@ -72,7 +73,9 @@ const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
           </table>
           <hr className="2xl:mt-8" />
         </div>
-        <SmallBarChart data={insetBarChart} />
+        {/* <SmallBarChart data={insetBarChart} /> */}
+        <ResponsiveLineChart />
+
         <hr className="mt-[2vw]" />
       </div>
 
@@ -121,8 +124,9 @@ const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
           </table>
           <hr />
         </div>
+        <ResponsiveLineChart />
 
-        <SmallBarChart data={outsetBarChart} />
+        {/* <SmallBarChart data={outsetBarChart} /> */}
       </div>
     </div>
   );

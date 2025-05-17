@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import axios from "axios";
 import { Context } from "@/context/Context";
+import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthSmallCardBottom = ({ name }) => {
 const { filteredData } = useContext(Context);
@@ -135,8 +136,10 @@ const { filteredData } = useContext(Context);
       </div>
 
       <div className="pr-4">
-        <FifthMainChart chartData={chartData} />
-        <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
+        {/* <FifthMainChart chartData={chartData} /> */}
+                  <ResponsiveLineChart/>
+        
+        {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
           <div className="w-4 h-2 bg-[#953333]"></div>
           <h1 className="text-[10px]">parts</h1>
           <div className="w-4 h-2 bg-[#025ade]"></div>
@@ -145,7 +148,7 @@ const { filteredData } = useContext(Context);
           <h1 className="text-[10px]">charges</h1>
           <div className="w-4 h-2 bg-[#ce0265]"></div>
           <h1 className="text-[10px]">inst/corp</h1>
-        </div>
+        </div> */}
       </div>
     </div>
   );

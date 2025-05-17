@@ -4,6 +4,7 @@ import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import { Context } from "@/context/Context";
 import axios from "axios";
+import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthSmallCard = ({name}) => {
 const { filteredData } = useContext(Context);
@@ -208,7 +209,9 @@ const { filteredData } = useContext(Context);
         </table>
       </div>
       <div className="pr-4">
-        <FifthMainChart chartData={chartData} />
+        {/* <FifthMainChart chartData={chartData} /> */}
+                  <ResponsiveLineChart/>
+        
       </div>
     </div>
   );
