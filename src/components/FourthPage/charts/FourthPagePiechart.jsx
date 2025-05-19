@@ -6,19 +6,6 @@ import ChartDataLabels from 'chartjs-plugin-datalabels';
 ChartJS.register(ArcElement, Tooltip, Legend, ChartDataLabels);
 
 const FourthPagePiechart = ({chartData}) => {
-  console.log(chartData,"111")
-  const fixedData = {
-    labels: ['Red', 'Blue', 'Yellow',"Green"],
-    datasets: [
-      {
-        data: [20, 30, 30,20], // Fixed data values
-        backgroundColor: ['#e60000', '#1793ff', '#d9b509',"#04e600"],
-        hoverBackgroundColor: ['#e60000', '#1793ff', '#d9b509',"#04e600"],
-        borderWidth: 0, // Removed border
-      },
-    ],
-  };
-
   const options = {
     responsive: true,
     maintainAspectRatio: false,

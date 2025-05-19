@@ -2,54 +2,11 @@ import ThirdSmallCard from "@/components/ThirdPage/ThirdSmallCard";
 import ThirdMainCard from "@/components/ThirdPage/ThirdMainCard";
 import { Card, CardContent } from "@/components/ui/card";
 import { RxTriangleLeft } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "@/components/SecondPage/header/Header";
 import ThirdSmallCardBottom from "@/components/ThirdPage/ThirdSmallCardBottom";
+import { Context } from "@/context/Context";
 
-const products = [
-  {
-    id: 1,
-    name: "Rawalpindi",
-    image: "https://via.placeholder.com/300",
-    description: "Product 1 Description",
-  },
-  {
-    id: 2,
-    name: "Faisalabad",
-    image: "https://via.placeholder.com/300",
-    description: "Product 2 Description",
-  },
-  {
-    id: 3,
-    name: "Gujranwala",
-    image: "https://via.placeholder.com/300",
-    description: "Product 3 Description",
-  },
-  {
-    id: 4,
-    name: "Lahore",
-    image: "https://via.placeholder.com/300",
-    description: "Product 4 Description",
-  },
-  {
-    id: 5,
-    name: "Multan",
-    image: "https://via.placeholder.com/300",
-    description: "Product 5 Description",
-  },
-  {
-    id: 6,
-    name: "Hyderabad",
-    image: "https://via.placeholder.com/300",
-    description: "Product 6 Description",
-  },
-  {
-    id: 7,
-    name: "Karachi",
-    image: "https://via.placeholder.com/300",
-    description: "Product 6 Description",
-  },
-];
 
 const bottomProducts = [
   {
@@ -79,6 +36,69 @@ const bottomProducts = [
 ];
 
 export default function ThirdPage() {
+  const {
+    OthersRawalpindiDataThirdPage,
+    OthersFaisalabadDataThirdPage,
+    OthersGujranwalaDataThirdPage,
+    OthersLahoreDataThirdPage,
+    OthersMultanDataThirdPage,
+    OthersHyderabadDataThirdPage,
+    OthersKarachiDataThirdPage,
+  } = useContext(Context);
+
+
+  const products = [
+    {
+      id: 1,
+      name: "Rawalpindi",
+      others:OthersRawalpindiDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 1 Description",
+    },
+    {
+      id: 2,
+      name: "Faisalabad",
+      others:OthersFaisalabadDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 2 Description",
+    },
+    {
+      id: 3,
+      name: "Gujranwala",
+      others:OthersGujranwalaDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 3 Description",
+    },
+    {
+      id: 4,
+      name: "Lahore",
+      others:OthersLahoreDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 4 Description",
+    },
+    {
+      id: 5,
+      name: "Multan",
+      others:OthersMultanDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 5 Description",
+    },
+    {
+      id: 6,
+      name: "Hyderabad",
+      others:OthersHyderabadDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 6 Description",
+    },
+    {
+      id: 7,
+      name: "Karachi",
+      others:OthersKarachiDataThirdPage,
+      image: "https://via.placeholder.com/300",
+      description: "Product 6 Description",
+    },
+  ];
+
   // Upper Part
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -193,7 +213,7 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <ThirdSmallCard name={product?.name} />
+                    <ThirdSmallCard name={product?.name} others={product?.others} />
                   </div>
                 ))}
               </div>

@@ -1,98 +1,60 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
 import { FourthBarChart } from "./charts/FourthBarChart";
-import FourthPageSmallPiechart from "./charts/FourthPageSmallPiechart";
 import { Context } from "@/context/Context";
-import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-const FourthSmallCard = ({name}) => {
- // TOP SECTION APIS
- const { filteredData } = useContext(Context);
- const [data, setData] = useState([]);
- const [data2, setData2] = useState([]);
- const [pieChartData, setPieChartData] = useState(null);
+import FourthPagePiechart from "./charts/FourthPagePiechart";
+const FourthSmallCard = ({ name, others }) => {
+  // TOP SECTION APIS
+  const { filteredData } = useContext(Context);
+  const [pieChartData, setPieChartData] = useState(null);
 
- useEffect(() => {
-   const fetchData = async () => {
-     try {
-       const endWeekId = filteredData[0]?.ID;
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const formattedData = formatPieChartData(others);
+        setPieChartData(formattedData);
 
-       if (!endWeekId) return;
+      } catch (error) {
+        console.error(error);
+      }
+    };
 
-       const pendingRes = await axios.get(
-         `https://dwpcare.com.pk/dwp/pending`,
-         {
-           params: { ENDWEEK: endWeekId },
-         }
-       );
+    fetchData();
+  }, [filteredData[0]?.ID]);
 
-       setData(pendingRes.data);
-       const formattedData = formatPieChartData(pendingRes.data);
-       setPieChartData(formattedData);
+  // ###########################################################################
 
-       const pendingRangeRes = await axios.get(
-         `https://dwpcare.com.pk/dwp/pending`,
-         {
-           params: {
-             STARTWEEK: endWeekId,
-             ENDWEEK: endWeekId,
-           },
-         }
-       );
-
-       setData2(pendingRangeRes.data);
-     } catch (error) {
-       console.error(error);
-     }
-   };
-
-   fetchData();
- }, [filteredData[0]?.ID]);
-
- // ###########################################################################
-
- const formatPieChartData = (data) => {
-   if (data.length > 0) {
-     const item = data[0];
-     return {
-       labels: ["Part Waiting", "Under Repair", "Completed", "Other"],
-       datasets: [
-         {
-           data: [
-             item.PART_WAITING,
-             item.UNDER_REPAIR,
-             item.COMPLETED,
-             item.OTHER,
-           ],
-           backgroundColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
-           borderColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
-           borderWidth: 1,
-         },
-       ],
-     };
-   }
-   return {
-     labels: [],
-     datasets: [
-       {
-         data: [],
-         backgroundColor: [],
-       },
-     ],
-   };
- };
-
- const formatDataForChart = (data) => {
-   return data.map((item) => ({
-     week: item.SHORT_WEEKS.toString(),
-     PART_WAITING: item.PART_WAITING,
-     UNDER_REPAIR: item.UNDER_REPAIR,
-     COMPLETED: item.COMPLETED,
-     OTHER: item.OTHER,
-   }));
- };
-
- const chartData2 = formatDataForChart(data2);
+  const formatPieChartData = (data) => {
+    if (others.length > 0) {
+      const item = others[0];
+      return {
+        labels: ["Part Waiting", "Under Repair", "Completed", "Other"],
+        datasets: [
+          {
+            data: [
+              item.PART_WAITING,
+              item.UNDER_REPAIR,
+              item.COMPLETED,
+              item.OTHER,
+            ],
+            backgroundColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
+            borderColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
+            borderWidth: 1,
+          },
+        ],
+      };
+    }
+    return {
+      labels: [],
+      datasets: [
+        {
+          data: [],
+          backgroundColor: [],
+        },
+      ],
+    };
+  };
 
 
   const TableData = [
@@ -129,24 +91,46 @@ const FourthSmallCard = ({name}) => {
       OTC1: "78",
     },
   ];
+  console.log("OTHERS", others);
   return (
     <>
       <div className="w-[300px] smallcardMain 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
         <h1 className="text-white font-semibold 2xl:text-[1.1vw] text-[1.3rem] text-center">
-         {name}
+          {name}
         </h1>
 
         <div className="heading_container flex gap-4 items-center pt-2 pb-4">
           <h1 className="text-5xl 2xl:text-[2.8vw] font-bold text-red-500">
-          1,036
+            {others[0]?.TOTAL_PENDING_SETS?.toLocaleString()}
           </h1>
-          <div className="flex flex-col justify-center items-center gap-1">
-            <BsTriangleFill
-              color="#b91c1c"
-              className="w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw]"
-            />
-            <h1 className="text-red-700 font-semibold 2xl:">+05%</h1>
-          </div>
+         
+          {others[0]?.TOTAL_PENDING_PER >= 0 ? (
+            <div className="flex flex-col justify-center items-center gap-1">
+              <BsTriangleFill color="#16a34a" className="w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw]" />
+              <h1 className="text-green-600 font-semibold">
+                {" "}
+                +
+                {Math.abs(others[0]?.TOTAL_PENDING_PER).toString().length === 1
+                  ? "0" + Math.abs(others[0]?.TOTAL_PENDING_PER)
+                  : Math.abs(others[0]?.TOTAL_PENDING_PER)}
+                %
+              </h1>
+            </div>
+          ) : (
+            <div className="flex flex-col justify-center items-center gap-1">
+              <h1 className="text-red-600 font-semibold">
+                -
+                {Math.abs(others[0]?.TOTAL_PENDING_PER).toString().length === 1
+                  ? "0" + Math.abs(others[0]?.TOTAL_PENDING_PER)
+                  : Math.abs(others[0]?.TOTAL_PENDING_PER)}
+                %
+              </h1>
+              <BsTriangleFill
+                className="rotate-180 w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw]"
+                color="#b91c1c"
+              />
+            </div>
+          )}
         </div>
 
         <div className="chart-main-container flex">
@@ -154,16 +138,16 @@ const FourthSmallCard = ({name}) => {
             <h1 className="text-white uppercase 2xl:text-[.9vw]">Aging Days</h1>
             <div className="flex gap-4">
               <h1 className="flex flex-col text-xs justify-center items-center text-yellow-500">
-                Above 7<span className="text-white">12</span>
+                Above 7<span className="text-white">{others[0]?.AGING}</span>
               </h1>
               <h1 className="flex flex-col text-xs justify-center items-center text-green-500">
                 Overall
-                <span className="text-white">3</span>
+                <span className="text-white">{others[0]?.PTAT}</span>
               </h1>
             </div>
           </div>
           <div className="chart w-[40%] 2xl:w-[50%] mt-[-40px] 2xl:mt-[-20px] h-auto">
-            <FourthPageSmallPiechart />
+            <FourthPagePiechart chartData={pieChartData} />
           </div>
         </div>
 
@@ -212,8 +196,7 @@ const FourthSmallCard = ({name}) => {
           </table>
           <div>
             {/* <FourthBarChart chartData={chartData2} /> */}
-                      <ResponsiveLineChart/>
-            
+            <ResponsiveLineChart />
           </div>
           <div className="main-content">
             <h1 className="text-white font-semibold text-[14px] 2xl:text-[.7vw] mt-3 2xl:mt-[1vw]">
