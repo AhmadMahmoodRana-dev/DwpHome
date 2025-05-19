@@ -6,7 +6,7 @@ import { Context } from "@/context/Context";
 import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
-const ThirdSmallCard = ({ name, others }) => {
+const ThirdSmallCard = ({ name, others,topTable }) => {
   // FIRST SECTION APIS
   const { filteredData } = useContext(Context);
   const [data, setData] = useState([]);
@@ -98,7 +98,7 @@ const ThirdSmallCard = ({ name, others }) => {
           <div className="w-[68%]">
             <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
               <p className="text-[#6bdb6b] 2xl:text-[3.2vw] font-bold text-[60px] flex justify-center">
-                {others[0]?.ATAT}
+                {others[0]?.ATAT ?? 0}
                 <div className="2xl:mt-5">
                   {others[0]?.ATAT_PER >= 0 ? (
                     <div className="icons flex flex-col justify-center items-center ml-2">
@@ -138,7 +138,7 @@ const ThirdSmallCard = ({ name, others }) => {
               ATAT
             </h1>
             <h1 className="text-[#49dd80] font-semibold tracking-wider  2xl:text-[1.3vw]">
-            {others[0]?.YTD_ATAT}
+            {others[0]?.YTD_ATAT ?? 0}
             </h1>
             <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
               Days
@@ -153,7 +153,7 @@ const ThirdSmallCard = ({ name, others }) => {
             <div className="box-sigm-1 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY_0}
+                {others[0]?.DAY_0 ?? 0}
                   {others[0]?.DAY_0_PER >= 0 ? (
                     <span className="text-green-400 text-[12px] 2xl:text-[.8vw]">
                       +
@@ -183,7 +183,7 @@ const ThirdSmallCard = ({ name, others }) => {
             <div className="box-sigm-2 flex items-center">
               <div className="small-color-boxe ml-[14px] bg-[#ededed] border-2 2xl:w-[3vw] 2xl:h-[2.4vw] border-yellow-300 w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY2_3}
+                {others[0]?.DAY2_3 ?? 0}
                   {others[0]?.DAY2_3_PER >= 0 ? (
                     <span className="text-green-400  text-[12px] 2xl:text-[.8vw]">
                       +
@@ -213,7 +213,7 @@ const ThirdSmallCard = ({ name, others }) => {
             <div className="box-sigm-3 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY4_7}
+                {others[0]?.DAY4_7 ?? 0}
                   {others[0]?.DAY4_7_PER >= 0 ? (
                     <span className="text-yellow-600 text-[12px] 2xl:text-[.8vw]">
                       +
@@ -243,7 +243,7 @@ const ThirdSmallCard = ({ name, others }) => {
             <div className="box-sigm-4 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY8_ABOVE}
+                {others[0]?.DAY8_ABOVE ?? 0}
                   {others[0]?.DAY8_ABOVE_PER >= 0 ? (
                     <span className="text-[#BE1A1A] text-[12px] 2xl:text-[.8vw]">
                       +
@@ -281,23 +281,23 @@ const ThirdSmallCard = ({ name, others }) => {
               <th className="font-medium">8&+</th>
             </tr>
 
-            {TableData.map((data, index) => {
+            {topTable.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                    {data?.weeks}
+                    {data?.WEEKS ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                    {data?.Inset}
+                    {data?.DAY_0?.toLocaleString() ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.Outset}
+                    {data?.DAY2_3?.toLocaleString() ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.OTC1}
+                  {data?.DAY4_7?.toLocaleString() ?? 0}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data.OTC}
+                  {data?.DAY8_ABOVE?.toLocaleString() ?? 0}
                   </td>
                 </tr>
               );

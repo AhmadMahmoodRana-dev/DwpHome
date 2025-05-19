@@ -49,42 +49,7 @@ const ThirdMainCard = () => {
 
   const chartData2 = formatDataForChart(data2);
 
-// ###########################################################
 
-  const TableData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1,345",
-      OTC1: "1,345",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1,345",
-      OTC1: "1,345",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1,345",
-      OTC1: "1,345",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1,345",
-      OTC1: "1,345",
-    },
-  ];
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 pb-10 2xl:py-[1vw] mt-3">
@@ -290,16 +255,16 @@ const ThirdMainCard = () => {
                     {data?.WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                    {data?.DAY_0.toLocaleString()}
+                    {data?.DAY_0?.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.DAY2_3.toLocaleString()}
+                    {data?.DAY2_3?.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.DAY4_7.toLocaleString()}
+                    {data?.DAY4_7?.toLocaleString()}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data.DAY8_ABOVE.toLocaleString()}
+                    {data?.DAY8_ABOVE?.toLocaleString()}
                   </td>
                 </tr>
               );
@@ -332,23 +297,23 @@ const ThirdMainCard = () => {
                 <th className="font-medium">8&+</th>
               </tr>
 
-              {TableData.map((data, index) => {
+              {data2.map((data, index) => {
                 return (
                   <tr>
                     <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                      {data?.weeks}
+                      {data?.WEEKS ??0}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                      {data?.Inset}
+                      {data?.GREE_AC_DAY_0 ??0}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                      {data.Outset}
+                      {data?.GREE_AC_DAY2_3 ??0}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                      {data.OTC1}
+                      {data?.GREE_AC_DAY4_7 ??0}
                     </td>
                     <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                      {data.OTC}
+                      {data?.GREE_AC_DAY8_ABOVE ??0}
                     </td>
                   </tr>
                 );

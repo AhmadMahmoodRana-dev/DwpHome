@@ -53,19 +53,19 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2 }) => {
                     {data?.NO_OF_WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center  text-white">
-                    {data?.IN_GREE_AC.toLocaleString()}
+                    {data?.IN_GREE_AC?.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data?.IN_ECOSTAR_AC.toLocaleString()}
+                    {data?.IN_ECOSTAR_AC?.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data?.IN_ECOSTAR_LED_TV.toLocaleString()}
+                    {data?.IN_ECOSTAR_LED_TV?.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.65vw] px-2 font-normal text-center text-white">
-                    {data?.IN_REFRIGERATOR.toLocaleString()}
+                    {data?.IN_REFRIGERATOR?.toLocaleString()}
                   </td>
                   <td className="text-right pt-2  2xl:text-[.75vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data?.IN_OTHERS.toLocaleString()}
+                    {data?.IN_OTHERS?.toLocaleString()}
                   </td>
                 </tr>
               );

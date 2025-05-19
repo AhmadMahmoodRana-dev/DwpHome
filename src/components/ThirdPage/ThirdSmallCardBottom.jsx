@@ -3,7 +3,7 @@ import { ThirdMainChart } from "./charts/ThirdMainChart";
 import axios from "axios";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-const ThirdSmallCardBottom = ({ name }) => {
+const ThirdSmallCardBottom = ({ name,productTable }) => {
 
 // FIRST SECTION APIS
   const { filteredData } = useContext(Context);
@@ -98,23 +98,23 @@ const ThirdSmallCardBottom = ({ name }) => {
                   <th className="font-medium">8&+</th>
                 </tr>
     
-                {TableData.map((data, index) => {
+                {productTable.map((data, index) => {
                   return (
                     <tr>
                       <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                        {data?.weeks}
+                        {data?.WEEKS ?? 0}
                       </td>
                       <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                        {data?.Inset}
+                        {data?.PRODUCT_DAY_0 ?? 0}
                       </td>
                       <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                        {data.Outset}
+                        {data?.PRODUCT_DAY2_3 ?? 0}
                       </td>
                       <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                        {data.OTC1}
+                        {data?.PRODUCT_DAY4_7 ?? 0}
                       </td>
                       <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                        {data.OTC}
+                        {data?.PRODUCT_DAY8_ABOVE ?? 0}
                       </td>
                     </tr>
                   );

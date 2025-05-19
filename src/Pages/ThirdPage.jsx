@@ -8,32 +8,6 @@ import ThirdSmallCardBottom from "@/components/ThirdPage/ThirdSmallCardBottom";
 import { Context } from "@/context/Context";
 
 
-const bottomProducts = [
-  {
-    id: 1,
-    name: "Ecostar AC",
-    image: "https://via.placeholder.com/300",
-    description: "Product 1 Description",
-  },
-  {
-    id: 2,
-    name: "Refrigerator",
-    image: "https://via.placeholder.com/300",
-    description: "Product 2 Description",
-  },
-  {
-    id: 3,
-    name: "LED",
-    image: "https://via.placeholder.com/300",
-    description: "Product 3 Description",
-  },
-  {
-    id: 4,
-    name: "Other",
-    image: "https://via.placeholder.com/300",
-    description: "Product 4 Description",
-  },
-];
 
 export default function ThirdPage() {
   const {
@@ -44,6 +18,17 @@ export default function ThirdPage() {
     OthersMultanDataThirdPage,
     OthersHyderabadDataThirdPage,
     OthersKarachiDataThirdPage,
+    topTableRawalpindiDataThird,
+ topTableFaisalabadDataThird,
+ topTableGujranwalaDataThird,
+ topTableLahoreDataThird,
+ topTableMultanDataThird,
+ topTableHyderabadDataThird,
+ topTableKarachiDataThird,
+ productTableEcostar,
+    productTableLed,
+    productTableRefrigerator,
+    productTableOther,
   } = useContext(Context);
 
 
@@ -52,6 +37,7 @@ export default function ThirdPage() {
       id: 1,
       name: "Rawalpindi",
       others:OthersRawalpindiDataThirdPage,
+      topTable:topTableRawalpindiDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 1 Description",
     },
@@ -59,6 +45,7 @@ export default function ThirdPage() {
       id: 2,
       name: "Faisalabad",
       others:OthersFaisalabadDataThirdPage,
+      topTable:topTableFaisalabadDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 2 Description",
     },
@@ -66,6 +53,7 @@ export default function ThirdPage() {
       id: 3,
       name: "Gujranwala",
       others:OthersGujranwalaDataThirdPage,
+      topTable:topTableGujranwalaDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 3 Description",
     },
@@ -73,6 +61,7 @@ export default function ThirdPage() {
       id: 4,
       name: "Lahore",
       others:OthersLahoreDataThirdPage,
+      topTable:topTableLahoreDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 4 Description",
     },
@@ -80,6 +69,7 @@ export default function ThirdPage() {
       id: 5,
       name: "Multan",
       others:OthersMultanDataThirdPage,
+      topTable:topTableMultanDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 5 Description",
     },
@@ -87,6 +77,7 @@ export default function ThirdPage() {
       id: 6,
       name: "Hyderabad",
       others:OthersHyderabadDataThirdPage,
+      topTable:topTableHyderabadDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 6 Description",
     },
@@ -94,11 +85,37 @@ export default function ThirdPage() {
       id: 7,
       name: "Karachi",
       others:OthersKarachiDataThirdPage,
+      topTable:topTableKarachiDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 6 Description",
     },
   ];
 
+  const bottomProducts = [
+    {
+      id: 1,
+      name: "Ecostar AC",
+      productTable:productTableEcostar,
+    },
+    {
+      id: 2,
+      name: "Refrigerator",
+      productTable:productTableRefrigerator,
+
+    },
+    {
+      id: 3,
+      name: "LED",
+      productTable:productTableLed,
+
+    },
+    {
+      id: 4,
+      name: "Other",
+      productTable:productTableOther,
+
+    },
+  ];
   // Upper Part
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -213,7 +230,7 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <ThirdSmallCard name={product?.name} others={product?.others} />
+                    <ThirdSmallCard name={product?.name} others={product?.others} topTable={product?.topTable} />
                   </div>
                 ))}
               </div>
@@ -252,7 +269,7 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <ThirdSmallCardBottom name={product?.name} />
+                    <ThirdSmallCardBottom name={product?.name} productTable={product?.productTable} />
                   </div>
                 ))}
               </div>

@@ -101,7 +101,7 @@ const SecondPage = ({ name, TableData, others }) => {
                 Inset
               </h1>
               <h1 className="text-[#49dd80] font-semibold tracking-wider 2xl:text-[1.3vw]">
-                {others[0]?.IN_SETS_YTD.toLocaleString()}
+                {others[0]?.IN_SETS_YTD?.toLocaleString()}
               </h1>
             </div>
             <div className="leading-5 2xl:leading-[1.1vw] mt-2 2xl:mt-[.6vw]">
@@ -109,7 +109,7 @@ const SecondPage = ({ name, TableData, others }) => {
                 Outset
               </h1>
               <h1 className="text-[#49dd80] font-semibold tracking-wider 2xl:text-[1.3vw]">
-                {others[0]?.OUT_SETS_YTD.toLocaleString()}
+                {others[0]?.OUT_SETS_YTD?.toLocaleString()}
               </h1>
             </div>
 
@@ -118,14 +118,14 @@ const SecondPage = ({ name, TableData, others }) => {
                 W{" "}
                 <span className="text-red-500">
                   {" "}
-                  {others[0]?.WARR_PER.toLocaleString()}%
+                  {others[0]?.WARR_PER?.toLocaleString()}%
                 </span>
               </h1>
               <h1 className="flex flex-col text-white 2xl:text-[.7vw]">
                 C{" "}
                 <span className="text-[#49dd80]">
                   {" "}
-                  {others[0]?.CASH_PER.toLocaleString()}%
+                  {others[0]?.CASH_PER?.toLocaleString()}%
                 </span>
               </h1>
             </div>
@@ -152,13 +152,13 @@ const SecondPage = ({ name, TableData, others }) => {
                     {data?.NO_OF_WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                    {data?.IN_SETS.toLocaleString()}
+                    {data?.IN_SETS?.toLocaleString()}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.OUT_SETS.toLocaleString()}
+                    {data.OUT_SETS?.toLocaleString()}
                   </td>
                   <td className="text-right pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                  {Number(data.IOF).toLocaleString()}%
+                  {Number(data.IOF)?.toLocaleString()}%
                   </td>
                 </tr>
               );
