@@ -7,34 +7,6 @@ import FourthSmallCardBottom from "@/components/FourthPage/FourthSmallCardBottom
 import Header from "@/components/SecondPage/header/Header";
 import { Context } from "@/context/Context";
 
-
-const bottomProducts = [
-  {
-    id: 1,
-    name: "Ecostar",
-    image: "https://via.placeholder.com/300",
-    description: "Product 1 Description",
-  },
-  {
-    id: 2,
-    name: "Refriger",
-    image: "https://via.placeholder.com/300",
-    description: "Product 2 Description",
-  },
-  {
-    id: 3,
-    name: "LED",
-    image: "https://via.placeholder.com/300",
-    description: "Product 3 Description",
-  },
-  {
-    id: 4,
-    name: "Other",
-    image: "https://via.placeholder.com/300",
-    description: "Product 4 Description",
-  },
-];
-
 export default function ThirdPage() {
   const {
     OthersRawalpindiDataFourthPage,
@@ -44,57 +16,83 @@ export default function ThirdPage() {
     OthersMultanDataFourthPage,
     OthersHyderabadDataFourthPage,
     OthersKarachiDataFourthPage,
+    topTableRawalpindiDataFourth,
+    topTableFaisalabadDataFourth,
+    topTableGujranwalaDataFourth,
+    topTableLahoreDataFourth,
+    topTableMultanDataFourth,
+    topTableHyderabadDataFourth,
+    topTableKarachiDataFourth,
+    productTableEcostarFourth,
+    productTableLedFourth,
+    productTableRefrigeratorFourth,
+    productTableOtherFourth,
   } = useContext(Context);
 
   const products = [
     {
       id: 1,
       name: "Rawalpindi",
-      others:OthersRawalpindiDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 1 Description",
+      others: OthersRawalpindiDataFourthPage,
+      topTable: topTableRawalpindiDataFourth,
     },
     {
       id: 2,
       name: "Faisalabad",
-      others:OthersFaisalabadDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 2 Description",
+      others: OthersFaisalabadDataFourthPage,
+      topTable: topTableFaisalabadDataFourth,
     },
     {
       id: 3,
       name: "Gujranwala",
-      others:OthersGujranwalaDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 3 Description",
+      others: OthersGujranwalaDataFourthPage,
+      topTable: topTableGujranwalaDataFourth,
     },
     {
       id: 4,
       name: "Lahore",
-      others:OthersLahoreDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 4 Description",
+      others: OthersLahoreDataFourthPage,
+      topTable: topTableLahoreDataFourth,
     },
     {
       id: 5,
       name: "Multan",
-      others:OthersMultanDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 5 Description",
+      others: OthersMultanDataFourthPage,
+      topTable: topTableMultanDataFourth,
     },
     {
       id: 6,
       name: "Hyderabad",
-      others:OthersHyderabadDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 6 Description",
+      others: OthersHyderabadDataFourthPage,
+      topTable: topTableHyderabadDataFourth,
     },
     {
       id: 7,
       name: "Karachi",
-      others:OthersKarachiDataFourthPage,
-      image: "https://via.placeholder.com/300",
-      description: "Product 6 Description",
+      others: OthersKarachiDataFourthPage,
+      topTable: topTableKarachiDataFourth,
+    },
+  ];
+  const bottomProducts = [
+    {
+      id: 1,
+      name: "Ecostar",
+      productTable:productTableEcostarFourth,
+    },
+    {
+      id: 2,
+      name: "Refriger",
+      productTable:productTableRefrigeratorFourth,
+    },
+    {
+      id: 3,
+      name: "LED",
+      productTable:productTableLedFourth,
+    },
+    {
+      id: 4,
+      name: "Other",
+      productTable:productTableOtherFourth,
     },
   ];
   // Upper Part
@@ -210,7 +208,11 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <FourthSmallCard name={product?.name} others={product?.others} />
+                    <FourthSmallCard
+                      name={product?.name}
+                      others={product?.others}
+                      topTable={product?.topTable}
+                    />
                   </div>
                 ))}
               </div>
@@ -243,7 +245,7 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <FourthSmallCardBottom name={product?.name} />
+                    <FourthSmallCardBottom name={product?.name} productTable={product?.productTable} />
                   </div>
                 ))}
               </div>

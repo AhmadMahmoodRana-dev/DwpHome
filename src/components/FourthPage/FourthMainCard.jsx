@@ -213,19 +213,19 @@ const FourthMainCard = () => {
                 <>
                   <tr>
                     <td className="border-r border-t border-solid text-[12px] font-normal pr-3 2xl:text-[.8vw] text-white">
-                      {data.WEEKS.toLocaleString()}
+                      {data?.WEEKS?.toLocaleString()}
                     </td>
                     <td className=" border-t border-solid px-[5px] text-white text-[14px] 2xl:text-[.9vw] font-normal text-center">
-                      {data.PART_WAITING.toLocaleString()}
+                      {data?.PART_WAITING?.toLocaleString()}
                     </td>
                     <td className=" border-t border-solid px-[5px] text-white text-[14px] font-normal 2xl:text-[.9vw] text-center">
-                      {data.UNDER_REPAIR.toLocaleString()}
+                      {data?.UNDER_REPAIR?.toLocaleString()}
                     </td>
                     <td className=" border-t border-solid px-[5px] text-white text-[14px] font-normal 2xl:text-[.9vw] text-center">
-                      {data.COMPLETED.toLocaleString()}
+                      {data?.COMPLETED?.toLocaleString()}
                     </td>
                     <td className=" border-t border-solid px-[5px] text-white text-[14px] font-normal 2xl:text-[.9vw] text-center">
-                      {data.OTHER.toLocaleString()}
+                      {data?.OTHER?.toLocaleString()}
                     </td>
                   </tr>
                 </>
@@ -404,23 +404,23 @@ const FourthMainCard = () => {
                 <th className="font-light">Others</th>
               </tr>
 
-              {TableData.map((data, index) => {
+              {data2.map((data, index) => {
                 return (
                   <tr>
                     <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-normal text-white">
-                      {data?.weeks}
+                      {data?.WEEKS}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-light text-center  text-white">
-                      {data?.Inset}
+                      {data?.GREE_AC_PART_WAITING ?? 0}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-light text-center text-white">
-                      {data?.Outset}
+                      {data?.GREE_AC_UNDER_REPAIR ?? 0}
                     </td>
                     <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-light text-center text-white">
-                      {data?.OTC1}
+                      {data?.GREE_AC_COMPLETED ?? 0}
                     </td>
                     <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-light  text-white">
-                      {data?.OTC}
+                      {data?.GREE_AC_OTHERS ?? 0}
                     </td>
                   </tr>
                 );

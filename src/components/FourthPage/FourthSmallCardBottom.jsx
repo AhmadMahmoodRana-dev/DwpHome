@@ -4,7 +4,7 @@ import { Context } from "@/context/Context";
 import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
-const FourthSmallCardBottom = ({ name }) => {
+const FourthSmallCardBottom = ({ name,productTable }) => {
 // TOP SECTION APIS
  const { filteredData } = useContext(Context);
  const [data, setData] = useState([]);
@@ -157,23 +157,23 @@ const FourthSmallCardBottom = ({ name }) => {
               <th className="font-light">Others</th>
             </tr>
 
-            {TableData.map((data, index) => {
+            {productTable.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-normal text-white">
-                    {data?.weeks}
+                    {data?.WEEKS}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-light text-center  text-white">
-                    {data?.Inset}
+                  {data?.PRODUCT_PART_WAITING ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-light text-center text-white">
-                    {data?.Outset}
+                  {data?.PRODUCT_UNDER_REPAIR ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-light text-center text-white">
-                    {data?.OTC1}
+                  {data?.PRODUCT_COMPLETED ?? 0}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-light  text-white">
-                    {data?.OTC}
+                  {data?.PRODUCT_OTHERS ?? 0}
                   </td>
                 </tr>
               );
