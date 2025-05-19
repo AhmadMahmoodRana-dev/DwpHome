@@ -387,7 +387,7 @@ const FourthMainCard = () => {
 
       {/* ###########################   SECOND ROW ######################### */}
 
-      <div className="w-[300px] 2xl:w-[100%] third-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vw] mt-3">
+      <div className="w-[300px] pb-10 2xl:w-[100%] third-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vw] mt-3">
         {/* FIRST  */}
         <div>
           <h1 className="text-white font-semibold text-[13px] 2xl:text-[.8vw] tracking-wide text-center">
