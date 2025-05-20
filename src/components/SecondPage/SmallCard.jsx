@@ -89,7 +89,7 @@ const SecondPage = ({ name, TableData, others }) => {
                 OTC
               </p>
               <p className="pt-3 text-[12px] font-bold text-green-400 2xl:text-[.6vw] ">
-                {others[0]?.IOF}%
+                {others[0]?.IOF ?? 0}%
               </p>
             </div>
           </div>

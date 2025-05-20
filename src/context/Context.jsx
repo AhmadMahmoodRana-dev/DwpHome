@@ -129,6 +129,7 @@ const topTableKarachiData = extractMultipleFields(table, fieldsToExtractKarachit
 
 const [thirdPageOtherData, setThirdPageOtherData] = useState([]);
 const [thirdPageTableData, setThirdPageTableData] = useState([]);
+console.log(thirdPageTableData,"thirdPageTableDatathirdPageTableData")
 
 useEffect(() => {
   const fetchInsetData = async () => {
