@@ -3,40 +3,12 @@ import { RiTriangleFill } from "react-icons/ri";
 import FlowChart from "./charts/FlowChart";
 import BarChart1 from "./charts/BarChart";
 import { Context } from "@/context/Context";
-import axios from "axios";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
 const MainCard = () => {
-  // FIRST SECTION APIS
-  const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    const fetchInsetData = async () => {
-      try {
-        const dateId = filteredData[0]?.ID;
-        console.log("DAte id",dateId)
-        if (!dateId) return;
-
-        // First API call
-        const response1 = await axios.get("https://dwpcare.com.pk/dwp/inset", {
-          params: { EDATE: dateId },
-        });
-        setData(response1.data);
-
-        // Second API call
-        const response2 = await axios.get("https://dwpcare.com.pk/dwp/inset", {
-          params: { SDATE: dateId, EDATE: dateId },
-        });
-        setData2(response2.data);
-      } catch (error) {
-        console.error("Error fetching inset data:", error);
-      }
-    };
-
-    fetchInsetData();
-  }, [filteredData[0]?.ID]);
+  const {otherData,table} = useContext(Context)
+ 
+  
 
   const formatDataForChart = (data) => {
     return data.map((item) => ({
@@ -46,7 +18,7 @@ const MainCard = () => {
     }));
   };
 
-  const chartData2 = formatDataForChart(data2);
+  const chartData2 = formatDataForChart(table);
   
   
   const formatDataInsetBarChart = (data) =>{
@@ -59,19 +31,19 @@ const MainCard = () => {
     Other:  item.IN_OTHERS,
   }));
 }
-const insetBarChart = formatDataInsetBarChart(data2);
+// const insetBarChart = formatDataInsetBarChart(data2);
 
-  const formatDataOutsetBarChart = (data) =>{
-    return data.map((item) => ({
-    week: item.NO_OF_WEEKS,
-    GreeAC:  item.OUT_GREE_AC ,
-    EcoStarAC:  item.OUT_ECOSTAR_AC,
-    EcostarLED:  item.OUT_ECOSTAR_LED_TV,
-    Refrigerator:  item.OUT_REFRIGERATOR,
-    Other:  item.OUT_OTHERS,
-  }));
-}
-const outsetBarChart = formatDataOutsetBarChart(data2);
+//   const formatDataOutsetBarChart = (data) =>{
+//     return data.map((item) => ({
+//     week: item.NO_OF_WEEKS,
+//     GreeAC:  item.OUT_GREE_AC ,
+//     EcoStarAC:  item.OUT_ECOSTAR_AC,
+//     EcostarLED:  item.OUT_ECOSTAR_LED_TV,
+//     Refrigerator:  item.OUT_REFRIGERATOR,
+//     Other:  item.OUT_OTHERS,
+//   }));
+// }
+// const outsetBarChart = formatDataOutsetBarChart(data2);
 
 
 
@@ -88,16 +60,16 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
           <div className="left_content_div w-[68%]">
             <div className="flex justify-center items-center  gap-2">
               <p className=" text-white font-bold mt-2 text-[30px] 2xl:text-[2vw] leading-6">
-                {data[0]?.IN_SETS?.toLocaleString()}
+                {otherData[0]?.IN_SETS?.toLocaleString()}
               </p>
-              {data[0]?.IN_SETS_PER >= 0 ? (
+              {otherData[0]?.IN_SETS_PER >= 0 ? (
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                   <RiTriangleFill className="text-green-400  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
                   <h1 className="text-[12px] font-bold text-green-400 2xl:text-[.7vw] ">
                     +
-                    {Math.abs(data[0]?.IN_SETS_PER).toString().length === 1
-                      ? "0" + Math.abs(data[0]?.IN_SETS_PER)
-                      : Math.abs(data[0]?.IN_SETS_PER)}
+                    {Math.abs(otherData[0]?.IN_SETS_PER).toString().length === 1
+                      ? "0" + Math.abs(otherData[0]?.IN_SETS_PER)
+                      : Math.abs(otherData[0]?.IN_SETS_PER)}
                     %
                   </h1>
                 </div>
@@ -105,9 +77,9 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                   <h1 className="text-[12px] font-bold text-red-600 2xl:text-[.7vw] ">
                     -
-                    {Math.abs(data[0]?.IN_SETS_PER).toString().length === 1
-                      ? "0" + Math.abs(data[0]?.IN_SETS_PER)
-                      : Math.abs(data[0]?.IN_SETS_PER)}
+                    {Math.abs(otherData[0]?.IN_SETS_PER).toString().length === 1
+                      ? "0" + Math.abs(otherData[0]?.IN_SETS_PER)
+                      : Math.abs(otherData[0]?.IN_SETS_PER)}
                     %
                   </h1>
                   <RiTriangleFill className="text-red-600 rotate-180  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
@@ -119,16 +91,16 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
             </h3>
             <div className="flex justify-center items-center  gap-2">
               <p className=" text-white font-bold mt-2 text-[30px] 2xl:text-[2vw] leading-6">
-                {data[0]?.OUT_SETS?.toLocaleString()}
+                {otherData[0]?.OUT_SETS?.toLocaleString()}
               </p>
-              {data[0]?.OUT_SETS_PER >= 0 ? (
+              {otherData[0]?.OUT_SETS_PER >= 0 ? (
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                   <RiTriangleFill className="text-green-400  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
                   <h1 className="text-[12px] font-bold text-green-400 2xl:text-[.7vw] ">
                     +
-                    {Math.abs(data[0]?.OUT_SETS_PER).toString().length === 1
-                      ? "0" + Math.abs(data[0]?.OUT_SETS_PER)
-                      : Math.abs(data[0]?.OUT_SETS_PER)}
+                    {Math.abs(otherData[0]?.OUT_SETS_PER).toString().length === 1
+                      ? "0" + Math.abs(otherData[0]?.OUT_SETS_PER)
+                      : Math.abs(otherData[0]?.OUT_SETS_PER)}
                     %
                   </h1>
                 </div>
@@ -136,9 +108,9 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                   <h1 className="text-[12px] font-bold text-red-600 2xl:text-[.7vw] ">
                     -
-                    {Math.abs(data[0]?.OUT_SETS_PER).toString().length === 1
-                      ? "0" + Math.abs(data[0]?.OUT_SETS_PER)
-                      : Math.abs(data[0]?.OUT_SETS_PER)}
+                    {Math.abs(otherData[0]?.OUT_SETS_PER).toString().length === 1
+                      ? "0" + Math.abs(otherData[0]?.OUT_SETS_PER)
+                      : Math.abs(otherData[0]?.OUT_SETS_PER)}
                     %
                   </h1>
                   <RiTriangleFill className="text-red-600 rotate-180 w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
@@ -150,7 +122,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 OTC
               </p>
               <p className="pt-3 text-[12px] font-bold text-green-400 2xl:text-[.8vw] ">
-                {data[0]?.IOF}%
+                {otherData[0]?.IOF}%
               </p>
             </div>
           </div>
@@ -162,7 +134,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 Inset
               </h1>
               <h1 className="text-[#49dd80] font-semibold tracking-wider 2xl:text-[1.3vw]">
-                {data[0]?.IN_SETS_YTD.toLocaleString()}
+                {otherData[0]?.IN_SETS_YTD.toLocaleString()}
               </h1>
             </div>
             <div className="leading-5 2xl:leading-[1.1vw] mt-2 2xl:mt-[.6vw]">
@@ -170,7 +142,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 Outset
               </h1>
               <h1 className="text-[#49dd80] font-semibold tracking-wider 2xl:text-[1.3vw]">
-                {data[0]?.OUT_SETS_YTD.toLocaleString()}
+                {otherData[0]?.OUT_SETS_YTD.toLocaleString()}
               </h1>
             </div>
 
@@ -179,13 +151,13 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 W{" "}
                 <span className="text-red-500">
                   {" "}
-                  {data[0]?.WARR_PER.toLocaleString()}%
+                  {otherData[0]?.WARR_PER.toLocaleString()}%
                 </span>
               </h1>
               <h1 className="flex flex-col text-white 2xl:text-[.7vw]">
                 C{" "}
                 <span className="text-[#49dd80]">
-                  {data[0]?.CASH_PER.toLocaleString()}%
+                  {otherData[0]?.CASH_PER.toLocaleString()}%
                 </span>
               </h1>
             </div>
@@ -205,7 +177,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
               <th className="font-medium">OTC</th>
             </tr>
 
-            {data2.map((data, index) => {
+            {table.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
@@ -253,7 +225,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 <th className="font-medium">Others</th>
               </tr>
 
-              {data2.map((data, index) => {
+              {table.map((data, index) => {
                 return (
                   <tr>
                     <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw]  font-medium text-white">
@@ -304,7 +276,7 @@ const outsetBarChart = formatDataOutsetBarChart(data2);
                 <th className="font-medium">Others</th>
               </tr>
 
-              {data2.map((data, index) => {
+              {table.map((data, index) => {
                 return (
                   <tr>
                     <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw]  font-medium text-white">

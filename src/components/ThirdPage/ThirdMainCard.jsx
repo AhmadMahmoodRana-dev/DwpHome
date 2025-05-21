@@ -1,55 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import { BsCaretRightFill } from "react-icons/bs";
 import { ThirdMainChart } from "./charts/ThirdMainChart";
 import { Context } from "@/context/Context";
-import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const ThirdMainCard = () => {
 // FIRST SECTION APIS
-  const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    const fetchTatData = async () => {
-      try {
-        const dateId = filteredData[0]?.ID;
-        if (!dateId) return;
-
-        // First API call
-        const response1 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
-          params: { EDATE: dateId },
-        });
-        setData(response1.data);
-
-        // Second API call
-        const response2 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
-          params: { SDATE: dateId, EDATE: dateId },
-        });
-        setData2(response2.data); 
-      } catch (error) {
-        console.error('Error fetching TAT data:', error);
-      }
-    };
-
-    fetchTatData();
-  }, [filteredData[0]?.ID]);
-
-  const formatDataForChart = (data) => {
-    return data.map((item) => ({
-      week: item.SHORT_WEEKS.toString(),
-      day_0: item.DAY_0,
-      day2_3: item.DAY2_3,
-      day4_7: item.DAY4_7,
-      day8_above: item.DAY8_ABOVE,
-    }));
-  };
-
-  const chartData2 = formatDataForChart(data2);
-
-
+  const { thirdPageOtherData,thirdPageTableData } = useContext(Context);
+  
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 pb-10 2xl:py-[1vw] mt-3">
@@ -63,15 +22,15 @@ const ThirdMainCard = () => {
           <div className="w-[68%]">
             <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
               <p className="text-[#6bdb6b] 2xl:text-[4vw] font-bold text-[60px] flex justify-center">
-                {data[0]?.ATAT}
+                {thirdPageOtherData[0]?.ATAT}
                 <div className="2xl:mt-5">
-                  {data[0]?.ATAT_PER >= 0 ? (
+                  {thirdPageOtherData[0]?.ATAT_PER >= 0 ? (
                     <div className="icons flex flex-col justify-center items-center ml-2">
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-400">
                         +
-                        {Math.abs(data[0]?.ATAT_PER).toString().length === 1
-                          ? "0" + Math.abs(data[0]?.ATAT_PER)
-                          : Math.abs(data[0]?.ATAT_PER)}
+                        {Math.abs(thirdPageOtherData[0]?.ATAT_PER).toString().length === 1
+                          ? "0" + Math.abs(thirdPageOtherData[0]?.ATAT_PER)
+                          : Math.abs(thirdPageOtherData[0]?.ATAT_PER)}
                         %
                       </h1>
                       <RiTriangleFill className="text-green-400 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
@@ -81,9 +40,9 @@ const ThirdMainCard = () => {
                       <RiTriangleFill className="text-red-600 rotate-180 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
                         -
-                        {Math.abs(data[0]?.ATAT_PER).toString().length === 1
-                          ? "0" + Math.abs(data[0]?.ATAT_PER)
-                          : Math.abs(data[0]?.ATAT_PER)}
+                        {Math.abs(thirdPageOtherData[0]?.ATAT_PER).toString().length === 1
+                          ? "0" + Math.abs(thirdPageOtherData[0]?.ATAT_PER)
+                          : Math.abs(thirdPageOtherData[0]?.ATAT_PER)}
                         %
                       </h1>
                     </div>
@@ -103,7 +62,7 @@ const ThirdMainCard = () => {
               ATAT
             </h1>
             <h1 className="text-[#49dd80] font-semibold tracking-wider  2xl:text-[1.3vw]">
-              {data[0]?.YTD_ATAT}
+              {thirdPageOtherData[0]?.YTD_ATAT}
             </h1>
             <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
               Days
@@ -120,21 +79,21 @@ const ThirdMainCard = () => {
             <div className="box-sigm-1 flex items-center">
               <div className="color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3.7vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[1vw]">
-                {data[0]?.DAY_0}
-                  {data[0]?.DAY_0_PER >= 0 ? (
+                {thirdPageOtherData[0]?.DAY_0}
+                  {thirdPageOtherData[0]?.DAY_0_PER >= 0 ? (
                     <span className="text-green-400 text-[12px] 2xl:text-[.8vw]">
                       +
-                      {Math.abs(data[0]?.DAY_0_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY_0_PER)
-                        : Math.abs(data[0]?.DAY_0_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY_0_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY_0_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY_0_PER)}
                       %
                     </span>
                   ) : (
                     <span className="text-[#BE1A1A] text-[12px] 2xl:text-[.8vw]">
                       -
-                      {Math.abs(data[0]?.DAY_0_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY_0_PER)
-                        : Math.abs(data[0]?.DAY_0_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY_0_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY_0_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY_0_PER)}
                       %
                     </span>
                   )}
@@ -150,21 +109,21 @@ const ThirdMainCard = () => {
             <div className="box-sigm-2 flex items-center">
               <div className="color-boxe ml-[14px] bg-[#ededed] border-2 2xl:w-[3.7vw] 2xl:h-[2.4vw] border-yellow-300 w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[1vw]">
-                {data[0]?.DAY2_3}
-                  {data[0]?.DAY2_3_PER >= 0 ? (
+                {thirdPageOtherData[0]?.DAY2_3}
+                  {thirdPageOtherData[0]?.DAY2_3_PER >= 0 ? (
                     <span className="text-green-400  text-[12px] 2xl:text-[.8vw]">
                       +
-                      {Math.abs(data[0]?.DAY2_3_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY2_3_PER)
-                        : Math.abs(data[0]?.DAY2_3_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY2_3_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY2_3_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY2_3_PER)}
                       %
                     </span>
                   ) : (
                     <span className="text-[#BE1A1A] text-[12px] 2xl:text-[.8vw]">
                       -
-                      {Math.abs(data[0]?.DAY2_3_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY2_3_PER)
-                        : Math.abs(data[0]?.DAY2_3_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY2_3_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY2_3_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY2_3_PER)}
                       %
                     </span>
                   )}
@@ -180,21 +139,21 @@ const ThirdMainCard = () => {
             <div className="box-sigm-3 flex items-center">
               <div className="color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3.7vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[1vw]">
-                {data[0]?.DAY4_7}
-                  {data[0]?.DAY4_7_PER >= 0 ? (
+                {thirdPageOtherData[0]?.DAY4_7}
+                  {thirdPageOtherData[0]?.DAY4_7_PER >= 0 ? (
                     <span className="text-yellow-600 text-[12px] 2xl:text-[.8vw]">
                       +
-                      {Math.abs(data[0]?.DAY4_7_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY4_7_PER)
-                        : Math.abs(data[0]?.DAY4_7_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY4_7_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY4_7_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY4_7_PER)}
                       %
                     </span>
                   ) : (
                     <span className="text-green-400 text-[12px] 2xl:text-[.8vw]">
                       -
-                      {Math.abs(data[0]?.DAY4_7_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY4_7_PER)
-                        : Math.abs(data[0]?.DAY4_7_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY4_7_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY4_7_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY4_7_PER)}
                       %
                     </span>
                   )}
@@ -210,21 +169,21 @@ const ThirdMainCard = () => {
             <div className="box-sigm-4 flex items-center">
               <div className="color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3.7vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[1vw]">
-                {data[0]?.DAY8_ABOVE}
-                  {data[0]?.DAY8_ABOVE_PER >= 0 ? (
+                {thirdPageOtherData[0]?.DAY8_ABOVE}
+                  {thirdPageOtherData[0]?.DAY8_ABOVE_PER >= 0 ? (
                     <span className="text-[#BE1A1A] text-[12px] 2xl:text-[.8vw]">
                       +
-                      {Math.abs(data[0]?.DAY8_ABOVE_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY8_ABOVE_PER)
-                        : Math.abs(data[0]?.DAY8_ABOVE_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY8_ABOVE_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY8_ABOVE_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY8_ABOVE_PER)}
                       %
                     </span>
                   ) : (
                     <span className=" text-green-400  text-[12px] 2xl:text-[.8vw]">
                       -
-                      {Math.abs(data[0]?.DAY8_ABOVE_PER).toString().length === 1
-                        ? "0" + Math.abs(data[0]?.DAY8_ABOVE_PER)
-                        : Math.abs(data[0]?.DAY8_ABOVE_PER)}
+                      {Math.abs(thirdPageOtherData[0]?.DAY8_ABOVE_PER).toString().length === 1
+                        ? "0" + Math.abs(thirdPageOtherData[0]?.DAY8_ABOVE_PER)
+                        : Math.abs(thirdPageOtherData[0]?.DAY8_ABOVE_PER)}
                       %
                     </span>
                   )}
@@ -248,7 +207,7 @@ const ThirdMainCard = () => {
               <th className="font-medium">8&8+</th>
             </tr>
 
-            {data2.map((data, index) => {
+            {thirdPageTableData.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
@@ -297,7 +256,7 @@ const ThirdMainCard = () => {
                 <th className="font-medium">8&+</th>
               </tr>
 
-              {data2.map((data, index) => {
+              {thirdPageTableData.map((data, index) => {
                 return (
                   <tr>
                     <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">

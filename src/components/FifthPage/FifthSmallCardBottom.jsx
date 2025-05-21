@@ -1,100 +1,20 @@
-import React, { useContext, useEffect, useState } from "react";
 import { FifthMainChart } from "./charts/FifthMainChart";
-import axios from "axios";
-import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
-const FifthSmallCardBottom = ({ name }) => {
-const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    const fetchRevenueData = async () => {
-      try {
-        const weekId = filteredData[0]?.ID;
-
-        if (!weekId) return;
-        // First API call
-        const response1 = await axios.get(
-          "https://dwpcare.com.pk/dwp/revenue",
-          {
-            params: { ENDWEEK: weekId },
-          }
-        );
-        setData(response1.data);
-        // Second API call
-        const response2 = await axios.get(
-          "https://dwpcare.com.pk/dwp/revenue",
-          {
-            params: { STARTWEEK: weekId, ENDWEEK: weekId },
-          }
-        );
-        setData2(response2.data);
-      } catch (error) {
-        console.error("Error fetching revenue data:", error);
-      }
-    };
-
-    fetchRevenueData();
-  }, [filteredData[0]?.ID]);
-
-  const formatDataForChart = (data) => {
-    return data.map((item) => ({
-      Week: item.SHORT_WEEKS,
-      PARTS: item.PARTS,
-      SERVICE: item.SERVICE,
-      CHARGES: item.VISIT_CHARGES,
-      INSTALL: item.INSTALL_CORPORATE,
-    }));
-  };
-
-  const chartData = formatDataForChart(data2);
+const FifthSmallCardBottom = ({ name,productTable }) => {
 
 
+  // const formatDataForChart = (data) => {
+  //   return data.map((item) => ({
+  //     Week: item.SHORT_WEEKS,
+  //     PARTS: item.PARTS,
+  //     SERVICE: item.SERVICE,
+  //     CHARGES: item.VISIT_CHARGES,
+  //     INSTALL: item.INSTALL_CORPORATE,
+  //   }));
+  // };
 
-
-
-
-
-
-
-
-
-    const TableData = [
-        {
-          id: 1,
-          weeks: "Week 39",
-          Inset: "0.12",
-          Outset: "0.34",
-          OTC: "0.54",
-          OTC1: "0.42",
-        },
-        {
-          id: 2,
-          weeks: "Week 40",
-          Inset: "0.12",
-          Outset: "0.34",
-          OTC: "0.54",
-          OTC1: "0.42",
-        },
-        {
-          id: 3,
-          weeks: "Week 41",
-          Inset: "0.12",
-          Outset: "0.34",
-          OTC: "0.54",
-          OTC1: "0.42",
-        },
-        {
-          id: 4,
-          weeks: "Week 42",
-          Inset: "0.12",
-          Outset: "0.34",
-          OTC: "0.54",
-          OTC1: "0.42",
-        },
-      ];
+  // const chartData = formatDataForChart(data2);
   return (
     <div className="w-[300px] 2xl:w-[100%] first-div min-h-[45vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
       <h1 className="text-[#44cf86] text-xs 2xl:text-[.75vw] text-center mt-3 font-semibold">
@@ -111,23 +31,23 @@ const { filteredData } = useContext(Context);
             <th className="font-medium">Ints/Corp</th>
           </tr>
 
-          {TableData.map((data, index) => {
+          {productTable.map((data, index) => {
             return (
               <tr>
                 <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                  {data?.weeks}
+                  {data?.WEEKS ??0}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                  {data?.Inset}
+                  {data?.PRODUCT_PARTS ??0}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                  {data.Outset}
+                  {data?.PRODUCT_SERVICE ?? 0}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                  {data.OTC1}
+                  {data?.PRODUCT_VISIT ?? 0}
                 </td>
                 <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                  {data.OTC}
+                  {data?.PRODUCT_INSTALL ?? 0}
                 </td>
               </tr>
             );

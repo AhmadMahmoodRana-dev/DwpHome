@@ -1,93 +1,28 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import { Context } from "@/context/Context";
-import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthMainCard = () => {
-  const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+  const {fifthPageOtherData,fifthPageTableData} = useContext(Context)
+ 
 
-  useEffect(() => {
-    const fetchRevenueData = async () => {
-      try {
-        const weekId = filteredData[0]?.ID;
+  // const formatDataForChart = (data) => {
+  //   return data.map((item) => ({
+  //     Week: item.SHORT_WEEKS,
+  //     PARTS: item.PARTS,
+  //     SERVICE: item.SERVICE,
+  //     CHARGES: item.VISIT_CHARGES,
+  //     INSTALL: item.INSTALL_CORPORATE,
+  //   }));
+  // };
 
-        if (!weekId) return;
-        // First API call
-        const response1 = await axios.get(
-          "https://dwpcare.com.pk/dwp/revenue",
-          {
-            params: { ENDWEEK: weekId },
-          }
-        );
-        setData(response1.data);
-        // Second API call
-        const response2 = await axios.get(
-          "https://dwpcare.com.pk/dwp/revenue",
-          {
-            params: { STARTWEEK: weekId, ENDWEEK: weekId },
-          }
-        );
-        setData2(response2.data);
-      } catch (error) {
-        console.error("Error fetching revenue data:", error);
-      }
-    };
-
-    fetchRevenueData();
-  }, [filteredData[0]?.ID]);
-
-  const formatDataForChart = (data) => {
-    return data.map((item) => ({
-      Week: item.SHORT_WEEKS,
-      PARTS: item.PARTS,
-      SERVICE: item.SERVICE,
-      CHARGES: item.VISIT_CHARGES,
-      INSTALL: item.INSTALL_CORPORATE,
-    }));
-  };
-
-  const chartData = formatDataForChart(data2);
+  // const chartData = formatDataForChart(data2);
 
   // ##########################
-  const TableData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-  ];
+ 
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div min-h-[65vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
@@ -101,17 +36,17 @@ const FifthMainCard = () => {
           <div className="w-[65%]">
             <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
               <p className="text-white 2xl:text-[3.2vw] font-bold text-[47px] flex justify-center">
-                {data[0]?.TOTAL_REVENUE.toLocaleString()}
+                {fifthPageOtherData[0]?.TOTAL_REVENUE.toLocaleString()}
                 <div className="2xl:mt-5">
-                  {data[0]?.TOTAL_REVENUE_PER >= 0 ? (
+                  {fifthPageOtherData[0]?.TOTAL_REVENUE_PER >= 0 ? (
                     <div className="icons flex flex-col justify-center items-center ml-2">
                       <RiTriangleFill className="text-green-500 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-500">
                         +
-                        {Math.abs(data[0]?.TOTAL_REVENUE_PER).toString()
+                        {Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER).toString()
                           .length === 1
-                          ? "0" + Math.abs(data[0]?.TOTAL_REVENUE_PER)
-                          : Math.abs(data[0]?.TOTAL_REVENUE_PER)}
+                          ? "0" + Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)
+                          : Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)}
                         %
                       </h1>
                     </div>
@@ -119,10 +54,10 @@ const FifthMainCard = () => {
                     <div className="icons flex flex-col justify-center items-center ml-2">
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
                         -
-                        {Math.abs(data[0]?.TOTAL_REVENUE_PER).toString()
+                        {Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER).toString()
                           .length === 1
-                          ? "0" + Math.abs(data[0]?.TOTAL_REVENUE_PER)
-                          : Math.abs(data[0]?.TOTAL_REVENUE_PER)}
+                          ? "0" + Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)
+                          : Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)}
                         %
                       </h1>
                       <RiTriangleFill className="text-red-600 w-[22px] rotate-180 h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
@@ -142,7 +77,7 @@ const FifthMainCard = () => {
               Revenue
             </h1>
             <h1 className="text-white font-semibold tracking-wider  2xl:text-[1.3vw]">
-              {data[0]?.YTD_REVENUE}
+              {fifthPageOtherData[0]?.YTD_REVENUE}
             </h1>
             <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
               Millions
@@ -157,7 +92,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={data[0]?.PARTS} />
+              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.PARTS} />
             </div>
           </div>
           <div className="handle-progress">
@@ -166,7 +101,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={data[0]?.SERVICE_PER} />
+              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.SERVICE_PER} />
             </div>
           </div>
           <div className="handle-progress">
@@ -175,7 +110,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={data[0]?.VISIT_PER} />
+              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.VISIT_PER} />
             </div>
           </div>
           <div className="handle-progress">
@@ -184,7 +119,7 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={data[0]?.INSTALL_PER} />
+              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.INSTALL_PER} />
             </div>
           </div>
         </div>
@@ -199,7 +134,7 @@ const FifthMainCard = () => {
               <th className="font-medium">Ints/Corp</th>
             </tr>
 
-            {data2.map((data, index) => {
+            {fifthPageTableData.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
@@ -245,23 +180,23 @@ const FifthMainCard = () => {
               <th className="font-medium">Ints/Corp</th>
             </tr>
 
-            {TableData.map((data, index) => {
+            {fifthPageTableData.map((data, index) => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                    {data?.weeks}
+                    {data?.WEEKS ??0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                    {data?.Inset}
+                    {data?.GREE_AC_PARTS ??0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.Outset}
+                    {data?.GREE_AC_SERVICE ??0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data.OTC1}
+                    {data?.GREE_AC_VISIT ??0}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data.OTC}
+                    {data?.GREE_AC_INSTALL ??0}
                   </td>
                 </tr>
               );

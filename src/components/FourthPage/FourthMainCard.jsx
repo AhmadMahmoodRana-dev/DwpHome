@@ -3,51 +3,19 @@ import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
 import FourthPagePiechart from "./charts/FourthPagePiechart";
 import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
-import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 const FourthMainCard = () => {
   // TOP SECTION APIS
-  const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+  const { fourthPageOtherData, fourthPageTableData } = useContext(Context);
+
   const [pieChartData, setPieChartData] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const endWeekId = filteredData[0]?.ID;
-
-        if (!endWeekId) return;
-
-        const pendingRes = await axios.get(
-          `https://dwpcare.com.pk/dwp/pending`,
-          {
-            params: { ENDWEEK: endWeekId },
-          }
-        );
-
-        setData(pendingRes.data);
-        const formattedData = formatPieChartData(pendingRes.data);
-        setPieChartData(formattedData);
-
-        const pendingRangeRes = await axios.get(
-          `https://dwpcare.com.pk/dwp/pending`,
-          {
-            params: {
-              STARTWEEK: endWeekId,
-              ENDWEEK: endWeekId,
-            },
-          }
-        );
-
-        setData2(pendingRangeRes.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [filteredData[0]?.ID]);
+    if (fourthPageOtherData && fourthPageOtherData.length > 0) {
+      const formattedData = formatPieChartData(fourthPageOtherData);
+      setPieChartData(formattedData);
+    }
+  }, [fourthPageOtherData]);
 
   // ###########################################################################
 
@@ -59,10 +27,10 @@ const FourthMainCard = () => {
         datasets: [
           {
             data: [
-              item.PART_WAITING,
-              item.UNDER_REPAIR,
-              item.COMPLETED,
-              item.OTHER,
+              item.PART_WAITING ?? 1,
+              item.UNDER_REPAIR ?? 1,
+              item.COMPLETED ?? 1,
+              item.OTHER ?? 1,
             ],
             backgroundColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
             borderColor: ["#FF0000", "#F9E400", "#05FF00", "#3FA2F6"],
@@ -92,44 +60,8 @@ const FourthMainCard = () => {
     }));
   };
 
-  const chartData2 = formatDataForChart(data2);
+  const chartData2 = formatDataForChart(fourthPageTableData);
 
-  // #####################################################################
-
-  const TableData = [
-    {
-      id: 1,
-      weeks: "WEEK 01",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-    {
-      id: 2,
-      weeks: "WEEK 02",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-    {
-      id: 3,
-      weeks: "WEEK 03",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-    {
-      id: 4,
-      weeks: "WEEK 04",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-  ];
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] 2xl:pt-[.7vw] xl:py-2 lg:pt-2 lg:pb-3 py-2 mt-3 ">
@@ -139,17 +71,18 @@ const FourthMainCard = () => {
 
         <div className="heading_container flex gap-4 items-center pt-2 pb-4">
           <h1 className="text-5xl 2xl:text-[3vw] font-bold text-red-500">
-            {data[0]?.TOTAL_PENDING_SETS.toLocaleString()}
+            {fourthPageOtherData[0]?.TOTAL_PENDING_SETS.toLocaleString()}
           </h1>
-          {data[0]?.TOTAL_PENDING_PER >= 0 ? (
+          {fourthPageOtherData[0]?.TOTAL_PENDING_PER >= 0 ? (
             <div className="flex flex-col justify-center items-center gap-1">
               <BsTriangleFill color="#16a34a" size={20} />
               <h1 className="text-green-600 font-semibold">
                 {" "}
                 +
-                {Math.abs(data[0]?.TOTAL_PENDING_PER).toString().length === 1
-                  ? "0" + Math.abs(data[0]?.TOTAL_PENDING_PER)
-                  : Math.abs(data[0]?.TOTAL_PENDING_PER)}
+                {Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER).toString()
+                  .length === 1
+                  ? "0" + Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER)
+                  : Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER)}
                 %
               </h1>
             </div>
@@ -157,9 +90,10 @@ const FourthMainCard = () => {
             <div className="flex flex-col justify-center items-center gap-1">
               <h1 className="text-red-600 font-semibold">
                 -
-                {Math.abs(data[0]?.TOTAL_PENDING_PER).toString().length === 1
-                  ? "0" + Math.abs(data[0]?.TOTAL_PENDING_PER)
-                  : Math.abs(data[0]?.TOTAL_PENDING_PER)}
+                {Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER).toString()
+                  .length === 1
+                  ? "0" + Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER)
+                  : Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER)}
                 %
               </h1>
               <BsTriangleFill
@@ -176,11 +110,16 @@ const FourthMainCard = () => {
             <h1 className="text-white uppercase 2xl:text-[1vw]">Aging Days</h1>
             <div className="flex gap-4">
               <h1 className="flex flex-col text-xs justify-center items-center text-yellow-500">
-                Above 7<span className="text-white">{data[0]?.AGING}</span>
+                Above 7
+                <span className="text-white">
+                  {fourthPageOtherData[0]?.AGING}
+                </span>
               </h1>
               <h1 className="flex flex-col text-xs justify-center items-center text-green-500">
                 Overall
-                <span className="text-white">{data[0]?.PTAT}</span>
+                <span className="text-white">
+                  {fourthPageOtherData[0]?.PTAT}
+                </span>
               </h1>
             </div>
           </div>
@@ -208,7 +147,7 @@ const FourthMainCard = () => {
               </th>
             </tr>
 
-            {data2.map((data, index) => {
+            {fourthPageTableData.map((data, index) => {
               return (
                 <>
                   <tr>
@@ -234,8 +173,7 @@ const FourthMainCard = () => {
           </table>
           <div>
             {/* <FourthBarChart chartData={chartData2} /> */}
-                      <ResponsiveLineChart/>
-            
+            <ResponsiveLineChart />
           </div>
           <div className="main-content">
             <h1 className="text-white font-semibold text-[14px] 2xl:text-[.9vw] mt-3 2xl:mt-[.7vw]">
@@ -255,7 +193,7 @@ const FourthMainCard = () => {
                 8 &+
               </p>
             </div>
-            {data2.map((item) => {
+            {fourthPageTableData.map((item) => {
               return (
                 <>
                   <div className="color-boxes-cotainer flex mt-[.6vw] items-center">
@@ -404,7 +342,7 @@ const FourthMainCard = () => {
                 <th className="font-light">Others</th>
               </tr>
 
-              {data2.map((data, index) => {
+              {fourthPageTableData.map((data, index) => {
                 return (
                   <tr>
                     <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-normal text-white">
@@ -430,8 +368,7 @@ const FourthMainCard = () => {
           <hr className="mx-6" />
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
             {/* <FourthBarChart chartData={chartData2} /> */}
-                      <ResponsiveLineChart/>
-            
+            <ResponsiveLineChart />
           </div>
         </div>
       </div>

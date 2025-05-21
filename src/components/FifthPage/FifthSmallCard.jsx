@@ -1,102 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
-import { Context } from "@/context/Context";
-import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
-const FifthSmallCard = ({name}) => {
-const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+const FifthSmallCard = ({ name, otherdata,toptable }) => {
+ 
 
-  useEffect(() => {
-    const fetchRevenueData = async () => {
-      try {
-        const weekId = filteredData[0]?.ID;
+  // const formatDataForChart = (data) => {
+  //   return data.map((item) => ({
+  //     Week: item.SHORT_WEEKS,
+  //     PARTS: item.PARTS,
+  //     SERVICE: item.SERVICE,
+  //     CHARGES: item.VISIT_CHARGES,
+  //     INSTALL: item.INSTALL_CORPORATE,
+  //   }));
+  // };
 
-        if (!weekId) return;
-        // First API call
-        const response1 = await axios.get(
-          "https://dwpcare.com.pk/dwp/revenue",
-          {
-            params: { ENDWEEK: weekId },
-          }
-        );
-        setData(response1.data);
-        // Second API call
-        const response2 = await axios.get(
-          "https://dwpcare.com.pk/dwp/revenue",
-          {
-            params: { STARTWEEK: weekId, ENDWEEK: weekId },
-          }
-        );
-        setData2(response2.data);
-      } catch (error) {
-        console.error("Error fetching revenue data:", error);
-      }
-    };
+  // const chartData = formatDataForChart(data2);
 
-    fetchRevenueData();
-  }, [filteredData[0]?.ID]);
-
-  const formatDataForChart = (data) => {
-    return data.map((item) => ({
-      Week: item.SHORT_WEEKS,
-      PARTS: item.PARTS,
-      SERVICE: item.SERVICE,
-      CHARGES: item.VISIT_CHARGES,
-      INSTALL: item.INSTALL_CORPORATE,
-    }));
-  };
-
-  const chartData = formatDataForChart(data2);
-
-
-
-
-
-
-
-
-  const TableData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      Inset: "0.12",
-      Outset: "0.34",
-      OTC: "0.54",
-      OTC1: "0.42",
-    },
-  ];
   return (
     <div className="w-[300px] 2xl:w-[100%] first-div min-h-[65vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
-
       <h1 className="text-white font-bold text-[20px] 2xl:text-[1.1vw] ">
         {name} Weekly Revenue
       </h1>
@@ -105,14 +28,33 @@ const { filteredData } = useContext(Context);
         <div className="w-[65%] 2xl:w-[65%]">
           <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
             <p className="text-white 2xl:text-[3vw] font-bold text-[47px] flex justify-center">
-              7.28
+              {otherdata[0]?.TOTAL_REVENUE ??0 .toLocaleString()}
               <div className="2xl:mt-5">
-                <div className="icons flex flex-col justify-center items-center ml-2">
-                  <RiTriangleFill className="text-green-500 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
-                  <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-500">
-                    + 44 %
-                  </h1>
-                </div>
+                {otherdata[0]?.TOTAL_REVENUE_PER ??0 >= 0 ? (
+                  <div className="icons flex flex-col justify-center items-center ml-2">
+                    <RiTriangleFill className="text-green-500 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
+                    <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-500">
+                      +
+                      {Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0).toString()
+                        .length === 1
+                        ? "0" + Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)
+                        : Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)}
+                      %
+                    </h1>
+                  </div>
+                ) : (
+                  <div className="icons flex flex-col justify-center items-center ml-2">
+                    <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
+                      -
+                      {Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0).toString()
+                        .length === 1
+                        ? "0" + Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)
+                        : Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)}
+                      %
+                    </h1>
+                    <RiTriangleFill className="text-red-600 w-[22px] rotate-180 h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
+                  </div>
+                )}
 
                 <h1 className="text-white text-[16px] 2xl:text-[.9vw] text-center">
                   Millions
@@ -128,7 +70,7 @@ const { filteredData } = useContext(Context);
             Revenue
           </h1>
           <h1 className="text-white font-semibold tracking-wider  2xl:text-[1.1vw]">
-            297.75
+              {otherdata[0]?.YTD_REVENUE ??0}
           </h1>
           <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
             Millions
@@ -143,7 +85,7 @@ const { filteredData } = useContext(Context);
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={"10"} />
+            <SemiCircularProgressive percentage={otherdata[0]?.PARTS ??0} />
           </div>
         </div>
         <div className="handle-progress">
@@ -152,7 +94,7 @@ const { filteredData } = useContext(Context);
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={"10"} />
+            <SemiCircularProgressive percentage={otherdata[0]?.SERVICE_PER ??0} />
           </div>
         </div>
         <div className="handle-progress">
@@ -161,7 +103,7 @@ const { filteredData } = useContext(Context);
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={"10"} />
+            <SemiCircularProgressive percentage={otherdata[0]?.VISIT_PER ??0} />
           </div>
         </div>
         <div className="handle-progress">
@@ -170,7 +112,7 @@ const { filteredData } = useContext(Context);
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={"10"} />
+            <SemiCircularProgressive percentage={otherdata[0]?.INSTALL_PER ??0} />
           </div>
         </div>
       </div>
@@ -185,23 +127,23 @@ const { filteredData } = useContext(Context);
             <th className="font-medium">Ints/Corp</th>
           </tr>
 
-          {TableData.map((data, index) => {
+          {toptable.map((data, index) => {
             return (
               <tr>
                 <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.7vw] font-medium text-white">
-                  {data?.weeks}
+                  {data?.WEEKS}
                 </td>
                 <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.7vw]  font-normal text-center  text-white">
-                  {data?.Inset}
+                    {parseFloat(data?.PARTS ?? 0).toFixed(2)}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.7vw]  font-normal text-center text-white">
-                  {data.Outset}
+                    {parseFloat(data?.SERVICE ?? 0).toFixed(2)}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.7vw]  font-normal text-center text-white">
-                  {data.OTC1}
+                    {parseFloat(data?.VISIT_CHARGES ?? 0).toFixed(2)}
                 </td>
                 <td className="text-center pt-2  2xl:text-[.7vw] pr-1 text-[12px] font-semibold  text-white">
-                  {data.OTC}
+                    {parseFloat(data?.INSTALL_CORPORATE ?? 0).toFixed(2)}
                 </td>
               </tr>
             );
@@ -210,8 +152,7 @@ const { filteredData } = useContext(Context);
       </div>
       <div className="pr-4">
         {/* <FifthMainChart chartData={chartData} /> */}
-                  <ResponsiveLineChart/>
-        
+        <ResponsiveLineChart />
       </div>
     </div>
   );

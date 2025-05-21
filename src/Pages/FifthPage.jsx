@@ -1,86 +1,102 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { RxTriangleLeft } from "react-icons/rx";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Header from "@/components/SecondPage/header/Header";
 import FifthMainCard from "@/components/FifthPage/FifthMainCard";
 import FifthSmallCard from "@/components/FifthPage/FifthSmallCard";
 import FifthSmallCardBottom from "@/components/FifthPage/FifthSmallCardBottom";
+import { Context } from "@/context/Context";
 
-const products = [
-  {
-    id: 1,
-    name: "Rawalpindi",
-    image: "https://via.placeholder.com/300",
-    description: "Product 1 Description",
-  },
-  {
-    id: 2,
-    name: "Faisalabad",
-    image: "https://via.placeholder.com/300",
-    description: "Product 2 Description",
-  },
-  {
-    id: 3,
-    name: "Gujranwala",
-    image: "https://via.placeholder.com/300",
-    description: "Product 3 Description",
-  },
-  {
-    id: 4,
-    name: "Lahore",
-    image: "https://via.placeholder.com/300",
-    description: "Product 4 Description",
-  },
-  {
-    id: 5,
-    name: "Multan",
-    image: "https://via.placeholder.com/300",
-    description: "Product 5 Description",
-  },
-  {
-    id: 6,
-    name: "Hyderabad",
-    image: "https://via.placeholder.com/300",
-    description: "Product 6 Description",
-  },
-  {
-    id: 7,
-    name: "Karachi",
-    image: "https://via.placeholder.com/300",
-    description: "Product 6 Description",
-  },
-];
-
-const bottomProducts = [
-  {
-    id: 1,
-    name: "Ecostar",
-    image: "https://via.placeholder.com/300",
-    description: "Product 1 Description",
-  },
-  {
-    id: 2,
-    name: "Refriger",
-    image: "https://via.placeholder.com/300",
-    description: "Product 2 Description",
-  },
-  {
-    id: 3,
-    name: "LED",
-    image: "https://via.placeholder.com/300",
-    description: "Product 3 Description",
-  },
-  {
-    id: 4,
-    name: "Other",
-    image: "https://via.placeholder.com/300",
-    description: "Product 4 Description",
-  },
-];
 
 export default function FifthPage() {
-  // Upper Part
+  const {
+    OthersRawalpindiDataFifthPage,
+    OthersFaisalabadDataFifthPage,
+    OthersGujranwalaDataFifthPage,
+    OthersLahoreDataFifthPage,
+    OthersMultanDataFifthPage,
+    OthersHyderabadDataFifthPage,
+    OthersKarachiDataFifthPage,
+    topTableRawalpindiDataFifth,
+    topTableFaisalabadDataFifth,
+    topTableGujranwalaDataFifth,
+    topTableLahoreDataFifth,
+    topTableMultanDataFifth,
+    topTableHyderabadDataFifth,
+    topTableKarachiDataFifth,
+    productTableEcostarFifth,
+    productTableLedFifth,
+    productTableRefrigeratorFifth,
+    productTableOtherFifth,
+  } = useContext(Context);
 
+  const products = [
+    {
+      id: 1,
+      name: "Rawalpindi",
+      otherdata: OthersRawalpindiDataFifthPage,
+      toptable:topTableRawalpindiDataFifth,
+    },
+    {
+      id: 2,
+      name: "Faisalabad",
+      otherdata: OthersFaisalabadDataFifthPage,
+      toptable:topTableFaisalabadDataFifth,
+    },
+    {
+      id: 3,
+      name: "Gujranwala",
+      otherdata: OthersGujranwalaDataFifthPage,
+      toptable:topTableGujranwalaDataFifth,
+    },
+    {
+      id: 4,
+      name: "Lahore",
+      otherdata: OthersLahoreDataFifthPage,
+      toptable:topTableLahoreDataFifth,
+    },
+    {
+      id: 5,
+      name: "Multan",
+      otherdata: OthersMultanDataFifthPage,
+      toptable:topTableMultanDataFifth,
+    },
+    {
+      id: 6,
+      name: "Hyderabad",
+      otherdata: OthersHyderabadDataFifthPage,
+      toptable:topTableHyderabadDataFifth,
+    },
+    {
+      id: 7,
+      name: "Karachi",
+      otherdata: OthersKarachiDataFifthPage,
+      toptable:topTableKarachiDataFifth,
+    },
+  ];
+  const bottomProducts = [
+    {
+      id: 1,
+      name: "Ecostar",
+      productTable:productTableEcostarFifth,
+    },
+    {
+      id: 2,
+      name: "Refriger",
+      productTable:productTableRefrigeratorFifth,
+    },
+    {
+      id: 3,
+      name: "LED",
+     productTable:productTableLedFifth,
+    },
+    {
+      id: 4,
+      name: "Other",
+      productTable:productTableOtherFifth,
+    },
+  ];
+  // Upper Part
   const [currentIndex, setCurrentIndex] = useState(0);
   const [productsPerSlide, setProductsPerSlide] = useState(3);
 
@@ -192,7 +208,11 @@ export default function FifthPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <FifthSmallCard name={product?.name} />
+                    <FifthSmallCard
+                      name={product?.name}
+                      otherdata={product?.otherdata}
+                      toptable={product?.toptable}
+                    />
                   </div>
                 ))}
               </div>
@@ -225,7 +245,7 @@ export default function FifthPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <FifthSmallCardBottom name={product?.name} />
+                    <FifthSmallCardBottom name={product?.name} productTable={product?.productTable} />
                   </div>
                 ))}
               </div>

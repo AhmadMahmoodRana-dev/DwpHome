@@ -246,7 +246,7 @@ useEffect(() => {
       console.error("Error fetching inset data:", error);
     }
   };
-
+  
   fetchInsetData();
 }, [filteredData[0]?.ID]);
 
@@ -294,7 +294,7 @@ const topTableKarachiDataFourth = extractMultipleFields(fourthPageTableData, fie
 // PRODUCT TABLE
 const fourthProductTableCustomFieldNames = ["WEEKS", "PRODUCT_PART_WAITING", "PRODUCT_UNDER_REPAIR","PRODUCT_COMPLETED","PRODUCT_OTHERS"];
 
-const fieldsToExtractEcostarFourth = ["WEEKS","ECOSTAR_AC_PART_WAITING","ECOSTAR_AC_UNDER_REPAIR","ECOSTAR_COMPLETED","ECOSTAR_AC_OTHERS"];
+const fieldsToExtractEcostarFourth = ["WEEKS","ECOSTAR_AC_PART_WAITING","ECOSTAR_AC_UNDER_REPAIR","ECOSTAR_AC_COMPLETED","ECOSTAR_AC_OTHERS"];
 const fieldsToExtractLedFourth = ["WEEKS","ECOSTAR_LED_TV_PART_WAITING","ECOSTAR_LED_TV_UNDER_REPAIR","ECOSTAR_LED_TV_COMPLETED","ECOSTAR_LED_TV_OTHERS"];
 const fieldsToExtractRefrigeratorFourth = ["WEEKS","REFRIGERATOR_PART_WAITING","REFRIGERATOR_UNDER_REPAIR","REFRIGERATOR_COMPLETED","REFRIGERATOR_OTHERS"];
 const fieldsToExtractOtherFourth = ["WEEKS","OTHERS_PART_WAITING","OTHERS_UNDER_REPAIR","OTHERS_COMPLETED","OTHERS_OTHERS"];
@@ -303,6 +303,99 @@ const productTableEcostarFourth = extractMultipleFields(fourthPageTableData, fie
 const productTableLedFourth = extractMultipleFields(fourthPageTableData, fieldsToExtractLedFourth, fourthProductTableCustomFieldNames);
 const productTableRefrigeratorFourth = extractMultipleFields(fourthPageTableData, fieldsToExtractRefrigeratorFourth, fourthProductTableCustomFieldNames);
 const productTableOtherFourth = extractMultipleFields(fourthPageTableData, fieldsToExtractOtherFourth, fourthProductTableCustomFieldNames);
+
+// ######################################################################################################################################
+
+// FIFTH PAGE
+const [fifthPageOtherData, setFifthPageOtherData] = useState([]);
+const [fifthPageTableData, setFifthPageTableData] = useState([]);
+
+useEffect(() => {
+  const fetchInsetData = async () => {
+    try {
+      const dateId = filteredData[0]?.ID;
+      if (!dateId) return;
+
+      // First API call
+      const response1 = await axios.get(
+        `https://dwpcare.com.pk/dwp/revenue`,
+        {
+          params: { ENDWEEK: dateId },
+        }
+      );
+      setFifthPageOtherData(response1.data);
+      // SECOND API call
+      const response2 = await axios.get(
+         `https://dwpcare.com.pk/dwp/revenue`,
+          {
+            params: {
+              STARTWEEK: dateId,
+              ENDWEEK: dateId,
+            },
+          }
+      );
+      setFifthPageTableData(response2.data);
+
+    } catch (error) {
+      console.error("Error fetching inset data:", error);
+    }
+  };
+  
+  fetchInsetData();
+}, [filteredData[0]?.ID]);
+
+
+// OTHERS DATA
+const fifthPageCustomFieldNames = ["TOTAL_REVENUE", "TOTAL_REVENUE_PER", "YTD_REVENUE","PARTS","SERVICE_PER","VISIT_PER","INSTALL_PER"];
+
+const fieldsToExtractRawalpindiFifthPage = ["RWP_REVENUE", "RWP_REVENUE_PER", "RWP_YTD_REVENUE","RWP_PARTS","RWP_SERVICE_PER","RWP_VISIT_PER","RWP_INSTALL_PER"];
+const fieldsToExtractFaisalabadFifthPage = ["FSD_REVENUE", "FSD_REVENUE_PER", "FSD_YTD_REVENUE","FSD_PARTS","FSD_SERVICE_PER","FSD_VISIT_PER","FSD_INSTALL_PER"];
+const fieldsToExtractGujranwalaFifthPage = ["GUJ_REVENUE", "GUJ_REVENUE_PER", "GUJ_YTD_REVENUE","GUJ_PARTS","GUJ_SERVICE_PER","GUJ_VISIT_PER","GUJ_INSTALL_PER"];
+const fieldsToExtractLahoreFifthPage =     ["LHE_REVENUE", "LHE_REVENUE_PER", "LHE_YTD_REVENUE","LHE_PARTS","LHE_SERVICE_PER","LHE_VISIT_PER","LHE_INSTALL_PER"];
+const fieldsToExtractMultanFifthPage =     ["MUL_REVENUE", "MUL_REVENUE_PER", "MUL_YTD_REVENUE","MUL_PARTS","MUL_SERVICE_PER","MUL_VISIT_PER","MUL_INSTALL_PER"];
+const fieldsToExtractHyderabadFifthPage =  ["HYD_REVENUE", "HYD_REVENUE_PER", "HYD_YTD_REVENUE","HYD_PARTS","HYD_SERVICE_PER","HYD_VISIT_PER","HYD_INSTALL_PER"];
+const fieldsToExtractKarachiFifthPage =    ["KHI_REVENUE", "KHI_REVENUE_PER", "KHI_YTD_REVENUE","KHI_PARTS","KHI_SERVICE_PER","KHI_VISIT_PER","KHI_INSTALL_PER"];
+
+const OthersRawalpindiDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractRawalpindiFifthPage, fifthPageCustomFieldNames);
+const OthersFaisalabadDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractFaisalabadFifthPage, fifthPageCustomFieldNames);
+const OthersGujranwalaDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractGujranwalaFifthPage, fifthPageCustomFieldNames);
+const OthersLahoreDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractLahoreFifthPage, fifthPageCustomFieldNames);
+const OthersMultanDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractMultanFifthPage, fifthPageCustomFieldNames);
+const OthersHyderabadDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractHyderabadFifthPage, fifthPageCustomFieldNames);
+const OthersKarachiDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractKarachiFifthPage, fifthPageCustomFieldNames);
+
+//  TABLE
+const fifthTableCustomFieldNames = ["WEEKS", "PARTS", "SERVICE","VISIT_CHARGES","INSTALL_CORPORATE"];
+
+const fieldsToExtractRawalpinditopTableFifth = ["WEEKS","RWP_PARTS","RWP_SERVICE","RWP_VISIT","RWP_INSTALL"];
+const fieldsToExtractFaisalabadtopTableFifth = ["WEEKS","FSD_PARTS","FSD_SERVICE","FSD_VISIT","FSD_INSTALL"];
+const fieldsToExtractGujranwalatopTableFifth = ["WEEKS","GUJ_PARTS","GUJ_SERVICE","GUJ_VISIT","GUJ_INSTALL"];
+const fieldsToExtractLahoretopTableFifth =     ["WEEKS","LHE_PARTS","LHE_SERVICE","LHE_VISIT","LHE_INSTALL"];
+const fieldsToExtractMultantopTableFifth =     ["WEEKS","MUL_PARTS","MUL_SERVICE","MUL_VISIT","MUL_INSTALL"];
+const fieldsToExtractHyderabadtopTableFifth =  ["WEEKS","HYD_PARTS","HYD_SERVICE","HYD_VISIT","HYD_INSTALL"];
+const fieldsToExtractKarachitopTableFifth =    ["WEEKS","KHI_PARTS","KHI_SERVICE","KHI_VISIT","KHI_INSTALL"];
+
+const topTableRawalpindiDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractRawalpinditopTableFifth, fifthTableCustomFieldNames);
+const topTableFaisalabadDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractFaisalabadtopTableFifth, fifthTableCustomFieldNames);
+const topTableGujranwalaDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractGujranwalatopTableFifth, fifthTableCustomFieldNames);
+const topTableLahoreDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractLahoretopTableFifth, fifthTableCustomFieldNames);
+const topTableMultanDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractMultantopTableFifth, fifthTableCustomFieldNames);
+const topTableHyderabadDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractHyderabadtopTableFifth, fifthTableCustomFieldNames);
+const topTableKarachiDataFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractKarachitopTableFifth, fifthTableCustomFieldNames);
+
+// PRODUCT TABLE
+const fifthProductTableCustomFieldNames = ["WEEKS", "PRODUCT_PARTS", "PRODUCT_SERVICE","PRODUCT_VISIT","PRODUCT_INSTALL"];
+
+const fieldsToExtractEcostarFifth = ["WEEKS","ECOSTAR_AC_PARTS","ECOSTAR_AC_SERVICE","ECOSTAR_AC_VISIT","ECOSTAR_AC_INSTALL"];
+const fieldsToExtractLedFifth = ["WEEKS","ECOSTAR_LED_TV_PARTS","ECOSTAR_LED_TV_SERVICE","ECOSTAR_LED_TV_VISIT","ECOSTAR_LED_TV_INSTALL"];
+const fieldsToExtractRefrigeratorFifth = ["WEEKS","REFRIGERATOR_PARTS","REFRIGERATOR_SERVICE","REFRIGERATOR_VISIT","REFRIGERATOR_INSTALL"];
+const fieldsToExtractOtherFifth = ["WEEKS","OTHERS_PARTS","OTHERS_SERVICE","OTHERS_VISIT","OTHERS_INSTALL"];
+
+const productTableEcostarFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractEcostarFifth, fifthProductTableCustomFieldNames);
+const productTableLedFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractLedFifth, fifthProductTableCustomFieldNames);
+const productTableRefrigeratorFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractRefrigeratorFifth, fifthProductTableCustomFieldNames);
+const productTableOtherFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractOtherFifth, fifthProductTableCustomFieldNames);
+
 
 
   // ######################################################################################################################################
@@ -316,7 +409,10 @@ const productTableOtherFourth = extractMultipleFields(fourthPageTableData, field
     previousWeek,
     week,
     setWeek,
+
     // #####################  SECOND PAGE  #########################
+    otherData,
+    table,
     OthersRawalpindiData,
     OthersFaisalabadData,
     OthersGujranwalaData,
@@ -334,6 +430,8 @@ const productTableOtherFourth = extractMultipleFields(fourthPageTableData, field
     topTableKarachiData,
 
     // #####################  THIRD PAGE  #########################
+    thirdPageOtherData,
+    thirdPageTableData,
     OthersRawalpindiDataThirdPage,
     OthersFaisalabadDataThirdPage,
     OthersGujranwalaDataThirdPage,
@@ -341,41 +439,67 @@ const productTableOtherFourth = extractMultipleFields(fourthPageTableData, field
     OthersMultanDataThirdPage,
     OthersHyderabadDataThirdPage,
     OthersKarachiDataThirdPage,
- // #####################  THIRD PAGE TOP TABLE  #########################
- topTableRawalpindiDataThird,
- topTableFaisalabadDataThird,
- topTableGujranwalaDataThird,
- topTableLahoreDataThird,
- topTableMultanDataThird,
- topTableHyderabadDataThird,
- topTableKarachiDataThird,
- // #####################  THIRD PAGE PRODUCT TABLE  #########################
- productTableEcostar,
- productTableLed,
- productTableRefrigerator,
- productTableOther,
- // #####################  FOURTH PAGE  #########################
- OthersRawalpindiDataFourthPage,
- OthersFaisalabadDataFourthPage,
- OthersGujranwalaDataFourthPage,
- OthersLahoreDataFourthPage,
- OthersMultanDataFourthPage,
- OthersHyderabadDataFourthPage,
- OthersKarachiDataFourthPage,
- // #####################  Fourth PAGE TOP TABLE  #########################
- topTableRawalpindiDataFourth,
- topTableFaisalabadDataFourth,
- topTableGujranwalaDataFourth,
- topTableLahoreDataFourth,
- topTableMultanDataFourth,
- topTableHyderabadDataFourth,
- topTableKarachiDataFourth,
- // #####################  FOURTH PAGE PRODUCT TABLE  #########################
- productTableEcostarFourth,
- productTableLedFourth,
- productTableRefrigeratorFourth,
- productTableOtherFourth,
- 
+    // #####################  THIRD PAGE TOP TABLE  #########################
+    topTableRawalpindiDataThird,
+    topTableFaisalabadDataThird,
+    topTableGujranwalaDataThird,
+    topTableLahoreDataThird,
+    topTableMultanDataThird,
+    topTableHyderabadDataThird,
+    topTableKarachiDataThird,
+    // #####################  THIRD PAGE PRODUCT TABLE  #########################
+    productTableEcostar,
+    productTableLed,
+    productTableRefrigerator,
+    productTableOther,
+    
+    // #####################  FOURTH PAGE  #########################
+    fourthPageOtherData,
+    fourthPageTableData,
+    OthersRawalpindiDataFourthPage,
+    OthersFaisalabadDataFourthPage,
+    OthersGujranwalaDataFourthPage,
+    OthersLahoreDataFourthPage,
+    OthersMultanDataFourthPage,
+    OthersHyderabadDataFourthPage,
+    OthersKarachiDataFourthPage,
+    // #####################  Fourth PAGE TOP TABLE  #########################
+    topTableRawalpindiDataFourth,
+    topTableFaisalabadDataFourth,
+    topTableGujranwalaDataFourth,
+    topTableLahoreDataFourth,
+    topTableMultanDataFourth,
+    topTableHyderabadDataFourth,
+    topTableKarachiDataFourth,
+    // #####################  FOURTH PAGE PRODUCT TABLE  #########################
+    productTableEcostarFourth,
+    productTableLedFourth,
+    productTableRefrigeratorFourth,
+    productTableOtherFourth,
+
+    // #####################  FIFTH PAGE  #########################
+    fifthPageOtherData,
+    fifthPageTableData,
+    OthersRawalpindiDataFifthPage,
+    OthersFaisalabadDataFifthPage,
+    OthersGujranwalaDataFifthPage,
+    OthersLahoreDataFifthPage,
+    OthersMultanDataFifthPage,
+    OthersHyderabadDataFifthPage,
+    OthersKarachiDataFifthPage,
+    // #####################  FIFTH PAGE TOP TABLE  #########################
+    topTableRawalpindiDataFifth,
+    topTableFaisalabadDataFifth,
+    topTableGujranwalaDataFifth,
+    topTableLahoreDataFifth,
+    topTableMultanDataFifth,
+    topTableHyderabadDataFifth,
+    topTableKarachiDataFifth,
+       // #####################  FIFTH PAGE PRODUCT TABLE  #########################
+    productTableEcostarFifth,
+    productTableLedFifth,
+    productTableRefrigeratorFifth,
+    productTableOtherFifth,
   };
 
   return (

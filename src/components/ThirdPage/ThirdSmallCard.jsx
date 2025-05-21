@@ -49,42 +49,7 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
 
   const chartData2 = formatDataForChart(data2);
 
-  const TableData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-  ];
 
-  const ispositive = false;
   return (
     <>
       <div className="w-[300px] smallcardMain pb-10 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[.75vw] mt-3">
@@ -97,7 +62,7 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
           {/* LEFT */}
           <div className="w-[68%]">
             <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
-              <p className="text-[#6bdb6b] 2xl:text-[3.2vw] font-bold text-[60px] flex justify-center">
+              <p className="text-[rgb(107,219,107)] 2xl:text-[3.2vw] font-bold text-[60px] flex justify-center">
                 {others[0]?.ATAT ?? 0}
                 <div className="2xl:mt-5">
                   {others[0]?.ATAT_PER >= 0 ? (
