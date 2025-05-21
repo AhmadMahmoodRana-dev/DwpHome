@@ -1,40 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext} from "react";
 import "../Styling/Home.css";
 import { RiTriangleFill } from "react-icons/ri";
 import { AreaChartee } from "./ui/AreaChartee";
 import RegionCard from "./RegionCard";
+import { Context } from "@/context/Context";
 
-const FirstCard = ({ startWeek, endWeek }) => {
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    fetch(`https://dwpcare.com.pk/dwp/inset?EDATE=${endWeek}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData(data);
-      });
-   
-
-    fetch(
-      `https://dwpcare.com.pk/dwp/inset?SDATE=${startWeek}&EDATE=${endWeek}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData2(data);
-      });
-  }, [startWeek, endWeek]);
-
+const FirstCard = () => {
+  const {otherData,table} = useContext(Context)
+ 
   const formatDataForChart = (data) => {
     return data.map((item) => ({
       Week: item.SHORT_WEEKS,
@@ -43,12 +16,12 @@ const FirstCard = ({ startWeek, endWeek }) => {
     }));
   };
 
-  const chartData2 = formatDataForChart(data2);
+  const chartData2 = formatDataForChart(table);
 
   return (
     <div className="first-div w-[289px] min-w-[289px] 2xl:w-[23.5%] min-h-[650px]  2xl:pb-[1.2vw] h-auto rounded-[6px]">
       <div className="content-container flex justify-between mt-2 2xl:mt-[.4vw]">
-        {data.map((item) => (
+        {otherData.map((item) => (
           <div
             className="main-content px-3 2xl:px-[.7vw]"
             key={item.NO_OF_WEEKS}
@@ -129,7 +102,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
               </div>
           </div>
         ))}
-        {data.map((item) => (
+        {otherData.map((item) => (
           <div className="hr-line  flex 2xl:gap-[.3vw]">
             <hr className="border h-[140px] 2xl:h-[9vw]" />
 
@@ -182,7 +155,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
               OTC
             </th>
           </tr>
-          {data2.map((item) => (
+          {table.map((item) => (
             <tr key={item.NO_OF_WEEKS}>
               <td className="border-r border-t text-[12px] 2xl:text-[.8vw]  font-normal  text-white">
                 {item.NO_OF_WEEKS}
@@ -204,7 +177,7 @@ const FirstCard = ({ startWeek, endWeek }) => {
         <AreaChartee chartData={chartData2} />
       </div>
       {/* ### DIV REC DATA */}
-      {data.map((item,index) => (
+      {otherData.map((item,index) => (
         <div
           key={index}
           className="regionalData w-full flex flex-col items-center gap-2 2xl:gap-[.5vw] py-1 2xl:pb-0 mt-[6px] 2xl:mt-[.2vw]"

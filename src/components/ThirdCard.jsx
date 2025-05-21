@@ -1,68 +1,22 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../Styling/Home.css";
 import { BsCaretRightFill } from "react-icons/bs";
 import { RiTriangleFill } from "react-icons/ri";
 import { Component1 } from "../components/ui/Component1";
 import PieChart from "./Piechart";
 import SecondaryPiechart from "./SecondaryPiechart";
-const ThirdCard = ({ startWeek, endWeek }) => {
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
+import { Context } from "@/context/Context";
+const ThirdCard = () => {
+  const { fourthPageOtherData, fourthPageTableData } = useContext(Context);
+
   const [pieChartData, setPieChartData] = useState(null);
 
-  /* const [pieChartData, setPieChartData] = useState([
-     ["Task", "Percentage"]
-   ]);
- */
   useEffect(() => {
-    // Fetch data from first API
-    fetch(`https://dwpcare.com.pk/dwp/pending?ENDWEEK=${endWeek}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        setData(data);
-        //setLoading1(false);
-        const formattedData = formatPieChartData(data);
-        setPieChartData(formattedData);
-      })
-      .catch((error) => {
-        console.log(error);
-        ///setLoading1(false);
-      });
-
-    fetch(
-      `https://dwpcare.com.pk/dwp/pending?STARTWEEK=${startWeek}&ENDWEEK=${endWeek}`
-    )
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData2(data);
-      });
-  }, [startWeek, endWeek]);
-  /*
-    const formatPieChartData = (data) => {
-      if (data.length > 0) {
-        const item = data[0];
-        return [
-          ["Task", "Percentage"],
-          ["Part Waiting", item.PART_WAITING],
-          ["Under Repair", item.UNDER_REPAIR],
-          ["Completed", item.COMPLETED],
-          ["Other", item.OTHER],
-        ];
-      }
-      return [["Task", "Percentage"]];
-    };
-  */
+    if (fourthPageOtherData && fourthPageOtherData.length > 0) {
+      const formattedData = formatPieChartData(fourthPageOtherData);
+      setPieChartData(formattedData);
+    }
+  }, [fourthPageOtherData]);
 
   const formatPieChartData = (data) => {
     if (data.length > 0) {
@@ -105,9 +59,8 @@ const ThirdCard = ({ startWeek, endWeek }) => {
     }));
   };
 
-  const chartData2 = formatDataForChart(data2);
+  const chartData2 = formatDataForChart(fourthPageTableData);
 
-  ///console.log('chart data',pieChartData);
   return (
     <div className="third-div w-[289px] 2xl:w-[23.5%] min-h-[650px] h-auto rounded-[6px]  py-3  2xl:py-[.8vw]  px-4">
       <h1 className="text-white font-bold text-[20px] pb-[1.5vw] 2xl:text-[1.2vw] mt-[-1.1vw] 2xl:mt-[-1vw] 2xl:pb-[1.2vw] pt-2">
@@ -116,7 +69,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
 
       <div className="flex flex-col">
         <div className="content">
-          {data.map((item) => (
+          {fourthPageOtherData.map((item) => (
             <div className="flex">
               <p className=" text-[#fd4242] font-bold  text-[45px]  2xl:text-[3vw] leading-4 2xl:leading-[1vw]">
                 {item.TOTAL_PENDING_SETS.toLocaleString()}
@@ -147,18 +100,12 @@ const ThirdCard = ({ startWeek, endWeek }) => {
             </div>
           ))}
         </div>
-        <h1 className="ml-[1.8rem] 2xl:text-[1vw] text-white mt-2 text-[14px] 2xl:ml-[1.6vw]">AGING DAYS</h1>
-        {data.map((item) => (
+        <h1 className="ml-[1.8rem] 2xl:text-[1vw] text-white mt-2 text-[14px] 2xl:ml-[1.6vw]">
+          AGING DAYS
+        </h1>
+        {fourthPageOtherData.map((item) => (
           <div className="flex mt-[-25px]  gap-1">
-            {/* <div className="text-[12px]  mt-5">
-              <h5 className="leading-[14px] text-[12px] 2xl:text-[.7vw] text-[orange] mt-[13px]">
-                Above 7
-              </h5>
-              <h5 className="text-white text-[12px] 2xl:text-[.7vw] text-center">
-                {item.AGING}
-              </h5>
-            </div> */}
-             <div className="flex flex-col mt-5 ml-6 2xl:ml-[1.5vw]">
+            <div className="flex flex-col mt-5 ml-6 2xl:ml-[1.5vw]">
               <h1 className="text-[orange]  text-[9px] 2xl:text-[.6vw]  mt-[10px] text-center">
                 Above 7
               </h1>
@@ -201,7 +148,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
             </th>
             <th className="text-[10px] 2xl:text-[.7vw] font-normal">Others</th>
           </tr>
-          {data2.map((item) => (
+          {fourthPageTableData.map((item) => (
             <>
               <tr>
                 <td className="border-r border-t border-solid text-[12px] font-normal pr-3 2xl:text-[.8vw] text-white">
@@ -246,7 +193,7 @@ const ThirdCard = ({ startWeek, endWeek }) => {
           </p>
         </div>
 
-        {data2.map((item) => (
+        {fourthPageTableData.map((item) => (
           <>
             <div className="color-boxes-cotainer flex mt-[.6vw] items-center">
               <h1 className="text-white bottom-h1 text-[14px] 2xl:text-[.9vw]">

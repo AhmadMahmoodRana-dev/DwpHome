@@ -1,44 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext} from "react";
 import "../Styling/Home.css";
-import { RxTriangleDown } from "react-icons/rx";
 import { BsCaretRightFill } from "react-icons/bs";
-import SecondBarChart from "./SecondBarChart";
 import { RiTriangleFill } from "react-icons/ri";
 import { Component } from "../components/ui/Component";
-const SecondCard = ({ startWeek, endWeek }) => {
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    // Fetch data from first API
-    fetch(`https://dwpcare.com.pk/dwp/tat?EDATE=${endWeek}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        // console.log(data);
-        setData(data);
-        //setLoading1(false);
-      });
-    /*.catch((error) => {
-        setError1(error);
-        setLoading1(false);
-      });*/
-
-    fetch(`https://dwpcare.com.pk/dwp/tat?SDATE=${startWeek}&EDATE=${endWeek}`)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        setData2(data);
-      });
-  }, [startWeek, endWeek]);
+import { Context } from "@/context/Context";
+const SecondCard = () => {
+  const {thirdPageOtherData,thirdPageTableData} = useContext(Context)
+  
 
   const formatDataForChart = (data) => {
     return data.map((item) => ({
@@ -50,7 +18,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
     }));
   };
 
-  const chartData2 = formatDataForChart(data2);
+  const chartData2 = formatDataForChart(thirdPageTableData);
 
   ///console.log(chartData2);
 
@@ -63,7 +31,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
           </h1>
 
           <div className="holder flex items-end h-[62px] 2xl:h-[4vw] mt-3 2xl:mt-[.6vw]">
-            {data.map((item) => (
+            {thirdPageOtherData.map((item) => (
               <p
                 className="text-[#a8e063] 2xl:text-[4vw] font-bold text-[60px] flex justify-center"
                 key={item.WEEKS}
@@ -102,7 +70,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
           </div>
         </div>
         <hr className="border border-white h-[5.8vw] ml-[.6vw]" />
-        {data.map((item) => (
+        {thirdPageOtherData.map((item) => (
           <div className="ytd ml-3" key={item.WEEKS}>
             <h1 className="font-bold text-white text-[16px] 2xl:text-[1.1vw]">
               YTD
@@ -123,7 +91,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
       <h1 className="text-white font-bold ml-[4px] text-[14px] mt-[-10px] pb-1 2xl:text-[1vw]">
         Nation Wise TAT
       </h1>
-      {data.map((item) => (
+      {thirdPageOtherData.map((item) => (
         <div className="color-boxes-cotainer flex justify-center ">
           <div className="box-1 flex flex-col">
             <div className="box-sigm-1 flex items-center">
@@ -260,7 +228,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
               8 &+
             </th>
           </tr>
-          {data2.map((item) => (
+          {thirdPageTableData.map((item) => (
             <>
               <tr>
                 <td className="border-r border-t border-solid text-[12px] 2xl:text-[.8vw] font-normal text-white pr-4">
@@ -306,7 +274,7 @@ const SecondCard = ({ startWeek, endWeek }) => {
             8 &+
           </p>
         </div>
-        {data.map((item) => (
+        {thirdPageOtherData.map((item) => (
           <>
             <div className="color-boxes-cotainer  flex mt-3 2xl:mt-[.4vw] items-center">
               <h1 className="text-white font-semibold text-[16px] 2xl:text-[1vw] 2xl:w-[3.2vw]">

@@ -27,12 +27,9 @@ const Home = () => {
         />
       </div>
       <div className="allcards bg-transparent items-center justify-center  w-full  h-auto  pt-2 flex flex-wrap gap-2 2xl:pt-[.6vw] 2xl:gap-[.5vw]">
-        <FirstCard startWeek={filteredData[0]?.ID}
-          endWeek={filteredData[0]?.ID} />
-        <SecondCard startWeek={filteredData[0]?.ID}
-          endWeek={filteredData[0]?.ID} />
-        <ThirdCard startWeek={filteredData[0]?.ID}
-          endWeek={filteredData[0]?.ID} />
+        <FirstCard />
+        <SecondCard/>
+        <ThirdCard/>
         <FourthCard startWeek={filteredData[0]?.ID}
           endWeek={filteredData[0]?.ID} />
       </div>
