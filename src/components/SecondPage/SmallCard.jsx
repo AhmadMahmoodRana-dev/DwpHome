@@ -4,7 +4,7 @@ import SmallCardFlowChart from "./charts/SmallCardFlowChart";
 import FlowChart from "./charts/FlowChart";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
-const SecondPage = ({ name, TableData, others }) => {
+const SecondPage = ({ name, TableData, others, LineChart }) => {
   const formatDataForChart = (data) => {
     return data.map((item) => ({
       Week: item.SHORT_WEEKS,
@@ -12,8 +12,14 @@ const SecondPage = ({ name, TableData, others }) => {
       out_sets: item.OUT_SETS,
     }));
   };
+  const formattedLineChartData = LineChart.map((week, index) => ({
+    week: `Week ${week.SHORT_WEEKS}`,
+    IN_SETS: week.IN_SETS,
+    OUT_SETS: week.OUT_SETS,
+  }));
 
-  const chartData = formatDataForChart(TableData);  return (
+  const chartData = formatDataForChart(TableData);
+  return (
     <>
       <div className="smallcardMain w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
         {/* Top Container */}
@@ -131,7 +137,6 @@ const SecondPage = ({ name, TableData, others }) => {
             </div>
           </div>
         </div>
-
         {/* TABLE DIV */}
         <div className="w-full px-1 mt-4 2xl:px-[.2vw] 2xl:mt-[1.8vh]">
           <hr />
@@ -158,7 +163,7 @@ const SecondPage = ({ name, TableData, others }) => {
                     {data.OUT_SETS?.toLocaleString()}
                   </td>
                   <td className="text-right pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                  {Number(data.IOF)?.toLocaleString()}%
+                    {Number(data.IOF)?.toLocaleString()}%
                   </td>
                 </tr>
               );
@@ -169,7 +174,10 @@ const SecondPage = ({ name, TableData, others }) => {
         <div className="2xl:h-[7.7vw] h-[105px] mt-3">
           <FlowChart chartData={chartData} />
         </div>
-        <ResponsiveLineChart/>
+        <ResponsiveLineChart
+          chartData={formattedLineChartData}
+          keysToDisplay={["IN_SETS", "OUT_SETS"]}
+        />{" "}
       </div>
     </>
   );

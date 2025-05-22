@@ -2,6 +2,7 @@ import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
+import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
 const FifthSmallCard = ({ name, otherdata,toptable }) => {
  
@@ -152,7 +153,7 @@ const FifthSmallCard = ({ name, otherdata,toptable }) => {
       </div>
       <div className="pr-4">
         {/* <FifthMainChart chartData={chartData} /> */}
-        <ResponsiveLineChart />
+        <FifthResponsiveLineChart />
       </div>
     </div>
   );

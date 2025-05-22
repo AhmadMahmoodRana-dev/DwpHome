@@ -3,6 +3,7 @@ import { ThirdMainChart } from "./charts/ThirdMainChart";
 import axios from "axios";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
+import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 const ThirdSmallCardBottom = ({ name,productTable }) => {
 
 // FIRST SECTION APIS
@@ -124,7 +125,7 @@ const ThirdSmallCardBottom = ({ name,productTable }) => {
             <hr className="mx-6" />
             <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
               {/* <ThirdMainChart chartData={chartData2} /> */}
-                        <ResponsiveLineChart/>
+                        <FifthResponsiveLineChart/>
               
             </div>
           </div>

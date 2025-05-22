@@ -4,6 +4,7 @@ import { BsCaretRightFill } from "react-icons/bs";
 import { ThirdMainChart } from "./charts/ThirdMainChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
+import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 
 const ThirdMainCard = () => {
 // FIRST SECTION APIS
@@ -232,7 +233,7 @@ const ThirdMainCard = () => {
         </div>
         <div className="2xl:h-[7.7vw] h-[105px] mt-3">
           {/* <ThirdMainChart chartData={chartData2} /> */}
-                    <ResponsiveLineChart/>
+                    <FifthResponsiveLineChart/>
           
         </div>
       </div>
@@ -282,7 +283,7 @@ const ThirdMainCard = () => {
           <hr className="mx-6" />
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
             {/* <ThirdMainChart chartData={chartData2} /> */
-                      <ResponsiveLineChart/>
+                      <FifthResponsiveLineChart/>
             }
           </div>
         </div>

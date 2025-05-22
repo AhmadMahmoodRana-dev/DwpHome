@@ -2,7 +2,7 @@ import React from "react";
 import SmallBarChart from "./charts/SmallBarChart";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
-const SmallCardBottom = ({ name, bottomTable1, bottomTable2 }) => {
+const SmallCardBottom = ({ name, bottomTable1, bottomTable2, LineChart }) => {
   const formatDataInsetBarChart = (data) => {
     return data.map((item) => ({
       week: item?.NO_OF_WEEKS,
@@ -25,6 +25,15 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2 }) => {
     }));
   };
   const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
+
+  const formattedLineChartDataInset = LineChart.map((week, index) => ({
+    week: `Week ${week.SHORT_WEEKS}`,
+    IN_SETS: week.IN_SETS,
+  }));
+  const formattedLineChartDataOutset = LineChart.map((week, index) => ({
+    week: `Week ${week.SHORT_WEEKS}`,
+    OUT_SETS: week.OUT_SETS,
+  }));
 
   return (
     <div className="smallcardMain w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
@@ -74,8 +83,10 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2 }) => {
           <hr className="2xl:mt-8" />
         </div>
         {/* <SmallBarChart data={insetBarChart} /> */}
-        <ResponsiveLineChart />
-
+        <ResponsiveLineChart
+          chartData={formattedLineChartDataInset}
+          keysToDisplay={["IN_SETS"]}
+        />
         <hr className="mt-[2vw]" />
       </div>
 
@@ -124,7 +135,10 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2 }) => {
           </table>
           <hr />
         </div>
-        <ResponsiveLineChart />
+        <ResponsiveLineChart
+          chartData={formattedLineChartDataOutset}
+          keysToDisplay={["OUT_SETS"]}
+        />
 
         {/* <SmallBarChart data={outsetBarChart} /> */}
       </div>

@@ -6,9 +6,7 @@ import { Context } from "@/context/Context";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
 const MainCard = () => {
-  const {otherData,table} = useContext(Context)
- 
-  
+  const { otherData, table, secondLineChart } = useContext(Context);
 
   const formatDataForChart = (data) => {
     return data.map((item) => ({
@@ -19,35 +17,57 @@ const MainCard = () => {
   };
 
   const chartData2 = formatDataForChart(table);
-  
-  
-  const formatDataInsetBarChart = (data) =>{
+
+  const formatDataInsetBarChart = (data) => {
     return data.map((item) => ({
-    week: item.NO_OF_WEEKS,
-    GreeAC:  item.IN_GREE_AC ,
-    EcoStarAC:  item.IN_ECOSTAR_AC,
-    EcostarLED:  item.IN_ECOSTAR_LED_TV,
-    Refrigerator:  item.IN_REFRIGERATOR,
-    Other:  item.IN_OTHERS,
+      week: item.NO_OF_WEEKS,
+      GreeAC: item.IN_GREE_AC,
+      EcoStarAC: item.IN_ECOSTAR_AC,
+      EcostarLED: item.IN_ECOSTAR_LED_TV,
+      Refrigerator: item.IN_REFRIGERATOR,
+      Other: item.IN_OTHERS,
+    }));
+  };
+  // const insetBarChart = formatDataInsetBarChart(data2);
+
+  //   const formatDataOutsetBarChart = (data) =>{
+  //     return data.map((item) => ({
+  //     week: item.NO_OF_WEEKS,
+  //     GreeAC:  item.OUT_GREE_AC ,
+  //     EcoStarAC:  item.OUT_ECOSTAR_AC,
+  //     EcostarLED:  item.OUT_ECOSTAR_LED_TV,
+  //     Refrigerator:  item.OUT_REFRIGERATOR,
+  //     Other:  item.OUT_OTHERS,
+  //   }));
+  // }
+  // const outsetBarChart = formatDataOutsetBarChart(data2);
+
+  const formattedLineChartData = secondLineChart.map((week, index) => ({
+    week: `Week ${week.SHORT_WEEKS}`,
+    IN_SETS: week.IN_SETS,
+    OUT_SETS: week.OUT_SETS,
   }));
-}
-// const insetBarChart = formatDataInsetBarChart(data2);
+  const formattedLineChartDataProductsInset = secondLineChart.map(
+    (week, index) => ({
+      week: `Week ${week.SHORT_WEEKS}`,
+      GREE_IN_SETS: week.IN_GREE_AC,
+      ESAC_IN_SETS: week.IN_ECOSTAR_AC,
+      ESLED_IN_SETS: week.IN_ECOSTAR_LED_TV,
+      REF_IN_SETS: week.IN_REFRIGERATOR,
+      OTHERS_IN_SETS: week.IN_OTHERS,
+    })
+  );
+  const formattedLineChartDataProductsOutset = secondLineChart.map(
+    (week, index) => ({
+      week: `Week ${week.SHORT_WEEKS}`,
+      GREE_OUT_SETS: week.OUT_GREE_AC,
+      ESAC_OUT_SETS: week.OUT_ECOSTAR_AC,
+      ESLED_OUT_SETS: week.OUT_ECOSTAR_LED_TV,
+      REF_OUT_SETS: week.OUT_REFRIGERATOR,
+      OTHERS_OUT_SETS: week.OUT_OTHERS,
+    })
+  );
 
-//   const formatDataOutsetBarChart = (data) =>{
-//     return data.map((item) => ({
-//     week: item.NO_OF_WEEKS,
-//     GreeAC:  item.OUT_GREE_AC ,
-//     EcoStarAC:  item.OUT_ECOSTAR_AC,
-//     EcostarLED:  item.OUT_ECOSTAR_LED_TV,
-//     Refrigerator:  item.OUT_REFRIGERATOR,
-//     Other:  item.OUT_OTHERS,
-//   }));
-// }
-// const outsetBarChart = formatDataOutsetBarChart(data2);
-
-
-
-  
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vh] mt-3">
@@ -98,7 +118,8 @@ const MainCard = () => {
                   <RiTriangleFill className="text-green-400  w-[14px] h-[14px] 2xl:w-[1vw] 2xl:h-[1vw] " />
                   <h1 className="text-[12px] font-bold text-green-400 2xl:text-[.7vw] ">
                     +
-                    {Math.abs(otherData[0]?.OUT_SETS_PER).toString().length === 1
+                    {Math.abs(otherData[0]?.OUT_SETS_PER).toString().length ===
+                    1
                       ? "0" + Math.abs(otherData[0]?.OUT_SETS_PER)
                       : Math.abs(otherData[0]?.OUT_SETS_PER)}
                     %
@@ -108,7 +129,8 @@ const MainCard = () => {
                 <div className="icons flex flex-col justify-center items-center ml-1 arrows 2xl:mt-0 xl:mt-1">
                   <h1 className="text-[12px] font-bold text-red-600 2xl:text-[.7vw] ">
                     -
-                    {Math.abs(otherData[0]?.OUT_SETS_PER).toString().length === 1
+                    {Math.abs(otherData[0]?.OUT_SETS_PER).toString().length ===
+                    1
                       ? "0" + Math.abs(otherData[0]?.OUT_SETS_PER)
                       : Math.abs(otherData[0]?.OUT_SETS_PER)}
                     %
@@ -201,7 +223,10 @@ const MainCard = () => {
         <div className="2xl:h-[7.7vw] h-[105px] mt-3">
           <FlowChart chartData={chartData2} />
         </div>
-          <ResponsiveLineChart/>
+        <ResponsiveLineChart
+          chartData={formattedLineChartData}
+          keysToDisplay={["IN_SETS", "OUT_SETS"]}
+        />
       </div>
 
       {/* ###########################   SECOND ROW ######################### */}
@@ -253,7 +278,16 @@ const MainCard = () => {
             <hr />
           </div>
           {/* <BarChart1 data={insetBarChart} /> */}
-          <ResponsiveLineChart/>
+          <ResponsiveLineChart
+            chartData={formattedLineChartDataProductsInset}
+            keysToDisplay={[
+              "GREE_IN_SETS",
+              "ESAC_IN_SETS",
+              "ESLED_IN_SETS",
+              "REF_IN_SETS",
+              "OTHERS_IN_SETS",
+            ]}
+          />
 
           <hr className="mt-[2vw]" />
         </div>
@@ -305,7 +339,17 @@ const MainCard = () => {
           </div>
 
           {/* <BarChart1 data={outsetBarChart} /> */}
-          <ResponsiveLineChart/>
+          <ResponsiveLineChart
+            chartData={formattedLineChartDataProductsOutset}
+            keysToDisplay={[
+              "GREE_OUT_SETS",
+              "ESAC_OUT_SETS",
+              "ESLED_OUT_SETS",
+              "REF_OUT_SETS",
+              "OTHERS_OUT_SETS",
+            ]}
+          />
+
         </div>
       </div>
     </>

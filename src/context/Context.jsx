@@ -397,6 +397,47 @@ const productTableRefrigeratorFifth = extractMultipleFields(fifthPageTableData, 
 const productTableOtherFifth = extractMultipleFields(fifthPageTableData, fieldsToExtractOtherFifth, fifthProductTableCustomFieldNames);
 
 
+// SECOND PAGE LINE CHART API
+
+const [secondLineChart,setSecondLineChart] = useState([]) 
+
+useEffect(() => {
+  const fetchChartData = async () => {
+    try {
+      const response1 = await axios.get(
+        `https://dwpcare.com.pk/dwp/inset/allweeks`
+      );
+      setSecondLineChart(response1.data);
+     
+
+    } catch (error) {
+      console.error("Error fetching inset data:", error);
+    }
+  };
+  
+  fetchChartData();
+}, []);
+
+// CHART REGION DATA FILTERATION
+const secondLineChartCustomFieldName = ["SHORT_WEEKS", "IN_SETS", "OUT_SETS"];
+
+const fieldsToExtractRawalpindiSecondLineChart = ["SHORT_WEEKS","RWP_IN_SETS","RWP_OUT_SETS"];
+const fieldsToExtractFaisalabadSecondLineChart = ["SHORT_WEEKS","FSD_IN_SETS","FSD_OUT_SETS"];
+const fieldsToExtractGujranwalaSecondLineChart = ["SHORT_WEEKS","GUJ_IN_SETS","GUJ_OUT_SETS"];
+const fieldsToExtractLahoreSecondLineChart =     ["SHORT_WEEKS","LHE_IN_SETS","LHE_OUT_SETS"];
+const fieldsToExtractMultanSecondLineChart =     ["SHORT_WEEKS","MUL_IN_SETS","MUL_OUT_SETS"];
+const fieldsToExtractHyderabadSecondLineChart =  ["SHORT_WEEKS","HYD_IN_SETS","HYD_OUT_SETS"];
+const fieldsToExtractKarachiSecondLineChart =    ["SHORT_WEEKS","KHI_IN_SETS","KHI_OUT_SETS"];
+
+const LineChartRawalpindiDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractRawalpindiSecondLineChart, secondLineChartCustomFieldName);
+const LineChartFaisalabadDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractFaisalabadSecondLineChart, secondLineChartCustomFieldName);
+const LineChartGujranwalaDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractGujranwalaSecondLineChart, secondLineChartCustomFieldName);
+const LineChartLahoreDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractLahoreSecondLineChart, secondLineChartCustomFieldName);
+const LineChartMultanDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractMultanSecondLineChart, secondLineChartCustomFieldName);
+const LineChartHyderabadDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractHyderabadSecondLineChart, secondLineChartCustomFieldName);
+const LineChartKarachiDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractKarachiSecondLineChart, secondLineChartCustomFieldName);
+
+
 
   // ######################################################################################################################################
 
@@ -500,6 +541,15 @@ const productTableOtherFifth = extractMultipleFields(fifthPageTableData, fieldsT
     productTableLedFifth,
     productTableRefrigeratorFifth,
     productTableOtherFifth,
+    // #####################  SECOND PAGE LINE CHARTS  #########################
+    secondLineChart,
+    LineChartRawalpindiDataSecond,
+    LineChartFaisalabadDataSecond,
+    LineChartGujranwalaDataSecond,
+    LineChartLahoreDataSecond,
+    LineChartMultanDataSecond,
+    LineChartHyderabadDataSecond,
+    LineChartKarachiDataSecond,
   };
 
   return (

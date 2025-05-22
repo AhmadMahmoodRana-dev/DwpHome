@@ -6,44 +6,26 @@ import {
   YAxis,
   Tooltip,
   ResponsiveContainer,
-  CartesianGrid,
 } from "recharts";
 
-const data = [
-  { name: "Jan", value: 600 },
-  { name: "Feb", value: 620 },
-  { name: "Mar", value: 750 },
-  { name: "Apr", value: 680 },
-  { name: "May", value: 700 },
-  { name: "Jun", value: 850 },
-  { name: "Jul", value: 890 },
-  { name: "Aug", value: 950 },
-  { name: "Sep", value: 470 },
-  { name: "Oct", value: 380 },
-  { name: "Nov", value: 450 },
-  { name: "Dec", value: 520 },
-  { name: "Jan", value: 600 },
-  { name: "Feb", value: 700 },
-  { name: "Mar", value: 800 },
-  { name: "Apr", value: 1150 },
-  { name: "May", value: 1400 },
-  { name: "Jun", value: 1550 },
-  { name: "Jul", value: 1500 },
-  { name: "Aug", value: 500 },
+const colors = [
+  "#3b82f6", // Blue
+  "#10b981", // Green
+  "#f59e0b", // Amber
+  "#ef4444", // Red
+  "#8b5cf6", // Purple
 ];
 
-const ResponsiveLineChart = () => {
+const ResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
   return (
     <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg p-3">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ left: -30, right: 0, top: 0, bottom: 0 }}>
-          {/* Removed CartesianGrid to eliminate dotted lines */}
+        <LineChart data={chartData} margin={{ left: -25, right: 0, top: 0, bottom: 0 }}>
           <XAxis
-            dataKey="name"
+            dataKey="week"
             tick={{ fill: "#cbd5e1", fontSize: 12 }}
             axisLine={false}
             tickLine={false}
-            padding={{ left: 0, right: 10 }}
           />
           <YAxis
             domain={["auto", "auto"]}
@@ -51,15 +33,21 @@ const ResponsiveLineChart = () => {
             axisLine={false}
             tickLine={false}
           />
-          <Tooltip contentStyle={{ backgroundColor: "#1e293b", border: "none" }} labelStyle={{ color: "#fff" }} />
-          <Line
-            type="monotone"
-            dataKey="value"
-            stroke="#3b82f6"
-            strokeWidth={3}
-            dot={{ r: 3, stroke: "#fff", strokeWidth: 1 }}
-            activeDot={{ r: 6 }}
+          <Tooltip
+            contentStyle={{ backgroundColor: "#1e293b", border: "none" }}
+            labelStyle={{ color: "#fff" }}
           />
+          {keysToDisplay.map((key, index) => (
+            <Line
+              key={key}
+              type="monotone"
+              dataKey={key}
+              stroke={colors[index % colors.length]}
+              strokeWidth={3}
+              dot={{ r: 3, stroke: "#fff", strokeWidth: 1 }}
+              activeDot={{ r: 6 }}
+            />
+          ))}
         </LineChart>
       </ResponsiveContainer>
     </div>

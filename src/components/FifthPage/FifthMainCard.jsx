@@ -4,6 +4,7 @@ import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
+import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
 const FifthMainCard = () => {
   const {fifthPageOtherData,fifthPageTableData} = useContext(Context)
@@ -159,7 +160,7 @@ const FifthMainCard = () => {
         </div>
         <div className="pr-4">
           {/* <FifthMainChart chartData={chartData} /> */}
-                    <ResponsiveLineChart/>
+                    <FifthResponsiveLineChart/>
           
         </div>
       </div>
@@ -206,7 +207,7 @@ const FifthMainCard = () => {
 
         <div className="pr-4">
           {/* <FifthMainChart chartData={chartData} /> */}
-                    <ResponsiveLineChart/>
+                    <FifthResponsiveLineChart/>
           
           {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
             <div className="w-4 h-2 bg-[#953333]"></div>

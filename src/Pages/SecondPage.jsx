@@ -23,6 +23,13 @@ export default function SecondPage() {
     topTableMultanData,
     topTableHyderabadData,
     topTableKarachiData,
+    LineChartRawalpindiDataSecond,
+    LineChartFaisalabadDataSecond,
+    LineChartGujranwalaDataSecond,
+    LineChartLahoreDataSecond,
+    LineChartMultanDataSecond,
+    LineChartHyderabadDataSecond,
+    LineChartKarachiDataSecond,
   
   } = useContext(Context);
 
@@ -32,13 +39,14 @@ export default function SecondPage() {
       name: "Rawalpindi",
       others: OthersRawalpindiData,
       TableData: topTableRawalpindiData,
-      
+      LineChart:LineChartRawalpindiDataSecond,
     },
     {
       id: 2,
       name: "Faisalabad",
       others: OthersFaisalabadData,
       TableData: topTableFaisalabadData,
+      LineChart:LineChartFaisalabadDataSecond,
      
     },
     {
@@ -46,6 +54,7 @@ export default function SecondPage() {
       name: "Gujranwala",
       others: OthersGujranwalaData,
       TableData: topTableGujranwalaData,
+      LineChart:LineChartGujranwalaDataSecond,
    
     },
     {
@@ -53,6 +62,7 @@ export default function SecondPage() {
       name: "Lahore",
       others: OthersLahoreData,
       TableData: topTableLahoreData,
+      LineChart:LineChartLahoreDataSecond,
    
     },
     {
@@ -60,6 +70,7 @@ export default function SecondPage() {
       name: "Multan",
       others: OthersMultanData,
       TableData: topTableMultanData,
+      LineChart:LineChartMultanDataSecond,
      
     },
     {
@@ -67,6 +78,7 @@ export default function SecondPage() {
       name: "Hyderabad",
       others: OthersHyderabadData,
       TableData: topTableHyderabadData,
+      LineChart:LineChartHyderabadDataSecond,
      
     },
     {
@@ -74,6 +86,7 @@ export default function SecondPage() {
       name: "Karachi",
       others: OthersKarachiData,
       TableData: topTableKarachiData,
+      LineChart:LineChartKarachiDataSecond,
      
     },
   ];
@@ -187,7 +200,7 @@ export default function SecondPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts?.map((product) => (
                   <div key={product?.id} className="w-full">
-                    <SmallCard TableData={product?.TableData} name={product?.name} others={product?.others} />
+                    <SmallCard TableData={product?.TableData} name={product?.name} others={product?.others} LineChart={product?.LineChart} />
                   </div>
                 ))}
               </div>
@@ -226,7 +239,7 @@ export default function SecondPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts?.map((product) => (
                   <div key={product.id} className="w-full">
-                    <SmallCardBottom name={product?.name} bottomTable1={product?.TableData} bottomTable2={product?.TableData}  />
+                    <SmallCardBottom name={product?.name} bottomTable1={product?.TableData} bottomTable2={product?.TableData} LineChart={product?.LineChart}  />
                   </div>
                 ))}
               </div>
