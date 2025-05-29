@@ -7,7 +7,7 @@ import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 
-const ThirdSmallCard = ({ name, others,topTable }) => {
+const ThirdSmallCard = ({ name, others, topTable, lineChart }) => {
   // FIRST SECTION APIS
   const { filteredData } = useContext(Context);
   const [data, setData] = useState([]);
@@ -50,6 +50,10 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
 
   const chartData2 = formatDataForChart(data2);
 
+  const formattedLineChartData = lineChart.map((week, index) => ({
+    week: `Week ${week.SHORT_WEEKS}`,
+    ATAT: week.ATAT,
+  }));
 
   return (
     <>
@@ -104,7 +108,7 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
               ATAT
             </h1>
             <h1 className="text-[#49dd80] font-semibold tracking-wider  2xl:text-[1.3vw]">
-            {others[0]?.YTD_ATAT ?? 0}
+              {others[0]?.YTD_ATAT ?? 0}
             </h1>
             <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
               Days
@@ -119,7 +123,7 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
             <div className="box-sigm-1 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY_0 ?? 0}
+                  {others[0]?.DAY_0 ?? 0}
                   {others[0]?.DAY_0_PER >= 0 ? (
                     <span className="text-green-400 text-[12px] 2xl:text-[.8vw]">
                       +
@@ -149,7 +153,7 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
             <div className="box-sigm-2 flex items-center">
               <div className="small-color-boxe ml-[14px] bg-[#ededed] border-2 2xl:w-[3vw] 2xl:h-[2.4vw] border-yellow-300 w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY2_3 ?? 0}
+                  {others[0]?.DAY2_3 ?? 0}
                   {others[0]?.DAY2_3_PER >= 0 ? (
                     <span className="text-green-400  text-[12px] 2xl:text-[.8vw]">
                       +
@@ -179,7 +183,7 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
             <div className="box-sigm-3 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY4_7 ?? 0}
+                  {others[0]?.DAY4_7 ?? 0}
                   {others[0]?.DAY4_7_PER >= 0 ? (
                     <span className="text-yellow-600 text-[12px] 2xl:text-[.8vw]">
                       +
@@ -209,11 +213,12 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
             <div className="box-sigm-4 flex items-center">
               <div className="small-color-boxe bg-[#ededed] border-2 border-green-600 2xl:w-[3vw] 2xl:h-[2.4vw] w-[54px] rounded-[4px] h-[36px]">
                 <p className="font-bold text-center text-[16px] leading-4 2xl:leading-[1.2vw] flex flex-col justify-center items-center 2xl:text-[.9vw]">
-                {others[0]?.DAY8_ABOVE ?? 0}
+                  {others[0]?.DAY8_ABOVE ?? 0}
                   {others[0]?.DAY8_ABOVE_PER >= 0 ? (
                     <span className="text-[#BE1A1A] text-[12px] 2xl:text-[.8vw]">
                       +
-                      {Math.abs(others[0]?.DAY8_ABOVE_PER).toString().length === 1
+                      {Math.abs(others[0]?.DAY8_ABOVE_PER).toString().length ===
+                      1
                         ? "0" + Math.abs(others[0]?.DAY8_ABOVE_PER)
                         : Math.abs(others[0]?.DAY8_ABOVE_PER)}
                       %
@@ -221,7 +226,8 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
                   ) : (
                     <span className=" text-green-400  text-[12px] 2xl:text-[.8vw]">
                       -
-                      {Math.abs(others[0]?.DAY8_ABOVE_PER).toString().length === 1
+                      {Math.abs(others[0]?.DAY8_ABOVE_PER).toString().length ===
+                      1
                         ? "0" + Math.abs(others[0]?.DAY8_ABOVE_PER)
                         : Math.abs(others[0]?.DAY8_ABOVE_PER)}
                       %
@@ -260,10 +266,10 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
                     {data?.DAY2_3?.toLocaleString() ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                  {data?.DAY4_7?.toLocaleString() ?? 0}
+                    {data?.DAY4_7?.toLocaleString() ?? 0}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                  {data?.DAY8_ABOVE?.toLocaleString() ?? 0}
+                    {data?.DAY8_ABOVE?.toLocaleString() ?? 0}
                   </td>
                 </tr>
               );
@@ -273,7 +279,10 @@ const ThirdSmallCard = ({ name, others,topTable }) => {
         <hr className="mx-6" />
         <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
           {/* <ThirdMainChart chartData={chartData2} /> */}
-          <FifthResponsiveLineChart />
+          <ResponsiveLineChart
+            chartData={formattedLineChartData}
+            keysToDisplay={["ATAT"]}
+          />{" "}
         </div>
       </div>
     </>

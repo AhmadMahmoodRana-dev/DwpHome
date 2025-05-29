@@ -44,8 +44,8 @@ const MainCard = () => {
 
   const formattedLineChartData = secondLineChart.map((week, index) => ({
     week: `Week ${week.SHORT_WEEKS}`,
-    IN_SETS: week.IN_SETS,
-    OUT_SETS: week.OUT_SETS,
+    INSET: week.IN_SETS,
+    OUTSET: week.OUT_SETS,
   }));
   const formattedLineChartDataProductsInset = secondLineChart.map(
     (week, index) => ({
@@ -225,7 +225,7 @@ const MainCard = () => {
         </div>
         <ResponsiveLineChart
           chartData={formattedLineChartData}
-          keysToDisplay={["IN_SETS", "OUT_SETS"]}
+          keysToDisplay={["INSET", "OUTSET"]}
         />
       </div>
 

@@ -439,6 +439,68 @@ const LineChartKarachiDataSecond = extractMultipleFields(secondLineChart, fields
 
 
 
+
+// THIRD PAGE LINE CHART API
+
+const [thirdLineChart,setThirdLineChart] = useState([]) 
+
+useEffect(() => {
+  const fetchChartData = async () => {
+    try {
+      const response1 = await axios.get(
+        `https://dwpcare.com.pk/dwp/tat/allWeeks`
+      );
+      setThirdLineChart(response1.data);
+     
+
+    } catch (error) {
+      console.error("Error fetching inset data:", error);
+    }
+  };
+  
+  fetchChartData();
+}, []);
+
+// CHART REGION DATA FILTERATION
+
+const thirdLineChartCustomFieldName = ["SHORT_WEEKS","ATAT"];
+
+const fieldsToExtractRawalpindiThirdLineChart = ["SHORT_WEEKS","RWP_ATAT"];
+const fieldsToExtractFaisalabadThirdLineChart = ["SHORT_WEEKS","FSD_ATAT"];
+const fieldsToExtractGujranwalaThirdLineChart = ["SHORT_WEEKS","GUJ_ATAT"];
+const fieldsToExtractLahoreThirdLineChart =     ["SHORT_WEEKS","LHE_ATAT"];
+const fieldsToExtractMultanThirdLineChart =     ["SHORT_WEEKS","MUL_ATAT"];
+const fieldsToExtractHyderabadThirdLineChart =  ["SHORT_WEEKS","HYD_ATAT"];
+const fieldsToExtractKarachiThirdLineChart =    ["SHORT_WEEKS","KHI_ATAT"];
+
+const LineChartRawalpindiDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractRawalpindiThirdLineChart, thirdLineChartCustomFieldName);
+const LineChartFaisalabadDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractFaisalabadThirdLineChart, thirdLineChartCustomFieldName);
+const LineChartGujranwalaDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractGujranwalaThirdLineChart, thirdLineChartCustomFieldName);
+const LineChartLahoreDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractLahoreThirdLineChart, thirdLineChartCustomFieldName);
+const LineChartMultanDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractMultanThirdLineChart, thirdLineChartCustomFieldName);
+const LineChartHyderabadDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractHyderabadThirdLineChart, thirdLineChartCustomFieldName);
+const LineChartKarachiDataThird = extractMultipleFields(thirdLineChart, fieldsToExtractKarachiThirdLineChart, thirdLineChartCustomFieldName);
+
+// CHART PRODUCT DATA FILTERATION
+
+const thirdLineChartCustomFieldNameProducts = ["SHORT_WEEKS","Product_Day_0","Product_Day_2_3","Product_Day_4_7","Product_Day8_above"];
+
+const fieldsToExtractEcostarThirdLineChart = ["SHORT_WEEKS","ECOSTAR_AC_DAY_0","ECOSTAR_AC_DAY2_3","ECOSTAR_AC_DAY4_7","ECOSTAR_AC_DAY8_ABOVE"];
+const fieldsToExtractLedThirdLineChart = ["SHORT_WEEKS","ECOSTAR_LED_TV_DAY_0","ECOSTAR_LED_TV_DAY2_3","ECOSTAR_LED_TV_DAY4_7","ECOSTAR_LED_TV_DAY8_ABOVE"];
+const fieldsToExtractRefrigeratorThirdLineChart = ["SHORT_WEEKS","REFRIGERATOR_DAY_0","REFRIGERATOR_DAY2_3","REFRIGERATOR_DAY4_7","REFRIGERATOR_DAY8_ABOVE"];
+const fieldsToExtractOtherThirdLineChart = ["SHORT_WEEKS","OTHERS_DAY_0","OTHERS_DAY2_3","OTHERS_DAY4_7","OTHERS_DAY8_ABOVE"];
+
+const productTableEcostarThirdLine = extractMultipleFields(thirdLineChart, fieldsToExtractEcostarThirdLineChart, thirdLineChartCustomFieldNameProducts);
+const productTableLedThirdLine = extractMultipleFields(thirdLineChart, fieldsToExtractLedThirdLineChart, thirdLineChartCustomFieldNameProducts);
+const productTableRefrigeratorThirdLine = extractMultipleFields(thirdLineChart, fieldsToExtractRefrigeratorThirdLineChart, thirdLineChartCustomFieldNameProducts);
+const productTableOtherThirdLine = extractMultipleFields(thirdLineChart, fieldsToExtractOtherThirdLineChart, thirdLineChartCustomFieldNameProducts);
+
+
+
+
+
+
+
   // ######################################################################################################################################
 
   const contextValue = {
@@ -550,6 +612,21 @@ const LineChartKarachiDataSecond = extractMultipleFields(secondLineChart, fields
     LineChartMultanDataSecond,
     LineChartHyderabadDataSecond,
     LineChartKarachiDataSecond,
+    // #####################  THIRD PAGE LINE CHARTS  #########################
+    thirdLineChart,
+    LineChartRawalpindiDataThird,
+    LineChartFaisalabadDataThird,
+    LineChartGujranwalaDataThird,
+    LineChartLahoreDataThird,
+    LineChartMultanDataThird,
+    LineChartHyderabadDataThird,
+    LineChartKarachiDataThird,
+    // #####################  THIRD PAGE LINE CHARTS PRODUCTS  #########################
+     productTableEcostarThirdLine,
+     productTableLedThirdLine,
+     productTableRefrigeratorThirdLine,
+     productTableOtherThirdLine 
+
   };
 
   return (

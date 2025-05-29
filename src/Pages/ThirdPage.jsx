@@ -7,8 +7,6 @@ import Header from "@/components/SecondPage/header/Header";
 import ThirdSmallCardBottom from "@/components/ThirdPage/ThirdSmallCardBottom";
 import { Context } from "@/context/Context";
 
-
-
 export default function ThirdPage() {
   const {
     OthersRawalpindiDataThirdPage,
@@ -19,75 +17,93 @@ export default function ThirdPage() {
     OthersHyderabadDataThirdPage,
     OthersKarachiDataThirdPage,
     topTableRawalpindiDataThird,
- topTableFaisalabadDataThird,
- topTableGujranwalaDataThird,
- topTableLahoreDataThird,
- topTableMultanDataThird,
- topTableHyderabadDataThird,
- topTableKarachiDataThird,
- productTableEcostar,
+    topTableFaisalabadDataThird,
+    topTableGujranwalaDataThird,
+    topTableLahoreDataThird,
+    topTableMultanDataThird,
+    topTableHyderabadDataThird,
+    topTableKarachiDataThird,
+    productTableEcostar,
     productTableLed,
     productTableRefrigerator,
     productTableOther,
+    LineChartRawalpindiDataThird,
+    LineChartFaisalabadDataThird,
+    LineChartGujranwalaDataThird,
+    LineChartLahoreDataThird,
+    LineChartMultanDataThird,
+    LineChartHyderabadDataThird,
+    LineChartKarachiDataThird,
+    productTableEcostarThirdLine,
+ productTableLedThirdLine,
+ productTableRefrigeratorThirdLine,
+ productTableOtherThirdLine 
   } = useContext(Context);
-
 
   const products = [
     {
       id: 1,
       name: "Rawalpindi",
-      others:OthersRawalpindiDataThirdPage,
-      topTable:topTableRawalpindiDataThird,
+      others: OthersRawalpindiDataThirdPage,
+      topTable: topTableRawalpindiDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 1 Description",
+      lineChart:LineChartRawalpindiDataThird
     },
     {
       id: 2,
       name: "Faisalabad",
-      others:OthersFaisalabadDataThirdPage,
-      topTable:topTableFaisalabadDataThird,
+      others: OthersFaisalabadDataThirdPage,
+      topTable: topTableFaisalabadDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 2 Description",
+      lineChart:LineChartFaisalabadDataThird
+
     },
     {
       id: 3,
       name: "Gujranwala",
-      others:OthersGujranwalaDataThirdPage,
-      topTable:topTableGujranwalaDataThird,
+      others: OthersGujranwalaDataThirdPage,
+      topTable: topTableGujranwalaDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 3 Description",
+      lineChart:LineChartGujranwalaDataThird
     },
     {
       id: 4,
       name: "Lahore",
-      others:OthersLahoreDataThirdPage,
-      topTable:topTableLahoreDataThird,
+      others: OthersLahoreDataThirdPage,
+      topTable: topTableLahoreDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 4 Description",
+      lineChart:LineChartLahoreDataThird
     },
     {
       id: 5,
       name: "Multan",
-      others:OthersMultanDataThirdPage,
-      topTable:topTableMultanDataThird,
+      others: OthersMultanDataThirdPage,
+      topTable: topTableMultanDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 5 Description",
+      lineChart:LineChartMultanDataThird
     },
     {
       id: 6,
       name: "Hyderabad",
-      others:OthersHyderabadDataThirdPage,
-      topTable:topTableHyderabadDataThird,
+      others: OthersHyderabadDataThirdPage,
+      topTable: topTableHyderabadDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 6 Description",
+      lineChart:LineChartHyderabadDataThird
     },
     {
       id: 7,
       name: "Karachi",
-      others:OthersKarachiDataThirdPage,
-      topTable:topTableKarachiDataThird,
+      others: OthersKarachiDataThirdPage,
+      topTable: topTableKarachiDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 6 Description",
+      lineChart:LineChartKarachiDataThird
     },
   ];
 
@@ -95,25 +111,26 @@ export default function ThirdPage() {
     {
       id: 1,
       name: "Ecostar AC",
-      productTable:productTableEcostar,
+      productTable: productTableEcostar,
+      lineChart:productTableEcostarThirdLine
     },
     {
       id: 2,
       name: "Refrigerator",
-      productTable:productTableRefrigerator,
-
+      productTable: productTableRefrigerator,
+      lineChart:productTableRefrigeratorThirdLine
     },
     {
       id: 3,
       name: "LED",
-      productTable:productTableLed,
-
+      productTable: productTableLed,
+      lineChart:productTableLedThirdLine
     },
     {
       id: 4,
       name: "Other",
-      productTable:productTableOther,
-
+      productTable: productTableOther,
+      lineChart:productTableOtherThirdLine
     },
   ];
   // Upper Part
@@ -230,7 +247,12 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <ThirdSmallCard name={product?.name} others={product?.others} topTable={product?.topTable} />
+                    <ThirdSmallCard
+                      name={product?.name}
+                      others={product?.others}
+                      topTable={product?.topTable}
+                      lineChart={product?.lineChart}
+                    />
                   </div>
                 ))}
               </div>
@@ -269,7 +291,11 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <ThirdSmallCardBottom name={product?.name} productTable={product?.productTable} />
+                    <ThirdSmallCardBottom
+                      name={product?.name}
+                      productTable={product?.productTable}
+                      lineChart={product?.lineChart}
+                    />
                   </div>
                 ))}
               </div>
