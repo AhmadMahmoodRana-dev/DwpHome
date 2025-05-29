@@ -2,9 +2,7 @@ import { FifthMainChart } from "./charts/FifthMainChart";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
-const FifthSmallCardBottom = ({ name,productTable }) => {
-
-
+const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
   // const formatDataForChart = (data) => {
   //   return data.map((item) => ({
   //     Week: item.SHORT_WEEKS,
@@ -16,6 +14,13 @@ const FifthSmallCardBottom = ({ name,productTable }) => {
   // };
 
   // const chartData = formatDataForChart(data2);
+  const formattedLineChartDataProducts = lineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    PARTS: week.Product_PARTS,
+    SERVICE: week.Product_SERVICE,
+    VISIT: week.Product_VISIT,
+    INSTALL: week.Product_INSTALL,
+  }));
   return (
     <div className="w-[300px] 2xl:w-[100%] first-div min-h-[45vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
       <h1 className="text-[#44cf86] text-xs 2xl:text-[.75vw] text-center mt-3 font-semibold">
@@ -36,10 +41,10 @@ const FifthSmallCardBottom = ({ name,productTable }) => {
             return (
               <tr>
                 <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                  {data?.WEEKS ??0}
+                  {data?.WEEKS ?? 0}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                  {data?.PRODUCT_PARTS ??0}
+                  {data?.PRODUCT_PARTS ?? 0}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
                   {data?.PRODUCT_SERVICE ?? 0}
@@ -56,10 +61,13 @@ const FifthSmallCardBottom = ({ name,productTable }) => {
         </table>
       </div>
 
-      <div className="pr-4">
+      <div className="-ml-2">
         {/* <FifthMainChart chartData={chartData} /> */}
-                  <FifthResponsiveLineChart/>
-        
+        <ResponsiveLineChart
+          chartData={formattedLineChartDataProducts}
+          keysToDisplay={["PARTS", "SERVICE", "VISIT", "INSTALL"]}
+        />
+
         {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
           <div className="w-4 h-2 bg-[#953333]"></div>
           <h1 className="text-[10px]">parts</h1>

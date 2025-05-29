@@ -188,7 +188,7 @@ const FourthMainCard = () => {
               );
             })}
           </table>
-          <div>
+          <div className="-ml-4">
             {/* <FourthBarChart chartData={chartData2} /> */}
             <ResponsiveLineChart
               chartData={formattedLineChartDataRegions}
@@ -391,7 +391,7 @@ const FourthMainCard = () => {
             </table>
           </div>
           <hr className="mx-6" />
-          <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
+          <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-4">
             {/* <FourthBarChart chartData={chartData2} /> */}
             <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}

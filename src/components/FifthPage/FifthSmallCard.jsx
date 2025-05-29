@@ -4,7 +4,7 @@ import { FifthMainChart } from "./charts/FifthMainChart";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
-const FifthSmallCard = ({ name, otherdata,toptable }) => {
+const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
  
 
   // const formatDataForChart = (data) => {
@@ -18,6 +18,14 @@ const FifthSmallCard = ({ name, otherdata,toptable }) => {
   // };
 
   // const chartData = formatDataForChart(data2);
+
+    const formattedLineChartDataRegions = lineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    PARTS: week.PARTS,
+    SERVICE: week.SERVICE,
+    VISIT_CHARGES: week.VISIT_CHARGES,
+    INSTALL_CORPORATE: week.INSTALL_CORPORATE,
+  }));
 
   return (
     <div className="w-[300px] 2xl:w-[100%] first-div min-h-[65vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
@@ -151,9 +159,17 @@ const FifthSmallCard = ({ name, otherdata,toptable }) => {
           })}
         </table>
       </div>
-      <div className="pr-4">
+      <div className="-ml-2">
         {/* <FifthMainChart chartData={chartData} /> */}
-        <FifthResponsiveLineChart />
+         <ResponsiveLineChart
+            chartData={formattedLineChartDataRegions}
+            keysToDisplay={[
+              "PARTS",
+              "SERVICE",
+              "VISIT_CHARGES",
+              "INSTALL_CORPORATE",
+            ]}
+          />{" "}
       </div>
     </div>
   );

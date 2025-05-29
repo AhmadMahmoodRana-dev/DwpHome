@@ -144,7 +144,7 @@ const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
           </table>
         </div>
         <hr className="mx-6" />
-        <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.6vw]">
+        <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.6vw] -ml-2">
           {/* <FourthBarChart chartData={chartData2} /> */}
                <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}
@@ -152,7 +152,7 @@ const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
                 "PART_WAITING",
                 "UNDER_REPAIR",
                 "COMPLETED",
-                "OTHER",
+                "OTHERS",
               ]}
             />{" "}
           

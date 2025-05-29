@@ -258,7 +258,7 @@ const ThirdMainCard = () => {
             })}
           </table>
         </div>
-        <div className="2xl:h-[7.7vw] h-[105px] mt-3">
+        <div className="2xl:h-[7.7vw] h-[105px] mt-3 -ml-4">
           {/* <ThirdMainChart chartData={chartData2} /> */}
           <ResponsiveLineChart
             chartData={formattedLineChartData}
@@ -310,7 +310,7 @@ const ThirdMainCard = () => {
             </table>
           </div>
           <hr className="mx-6" />
-          <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
+          <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-4">
             {
               /* <ThirdMainChart chartData={chartData2} /> */
               <ResponsiveLineChart

@@ -277,7 +277,7 @@ const ThirdSmallCard = ({ name, others, topTable, lineChart }) => {
           </table>
         </div>
         <hr className="mx-6" />
-        <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
+        <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-2">
           {/* <ThirdMainChart chartData={chartData2} /> */}
           <ResponsiveLineChart
             chartData={formattedLineChartData}

@@ -28,6 +28,17 @@ export default function FifthPage() {
     productTableLedFifth,
     productTableRefrigeratorFifth,
     productTableOtherFifth,
+     LineChartRawalpindiDataFifth,
+    LineChartFaisalabadDataFifth,
+    LineChartGujranwalaDataFifth,
+    LineChartLahoreDataFifth,
+    LineChartMultanDataFifth,
+    LineChartHyderabadDataFifth,
+    LineChartKarachiDataFifth,
+     productTableEcostarFifthLine,
+    productTableLedFifthLine,
+    productTableRefrigeratorFifthLine,
+    productTableOtherFifthLine,
   } = useContext(Context);
 
   const products = [
@@ -36,42 +47,50 @@ export default function FifthPage() {
       name: "Rawalpindi",
       otherdata: OthersRawalpindiDataFifthPage,
       toptable:topTableRawalpindiDataFifth,
+      lineChart:LineChartRawalpindiDataFifth
     },
     {
       id: 2,
       name: "Faisalabad",
       otherdata: OthersFaisalabadDataFifthPage,
       toptable:topTableFaisalabadDataFifth,
+      lineChart:LineChartFaisalabadDataFifth
+
     },
     {
       id: 3,
       name: "Gujranwala",
       otherdata: OthersGujranwalaDataFifthPage,
       toptable:topTableGujranwalaDataFifth,
+      lineChart:LineChartGujranwalaDataFifth
     },
     {
       id: 4,
       name: "Lahore",
       otherdata: OthersLahoreDataFifthPage,
       toptable:topTableLahoreDataFifth,
+      lineChart:LineChartLahoreDataFifth
     },
     {
       id: 5,
       name: "Multan",
       otherdata: OthersMultanDataFifthPage,
       toptable:topTableMultanDataFifth,
+      lineChart:LineChartMultanDataFifth
     },
     {
       id: 6,
       name: "Hyderabad",
       otherdata: OthersHyderabadDataFifthPage,
       toptable:topTableHyderabadDataFifth,
+      lineChart:LineChartHyderabadDataFifth
     },
     {
       id: 7,
       name: "Karachi",
       otherdata: OthersKarachiDataFifthPage,
       toptable:topTableKarachiDataFifth,
+      lineChart:LineChartKarachiDataFifth
     },
   ];
   const bottomProducts = [
@@ -79,21 +98,25 @@ export default function FifthPage() {
       id: 1,
       name: "Ecostar",
       productTable:productTableEcostarFifth,
+      lineChart: productTableEcostarFifthLine,
     },
     {
       id: 2,
       name: "Refriger",
       productTable:productTableRefrigeratorFifth,
+      lineChart: productTableRefrigeratorFifthLine,
     },
     {
       id: 3,
       name: "LED",
-     productTable:productTableLedFifth,
+      productTable:productTableLedFifth,
+      lineChart: productTableLedFifthLine,
     },
     {
       id: 4,
       name: "Other",
       productTable:productTableOtherFifth,
+      lineChart: productTableOtherFifthLine,
     },
   ];
   // Upper Part
@@ -212,6 +235,7 @@ export default function FifthPage() {
                       name={product?.name}
                       otherdata={product?.otherdata}
                       toptable={product?.toptable}
+                      lineChart={product?.lineChart}
                     />
                   </div>
                 ))}
@@ -245,7 +269,7 @@ export default function FifthPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <FifthSmallCardBottom name={product?.name} productTable={product?.productTable} />
+                    <FifthSmallCardBottom name={product?.name} productTable={product?.productTable} lineChart={product?.lineChart} />
                   </div>
                 ))}
               </div>

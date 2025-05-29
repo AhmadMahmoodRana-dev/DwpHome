@@ -170,7 +170,7 @@ const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
               );
             })}
           </table>
-          <div>
+          <div className="-ml-2">
             {/* <FourthBarChart chartData={chartData2} /> */}
             <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}

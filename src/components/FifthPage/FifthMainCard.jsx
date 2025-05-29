@@ -7,8 +7,8 @@ import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
 const FifthMainCard = () => {
-  const {fifthPageOtherData,fifthPageTableData} = useContext(Context)
- 
+  const { fifthPageOtherData, fifthPageTableData, fifthLineChart } =
+    useContext(Context);
 
   // const formatDataForChart = (data) => {
   //   return data.map((item) => ({
@@ -23,7 +23,22 @@ const FifthMainCard = () => {
   // const chartData = formatDataForChart(data2);
 
   // ##########################
- 
+  const formattedLineChartDataRegions = fifthLineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    PARTS: week.PARTS,
+    SERVICE: week.SERVICE,
+    VISIT_CHARGES: week.VISIT_CHARGES,
+    INSTALL_CORPORATE: week.INSTALL_CORPORATE,
+  }));
+
+  const formattedLineChartDataProducts = fifthLineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    GREE_AC_PARTS: week.GREE_AC_PARTS,
+    GREE_AC_SERVICE: week.GREE_AC_SERVICE,
+    GREE_AC_VISIT: week.GREE_AC_VISIT,
+    GREE_AC_INSTALL: week.GREE_AC_INSTALL,
+  }));
+
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div min-h-[65vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
@@ -44,9 +59,11 @@ const FifthMainCard = () => {
                       <RiTriangleFill className="text-green-500 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-500">
                         +
-                        {Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER).toString()
-                          .length === 1
-                          ? "0" + Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)
+                        {Math.abs(
+                          fifthPageOtherData[0]?.TOTAL_REVENUE_PER
+                        ).toString().length === 1
+                          ? "0" +
+                            Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)
                           : Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)}
                         %
                       </h1>
@@ -55,9 +72,11 @@ const FifthMainCard = () => {
                     <div className="icons flex flex-col justify-center items-center ml-2">
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
                         -
-                        {Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER).toString()
-                          .length === 1
-                          ? "0" + Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)
+                        {Math.abs(
+                          fifthPageOtherData[0]?.TOTAL_REVENUE_PER
+                        ).toString().length === 1
+                          ? "0" +
+                            Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)
                           : Math.abs(fifthPageOtherData[0]?.TOTAL_REVENUE_PER)}
                         %
                       </h1>
@@ -93,7 +112,9 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.PARTS} />
+              <SemiCircularProgressive
+                percentage={fifthPageOtherData[0]?.PARTS}
+              />
             </div>
           </div>
           <div className="handle-progress">
@@ -102,7 +123,9 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.SERVICE_PER} />
+              <SemiCircularProgressive
+                percentage={fifthPageOtherData[0]?.SERVICE_PER}
+              />
             </div>
           </div>
           <div className="handle-progress">
@@ -111,7 +134,9 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.VISIT_PER} />
+              <SemiCircularProgressive
+                percentage={fifthPageOtherData[0]?.VISIT_PER}
+              />
             </div>
           </div>
           <div className="handle-progress">
@@ -120,7 +145,9 @@ const FifthMainCard = () => {
             </h1>
 
             <div className=" font-semibold text-white">
-              <SemiCircularProgressive percentage={fifthPageOtherData[0]?.INSTALL_PER} />
+              <SemiCircularProgressive
+                percentage={fifthPageOtherData[0]?.INSTALL_PER}
+              />
             </div>
           </div>
         </div>
@@ -158,10 +185,17 @@ const FifthMainCard = () => {
             })}
           </table>
         </div>
-        <div className="pr-4">
+        <div className="-ml-4">
           {/* <FifthMainChart chartData={chartData} /> */}
-                    <FifthResponsiveLineChart/>
-          
+          <ResponsiveLineChart
+            chartData={formattedLineChartDataRegions}
+            keysToDisplay={[
+              "PARTS",
+              "SERVICE",
+              "VISIT_CHARGES",
+              "INSTALL_CORPORATE",
+            ]}
+          />{" "}
         </div>
       </div>
 
@@ -185,19 +219,19 @@ const FifthMainCard = () => {
               return (
                 <tr>
                   <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.8vw] font-medium text-white">
-                    {data?.WEEKS ??0}
+                    {data?.WEEKS ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center  text-white">
-                    {data?.GREE_AC_PARTS ??0}
+                    {data?.GREE_AC_PARTS ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data?.GREE_AC_SERVICE ??0}
+                    {data?.GREE_AC_SERVICE ?? 0}
                   </td>
                   <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.8vw]  font-normal text-center text-white">
-                    {data?.GREE_AC_VISIT ??0}
+                    {data?.GREE_AC_VISIT ?? 0}
                   </td>
                   <td className="text-center pt-2  2xl:text-[.8vw] pr-1 text-[12px] font-semibold  text-white">
-                    {data?.GREE_AC_INSTALL ??0}
+                    {data?.GREE_AC_INSTALL ?? 0}
                   </td>
                 </tr>
               );
@@ -205,10 +239,18 @@ const FifthMainCard = () => {
           </table>
         </div>
 
-        <div className="pr-4">
+        <div className="-ml-4">
           {/* <FifthMainChart chartData={chartData} /> */}
-                    <FifthResponsiveLineChart/>
-          
+          <ResponsiveLineChart
+            chartData={formattedLineChartDataProducts}
+            keysToDisplay={[
+              "GREE_AC_PARTS",
+              "GREE_AC_SERVICE",
+              "GREE_AC_VISIT",
+              "GREE_AC_INSTALL",
+            ]}
+          />
+
           {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
             <div className="w-4 h-2 bg-[#953333]"></div>
             <h1 className="text-[10px]">parts</h1>
