@@ -47,40 +47,17 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
   };
 
   const chartData2 = formatDataForChart(data2);
-  const TableData = [
-    {
-      id: 1,
-      weeks: "Week 39",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-    {
-      id: 2,
-      weeks: "Week 40",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-    {
-      id: 3,
-      weeks: "Week 41",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-    {
-      id: 4,
-      weeks: "Week 42",
-      Inset: "2,308",
-      Outset: "2,378",
-      OTC: "1345",
-      OTC1: "1345",
-    },
-  ];
+
+  const formattedLineChartDataProducts = lineChart.map(
+    (week, index) => ({
+      week: `Week ${week.SHORT_WEEKS}`,
+      DAY_0: week.Product_Day_0,
+      DAY2_3: week.Product_Day_2_3,
+      DAY4_7: week.Product_Day_4_7,
+      DAY8_ABOVE: week.Product_Day8_above,
+    })
+  );
+ 
   return (
      <div className="w-[300px] 2xl:w-[100%] pb-10 smallcardMain first-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vw] mt-3">
           {/* FIRST  */}
@@ -125,7 +102,15 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
             <hr className="mx-6" />
             <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
               {/* <ThirdMainChart chartData={chartData2} /> */}
-                        <FifthResponsiveLineChart/>
+                     <ResponsiveLineChart
+                chartData={formattedLineChartDataProducts}
+                keysToDisplay={[
+                  "DAY_0",
+                  "DAY2_3",
+                  "DAY4_7",
+                  "DAY8_ABOVE",
+                ]}
+              />
               
             </div>
           </div>

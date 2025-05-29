@@ -5,7 +5,7 @@ import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 
-const FourthSmallCardBottom = ({ name,productTable }) => {
+const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
 // TOP SECTION APIS
  const { filteredData } = useContext(Context);
  const [data, setData] = useState([]);
@@ -94,51 +94,13 @@ const FourthSmallCardBottom = ({ name,productTable }) => {
 
  const chartData2 = formatDataForChart(data2);
 
-
-
-
-
-
-
-
-
-
-
-
-  const TableData = [
-    {
-      id: 1,
-      weeks: "WEEK 01",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-    {
-      id: 2,
-      weeks: "WEEK 02",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-    {
-      id: 3,
-      weeks: "WEEK 03",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-    {
-      id: 4,
-      weeks: "WEEK 04",
-      Inset: "1,856",
-      Outset: "1,856",
-      OTC: "1,856",
-      OTC1: "1,856",
-    },
-  ];
+ const formattedLineChartDataProducts = lineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    PART_WAITING: week.Product_PART_WAITING,
+    UNDER_REPAIR: week.Product_UNDER_REPAIR,
+    COMPLETED: week.Product_COMPLETED,
+    OTHERS: week.Product_OTHERS,
+  }));
 
   return (
     <div className="w-[300px] pb-10 smallcardMain 2xl:w-[100%] third-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 2xl:py-[1vw] mt-3">
@@ -184,7 +146,15 @@ const FourthSmallCardBottom = ({ name,productTable }) => {
         <hr className="mx-6" />
         <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.6vw]">
           {/* <FourthBarChart chartData={chartData2} /> */}
-                    <FifthResponsiveLineChart/>
+               <ResponsiveLineChart
+              chartData={formattedLineChartDataProducts}
+              keysToDisplay={[
+                "PART_WAITING",
+                "UNDER_REPAIR",
+                "COMPLETED",
+                "OTHER",
+              ]}
+            />{" "}
           
         </div>
       </div>

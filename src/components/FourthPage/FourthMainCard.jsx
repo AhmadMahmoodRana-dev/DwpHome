@@ -7,7 +7,8 @@ import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 const FourthMainCard = () => {
   // TOP SECTION APIS
-  const { fourthPageOtherData, fourthPageTableData } = useContext(Context);
+  const { fourthPageOtherData, fourthPageTableData, fourthLineChart } =
+    useContext(Context);
 
   const [pieChartData, setPieChartData] = useState(null);
 
@@ -62,6 +63,21 @@ const FourthMainCard = () => {
   };
 
   const chartData2 = formatDataForChart(fourthPageTableData);
+
+  const formattedLineChartDataRegions = fourthLineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    PART_WAITING: week.PART_WAITING,
+    UNDER_REPAIR: week.UNDER_REPAIR,
+    COMPLETED: week.COMPLETED,
+    OTHER: week.OTHER,
+  }));
+  const formattedLineChartDataProducts = fourthLineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    GREE_AC_PART_WAITING: week.GREE_AC_PART_WAITING,
+    GREE_AC_UNDER_REPAIR: week.GREE_AC_UNDER_REPAIR,
+    GREE_AC_COMPLETED: week.GREE_AC_COMPLETED,
+    GREE_AC_OTHERS: week.GREE_AC_OTHERS,
+  }));
 
   return (
     <>
@@ -174,7 +190,15 @@ const FourthMainCard = () => {
           </table>
           <div>
             {/* <FourthBarChart chartData={chartData2} /> */}
-            <FifthResponsiveLineChart />
+            <ResponsiveLineChart
+              chartData={formattedLineChartDataRegions}
+              keysToDisplay={[
+                "PART_WAITING",
+                "UNDER_REPAIR",
+                "COMPLETED",
+                "OTHER",
+              ]}
+            />{" "}
           </div>
           <div className="main-content">
             <h1 className="text-white font-semibold text-[14px] 2xl:text-[.9vw] mt-3 2xl:mt-[.7vw]">
@@ -369,7 +393,15 @@ const FourthMainCard = () => {
           <hr className="mx-6" />
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw]">
             {/* <FourthBarChart chartData={chartData2} /> */}
-            <FifthResponsiveLineChart />
+            <ResponsiveLineChart
+              chartData={formattedLineChartDataProducts}
+              keysToDisplay={[
+                "GREE_AC_PART_WAITING",
+                "GREE_AC_UNDER_REPAIR",
+                "GREE_AC_COMPLETED",
+                "GREE_AC_OTHERS",
+              ]}
+            />{" "}
           </div>
         </div>
       </div>

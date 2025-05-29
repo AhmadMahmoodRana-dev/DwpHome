@@ -497,6 +497,62 @@ const productTableOtherThirdLine = extractMultipleFields(thirdLineChart, fieldsT
 
 
 
+// FOURTH PAGE LINE CHART API
+
+const [fourthLineChart,setFourthLineChart] = useState([]) 
+
+useEffect(() => {
+  const fetchChartData = async () => {
+    try {
+      const response1 = await axios.get(
+        `https://dwpcare.com.pk/dwp/pending/allWeeks`
+      );
+      setFourthLineChart(response1.data);
+    } catch (error) {
+      console.error("Error fetching inset data:", error);
+    }
+  };
+  
+  fetchChartData();
+}, []);
+
+// CHART REGION DATA FILTERATION
+
+const fourthLineChartCustomFieldName = ["DISPLAY_WEEK","PART_WAITING","UNDER_REPAIR","COMPLETED","OTHER"];
+
+const fieldsToExtractRawalpindiFourthLineChart = ["DISPLAY_WEEK","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHER"];
+const fieldsToExtractFaisalabadFourthLineChart = ["DISPLAY_WEEK","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHER"];
+const fieldsToExtractGujranwalaFourthLineChart = ["DISPLAY_WEEK","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHER"];
+const fieldsToExtractLahoreFourthLineChart =     ["DISPLAY_WEEK","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHER"];
+const fieldsToExtractMultanFourthLineChart =     ["DISPLAY_WEEK","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHER"];
+const fieldsToExtractHyderabadFourthLineChart =  ["DISPLAY_WEEK","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHER"];
+const fieldsToExtractKarachiFourthLineChart =    ["DISPLAY_WEEK","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHER"];
+
+const LineChartRawalpindiDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractRawalpindiFourthLineChart, fourthLineChartCustomFieldName);
+const LineChartFaisalabadDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractFaisalabadFourthLineChart, fourthLineChartCustomFieldName);
+const LineChartGujranwalaDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractGujranwalaFourthLineChart, fourthLineChartCustomFieldName);
+const LineChartLahoreDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractLahoreFourthLineChart, fourthLineChartCustomFieldName);
+const LineChartMultanDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractMultanFourthLineChart, fourthLineChartCustomFieldName);
+const LineChartHyderabadDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractHyderabadFourthLineChart, fourthLineChartCustomFieldName);
+const LineChartKarachiDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractKarachiFourthLineChart, fourthLineChartCustomFieldName);
+
+
+// CHART PRODUCT DATA FILTERATION
+
+const fourthLineChartCustomFieldNameProducts = ["DISPLAY_WEEK","Product_PART_WAITING","Product_UNDER_REPAIR","Product_COMPLETED","Product_OTHERS"];
+
+const fieldsToExtractEcostarFourthLineChart = ["DISPLAY_WEEK","ECOSTAR_AC_PART_WAITING","ECOSTAR_AC_UNDER_REPAIR","ECOSTAR_AC_COMPLETED","ECOSTAR_AC_OTHERS"];
+const fieldsToExtractLedFourthLineChart = ["DISPLAY_WEEK","ECOSTAR_LED_TV_PART_WAITING","ECOSTAR_LED_TV_UNDER_REPAIR","ECOSTAR_LED_TV_COMPLETED","ECOSTAR_LED_TV_OTHERS"];
+const fieldsToExtractRefrigeratorFourthLineChart = ["DISPLAY_WEEK","REFRIGERATOR_PART_WAITING","REFRIGERATOR_UNDER_REPAIR","REFRIGERATOR_COMPLETED","REFRIGERATOR_OTHERS"];
+const fieldsToExtractOtherFourthLineChart = ["DISPLAY_WEEK","OTHERS_PART_WAITING","OTHERS_UNDER_REPAIR","OTHERS_COMPLETED","OTHERS_OTHERS"];
+
+const productTableEcostarFourthLine = extractMultipleFields(fourthLineChart, fieldsToExtractEcostarFourthLineChart, fourthLineChartCustomFieldNameProducts);
+const productTableLedFourthLine = extractMultipleFields(fourthLineChart, fieldsToExtractLedFourthLineChart, fourthLineChartCustomFieldNameProducts);
+const productTableRefrigeratorFourthLine = extractMultipleFields(fourthLineChart, fieldsToExtractRefrigeratorFourthLineChart, fourthLineChartCustomFieldNameProducts);
+const productTableOtherFourthLine = extractMultipleFields(fourthLineChart, fieldsToExtractOtherFourthLineChart, fourthLineChartCustomFieldNameProducts);
+
+
+
 
 
 
@@ -622,11 +678,25 @@ const productTableOtherThirdLine = extractMultipleFields(thirdLineChart, fieldsT
     LineChartHyderabadDataThird,
     LineChartKarachiDataThird,
     // #####################  THIRD PAGE LINE CHARTS PRODUCTS  #########################
-     productTableEcostarThirdLine,
-     productTableLedThirdLine,
-     productTableRefrigeratorThirdLine,
-     productTableOtherThirdLine 
-
+    productTableEcostarThirdLine,
+    productTableLedThirdLine,
+    productTableRefrigeratorThirdLine,
+    productTableOtherThirdLine,
+    // #####################  FOURTH PAGE LINE CHARTS  #########################
+    fourthLineChart,
+    LineChartRawalpindiDataFourth,
+    LineChartFaisalabadDataFourth,
+    LineChartGujranwalaDataFourth,
+    LineChartLahoreDataFourth,
+    LineChartMultanDataFourth,
+    LineChartHyderabadDataFourth,
+    LineChartKarachiDataFourth,
+    
+    // #####################  FOURTH PAGE LINE CHARTS PRODUCTS  #########################
+    productTableEcostarFourthLine,
+    productTableLedFourthLine,
+    productTableRefrigeratorFourthLine,
+    productTableOtherFourthLine,
   };
 
   return (

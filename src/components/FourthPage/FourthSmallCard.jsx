@@ -5,7 +5,7 @@ import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FourthPagePiechart from "./charts/FourthPagePiechart";
 import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
-const FourthSmallCard = ({ name, others, topTable }) => {
+const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
   // TOP SECTION APIS
   const { filteredData } = useContext(Context);
   const [pieChartData, setPieChartData] = useState(null);
@@ -56,41 +56,14 @@ const FourthSmallCard = ({ name, others, topTable }) => {
     };
   };
 
-  const TableData = [
-    {
-      id: 1,
-      weeks: "WEEK 01",
-      Inset: "32",
-      Outset: "24",
-      OTC: "42",
-      OTC1: "78",
-    },
-    {
-      id: 2,
-      weeks: "WEEK 02",
-      Inset: "32",
-      Outset: "24",
-      OTC: "42",
-      OTC1: "78",
-    },
-    {
-      id: 3,
-      weeks: "WEEK 03",
-      Inset: "32",
-      Outset: "24",
-      OTC: "42",
-      OTC1: "78",
-    },
-    {
-      id: 4,
-      weeks: "WEEK 04",
-      Inset: "32",
-      Outset: "24",
-      OTC: "42",
-      OTC1: "78",
-    },
-  ];
-  console.log("OTHERS", others);
+  console.log("OTHERSLIENNEN", lineChart);
+  const formattedLineChartDataProducts = lineChart.map((week, index) => ({
+    week: `Week ${week.DISPLAY_WEEK}`,
+    PART_WAITING: week.PART_WAITING,
+    UNDER_REPAIR: week.UNDER_REPAIR,
+    COMPLETED: week.COMPLETED,
+    OTHER: week.OTHER,
+  }));
   return (
     <>
       <div className="w-[300px] smallcardMain 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
@@ -199,7 +172,15 @@ const FourthSmallCard = ({ name, others, topTable }) => {
           </table>
           <div>
             {/* <FourthBarChart chartData={chartData2} /> */}
-            <FifthResponsiveLineChart />
+            <ResponsiveLineChart
+              chartData={formattedLineChartDataProducts}
+              keysToDisplay={[
+                "PART_WAITING",
+                "UNDER_REPAIR",
+                "COMPLETED",
+                "OTHER",
+              ]}
+            />{" "}
           </div>
           <div className="main-content">
             <h1 className="text-white font-semibold text-[14px] 2xl:text-[.7vw] mt-3 2xl:mt-[1vw]">
@@ -260,7 +241,7 @@ const FourthSmallCard = ({ name, others, topTable }) => {
                       <div className="box-sigm-2 flex items-center">
                         <div className="color-boxe bg-[#ededed] border-2 border-green-600 w-[38px] rounded-[4px] h-[30px] 2xl:w-[2.2vw] 2xl:h-[2vw]">
                           <p className="font-normal text-center flex flex-col text-[12px] leading-[14px] 2xl:text-[.8vw] 2xl:leading-[.9vw]">
-                          {item.DAY2_3 ?? 0}
+                            {item.DAY2_3 ?? 0}
                             {item.DAY2_3_PER >= 0 ? (
                               <span className=" text-[#BE1A1A] flex flex-col text-[10px] font-bold 2xl:text-[.6vw]">
                                 +
@@ -289,7 +270,7 @@ const FourthSmallCard = ({ name, others, topTable }) => {
                       <div className="box-sigm-3 flex items-center">
                         <div className="color-boxe bg-[#ededed] border-2 border-green-600 w-[38px] rounded-[4px] h-[30px] 2xl:w-[2.2vw] 2xl:h-[2vw]">
                           <p className="font-normal text-center flex flex-col text-[12px] leading-[14px] 2xl:text-[.8vw] 2xl:leading-[.9vw]">
-                          {item.DAY4_7 ?? 0}
+                            {item.DAY4_7 ?? 0}
                             {item.DAY4_7_PER >= 0 ? (
                               <span className="text-[#BE1A1A] text-[10px] font-bold 2xl:text-[.6vw]">
                                 +
@@ -318,7 +299,7 @@ const FourthSmallCard = ({ name, others, topTable }) => {
                       <div className="box-sigm-4 flex items-center">
                         <div className="color-boxe bg-[#ededed] border-2 border-green-600 w-[38px] rounded-[4px] h-[30px] 2xl:w-[2.2vw] 2xl:h-[2vw]">
                           <p className="font-normal text-center flex flex-col text-[12px] leading-[14px] 2xl:text-[.8vw] 2xl:leading-[.9vw]">
-                          {item.DAY8_ABOVE ?? 0}{" "}
+                            {item.DAY8_ABOVE ?? 0}{" "}
                             {item.DAY8_ABOVE_PER >= 0 ? (
                               <span className="text-[#BE1A1A] text-[10px] font-bold 2xl:text-[.6vw]">
                                 +
