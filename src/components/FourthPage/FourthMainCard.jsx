@@ -54,11 +54,11 @@ const FourthMainCard = () => {
 
   const formatDataForChart = (data) => {
     return data.map((item) => ({
-      week: item.SHORT_WEEKS.toString(),
-      PART_WAITING: item.PART_WAITING,
-      UNDER_REPAIR: item.UNDER_REPAIR,
-      COMPLETED: item.COMPLETED,
-      OTHER: item.OTHER,
+      week: item.SHORT_WEEKS.toString() ??0,
+      PART_WAITING: item.PART_WAITING ??0,
+      UNDER_REPAIR: item.UNDER_REPAIR ??0,
+      COMPLETED: item.COMPLETED ??0,
+      OTHER: item.OTHER ??0,
     }));
   };
 
@@ -66,17 +66,17 @@ const FourthMainCard = () => {
 
   const formattedLineChartDataRegions = fourthLineChart.map((week, index) => ({
     week: `Week ${week.DISPLAY_WEEK}`,
-    PART_WAITING: week.PART_WAITING,
-    UNDER_REPAIR: week.UNDER_REPAIR,
-    COMPLETED: week.COMPLETED,
-    OTHER: week.OTHER,
+    PART_WAITING: week.PART_WAITING ??0,
+    UNDER_REPAIR: week.UNDER_REPAIR ??0,
+    COMPLETED: week.COMPLETED ??0,
+    OTHER: week.OTHER ??0,
   }));
   const formattedLineChartDataProducts = fourthLineChart.map((week, index) => ({
     week: `Week ${week.DISPLAY_WEEK}`,
-    GREE_AC_PART_WAITING: week.GREE_AC_PART_WAITING,
-    GREE_AC_UNDER_REPAIR: week.GREE_AC_UNDER_REPAIR,
-    GREE_AC_COMPLETED: week.GREE_AC_COMPLETED,
-    GREE_AC_OTHERS: week.GREE_AC_OTHERS,
+    GREE_AC_PART_WAITING: week.GREE_AC_PART_WAITING ??0,
+    GREE_AC_UNDER_REPAIR: week.GREE_AC_UNDER_REPAIR ??0,
+    GREE_AC_COMPLETED: week.GREE_AC_COMPLETED ??0,
+    GREE_AC_OTHERS: week.GREE_AC_OTHERS ??0,
   }));
 
   return (

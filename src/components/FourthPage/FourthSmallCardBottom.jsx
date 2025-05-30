@@ -96,10 +96,10 @@ const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
 
  const formattedLineChartDataProducts = lineChart.map((week, index) => ({
     week: `Week ${week.DISPLAY_WEEK}`,
-    PART_WAITING: week.Product_PART_WAITING,
-    UNDER_REPAIR: week.Product_UNDER_REPAIR,
-    COMPLETED: week.Product_COMPLETED,
-    OTHERS: week.Product_OTHERS,
+    PART_WAITING: week.Product_PART_WAITING ??0,
+    UNDER_REPAIR: week.Product_UNDER_REPAIR ??0,
+    COMPLETED: week.Product_COMPLETED ??0,
+    OTHERS: week.Product_OTHERS ??0,
   }));
 
   return (
