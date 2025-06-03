@@ -3,6 +3,7 @@ import { RiTriangleFill } from "react-icons/ri";
 import { BsCaretRightFill } from "react-icons/bs";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
+import AtatResponsiveLineChart from "./charts/AtatResponsiveLineChart";
 
 const ThirdMainCard = () => {
   // FIRST SECTION APIS
@@ -311,7 +312,7 @@ const ThirdMainCard = () => {
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-4">
             {
               /* <ThirdMainChart chartData={chartData2} /> */
-              <ResponsiveLineChart
+              <AtatResponsiveLineChart
                 chartData={formattedLineChartDataProducts}
                 keysToDisplay={[
                   "GREE_AC_DAY_0",

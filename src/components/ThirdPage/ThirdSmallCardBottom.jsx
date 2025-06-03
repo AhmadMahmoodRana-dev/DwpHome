@@ -3,6 +3,7 @@ import { ThirdMainChart } from "./charts/ThirdMainChart";
 import axios from "axios";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
+import AtatResponsiveLineChart from "./charts/AtatResponsiveLineChart";
 const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
 
 // FIRST SECTION APIS
@@ -101,7 +102,7 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
             <hr className="mx-6" />
             <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-2">
               {/* <ThirdMainChart chartData={chartData2} /> */}
-                     <ResponsiveLineChart
+                     <AtatResponsiveLineChart
                 chartData={formattedLineChartDataProducts}
                 keysToDisplay={[
                   "DAY_0",
