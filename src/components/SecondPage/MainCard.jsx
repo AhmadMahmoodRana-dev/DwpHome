@@ -4,6 +4,8 @@ import FlowChart from "./charts/FlowChart";
 import BarChart1 from "./charts/BarChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
+import InsetResponsiveLineChart from "./charts/InsetResponsiveLineChart";
+import OutsetResponsiveLineChart from "./charts/OutsetResponsiveLineChart";
 
 const MainCard = () => {
   const { otherData, table, secondLineChart } = useContext(Context);
@@ -26,21 +28,21 @@ const MainCard = () => {
   const formattedLineChartDataProductsInset = secondLineChart.map(
     (week, index) => ({
       week: `Week ${week.SHORT_WEEKS}`,
-      GREE_IN_SETS: week.IN_GREE_AC,
-      ESAC_IN_SETS: week.IN_ECOSTAR_AC,
-      ESLED_IN_SETS: week.IN_ECOSTAR_LED_TV,
-      REF_IN_SETS: week.IN_REFRIGERATOR,
-      OTHERS_IN_SETS: week.IN_OTHERS,
+      GREE_AC: week.IN_GREE_AC,
+      ES_AC: week.IN_ECOSTAR_AC,
+      ES_LED: week.IN_ECOSTAR_LED_TV,
+      REF: week.IN_REFRIGERATOR,
+      OTHERS: week.IN_OTHERS,
     })
   );
   const formattedLineChartDataProductsOutset = secondLineChart.map(
     (week, index) => ({
       week: `Week ${week.SHORT_WEEKS}`,
-      GREE_OUT_SETS: week.OUT_GREE_AC,
-      ESAC_OUT_SETS: week.OUT_ECOSTAR_AC,
-      ESLED_OUT_SETS: week.OUT_ECOSTAR_LED_TV,
-      REF_OUT_SETS: week.OUT_REFRIGERATOR,
-      OTHERS_OUT_SETS: week.OUT_OTHERS,
+      GREE_AC: week.OUT_GREE_AC,
+      ES_AC: week.OUT_ECOSTAR_AC,
+      ES_LED: week.OUT_ECOSTAR_LED_TV,
+      REF: week.OUT_REFRIGERATOR,
+      OTHERS: week.OUT_OTHERS,
     })
   );
 
@@ -254,14 +256,14 @@ const MainCard = () => {
             <hr />
           </div>
           {/* <BarChart1 data={insetBarChart} /> */}
-          <ResponsiveLineChart
+          <InsetResponsiveLineChart
             chartData={formattedLineChartDataProductsInset}
             keysToDisplay={[
-              "GREE_IN_SETS",
-              "ESAC_IN_SETS",
-              "ESLED_IN_SETS",
-              "REF_IN_SETS",
-              "OTHERS_IN_SETS",
+              "GREE_AC",
+              "ES_AC",
+              "ES_LED",
+              "REF",
+              "OTHERS",
             ]}
           />
 
@@ -315,14 +317,14 @@ const MainCard = () => {
           </div>
 
           {/* <BarChart1 data={outsetBarChart} /> */}
-          <ResponsiveLineChart
+          <OutsetResponsiveLineChart
             chartData={formattedLineChartDataProductsOutset}
             keysToDisplay={[
-              "GREE_OUT_SETS",
-              "ESAC_OUT_SETS",
-              "ESLED_OUT_SETS",
-              "REF_OUT_SETS",
-              "OTHERS_OUT_SETS",
+              "GREE_AC",
+              "ES_AC",
+              "ES_LED",
+              "REF",
+              "OTHERS",
             ]}
           />
 
