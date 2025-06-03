@@ -30,6 +30,13 @@ export default function SecondPage() {
     LineChartMultanDataSecond,
     LineChartHyderabadDataSecond,
     LineChartKarachiDataSecond,
+    LineChartRawalpindiDataSecondProductRegion,
+    LineChartFaisalabadDataSecondProductRegion,
+    LineChartGujranwalaDataSecondProductRegion,
+    LineChartLahoreDataSecondProductRegion,
+    LineChartMultanDataSecondProductRegion,
+    LineChartHyderabadDataSecondProductRegion,
+    LineChartKarachiDataSecondProductRegion,
   
   } = useContext(Context);
 
@@ -40,6 +47,7 @@ export default function SecondPage() {
       others: OthersRawalpindiData,
       TableData: topTableRawalpindiData,
       LineChart:LineChartRawalpindiDataSecond,
+      SmallLineChart:LineChartRawalpindiDataSecondProductRegion,
     },
     {
       id: 2,
@@ -47,6 +55,7 @@ export default function SecondPage() {
       others: OthersFaisalabadData,
       TableData: topTableFaisalabadData,
       LineChart:LineChartFaisalabadDataSecond,
+      SmallLineChart:LineChartFaisalabadDataSecondProductRegion,
      
     },
     {
@@ -55,6 +64,7 @@ export default function SecondPage() {
       others: OthersGujranwalaData,
       TableData: topTableGujranwalaData,
       LineChart:LineChartGujranwalaDataSecond,
+      SmallLineChart:LineChartGujranwalaDataSecondProductRegion,
    
     },
     {
@@ -63,6 +73,7 @@ export default function SecondPage() {
       others: OthersLahoreData,
       TableData: topTableLahoreData,
       LineChart:LineChartLahoreDataSecond,
+      SmallLineChart:LineChartLahoreDataSecondProductRegion,
    
     },
     {
@@ -71,6 +82,7 @@ export default function SecondPage() {
       others: OthersMultanData,
       TableData: topTableMultanData,
       LineChart:LineChartMultanDataSecond,
+      SmallLineChart:LineChartMultanDataSecondProductRegion,
      
     },
     {
@@ -79,6 +91,7 @@ export default function SecondPage() {
       others: OthersHyderabadData,
       TableData: topTableHyderabadData,
       LineChart:LineChartHyderabadDataSecond,
+      SmallLineChart:LineChartHyderabadDataSecondProductRegion,
      
     },
     {
@@ -87,6 +100,7 @@ export default function SecondPage() {
       others: OthersKarachiData,
       TableData: topTableKarachiData,
       LineChart:LineChartKarachiDataSecond,
+      SmallLineChart:LineChartKarachiDataSecondProductRegion,
      
     },
   ];
@@ -239,7 +253,7 @@ export default function SecondPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts?.map((product) => (
                   <div key={product.id} className="w-full">
-                    <SmallCardBottom name={product?.name} bottomTable1={product?.TableData} bottomTable2={product?.TableData} LineChart={product?.LineChart}  />
+                    <SmallCardBottom name={product?.name} bottomTable1={product?.TableData} bottomTable2={product?.TableData} SmallLineChart={product?.SmallLineChart}  />
                   </div>
                 ))}
               </div>

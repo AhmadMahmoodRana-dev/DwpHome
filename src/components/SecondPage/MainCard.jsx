@@ -18,30 +18,6 @@ const MainCard = () => {
 
   const chartData2 = formatDataForChart(table);
 
-  const formatDataInsetBarChart = (data) => {
-    return data.map((item) => ({
-      week: item.NO_OF_WEEKS,
-      GreeAC: item.IN_GREE_AC,
-      EcoStarAC: item.IN_ECOSTAR_AC,
-      EcostarLED: item.IN_ECOSTAR_LED_TV,
-      Refrigerator: item.IN_REFRIGERATOR,
-      Other: item.IN_OTHERS,
-    }));
-  };
-  // const insetBarChart = formatDataInsetBarChart(data2);
-
-  //   const formatDataOutsetBarChart = (data) =>{
-  //     return data.map((item) => ({
-  //     week: item.NO_OF_WEEKS,
-  //     GreeAC:  item.OUT_GREE_AC ,
-  //     EcoStarAC:  item.OUT_ECOSTAR_AC,
-  //     EcostarLED:  item.OUT_ECOSTAR_LED_TV,
-  //     Refrigerator:  item.OUT_REFRIGERATOR,
-  //     Other:  item.OUT_OTHERS,
-  //   }));
-  // }
-  // const outsetBarChart = formatDataOutsetBarChart(data2);
-
   const formattedLineChartData = secondLineChart.map((week, index) => ({
     week: `Week ${week.SHORT_WEEKS}`,
     INSET: week.IN_SETS,

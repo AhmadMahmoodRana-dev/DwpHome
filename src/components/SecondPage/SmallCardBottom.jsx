@@ -1,39 +1,28 @@
 import React from "react";
-import SmallBarChart from "./charts/SmallBarChart";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 
-const SmallCardBottom = ({ name, bottomTable1, bottomTable2, LineChart }) => {
-  const formatDataInsetBarChart = (data) => {
-    return data.map((item) => ({
-      week: item?.NO_OF_WEEKS,
-      GreeAC: item?.IN_GREE_AC,
-      EcoStarAC: item?.IN_ECOSTAR_AC,
-      EcostarLED: item?.IN_ECOSTAR_LED_TV,
-      Refrigerator: item?.IN_REFRIGERATOR,
-      Other: item?.IN_OTHERS,
-    }));
-  };
-  const insetBarChart = formatDataInsetBarChart(bottomTable1);
-  const formatDataOutsetBarChart = (data) => {
-    return data.map((item) => ({
-      week: item.NO_OF_WEEKS,
-      GreeAC: item.OUT_GREE_AC,
-      EcoStarAC: item.OUT_ECOSTAR_AC,
-      EcostarLED: item.OUT_ECOSTAR_LED_TV,
-      Refrigerator: item.OUT_REFRIGERATOR,
-      Other: item.OUT_OTHERS,
-    }));
-  };
-  const outsetBarChart = formatDataOutsetBarChart(bottomTable2);
+const SmallCardBottom = ({ name, bottomTable1, bottomTable2,SmallLineChart }) => {
+ const formattedLineChartDataProductsInset = SmallLineChart.map(
+    (week, index) => ({
+      week: `Week ${week.SHORT_WEEKS}`,
+      GREE_IN_SETS: week.IN_GREE_AC,
+      ESAC_IN_SETS: week.IN_ECOSTAR_AC,
+      ESLED_IN_SETS: week.IN_ECOSTAR_LED_TV,
+      REF_IN_SETS: week.IN_REFRIGERATOR,
+      OTHERS_IN_SETS: week.IN_OTHERS,
+    })
+  );
+  const formattedLineChartDataProductsOutset = SmallLineChart.map(
+    (week, index) => ({
+      week: `Week ${week.SHORT_WEEKS}`,
+      GREE_OUT_SETS: week.OUT_GREE_AC,
+      ESAC_OUT_SETS: week.OUT_ECOSTAR_AC,
+      ESLED_OUT_SETS: week.OUT_ECOSTAR_LED_TV,
+      REF_OUT_SETS: week.OUT_REFRIGERATOR,
+      OTHERS_OUT_SETS: week.OUT_OTHERS,
+    })
+  );
 
-  const formattedLineChartDataInset = LineChart.map((week, index) => ({
-    week: `Week ${week.SHORT_WEEKS}`,
-    IN_SETS: week.IN_SETS,
-  }));
-  const formattedLineChartDataOutset = LineChart.map((week, index) => ({
-    week: `Week ${week.SHORT_WEEKS}`,
-    OUT_SETS: week.OUT_SETS,
-  }));
 
   return (
     <div className="smallcardMain w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
@@ -84,9 +73,15 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2, LineChart }) => {
         </div>
         {/* <SmallBarChart data={insetBarChart} /> */}
         <ResponsiveLineChart
-          chartData={formattedLineChartDataInset}
-          keysToDisplay={["IN_SETS"]}
-        />
+            chartData={formattedLineChartDataProductsInset}
+            keysToDisplay={[
+              "GREE_IN_SETS",
+              "ESAC_IN_SETS",
+              "ESLED_IN_SETS",
+              "REF_IN_SETS",
+              "OTHERS_IN_SETS",
+            ]}
+          />
         <hr className="mt-[2vw]" />
       </div>
 
@@ -135,12 +130,17 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2, LineChart }) => {
           </table>
           <hr />
         </div>
-        <ResponsiveLineChart
-          chartData={formattedLineChartDataOutset}
-          keysToDisplay={["OUT_SETS"]}
-        />
+       <ResponsiveLineChart
+            chartData={formattedLineChartDataProductsOutset}
+            keysToDisplay={[
+              "GREE_OUT_SETS",
+              "ESAC_OUT_SETS",
+              "ESLED_OUT_SETS",
+              "REF_OUT_SETS",
+              "OTHERS_OUT_SETS",
+            ]}
+          />
 
-        {/* <SmallBarChart data={outsetBarChart} /> */}
       </div>
     </div>
   );

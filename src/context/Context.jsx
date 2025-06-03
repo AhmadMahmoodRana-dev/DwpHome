@@ -438,6 +438,26 @@ const LineChartHyderabadDataSecond = extractMultipleFields(secondLineChart, fiel
 const LineChartKarachiDataSecond = extractMultipleFields(secondLineChart, fieldsToExtractKarachiSecondLineChart, secondLineChartCustomFieldName);
 
 
+// CHART PRODUCT THROUGH REGION WISE
+const secondLineChartCustomFieldNameProductRegion = ["SHORT_WEEKS", "OUT_GREE_AC", "OUT_ECOSTAR_AC", "OUT_ECOSTAR_LED_TV", "OUT_REFRIGERATOR", "OUT_OTHERS","IN_GREE_AC", "IN_ECOSTAR_AC", "IN_ECOSTAR_LED_TV", "IN_REFRIGERATOR", "IN_OTHERS"];
+
+
+const fieldsToExtractRawalpindiSecondLineChartProductRegion = ["SHORT_WEEKS","RWP_OUT_GREE_AC", "RWP_OUT_ECOSTAR_AC", "RWP_OUT_ECOSTAR_LED_TV", "RWP_OUT_REFRIGERATOR", "RWP_OUT_OTHERS","RWP_IN_GREE_AC", "RWP_IN_ECOSTAR_AC", "RWP_IN_ECOSTAR_LED_TV", "RWP_IN_REFRIGERATOR", "RWP_IN_OTHERS"];
+const fieldsToExtractFaisalabadSecondLineChartProductRegion = ["SHORT_WEEKS","FSD_OUT_GREE_AC", "FSD_OUT_ECOSTAR_AC", "FSD_OUT_ECOSTAR_LED_TV", "FSD_OUT_REFRIGERATOR", "FSD_OUT_OTHERS","FSD_IN_GREE_AC", "FSD_IN_ECOSTAR_AC", "FSD_IN_ECOSTAR_LED_TV", "FSD_IN_REFRIGERATOR", "FSD_IN_OTHERS"];
+const fieldsToExtractGujranwalaSecondLineChartProductRegion = ["SHORT_WEEKS","GUJ_OUT_GREE_AC", "GUJ_OUT_ECOSTAR_AC", "GUJ_OUT_ECOSTAR_LED_TV", "GUJ_OUT_REFRIGERATOR", "GUJ_OUT_OTHERS","GUJ_IN_GREE_AC", "GUJ_IN_ECOSTAR_AC", "GUJ_IN_ECOSTAR_LED_TV", "GUJ_IN_REFRIGERATOR", "GUJ_IN_OTHERS"];
+const fieldsToExtractLahoreSecondLineChartProductRegion =     ["SHORT_WEEKS","LHE_OUT_GREE_AC", "LHE_OUT_ECOSTAR_AC", "LHE_OUT_ECOSTAR_LED_TV", "LHE_OUT_REFRIGERATOR", "LHE_OUT_OTHERS","LHE_IN_GREE_AC", "LHE_IN_ECOSTAR_AC", "LHE_IN_ECOSTAR_LED_TV", "LHE_IN_REFRIGERATOR", "LHE_IN_OTHERS"];
+const fieldsToExtractMultanSecondLineChartProductRegion =     ["SHORT_WEEKS","MUL_OUT_GREE_AC", "MUL_OUT_ECOSTAR_AC", "MUL_OUT_ECOSTAR_LED_TV", "MUL_OUT_REFRIGERATOR", "MUL_OUT_OTHERS","MUL_IN_GREE_AC", "MUL_IN_ECOSTAR_AC", "MUL_IN_ECOSTAR_LED_TV", "MUL_IN_REFRIGERATOR", "MUL_IN_OTHERS"];
+const fieldsToExtractHyderabadSecondLineChartProductRegion =  ["SHORT_WEEKS","HYD_OUT_GREE_AC", "HYD_OUT_ECOSTAR_AC", "HYD_OUT_ECOSTAR_LED_TV", "HYD_OUT_REFRIGERATOR", "HYD_OUT_OTHERS","HYD_IN_GREE_AC", "HYD_IN_ECOSTAR_AC", "HYD_IN_ECOSTAR_LED_TV", "HYD_IN_REFRIGERATOR", "HYD_IN_OTHERS"];
+const fieldsToExtractKarachiSecondLineChartProductRegion =    ["SHORT_WEEKS","KHI_OUT_GREE_AC", "KHI_OUT_ECOSTAR_AC", "KHI_OUT_ECOSTAR_LED_TV", "KHI_OUT_REFRIGERATOR", "KHI_OUT_OTHERS","KHI_IN_GREE_AC", "KHI_IN_ECOSTAR_AC", "KHI_IN_ECOSTAR_LED_TV", "KHI_IN_REFRIGERATOR", "KHI_IN_OTHERS"];
+
+const LineChartRawalpindiDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractRawalpindiSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+const LineChartFaisalabadDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractFaisalabadSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+const LineChartGujranwalaDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractGujranwalaSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+const LineChartLahoreDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractLahoreSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+const LineChartMultanDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractMultanSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+const LineChartHyderabadDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractHyderabadSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+const LineChartKarachiDataSecondProductRegion = extractMultipleFields(secondLineChart, fieldsToExtractKarachiSecondLineChartProductRegion, secondLineChartCustomFieldNameProductRegion);
+
 
 
 // THIRD PAGE LINE CHART API
@@ -723,6 +743,14 @@ const productTableOtherFifthLine = extractMultipleFields(fifthLineChart, fieldsT
     LineChartMultanDataSecond,
     LineChartHyderabadDataSecond,
     LineChartKarachiDataSecond,
+    // #####################  SECOND PAGE LINE CHARTS  #########################
+    LineChartRawalpindiDataSecondProductRegion,
+    LineChartFaisalabadDataSecondProductRegion,
+    LineChartGujranwalaDataSecondProductRegion,
+    LineChartLahoreDataSecondProductRegion,
+    LineChartMultanDataSecondProductRegion,
+    LineChartHyderabadDataSecondProductRegion,
+    LineChartKarachiDataSecondProductRegion,
     // #####################  THIRD PAGE LINE CHARTS  #########################
     thirdLineChart,
     LineChartRawalpindiDataThird,

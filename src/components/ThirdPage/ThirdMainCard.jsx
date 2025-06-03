@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import { BsCaretRightFill } from "react-icons/bs";
-import { ThirdMainChart } from "./charts/ThirdMainChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
@@ -218,7 +217,7 @@ const ThirdMainCard = () => {
               </div>
             </div>
             <p className="text-[12px] 2xl:text-[.7vw] text-white ml-[.9vw]  font-thin">
-              8 & 8+
+              8 & +
             </p>
           </div>
         </div>
@@ -231,7 +230,7 @@ const ThirdMainCard = () => {
               <th className="font-medium border-r-2 text-center">Day1</th>
               <th className="font-medium border-r-2">2-3</th>
               <th className="font-medium border-r-2">4-7</th>
-              <th className="font-medium">8&8+</th>
+              <th className="font-medium"> 8&+</th>
             </tr>
 
             {thirdPageTableData.map((data, index) => {
