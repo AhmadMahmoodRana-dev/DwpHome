@@ -1,6 +1,5 @@
 import { FifthMainChart } from "./charts/FifthMainChart";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
 const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
   // const formatDataForChart = (data) => {

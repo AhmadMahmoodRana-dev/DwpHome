@@ -4,7 +4,6 @@ import { BsCaretRightFill } from "react-icons/bs";
 import { ThirdMainChart } from "./charts/ThirdMainChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 
 const ThirdMainCard = () => {
   // FIRST SECTION APIS

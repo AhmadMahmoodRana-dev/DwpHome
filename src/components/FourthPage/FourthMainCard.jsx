@@ -4,7 +4,6 @@ import FourthPagePiechart from "./charts/FourthPagePiechart";
 import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 const FourthMainCard = () => {
   // TOP SECTION APIS
   const { fourthPageOtherData, fourthPageTableData, fourthLineChart } =

@@ -4,7 +4,6 @@ import SemiCircularProgressive from "../SemiCircularProgressive";
 import { FifthMainChart } from "./charts/FifthMainChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-import FifthResponsiveLineChart from "./charts/FifthResponsiveLineChart";
 
 const FifthMainCard = () => {
   const { fifthPageOtherData, fifthPageTableData, fifthLineChart } =

@@ -4,7 +4,6 @@ import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FourthPagePiechart from "./charts/FourthPagePiechart";
-import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
   // TOP SECTION APIS
   const { filteredData } = useContext(Context);

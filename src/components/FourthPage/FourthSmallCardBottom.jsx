@@ -3,7 +3,6 @@ import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
 import axios from "axios";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 
 const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
 // TOP SECTION APIS

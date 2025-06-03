@@ -3,7 +3,6 @@ import { ThirdMainChart } from "./charts/ThirdMainChart";
 import axios from "axios";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
-import FifthResponsiveLineChart from "../FifthPage/charts/FifthResponsiveLineChart";
 const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
 
 // FIRST SECTION APIS
