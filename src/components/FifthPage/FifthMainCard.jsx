@@ -32,10 +32,10 @@ const FifthMainCard = () => {
 
   const formattedLineChartDataProducts = fifthLineChart.map((week, index) => ({
     week: `Week ${week.DISPLAY_WEEK}`,
-    GREE_AC_PARTS: week.GREE_AC_PARTS,
-    GREE_AC_SERVICE: week.GREE_AC_SERVICE,
-    GREE_AC_VISIT: week.GREE_AC_VISIT,
-    GREE_AC_INSTALL: week.GREE_AC_INSTALL,
+    PARTS: week.GREE_AC_PARTS,
+    SERVICE: week.GREE_AC_SERVICE,
+    VISIT_CHARGES: week.GREE_AC_VISIT,
+    INSTALL_CORPORATE: week.GREE_AC_INSTALL,
   }));
 
   return (
@@ -243,10 +243,10 @@ const FifthMainCard = () => {
           <ResponsiveLineChart
             chartData={formattedLineChartDataProducts}
             keysToDisplay={[
-              "GREE_AC_PARTS",
-              "GREE_AC_SERVICE",
-              "GREE_AC_VISIT",
-              "GREE_AC_INSTALL",
+              "PARTS",
+              "SERVICE",
+              "VISIT_CHARGES",
+              "INSTALL_CORPORATE",
             ]}
           />
 

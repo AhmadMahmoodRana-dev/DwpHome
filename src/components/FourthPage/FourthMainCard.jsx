@@ -72,10 +72,10 @@ const FourthMainCard = () => {
   }));
   const formattedLineChartDataProducts = fourthLineChart.map((week, index) => ({
     week: `Week ${week.DISPLAY_WEEK}`,
-    GREE_AC_PART_WAITING: week.GREE_AC_PART_WAITING ??0,
-    GREE_AC_UNDER_REPAIR: week.GREE_AC_UNDER_REPAIR ??0,
-    GREE_AC_COMPLETED: week.GREE_AC_COMPLETED ??0,
-    GREE_AC_OTHERS: week.GREE_AC_OTHERS ??0,
+    PART_WAITING: week.GREE_AC_PART_WAITING ??0,
+    UNDER_REPAIR: week.GREE_AC_UNDER_REPAIR ??0,
+    COMPLETED: week.GREE_AC_COMPLETED ??0,
+    OTHERS: week.GREE_AC_OTHERS ??0,
   }));
 
   return (
@@ -395,10 +395,10 @@ const FourthMainCard = () => {
             <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}
               keysToDisplay={[
-                "GREE_AC_PART_WAITING",
-                "GREE_AC_UNDER_REPAIR",
-                "GREE_AC_COMPLETED",
-                "GREE_AC_OTHERS",
+                "PART_WAITING",
+                "UNDER_REPAIR",
+                "COMPLETED",
+                "OTHERS",
               ]}
             />{" "}
           </div>

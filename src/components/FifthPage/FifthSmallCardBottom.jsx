@@ -17,11 +17,11 @@ const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
     week: `Week ${week.DISPLAY_WEEK}`,
     PARTS: week.Product_PARTS,
     SERVICE: week.Product_SERVICE,
-    VISIT: week.Product_VISIT,
-    INSTALL: week.Product_INSTALL,
+    VISIT_CHARGES: week.Product_VISIT,
+    INSTALL_CORPORATE: week.Product_INSTALL,
   }));
   return (
-    <div className="w-[300px] 2xl:w-[100%] first-div min-h-[45vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
+    <div className="w-[300px] 2xl:w-[100%] first-div min-h-[45vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4 z-10">
       <h1 className="text-[#44cf86] text-xs 2xl:text-[.75vw] text-center mt-3 font-semibold">
         Nation Wide {name} Weekly Revenue
       </h1>
@@ -64,7 +64,7 @@ const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
         {/* <FifthMainChart chartData={chartData} /> */}
         <ResponsiveLineChart
           chartData={formattedLineChartDataProducts}
-          keysToDisplay={["PARTS", "SERVICE", "VISIT", "INSTALL"]}
+          keysToDisplay={["PARTS", "SERVICE", "VISIT_CHARGES", "INSTALL_CORPORATE"]}
         />
 
         {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">

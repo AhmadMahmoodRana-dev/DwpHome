@@ -18,10 +18,10 @@ const ThirdMainCard = () => {
   const formattedLineChartDataProducts = thirdLineChart.map(
     (week, index) => ({
       week: `Week ${week.SHORT_WEEKS}`,
-      GREE_AC_DAY_0: week.GREE_AC_DAY_0,
-      GREE_AC_DAY2_3: week.GREE_AC_DAY2_3,
-      GREE_AC_DAY4_7: week.GREE_AC_DAY4_7,
-      GREE_AC_DAY8_ABOVE: week.GREE_AC_DAY8_ABOVE,
+      DAY_0: week.GREE_AC_DAY_0,
+      DAY2_3: week.GREE_AC_DAY2_3,
+      DAY4_7: week.GREE_AC_DAY4_7,
+      DAY8_ABOVE: week.GREE_AC_DAY8_ABOVE,
     })
   );
   return (
@@ -315,10 +315,10 @@ const ThirdMainCard = () => {
               <AtatResponsiveLineChart
                 chartData={formattedLineChartDataProducts}
                 keysToDisplay={[
-                  "GREE_AC_DAY_0",
-                  "GREE_AC_DAY2_3",
-                  "GREE_AC_DAY4_7",
-                  "GREE_AC_DAY8_ABOVE",
+                  "DAY_0",
+                  "DAY2_3",
+                  "DAY4_7",
+                  "DAY8_ABOVE",
                 ]}
               />
             }

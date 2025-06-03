@@ -18,9 +18,12 @@ const colors = [
 
 const ResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
   return (
-    <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg p-3">
+    <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg p-3 z-10">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={chartData} margin={{ left: -25, right: 0, top: 0, bottom: 0 }}>
+        <LineChart
+          data={chartData}
+          margin={{ left: -25, right: 0, top: 0, bottom: 0 }}
+        >
           <XAxis
             dataKey="week"
             tick={{ fill: "#cbd5e1", fontSize: 12 }}
@@ -34,9 +37,15 @@ const ResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
             tickLine={false}
           />
           <Tooltip
-            contentStyle={{ backgroundColor: "#1e293b", border: "none" }}
+            contentStyle={{
+              backgroundColor: "#1e293b",
+              border: "none",
+              zIndex: 9999,
+            }}
+            wrapperStyle={{ zIndex: 9999 }}
             labelStyle={{ color: "#fff" }}
           />
+
           {keysToDisplay.map((key, index) => (
             <Line
               key={key}
