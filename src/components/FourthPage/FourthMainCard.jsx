@@ -51,27 +51,18 @@ const FourthMainCard = () => {
     };
   };
 
-  const formatDataForChart = (data) => {
-    return data.map((item) => ({
-      week: item.SHORT_WEEKS.toString() ??0,
-      PART_WAITING: item.PART_WAITING ??0,
-      UNDER_REPAIR: item.UNDER_REPAIR ??0,
-      COMPLETED: item.COMPLETED ??0,
-      OTHER: item.OTHER ??0,
-    }));
-  };
+ 
 
-  const chartData2 = formatDataForChart(fourthPageTableData);
 
   const formattedLineChartDataRegions = fourthLineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PART_WAITING: week.PART_WAITING ??0,
     UNDER_REPAIR: week.UNDER_REPAIR ??0,
     COMPLETED: week.COMPLETED ??0,
     OTHER: week.OTHER ??0,
   }));
   const formattedLineChartDataProducts = fourthLineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PART_WAITING: week.GREE_AC_PART_WAITING ??0,
     UNDER_REPAIR: week.GREE_AC_UNDER_REPAIR ??0,
     COMPLETED: week.GREE_AC_COMPLETED ??0,

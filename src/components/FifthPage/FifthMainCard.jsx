@@ -9,21 +9,9 @@ const FifthMainCard = () => {
   const { fifthPageOtherData, fifthPageTableData, fifthLineChart } =
     useContext(Context);
 
-  // const formatDataForChart = (data) => {
-  //   return data.map((item) => ({
-  //     Week: item.SHORT_WEEKS,
-  //     PARTS: item.PARTS,
-  //     SERVICE: item.SERVICE,
-  //     CHARGES: item.VISIT_CHARGES,
-  //     INSTALL: item.INSTALL_CORPORATE,
-  //   }));
-  // };
-
-  // const chartData = formatDataForChart(data2);
-
-  // ##########################
+ 
   const formattedLineChartDataRegions = fifthLineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PARTS: week.PARTS,
     SERVICE: week.SERVICE,
     VISIT_CHARGES: week.VISIT_CHARGES,
@@ -31,7 +19,7 @@ const FifthMainCard = () => {
   }));
 
   const formattedLineChartDataProducts = fifthLineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PARTS: week.GREE_AC_PARTS,
     SERVICE: week.GREE_AC_SERVICE,
     VISIT_CHARGES: week.GREE_AC_VISIT,
@@ -239,7 +227,6 @@ const FifthMainCard = () => {
         </div>
 
         <div className="-ml-4">
-          {/* <FifthMainChart chartData={chartData} /> */}
           <ResponsiveLineChart
             chartData={formattedLineChartDataProducts}
             keysToDisplay={[
@@ -249,17 +236,6 @@ const FifthMainCard = () => {
               "INSTALL_CORPORATE",
             ]}
           />
-
-          {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
-            <div className="w-4 h-2 bg-[#953333]"></div>
-            <h1 className="text-[10px]">parts</h1>
-            <div className="w-4 h-2 bg-[#025ade]"></div>
-            <h1 className="text-[10px]">services</h1>
-            <div className="w-4 h-2 bg-[#ae8104]"></div>
-            <h1 className="text-[10px]">charges</h1>
-            <div className="w-4 h-2 bg-[#ce0265]"></div>
-            <h1 className="text-[10px]">inst/corp</h1>
-          </div> */}
         </div>
       </div>
     </>

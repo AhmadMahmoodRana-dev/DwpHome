@@ -1,25 +1,12 @@
 import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
-import { FifthMainChart } from "./charts/FifthMainChart";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
- 
 
-  // const formatDataForChart = (data) => {
-  //   return data.map((item) => ({
-  //     Week: item.SHORT_WEEKS,
-  //     PARTS: item.PARTS,
-  //     SERVICE: item.SERVICE,
-  //     CHARGES: item.VISIT_CHARGES,
-  //     INSTALL: item.INSTALL_CORPORATE,
-  //   }));
-  // };
-
-  // const chartData = formatDataForChart(data2);
 
     const formattedLineChartDataRegions = lineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PARTS: week.PARTS,
     SERVICE: week.SERVICE,
     VISIT_CHARGES: week.VISIT_CHARGES,
@@ -159,7 +146,6 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
         </table>
       </div>
       <div className="-ml-2">
-        {/* <FifthMainChart chartData={chartData} /> */}
          <ResponsiveLineChart
             chartData={formattedLineChartDataRegions}
             keysToDisplay={[

@@ -13,7 +13,7 @@ const SecondPage = ({ name, TableData, others, LineChart }) => {
     }));
   };
   const formattedLineChartData = LineChart.map((week, index) => ({
-    week: `Week ${week.SHORT_WEEKS}`,
+    week: `${week.SHORT_WEEKS}`,
     INSET: week.IN_SETS,
     OUTSET: week.OUT_SETS,
   }));

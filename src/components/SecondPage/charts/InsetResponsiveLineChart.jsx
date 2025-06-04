@@ -39,7 +39,7 @@ const InsetResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
   return (
     <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg p-3">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={chartData} margin={{ left: -25, right: 0, top: 0, bottom: 0 }}>
+        <LineChart data={chartData} margin={{ left: -25, right:10, top: 5, bottom: 5 }}>
           <XAxis
             dataKey="week"
             tick={{ fill: "#cbd5e1", fontSize: 12 }}
@@ -72,3 +72,4 @@ const InsetResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
 };
 
 export default InsetResponsiveLineChart;
+// 

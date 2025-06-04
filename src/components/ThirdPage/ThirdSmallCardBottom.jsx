@@ -36,21 +36,11 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
     fetchTatData();
   }, [filteredData[0]?.ID]);
 
-  const formatDataForChart = (data) => {
-    return data.map((item) => ({
-      week: item.SHORT_WEEKS.toString(),
-      day_0: item.DAY_0,
-      day2_3: item.DAY2_3,
-      day4_7: item.DAY4_7,
-      day8_above: item.DAY8_ABOVE,
-    }));
-  };
 
-  const chartData2 = formatDataForChart(data2);
 
   const formattedLineChartDataProducts = lineChart.map(
     (week, index) => ({
-      week: `Week ${week.SHORT_WEEKS}`,
+      week: `${week.SHORT_WEEKS}`,
       DAY_0: week.Product_Day_0,
       DAY2_3: week.Product_Day_2_3,
       DAY4_7: week.Product_Day_4_7,

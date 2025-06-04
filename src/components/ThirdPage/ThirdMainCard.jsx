@@ -11,13 +11,13 @@ const ThirdMainCard = () => {
     useContext(Context);
 
   const formattedLineChartData = thirdLineChart.map((week, index) => ({
-    week: `Week ${week.SHORT_WEEKS}`,
+    week: `${week.SHORT_WEEKS}`,
     ATAT: week.ATAT,
   }));
 
   const formattedLineChartDataProducts = thirdLineChart.map(
     (week, index) => ({
-      week: `Week ${week.SHORT_WEEKS}`,
+      week: `${week.SHORT_WEEKS}`,
       DAY_0: week.GREE_AC_DAY_0,
       DAY2_3: week.GREE_AC_DAY2_3,
       DAY4_7: week.GREE_AC_DAY4_7,

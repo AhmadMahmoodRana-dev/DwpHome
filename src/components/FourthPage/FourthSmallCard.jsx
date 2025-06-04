@@ -55,9 +55,8 @@ const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
     };
   };
 
-  console.log("OTHERSLIENNEN", lineChart);
   const formattedLineChartDataProducts = lineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PART_WAITING: week.PART_WAITING ??0,
     UNDER_REPAIR: week.UNDER_REPAIR ??0,
     COMPLETED: week.COMPLETED ??0,

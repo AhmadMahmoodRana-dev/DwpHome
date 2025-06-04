@@ -1,20 +1,8 @@
-import { FifthMainChart } from "./charts/FifthMainChart";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
-  // const formatDataForChart = (data) => {
-  //   return data.map((item) => ({
-  //     Week: item.SHORT_WEEKS,
-  //     PARTS: item.PARTS,
-  //     SERVICE: item.SERVICE,
-  //     CHARGES: item.VISIT_CHARGES,
-  //     INSTALL: item.INSTALL_CORPORATE,
-  //   }));
-  // };
-
-  // const chartData = formatDataForChart(data2);
   const formattedLineChartDataProducts = lineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PARTS: week.Product_PARTS,
     SERVICE: week.Product_SERVICE,
     VISIT_CHARGES: week.Product_VISIT,
@@ -61,22 +49,10 @@ const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
       </div>
 
       <div className="-ml-2">
-        {/* <FifthMainChart chartData={chartData} /> */}
         <ResponsiveLineChart
           chartData={formattedLineChartDataProducts}
           keysToDisplay={["PARTS", "SERVICE", "VISIT_CHARGES", "INSTALL_CORPORATE"]}
         />
-
-        {/* <div className="tooltips flex justify-center items-center gap-1 text-white mt-3">
-          <div className="w-4 h-2 bg-[#953333]"></div>
-          <h1 className="text-[10px]">parts</h1>
-          <div className="w-4 h-2 bg-[#025ade]"></div>
-          <h1 className="text-[10px]">services</h1>
-          <div className="w-4 h-2 bg-[#ae8104]"></div>
-          <h1 className="text-[10px]">charges</h1>
-          <div className="w-4 h-2 bg-[#ce0265]"></div>
-          <h1 className="text-[10px]">inst/corp</h1>
-        </div> */}
       </div>
     </div>
   );

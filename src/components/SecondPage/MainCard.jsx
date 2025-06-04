@@ -21,13 +21,13 @@ const MainCard = () => {
   const chartData2 = formatDataForChart(table);
 
   const formattedLineChartData = secondLineChart.map((week, index) => ({
-    week: `Week ${week.SHORT_WEEKS}`,
+    week: `${week.SHORT_WEEKS}`,
     INSET: week.IN_SETS,
     OUTSET: week.OUT_SETS,
   }));
   const formattedLineChartDataProductsInset = secondLineChart.map(
     (week, index) => ({
-      week: `Week ${week.SHORT_WEEKS}`,
+      week: `${week.SHORT_WEEKS}`,
       GREE_AC: week.IN_GREE_AC,
       ES_AC: week.IN_ECOSTAR_AC,
       ES_LED: week.IN_ECOSTAR_LED_TV,
@@ -37,7 +37,7 @@ const MainCard = () => {
   );
   const formattedLineChartDataProductsOutset = secondLineChart.map(
     (week, index) => ({
-      week: `Week ${week.SHORT_WEEKS}`,
+      week: `${week.SHORT_WEEKS}`,
       GREE_AC: week.OUT_GREE_AC,
       ES_AC: week.OUT_ECOSTAR_AC,
       ES_LED: week.OUT_ECOSTAR_LED_TV,

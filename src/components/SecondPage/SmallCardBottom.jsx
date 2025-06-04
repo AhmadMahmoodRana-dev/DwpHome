@@ -6,7 +6,7 @@ import OutsetResponsiveLineChart from "./charts/OutsetResponsiveLineChart";
 const SmallCardBottom = ({ name, bottomTable1, bottomTable2,SmallLineChart }) => {
  const formattedLineChartDataProductsInset = SmallLineChart.map(
     (week, index) => ({
-      week: `Week ${week.SHORT_WEEKS}`,
+      week: `${week.SHORT_WEEKS}`,
       GREE_AC: week.IN_GREE_AC,
       ES_AC: week.IN_ECOSTAR_AC,
       ES_LED: week.IN_ECOSTAR_LED_TV,
@@ -16,7 +16,7 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2,SmallLineChart }) =>
   );
   const formattedLineChartDataProductsOutset = SmallLineChart.map(
     (week, index) => ({
-      week: `Week ${week.SHORT_WEEKS}`,
+      week: `${week.SHORT_WEEKS}`,
       GREE_AC: week.OUT_GREE_AC,
       ES_AC: week.OUT_ECOSTAR_AC,
       ES_LED: week.OUT_ECOSTAR_LED_TV,

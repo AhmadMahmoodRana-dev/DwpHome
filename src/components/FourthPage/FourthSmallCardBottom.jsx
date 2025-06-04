@@ -81,20 +81,8 @@ const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
    };
  };
 
- const formatDataForChart = (data) => {
-   return data.map((item) => ({
-     week: item.SHORT_WEEKS.toString(),
-     PART_WAITING: item.PART_WAITING,
-     UNDER_REPAIR: item.UNDER_REPAIR,
-     COMPLETED: item.COMPLETED,
-     OTHER: item.OTHER,
-   }));
- };
-
- const chartData2 = formatDataForChart(data2);
-
  const formattedLineChartDataProducts = lineChart.map((week, index) => ({
-    week: `Week ${week.DISPLAY_WEEK}`,
+    week: `${week.DISPLAY_WEEK}`,
     PART_WAITING: week.Product_PART_WAITING ??0,
     UNDER_REPAIR: week.Product_UNDER_REPAIR ??0,
     COMPLETED: week.Product_COMPLETED ??0,

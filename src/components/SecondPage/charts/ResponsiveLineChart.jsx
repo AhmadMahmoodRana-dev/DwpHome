@@ -22,7 +22,7 @@ const ResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
       <ResponsiveContainer width="100%" height="100%">
         <LineChart
           data={chartData}
-          margin={{ left: -25, right: 0, top: 0, bottom: 0 }}
+          margin={{ left: -25, right:10, top: 5, bottom: 5 }}
         >
           <XAxis
             dataKey="week"
