@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
 import FourthPagePiechart from "./charts/FourthPagePiechart";
-import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 const FourthMainCard = () => {
@@ -179,7 +178,6 @@ const FourthMainCard = () => {
             })}
           </table>
           <div className="-ml-4">
-            {/* <FourthBarChart chartData={chartData2} /> */}
             <ResponsiveLineChart
               chartData={formattedLineChartDataRegions}
               keysToDisplay={[
@@ -382,7 +380,6 @@ const FourthMainCard = () => {
           </div>
           <hr className="mx-6" />
           <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-4">
-            {/* <FourthBarChart chartData={chartData2} /> */}
             <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}
               keysToDisplay={[

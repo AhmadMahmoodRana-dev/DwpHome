@@ -1,6 +1,5 @@
 import React from "react";
 import { RiTriangleFill } from "react-icons/ri";
-import SmallCardFlowChart from "./charts/SmallCardFlowChart";
 import FlowChart from "./charts/FlowChart";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 

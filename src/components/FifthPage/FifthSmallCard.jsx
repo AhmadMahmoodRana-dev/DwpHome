@@ -3,8 +3,6 @@ import SemiCircularProgressive from "../SemiCircularProgressive";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
 const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
-
-
     const formattedLineChartDataRegions = lineChart.map((week, index) => ({
     week: `${week.DISPLAY_WEEK}`,
     PARTS: week.PARTS,

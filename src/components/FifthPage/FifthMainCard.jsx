@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
-import { FifthMainChart } from "./charts/FifthMainChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
@@ -173,7 +172,6 @@ const FifthMainCard = () => {
           </table>
         </div>
         <div className="-ml-4">
-          {/* <FifthMainChart chartData={chartData} /> */}
           <ResponsiveLineChart
             chartData={formattedLineChartDataRegions}
             keysToDisplay={[

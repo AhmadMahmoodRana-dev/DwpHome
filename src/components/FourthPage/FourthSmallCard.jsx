@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsCaretRightFill, BsTriangleFill } from "react-icons/bs";
-import { FourthBarChart } from "./charts/FourthBarChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import FourthPagePiechart from "./charts/FourthPagePiechart";

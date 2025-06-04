@@ -1,43 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { ThirdMainChart } from "./charts/ThirdMainChart";
-import axios from "axios";
-import { Context } from "@/context/Context";
-import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 import AtatResponsiveLineChart from "./charts/AtatResponsiveLineChart";
 const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
-
-// FIRST SECTION APIS
-  const { filteredData } = useContext(Context);
-  const [data, setData] = useState([]);
-  const [data2, setData2] = useState([]);
-
-  useEffect(() => {
-    const fetchTatData = async () => {
-      try {
-        const dateId = filteredData[0]?.ID;
-        if (!dateId) return;
-
-        // First API call
-        const response1 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
-          params: { EDATE: dateId },
-        });
-        setData(response1.data);
-
-        // Second API call
-        const response2 = await axios.get('https://dwpcare.com.pk/dwp/tat', {
-          params: { SDATE: dateId, EDATE: dateId },
-        });
-        setData2(response2.data); 
-      } catch (error) {
-        console.error('Error fetching TAT data:', error);
-      }
-    };
-
-    fetchTatData();
-  }, [filteredData[0]?.ID]);
-
-
-
   const formattedLineChartDataProducts = lineChart.map(
     (week, index) => ({
       week: `${week.SHORT_WEEKS}`,
@@ -91,7 +53,6 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
             </div>
             <hr className="mx-6" />
             <div className="2xl:h-[7.7vw] h-[105px] mt-4 2xl:mt-[1.4vw] -ml-2">
-              {/* <ThirdMainChart chartData={chartData2} /> */}
                      <AtatResponsiveLineChart
                 chartData={formattedLineChartDataProducts}
                 keysToDisplay={[

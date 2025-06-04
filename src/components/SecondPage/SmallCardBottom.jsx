@@ -1,5 +1,4 @@
 import React from "react";
-import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 import InsetResponsiveLineChart from "./charts/InsetResponsiveLineChart";
 import OutsetResponsiveLineChart from "./charts/OutsetResponsiveLineChart";
 
@@ -73,7 +72,6 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2,SmallLineChart }) =>
           </table>
           <hr className="2xl:mt-8" />
         </div>
-        {/* <SmallBarChart data={insetBarChart} /> */}
         <InsetResponsiveLineChart
             chartData={formattedLineChartDataProductsInset}
             keysToDisplay={[
@@ -143,7 +141,6 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2,SmallLineChart }) =>
               "OTHERS",
             ]}
           />
-
       </div>
     </div>
   );

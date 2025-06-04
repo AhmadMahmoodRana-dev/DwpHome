@@ -1,7 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext} from "react";
 import { RiTriangleFill } from "react-icons/ri";
 import FlowChart from "./charts/FlowChart";
-import BarChart1 from "./charts/BarChart";
 import { Context } from "@/context/Context";
 import ResponsiveLineChart from "./charts/ResponsiveLineChart";
 import InsetResponsiveLineChart from "./charts/InsetResponsiveLineChart";
@@ -255,7 +254,6 @@ const MainCard = () => {
             </table>
             <hr />
           </div>
-          {/* <BarChart1 data={insetBarChart} /> */}
           <InsetResponsiveLineChart
             chartData={formattedLineChartDataProductsInset}
             keysToDisplay={[
@@ -316,7 +314,6 @@ const MainCard = () => {
             <hr />
           </div>
 
-          {/* <BarChart1 data={outsetBarChart} /> */}
           <OutsetResponsiveLineChart
             chartData={formattedLineChartDataProductsOutset}
             keysToDisplay={[
