@@ -143,14 +143,14 @@ export default function ThirdPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-      if (screenWidth < 640) {
-        setProductsPerSlide(1); // For small screens
+       if (screenWidth < 640) {
+        setProductsPerSlide(1);
       } else if (screenWidth < 1025) {
-        setProductsPerSlide(1); // For medium screens
-      } else if (screenWidth > 1200 && screenWidth < 1230) {
-        setProductsPerSlide(2); // For large screens
+        setProductsPerSlide(1); // Medium screens
+      } else if (screenWidth >= 1025 && screenWidth < 1280) {
+        setProductsPerSlide(1); // ✅ 2 cards for 1025px–1279px
       } else {
-        setProductsPerSlide(3); // For large screens
+        setProductsPerSlide(3); // 1280px and above
       }
     };
 
@@ -193,13 +193,13 @@ export default function ThirdPage() {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
       if (screenWidth < 640) {
-        setBottomProductsPerSlide(1); // For small screens
+        setBottomProductsPerSlide(1); // Small screens
       } else if (screenWidth < 1025) {
-        setBottomProductsPerSlide(1); // For medium screens
-      } else if (screenWidth > 1200 && screenWidth < 1230) {
-        setBottomProductsPerSlide(2); // For large screens
+        setBottomProductsPerSlide(1); // Medium screens
+      } else if (screenWidth >= 1025 && screenWidth < 1280) {
+        setBottomProductsPerSlide(1); // ✅ 2 cards for 1025px–1279px
       } else {
-        setBottomProductsPerSlide(3); // For large screens
+        setBottomProductsPerSlide(3); // 1280px and above
       }
     };
 
@@ -224,11 +224,11 @@ export default function ThirdPage() {
       <div className="secondheader pl-7 2xl:pr-14 xl:pr-12 lg:pr-11  lg:block hidden ">
         <Header />
       </div>
-      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 gap-12 lg:flex-nowrap flex-wrap justify-center second-main-div">
+      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div">
         <div className="w-[300px] 2xl:w-[37%] max-w-[600px] ">
           <FourthMainCard />
         </div>
-        <div className="2xl:max-w-full lg:w-full lg:max-w-5xl md:w-[305px] mx-auto 2xl:px-7 xl:pl-2 slider-main-card border-none">
+        <div className="2xl:max-w-full lg:w-full xl:ml-0 lg:ml-5 lg:max-w-5xl md:w-[305px] mx-auto 2xl:px-7 xl:pl-2 slider-main-card border-none">
           <Card className="w-full border-none">
             <CardContent className="relative p-0 w-[300px] md:w-auto">
               <div className="flex justify-center items-center spacer gap-[1vw]">

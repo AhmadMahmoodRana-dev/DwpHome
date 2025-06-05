@@ -208,7 +208,7 @@ const MainCard = () => {
 
       {/* ###########################   SECOND ROW ######################### */}
 
-      <div className="w-[300px] 2xl:w-[100%]  first-div min-h-[80vh] h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
+      <div className="w-[300px] 2xl:w-[100%]  first-div  h-auto rounded-[10px] px-3 pb-6 pt-2 mt-4">
         {/* FIRST  */}
         <div>
           <h1 className="text-white font-semibold text-[14px] 2xl:text-[.9vw] tracking-wide text-center">

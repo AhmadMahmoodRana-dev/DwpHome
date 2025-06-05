@@ -63,7 +63,7 @@ const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
   }));
   return (
     <>
-      <div className="w-[300px] smallcardMain 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
+      <div className="w-[300px] smallcardMain 2xl:w-[100%] third-div h-auto rounded-[10px] px-3 2xl:px-[1.4vh] py-2 mt-3">
         <h1 className="text-white font-semibold 2xl:text-[1.1vw] text-[1.3rem] text-center">
           {name}
         </h1>

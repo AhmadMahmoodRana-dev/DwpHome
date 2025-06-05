@@ -12,7 +12,7 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
   }));
 
   return (
-    <div className="w-[300px] 2xl:w-[100%] first-div min-h-[65vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
+    <div className="w-[300px] 2xl:w-[100%] first-div  h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
       <h1 className="text-white font-bold text-[20px] 2xl:text-[1.1vw] ">
         {name} Weekly Revenue
       </h1>

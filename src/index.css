@@ -460,3 +460,10 @@ width: 100% !important;
  }
  .small-caard-container{}
 }
+
+@media (min-width:1024) and (max-width:1280) {
+.newDesktopSite{
+  display: flex !important;
+  flex-wrap:nowrap !important ;
+}
+}

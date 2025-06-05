@@ -27,7 +27,7 @@ const FifthMainCard = () => {
 
   return (
     <>
-      <div className="w-[300px] 2xl:w-[100%] first-div min-h-[65vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
+      <div className="w-[300px] 2xl:w-[100%] first-div  h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
         {/* Top Container */}
 
         <h1 className="text-white font-bold text-[23px] 2xl:text-[1.2vw] ">
@@ -185,7 +185,7 @@ const FifthMainCard = () => {
       </div>
 
       {/* BOTTOM CARD */}
-      <div className="w-[300px] 2xl:w-[100%] first-div min-h-[45vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
+      <div className="w-[300px] 2xl:w-[100%] first-div  h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
         <h1 className="text-[#44cf86] text-xs 2xl:text-[.85vw] text-center mt-3 font-semibold">
           Nation Wide GREE AC Weekly Revenue
         </h1>

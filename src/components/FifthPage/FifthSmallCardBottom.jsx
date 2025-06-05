@@ -9,7 +9,7 @@ const FifthSmallCardBottom = ({ name, productTable, lineChart }) => {
     INSTALL_CORPORATE: week.Product_INSTALL,
   }));
   return (
-    <div className="w-[300px] 2xl:w-[100%] first-div min-h-[45vh] h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4 z-10">
+    <div className="w-[300px] 2xl:w-[100%] first-div h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4 z-10">
       <h1 className="text-[#44cf86] text-xs 2xl:text-[.75vw] text-center mt-3 font-semibold">
         Nation Wide {name} Weekly Revenue
       </h1>

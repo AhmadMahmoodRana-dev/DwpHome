@@ -70,7 +70,7 @@ const FourthMainCard = () => {
 
   return (
     <>
-      <div className="w-[300px] 2xl:w-[100%] third-div min-h-[85vh] h-auto rounded-[10px] px-3 2xl:px-[1.4vh] 2xl:pt-[.7vw] xl:py-2 lg:pt-2 lg:pb-3 py-2 mt-3 ">
+      <div className="w-[300px] 2xl:w-[100%] third-div  h-auto rounded-[10px] px-3 2xl:px-[1.4vh] 2xl:pt-[.7vw] xl:py-2 lg:pt-2 lg:pb-3 py-2 mt-3 ">
         <h1 className="text-white font-semibold text-xl 2xl:text-[1.3vw]">
           As On Pending
         </h1>
