@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import Header from "@/components/SecondPage/header/Header";
 import ThirdSmallCardBottom from "@/components/ThirdPage/ThirdSmallCardBottom";
 import { Context } from "@/context/Context";
+import ToggleButtons from "@/components/ToggleButtons";
 
 export default function ThirdPage() {
   const {
@@ -35,9 +36,10 @@ export default function ThirdPage() {
     LineChartHyderabadDataThird,
     LineChartKarachiDataThird,
     productTableEcostarThirdLine,
- productTableLedThirdLine,
- productTableRefrigeratorThirdLine,
- productTableOtherThirdLine 
+    productTableLedThirdLine,
+    productTableRefrigeratorThirdLine,
+    productTableOtherThirdLine,
+    isWrap,
   } = useContext(Context);
 
   const products = [
@@ -48,7 +50,7 @@ export default function ThirdPage() {
       topTable: topTableRawalpindiDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 1 Description",
-      lineChart:LineChartRawalpindiDataThird
+      lineChart: LineChartRawalpindiDataThird,
     },
     {
       id: 2,
@@ -57,8 +59,7 @@ export default function ThirdPage() {
       topTable: topTableFaisalabadDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 2 Description",
-      lineChart:LineChartFaisalabadDataThird
-
+      lineChart: LineChartFaisalabadDataThird,
     },
     {
       id: 3,
@@ -67,7 +68,7 @@ export default function ThirdPage() {
       topTable: topTableGujranwalaDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 3 Description",
-      lineChart:LineChartGujranwalaDataThird
+      lineChart: LineChartGujranwalaDataThird,
     },
     {
       id: 4,
@@ -76,7 +77,7 @@ export default function ThirdPage() {
       topTable: topTableLahoreDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 4 Description",
-      lineChart:LineChartLahoreDataThird
+      lineChart: LineChartLahoreDataThird,
     },
     {
       id: 5,
@@ -85,7 +86,7 @@ export default function ThirdPage() {
       topTable: topTableMultanDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 5 Description",
-      lineChart:LineChartMultanDataThird
+      lineChart: LineChartMultanDataThird,
     },
     {
       id: 6,
@@ -94,7 +95,7 @@ export default function ThirdPage() {
       topTable: topTableHyderabadDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 6 Description",
-      lineChart:LineChartHyderabadDataThird
+      lineChart: LineChartHyderabadDataThird,
     },
     {
       id: 7,
@@ -103,7 +104,7 @@ export default function ThirdPage() {
       topTable: topTableKarachiDataThird,
       image: "https://via.placeholder.com/300",
       description: "Product 6 Description",
-      lineChart:LineChartKarachiDataThird
+      lineChart: LineChartKarachiDataThird,
     },
   ];
 
@@ -112,25 +113,25 @@ export default function ThirdPage() {
       id: 1,
       name: "Ecostar AC",
       productTable: productTableEcostar,
-      lineChart:productTableEcostarThirdLine
+      lineChart: productTableEcostarThirdLine,
     },
     {
       id: 2,
       name: "Refrigerator",
       productTable: productTableRefrigerator,
-      lineChart:productTableRefrigeratorThirdLine
+      lineChart: productTableRefrigeratorThirdLine,
     },
     {
       id: 3,
       name: "LED",
       productTable: productTableLed,
-      lineChart:productTableLedThirdLine
+      lineChart: productTableLedThirdLine,
     },
     {
       id: 4,
       name: "Other",
       productTable: productTableOther,
-      lineChart:productTableOtherThirdLine
+      lineChart: productTableOtherThirdLine,
     },
   ];
   // Upper Part
@@ -155,7 +156,7 @@ export default function ThirdPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-       if (screenWidth < 640) {
+      if (screenWidth < 640) {
         setProductsPerSlide(1);
       } else if (screenWidth < 1025) {
         setProductsPerSlide(1); // Medium screens
@@ -204,7 +205,7 @@ export default function ThirdPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-     if (screenWidth < 640) {
+      if (screenWidth < 640) {
         setBottomProductsPerSlide(1); // Small screens
       } else if (screenWidth < 1025) {
         setBottomProductsPerSlide(1); // Medium screens
@@ -236,8 +237,14 @@ export default function ThirdPage() {
       <div className="secondheader pl-7 2xl:pr-14 xl:pr-12 lg:pr-11  lg:block hidden ">
         <Header />
       </div>
-
-      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div">
+      <ToggleButtons />
+      <div
+        className={`${
+          isWrap
+            ? "flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div"
+            : "flex px-7 gap-12 flex-nowrap newDesktopSite overflow-x-auto  second-main-div"
+        }`}
+      >
         <div className="w-[300px] 2xl:w-[37%] max-w-[600px]">
           <ThirdMainCard />
         </div>

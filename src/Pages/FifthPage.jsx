@@ -6,6 +6,7 @@ import FifthMainCard from "@/components/FifthPage/FifthMainCard";
 import FifthSmallCard from "@/components/FifthPage/FifthSmallCard";
 import FifthSmallCardBottom from "@/components/FifthPage/FifthSmallCardBottom";
 import { Context } from "@/context/Context";
+import ToggleButtons from "@/components/ToggleButtons";
 
 
 export default function FifthPage() {
@@ -39,6 +40,7 @@ export default function FifthPage() {
     productTableLedFifthLine,
     productTableRefrigeratorFifthLine,
     productTableOtherFifthLine,
+    isWrap
   } = useContext(Context);
 
   const products = [
@@ -221,7 +223,12 @@ export default function FifthPage() {
       <div className="secondheader pl-7 2xl:pr-14 xl:pr-12 lg:pr-11  lg:block hidden ">
         <Header />
       </div>
-      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div">
+      <ToggleButtons/>
+      <div  className={`${
+          isWrap
+            ? "flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div"
+            : "flex px-7 gap-12 flex-nowrap newDesktopSite overflow-x-auto  second-main-div"
+        }`}>
         <div className="w-[300px] 2xl:w-[37%] 2xl:min-w-[320px] max-w-[600px] ">
           <FifthMainCard />
         </div>

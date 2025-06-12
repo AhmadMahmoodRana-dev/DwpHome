@@ -6,6 +6,7 @@ import FourthSmallCard from "@/components/FourthPage/FourthSmallCard";
 import FourthSmallCardBottom from "@/components/FourthPage/FourthSmallCardBottom";
 import Header from "@/components/SecondPage/header/Header";
 import { Context } from "@/context/Context";
+import ToggleButtons from "@/components/ToggleButtons";
 
 export default function ThirdPage() {
   const {
@@ -27,7 +28,7 @@ export default function ThirdPage() {
     productTableLedFourth,
     productTableRefrigeratorFourth,
     productTableOtherFourth,
-     LineChartRawalpindiDataFourth,
+    LineChartRawalpindiDataFourth,
     LineChartFaisalabadDataFourth,
     LineChartGujranwalaDataFourth,
     LineChartLahoreDataFourth,
@@ -38,6 +39,7 @@ export default function ThirdPage() {
     productTableLedFourthLine,
     productTableRefrigeratorFourthLine,
     productTableOtherFourthLine,
+    isWrap,
   } = useContext(Context);
 
   const products = [
@@ -47,7 +49,6 @@ export default function ThirdPage() {
       others: OthersRawalpindiDataFourthPage,
       topTable: topTableRawalpindiDataFourth,
       lineChart: LineChartRawalpindiDataFourth,
-   
     },
     {
       id: 2,
@@ -55,7 +56,6 @@ export default function ThirdPage() {
       others: OthersFaisalabadDataFourthPage,
       topTable: topTableFaisalabadDataFourth,
       lineChart: LineChartFaisalabadDataFourth,
-
     },
     {
       id: 3,
@@ -63,7 +63,6 @@ export default function ThirdPage() {
       others: OthersGujranwalaDataFourthPage,
       topTable: topTableGujranwalaDataFourth,
       lineChart: LineChartGujranwalaDataFourth,
-
     },
     {
       id: 4,
@@ -98,26 +97,25 @@ export default function ThirdPage() {
     {
       id: 1,
       name: "Ecostar",
-      productTable:productTableEcostarFourth,
+      productTable: productTableEcostarFourth,
       lineChart: productTableEcostarFourthLine,
-
     },
     {
       id: 2,
       name: "Refriger",
-      productTable:productTableRefrigeratorFourth,
+      productTable: productTableRefrigeratorFourth,
       lineChart: productTableRefrigeratorFourthLine,
     },
     {
       id: 3,
       name: "LED",
-      productTable:productTableLedFourth,
+      productTable: productTableLedFourth,
       lineChart: productTableLedFourthLine,
     },
     {
       id: 4,
       name: "Other",
-      productTable:productTableOtherFourth,
+      productTable: productTableOtherFourth,
       lineChart: productTableOtherFourthLine,
     },
   ];
@@ -143,7 +141,7 @@ export default function ThirdPage() {
   useEffect(() => {
     const handleResize = () => {
       const screenWidth = window.innerWidth;
-       if (screenWidth < 640) {
+      if (screenWidth < 640) {
         setProductsPerSlide(1);
       } else if (screenWidth < 1025) {
         setProductsPerSlide(1); // Medium screens
@@ -224,7 +222,14 @@ export default function ThirdPage() {
       <div className="secondheader pl-7 2xl:pr-14 xl:pr-12 lg:pr-11  lg:block hidden ">
         <Header />
       </div>
-      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div">
+      <ToggleButtons/>
+      <div
+        className={`${
+          isWrap
+            ? "flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div"
+            : "flex px-7 gap-12 flex-nowrap newDesktopSite overflow-x-auto  second-main-div"
+        }`}
+      >
         <div className="w-[300px] 2xl:w-[37%] max-w-[600px] ">
           <FourthMainCard />
         </div>
@@ -272,7 +277,11 @@ export default function ThirdPage() {
               <div className="flex justify-center items-center spacer gap-[1vw]">
                 {currentBottomProducts.map((product) => (
                   <div key={product.id} className="w-full">
-                    <FourthSmallCardBottom name={product?.name} productTable={product?.productTable} lineChart={product?.lineChart} />
+                    <FourthSmallCardBottom
+                      name={product?.name}
+                      productTable={product?.productTable}
+                      lineChart={product?.lineChart}
+                    />
                   </div>
                 ))}
               </div>

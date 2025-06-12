@@ -58,7 +58,8 @@ const MobileSidebar = ({ openSidebar, setOpenSidebar }) => {
   return (
     <div className="w-[200px] mobile-sidebar  h-[72vh] absolute z-50 left-0 pr-2">
       <GoSidebarExpand
-        className="text-white text-xl ml-1 float-right"
+      size={30}
+        className="text-white ml-1 mt-2 float-right"
         onClick={() => setOpenSidebar(true)} // Show the collapse icon and hide the sidebar when expand icon is clicked
       />
 

@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 export const Context = createContext();
 
 const ContextProvider = (props) => {
+  const [isWrap, setIsWrap] = useState(true);
   const [openSidebar, setOpenSidebar] = useState(true);
   const [data, setData] = useState([]);
   const [week, setWeek] = useState(0);
@@ -635,6 +636,7 @@ const productTableOtherFifthLine = extractMultipleFields(fifthLineChart, fieldsT
   // ######################################################################################################################################
 
   const contextValue = {
+    isWrap, setIsWrap,
     openSidebar,
     setOpenSidebar,
     filteredData,

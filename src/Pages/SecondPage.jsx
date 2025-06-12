@@ -6,6 +6,7 @@ import { useContext, useEffect, useState } from "react";
 import Header from "@/components/SecondPage/header/Header";
 import SmallCardBottom from "@/components/SecondPage/SmallCardBottom";
 import { Context } from "@/context/Context";
+import ToggleButtons from "@/components/ToggleButtons";
 
 export default function SecondPage() {
   const {
@@ -37,6 +38,7 @@ export default function SecondPage() {
     LineChartMultanDataSecondProductRegion,
     LineChartHyderabadDataSecondProductRegion,
     LineChartKarachiDataSecondProductRegion,
+    isWrap
   
   } = useContext(Context);
 
@@ -204,7 +206,8 @@ export default function SecondPage() {
         <Header />
       </div>
 
-      <div className="flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div">
+        <ToggleButtons/>
+      <div className={`${isWrap ? "flex px-7 2xl:gap-[2vh] xl:gap-4 md:gap-6 gap-12 md:flex-nowrap newDesktopSite flex-wrap justify-center second-main-div" : "flex px-7 gap-12 flex-nowrap newDesktopSite overflow-x-auto  second-main-div"}`}>
         <div className="w-[300px] 2xl:w-[37%] max-w-[600px]">
           <MainCard />
         </div>

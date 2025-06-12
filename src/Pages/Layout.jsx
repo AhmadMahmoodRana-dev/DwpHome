@@ -15,7 +15,8 @@ const Layout = ({ children }) => {
         <div>
           {openSidebar ? (
             <GoSidebarCollapse
-              className="text-white text-xl ml-1 sm:hidden block"
+            size={30}
+              className="text-white text-xl mt-2 ml-1 sm:hidden block"
               onClick={() => setOpenSidebar(false)} // Close the sidebar when collapse icon is clicked
             />
           ) : (
