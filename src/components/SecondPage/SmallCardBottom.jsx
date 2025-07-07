@@ -20,7 +20,7 @@ const SmallCardBottom = ({ name, bottomTable1, bottomTable2,SmallLineChart }) =>
       ES_AC: week.OUT_ECOSTAR_AC,
       ES_LED: week.OUT_ECOSTAR_LED_TV,
       REF: week.OUT_REFRIGERATOR,
-      OTHERS: week.OUT_OTHERS,
+      OTHERS: week.OUT_OTHERS || 0,
     })
   );
 
