@@ -53,8 +53,8 @@ const ResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
               dataKey={key}
               stroke={colors[index % colors.length]}
               strokeWidth={3}
-              dot={{ r: 3, stroke: "#fff", strokeWidth: 1 }}
-              activeDot={{ r: 6 }}
+              dot={false} // 🔥 Hide all default dots
+  activeDot={{ r: 5, fill: "#fff", stroke: "#fff", strokeWidth: 2 }} // Show white dot on hover
             />
           ))}
         </LineChart>

@@ -22,14 +22,17 @@ const CustomTooltip = ({ active, payload, label }) => {
   return (
     <div className="w-[240px] bg-slate-800 text-white p-2 rounded shadow-lg text-sm">
       <div className="flex justify-between">
-      <p className="font-semibold mb-1">{label}</p>
-      <p className="font-semibold mb-1">ATAT</p>
-
+        <p className="font-semibold mb-1">{label}</p>
+        <p className="font-semibold mb-1">ATAT</p>
       </div>
       {payload.map((entry, index) => (
         <div key={index} className="flex justify-between gap-3">
-          <span className="text-lg" style={{ color: entry.color }}>{entry.name}:</span>
-          <span className="text-lg" style={{ color: entry.color }}>{entry.value}</span>
+          <span className="text-lg" style={{ color: entry.color }}>
+            {entry.name}:
+          </span>
+          <span className="text-lg" style={{ color: entry.color }}>
+            {entry.value}
+          </span>
         </div>
       ))}
     </div>
@@ -39,7 +42,10 @@ const AtatResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
   return (
     <div className="w-full 2xl:h-[148px] h-[150px] rounded-lg p-3">
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={chartData} margin={{ left: -25, right:10, top: 5, bottom: 5 }}>
+        <LineChart
+          data={chartData}
+          margin={{ left: -25, right: 10, top: 5, bottom: 5 }}
+        >
           <XAxis
             dataKey="week"
             tick={{ fill: "#cbd5e1", fontSize: 12 }}
@@ -52,7 +58,7 @@ const AtatResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
             axisLine={false}
             tickLine={false}
           />
-         <Tooltip content={<CustomTooltip />} />
+          <Tooltip content={<CustomTooltip />} />
 
           {keysToDisplay.map((key, index) => (
             <Line
@@ -61,8 +67,8 @@ const AtatResponsiveLineChart = ({ chartData, keysToDisplay = [] }) => {
               dataKey={key}
               stroke={colors[index % colors.length]}
               strokeWidth={3}
-              dot={{ r: 3, stroke: "#fff", strokeWidth: 1 }}
-              activeDot={{ r: 6 }}
+              dot={false} // 🔥 Hide all default dots
+              activeDot={{ r: 5, fill: "#fff", stroke: "#fff", strokeWidth: 2 }} // Show white dot on hover
             />
           ))}
         </LineChart>

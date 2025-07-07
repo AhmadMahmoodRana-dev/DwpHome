@@ -208,7 +208,7 @@ const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
                       <div className="box-sigm-1 flex items-center">
                         <div className="color-boxe bg-[#ededed] border-2 border-green-600 w-[38px] rounded-[4px] h-[30px] 2xl:w-[2.2vw] 2xl:h-[2vw]">
                           <p className="font-normal text-center flex flex-col text-[12px] leading-[14px] 2xl:text-[.8vw] 2xl:leading-[.9vw]">
-                            {item.DAY_0 ?? 0}
+                            {item.WT_DAY ?? 0}
 
                             {item.DAY_0_PER >= 0 ? (
                               <span className="text-[#BE1A1A] text-[10px] font-bold 2xl:text-[.6vw]">
