@@ -8,7 +8,6 @@ const FifthMainCard = () => {
   const { fifthPageOtherData, fifthPageTableData, fifthLineChart } =
     useContext(Context);
 
- 
   const formattedLineChartDataRegions = fifthLineChart.map((week, index) => ({
     week: `${week.DISPLAY_WEEK}`,
     PARTS: week.PARTS,
@@ -115,7 +114,8 @@ const FifthMainCard = () => {
             </div>
           </div>
           <div className="handle-progress">
-            <h1 className="text-[12px] pb-1 2xl:text-[.7vw] font-semibold text-white text-center">
+            <h1 className="text-[10px] 2xl:text-[.6vw] font-semibold text-white text-center mt-[-8px] 2xl:mt-[-.45vw]">
+              Visit <br />
               Charges
             </h1>
 

@@ -2,8 +2,8 @@ import { RiTriangleFill } from "react-icons/ri";
 import SemiCircularProgressive from "../SemiCircularProgressive";
 import ResponsiveLineChart from "../SecondPage/charts/ResponsiveLineChart";
 
-const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
-    const formattedLineChartDataRegions = lineChart.map((week, index) => ({
+const FifthSmallCard = ({ name, otherdata, toptable, lineChart }) => {
+  const formattedLineChartDataRegions = lineChart.map((week, index) => ({
     week: `${week.DISPLAY_WEEK}`,
     PARTS: week.PARTS,
     SERVICE: week.SERVICE,
@@ -21,17 +21,17 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
         <div className="w-[65%] 2xl:w-[65%]">
           <div className="holder flex items-end h-[62px] 2xl:h-[4vw]  2xl:mt-[1.65vw] mt-[2vw]">
             <p className="text-white 2xl:text-[3vw] font-bold text-[47px] flex justify-center">
-              {otherdata[0]?.TOTAL_REVENUE ??0 .toLocaleString()}
+              {otherdata[0]?.TOTAL_REVENUE ?? (0).toLocaleString()}
               <div className="2xl:mt-5">
-                {otherdata[0]?.TOTAL_REVENUE_PER ??0 >= 0 ? (
+                {otherdata[0]?.TOTAL_REVENUE_PER ?? 0 >= 0 ? (
                   <div className="icons flex flex-col justify-center items-center ml-2">
                     <RiTriangleFill className="text-green-500 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                     <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-500">
                       +
-                      {Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0).toString()
+                      {Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ?? 0).toString()
                         .length === 1
-                        ? "0" + Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)
-                        : Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)}
+                        ? "0" + Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ?? 0)
+                        : Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ?? 0)}
                       %
                     </h1>
                   </div>
@@ -39,10 +39,10 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
                   <div className="icons flex flex-col justify-center items-center ml-2">
                     <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
                       -
-                      {Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0).toString()
+                      {Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ?? 0).toString()
                         .length === 1
-                        ? "0" + Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)
-                        : Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ??0)}
+                        ? "0" + Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ?? 0)
+                        : Math.abs(otherdata[0]?.TOTAL_REVENUE_PER ?? 0)}
                       %
                     </h1>
                     <RiTriangleFill className="text-red-600 w-[22px] rotate-180 h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
@@ -63,7 +63,7 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
             Revenue
           </h1>
           <h1 className="text-white font-semibold tracking-wider  2xl:text-[1.1vw]">
-              {otherdata[0]?.YTD_REVENUE ??0}
+            {otherdata[0]?.YTD_REVENUE ?? 0}
           </h1>
           <h1 className="text-white font-semibold tracking-wider 2xl:text-[1vw]">
             Millions
@@ -73,39 +73,45 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
       {/* Bottom Container */}
       <div className="semi_progress_bar flex justify-between pr-4 mt-4">
         <div className="handle-progress">
-          <h1 className="text-[12px] pb-1 2xl:text-[.7vw] font-semibold text-white text-center">
+          <h1 className="text-[12px] pb-1 2xl:text-[.65vw] font-semibold text-white text-center">
             Parts
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={otherdata[0]?.PARTS ??0} />
+            <SemiCircularProgressive percentage={otherdata[0]?.PARTS ?? 0} />
           </div>
         </div>
         <div className="handle-progress">
-          <h1 className="text-[12px] pb-1 2xl:text-[.7vw] font-semibold text-white text-center">
+          <h1 className="text-[12px] pb-1 2xl:text-[.65vw] font-semibold text-white text-center">
             Services
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={otherdata[0]?.SERVICE_PER ??0} />
+            <SemiCircularProgressive
+              percentage={otherdata[0]?.SERVICE_PER ?? 0}
+            />
           </div>
         </div>
         <div className="handle-progress">
-          <h1 className="text-[12px] pb-1 2xl:text-[.7vw] font-semibold text-white text-center">
+          <h1 className="text-[10px] 2xl:text-[.6vw] font-semibold text-white text-center mt-[-8px] 2xl:mt-[-.45vw]">
+            Visit <br />
             Charges
           </h1>
-
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={otherdata[0]?.VISIT_PER ??0} />
+            <SemiCircularProgressive
+              percentage={otherdata[0]?.VISIT_PER ?? 0}
+            />
           </div>
         </div>
         <div className="handle-progress">
-          <h1 className="text-[12px] pb-1 2xl:text-[.7vw] font-semibold text-white text-center">
+          <h1 className="text-[12px] pb-1 2xl:text-[.65vw] font-semibold text-white text-center">
             Inst/Corp
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={otherdata[0]?.INSTALL_PER ??0} />
+            <SemiCircularProgressive
+              percentage={otherdata[0]?.INSTALL_PER ?? 0}
+            />
           </div>
         </div>
       </div>
@@ -127,16 +133,16 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
                   {data?.WEEKS}
                 </td>
                 <td className="border-r-2 pt-2 text-[12px] 2xl:text-[.7vw]  font-normal text-center  text-white">
-                    {parseFloat(data?.PARTS ?? 0).toFixed(2)}
+                  {parseFloat(data?.PARTS ?? 0).toFixed(2)}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.7vw]  font-normal text-center text-white">
-                    {parseFloat(data?.SERVICE ?? 0).toFixed(2)}
+                  {parseFloat(data?.SERVICE ?? 0).toFixed(2)}
                 </td>
                 <td className="border-r-2 pt-2  text-[12px] 2xl:text-[.7vw]  font-normal text-center text-white">
-                    {parseFloat(data?.VISIT_CHARGES ?? 0).toFixed(2)}
+                  {parseFloat(data?.VISIT_CHARGES ?? 0).toFixed(2)}
                 </td>
                 <td className="text-center pt-2  2xl:text-[.7vw] pr-1 text-[12px] font-semibold  text-white">
-                    {parseFloat(data?.INSTALL_CORPORATE ?? 0).toFixed(2)}
+                  {parseFloat(data?.INSTALL_CORPORATE ?? 0).toFixed(2)}
                 </td>
               </tr>
             );
@@ -144,15 +150,15 @@ const FifthSmallCard = ({ name, otherdata,toptable,lineChart }) => {
         </table>
       </div>
       <div className="-ml-2">
-         <ResponsiveLineChart
-            chartData={formattedLineChartDataRegions}
-            keysToDisplay={[
-              "PARTS",
-              "SERVICE",
-              "VISIT_CHARGES",
-              "INSTALL_CORPORATE",
-            ]}
-          />{" "}
+        <ResponsiveLineChart
+          chartData={formattedLineChartDataRegions}
+          keysToDisplay={[
+            "PARTS",
+            "SERVICE",
+            "VISIT_CHARGES",
+            "INSTALL_CORPORATE",
+          ]}
+        />{" "}
       </div>
     </div>
   );

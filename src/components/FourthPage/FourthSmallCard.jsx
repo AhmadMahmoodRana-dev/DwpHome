@@ -8,18 +8,14 @@ const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
   const { filteredData } = useContext(Context);
   const [pieChartData, setPieChartData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const formattedData = formatPieChartData(others);
-        setPieChartData(formattedData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+useEffect(() => {
+  if (others && others.length > 0) {
+    const formattedData = formatPieChartData(others);
+    setPieChartData(formattedData);
+  }
+}, [others]); // depend directly on `others`
+ // depend directly on `others`
 
-    fetchData();
-  }, [filteredData[0]?.ID]);
 
   // ###########################################################################
 
