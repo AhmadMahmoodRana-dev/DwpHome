@@ -168,10 +168,10 @@ useEffect(() => {
             <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}
               keysToDisplay={[
-                "PART_WAITING",
-                "UNDER_REPAIR",
-                "COMPLETED",
                 "OTHER",
+                "COMPLETED",
+                "UNDER_REPAIR",
+                "PART_WAITING",
               ]}
             />{" "}
           </div>

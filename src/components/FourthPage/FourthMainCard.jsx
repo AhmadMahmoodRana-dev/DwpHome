@@ -181,10 +181,10 @@ const FourthMainCard = () => {
             <ResponsiveLineChart
               chartData={formattedLineChartDataRegions}
               keysToDisplay={[
-                "PART_WAITING",
-                "UNDER_REPAIR",
-                "COMPLETED",
                 "OTHER",
+                "COMPLETED",
+                "UNDER_REPAIR",
+                "PART_WAITING",
               ]}
             />{" "}
           </div>
@@ -383,10 +383,10 @@ const FourthMainCard = () => {
             <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}
               keysToDisplay={[
-                "PART_WAITING",
-                "UNDER_REPAIR",
-                "COMPLETED",
                 "OTHERS",
+                "COMPLETED",
+                "UNDER_REPAIR",
+                "PART_WAITING",
               ]}
             />{" "}
           </div>

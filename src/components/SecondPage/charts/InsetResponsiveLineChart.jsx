@@ -9,10 +9,10 @@ import {
 } from "recharts";
 
 const colors = [
-  "#3b82f6", // Blue
-  "#10b981", // Green
-  "#f59e0b", // Amber
-  "#ef4444", // Red
+"#1793ff", // Blue
+  "#04e600", // Green
+  "#e0cd00", // Amber
+  "#e60000", // Red
   "#8b5cf6", // Purple
 ];
 

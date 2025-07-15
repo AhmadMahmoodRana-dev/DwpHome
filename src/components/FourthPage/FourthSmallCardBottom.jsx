@@ -57,10 +57,10 @@ const FourthSmallCardBottom = ({ name,productTable,lineChart}) => {
                <ResponsiveLineChart
               chartData={formattedLineChartDataProducts}
               keysToDisplay={[
-                "PART_WAITING",
-                "UNDER_REPAIR",
-                "COMPLETED",
                 "OTHERS",
+                "COMPLETED",
+                "UNDER_REPAIR",
+                "PART_WAITING",
               ]}
             />{" "}
           
