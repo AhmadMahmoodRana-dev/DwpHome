@@ -541,13 +541,13 @@ useEffect(() => {
 
 const fourthLineChartCustomFieldName = ["DISPLAY_WEEK","PART_WAITING","UNDER_REPAIR","COMPLETED","OTHER"];
 
-const fieldsToExtractRawalpindiFourthLineChart = ["DISPLAY_WEEK","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHER"];
-const fieldsToExtractFaisalabadFourthLineChart = ["DISPLAY_WEEK","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHER"];
-const fieldsToExtractGujranwalaFourthLineChart = ["DISPLAY_WEEK","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHER"];
-const fieldsToExtractLahoreFourthLineChart =     ["DISPLAY_WEEK","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHER"];
-const fieldsToExtractMultanFourthLineChart =     ["DISPLAY_WEEK","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHER"];
-const fieldsToExtractHyderabadFourthLineChart =  ["DISPLAY_WEEK","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHER"];
-const fieldsToExtractKarachiFourthLineChart =    ["DISPLAY_WEEK","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHER"];
+const fieldsToExtractRawalpindiFourthLineChart = ["DISPLAY_WEEK","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHERS_1"];
+const fieldsToExtractFaisalabadFourthLineChart = ["DISPLAY_WEEK","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHERS_1"];
+const fieldsToExtractGujranwalaFourthLineChart = ["DISPLAY_WEEK","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHERS_1"];
+const fieldsToExtractLahoreFourthLineChart =     ["DISPLAY_WEEK","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHERS_1"];
+const fieldsToExtractMultanFourthLineChart =     ["DISPLAY_WEEK","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHERS_1"];
+const fieldsToExtractHyderabadFourthLineChart =  ["DISPLAY_WEEK","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHERS_1"];
+const fieldsToExtractKarachiFourthLineChart =    ["DISPLAY_WEEK","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHERS_1"];
 
 const LineChartRawalpindiDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractRawalpindiFourthLineChart, fourthLineChartCustomFieldName);
 const LineChartFaisalabadDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractFaisalabadFourthLineChart, fourthLineChartCustomFieldName);
