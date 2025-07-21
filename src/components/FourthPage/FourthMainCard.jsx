@@ -81,8 +81,8 @@ const FourthMainCard = () => {
           </h1>
           {fourthPageOtherData[0]?.TOTAL_PENDING_PER >= 0 ? (
             <div className="flex flex-col justify-center items-center gap-1">
-              <BsTriangleFill color="#16a34a" size={20} />
-              <h1 className="text-green-600 font-semibold">
+              <BsTriangleFill className="text-red-600" size={20} />
+              <h1 className="text-red-600 font-semibold">
                 {" "}
                 +
                 {Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER).toString()
@@ -94,7 +94,7 @@ const FourthMainCard = () => {
             </div>
           ) : (
             <div className="flex flex-col justify-center items-center gap-1">
-              <h1 className="text-red-600 font-semibold">
+              <h1 className="text-green-600 font-semibold">
                 -
                 {Math.abs(fourthPageOtherData[0]?.TOTAL_PENDING_PER).toString()
                   .length === 1
@@ -103,8 +103,8 @@ const FourthMainCard = () => {
                 %
               </h1>
               <BsTriangleFill
-                className="rotate-180"
-                color="#b91c1c"
+                className="rotate-180 text-green-600"
+                // color="#b91c1c"
                 size={20}
               />
             </div>

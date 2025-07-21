@@ -72,10 +72,9 @@ useEffect(() => {
           {others[0]?.TOTAL_PENDING_PER >= 0 ? (
             <div className="flex flex-col justify-center items-center gap-1">
               <BsTriangleFill
-                color="#16a34a"
-                className="w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw]"
+                className="w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw] text-red-600"
               />
-              <h1 className="text-green-600 font-semibold">
+              <h1 className="text-red-600 font-semibold">
                 {" "}
                 +
                 {Math.abs(others[0]?.TOTAL_PENDING_PER).toString().length === 1
@@ -86,7 +85,7 @@ useEffect(() => {
             </div>
           ) : (
             <div className="flex flex-col justify-center items-center gap-1">
-              <h1 className="text-red-600 font-semibold">
+              <h1 className="text-green-600 font-semibold">
                 -
                 {Math.abs(others[0]?.TOTAL_PENDING_PER).toString().length === 1
                   ? "0" + Math.abs(others[0]?.TOTAL_PENDING_PER)
@@ -94,8 +93,8 @@ useEffect(() => {
                 %
               </h1>
               <BsTriangleFill
-                className="rotate-180 w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw]"
-                color="#b91c1c"
+                className="rotate-180 w-[20px] h-[20px] 2xl:w-[1vw] 2xl:h-[1vw] text-green-600"
+                // color="#b91c1c"
               />
             </div>
           )}
