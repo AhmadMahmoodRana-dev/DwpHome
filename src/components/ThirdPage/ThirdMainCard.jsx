@@ -38,6 +38,7 @@ const ThirdMainCard = () => {
                 <div className="2xl:mt-5">
                   {thirdPageOtherData[0]?.ATAT_PER >= 0 ? (
                     <div className="icons flex flex-col justify-center items-center ml-2">
+                      <RiTriangleFill className="text-red-600 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-red-600">
                         +
                         {Math.abs(thirdPageOtherData[0]?.ATAT_PER).toString()
@@ -46,11 +47,9 @@ const ThirdMainCard = () => {
                           : Math.abs(thirdPageOtherData[0]?.ATAT_PER)}
                         %
                       </h1>
-                      <RiTriangleFill className="text-red-600 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                     </div>
                   ) : (
                     <div className="icons flex flex-col justify-center items-center ml-2">
-                      <RiTriangleFill className="text-green-400 rotate-180 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                       <h1 className="text-[16px] 2xl:text-[1vw] font-bold text-green-400">
                         -
                         {Math.abs(thirdPageOtherData[0]?.ATAT_PER).toString()
@@ -59,6 +58,7 @@ const ThirdMainCard = () => {
                           : Math.abs(thirdPageOtherData[0]?.ATAT_PER)}
                         %
                       </h1>
+                      <RiTriangleFill className="text-green-400 rotate-180 w-[22px] h-[22px] 2xl:w-[1.2vw] 2xl:h-[1.2vw]" />
                     </div>
                   )}
 
