@@ -3,10 +3,7 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
   const formattedLineChartDataProducts = lineChart.map(
     (week, index) => ({
       week: `${week.SHORT_WEEKS}`,
-      DAY_0: week.Product_Day_0,
-      DAY2_3: week.Product_Day_2_3,
-      DAY4_7: week.Product_Day_4_7,
-      DAY8_ABOVE: week.Product_Day8_above,
+      ATAT: week.ATAT,
     })
   );
  
@@ -56,10 +53,7 @@ const ThirdSmallCardBottom = ({ name,productTable,lineChart }) => {
                      <AtatResponsiveLineChart
                 chartData={formattedLineChartDataProducts}
                 keysToDisplay={[
-                  "DAY_0",
-                  "DAY2_3",
-                  "DAY4_7",
-                  "DAY8_ABOVE",
+                  "ATAT",
                 ]}
               />
               

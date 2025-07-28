@@ -504,12 +504,12 @@ const LineChartKarachiDataThird = extractMultipleFields(thirdLineChart, fieldsTo
 
 // CHART PRODUCT DATA FILTERATION
 
-const thirdLineChartCustomFieldNameProducts = ["SHORT_WEEKS","Product_Day_0","Product_Day_2_3","Product_Day_4_7","Product_Day8_above"];
+const thirdLineChartCustomFieldNameProducts = ["SHORT_WEEKS","ATAT"];
 
-const fieldsToExtractEcostarThirdLineChart = ["SHORT_WEEKS","ECOSTAR_AC_DAY_0","ECOSTAR_AC_DAY2_3","ECOSTAR_AC_DAY4_7","ECOSTAR_AC_DAY8_ABOVE"];
-const fieldsToExtractLedThirdLineChart = ["SHORT_WEEKS","ECOSTAR_LED_TV_DAY_0","ECOSTAR_LED_TV_DAY2_3","ECOSTAR_LED_TV_DAY4_7","ECOSTAR_LED_TV_DAY8_ABOVE"];
-const fieldsToExtractRefrigeratorThirdLineChart = ["SHORT_WEEKS","REFRIGERATOR_DAY_0","REFRIGERATOR_DAY2_3","REFRIGERATOR_DAY4_7","REFRIGERATOR_DAY8_ABOVE"];
-const fieldsToExtractOtherThirdLineChart = ["SHORT_WEEKS","OTHERS_DAY_0","OTHERS_DAY2_3","OTHERS_DAY4_7","OTHERS_DAY8_ABOVE"];
+const fieldsToExtractEcostarThirdLineChart = ["SHORT_WEEKS","ECOSTAR_AC_ATAT"];
+const fieldsToExtractLedThirdLineChart = ["SHORT_WEEKS","ECOSTAR_LED_ATAT"];
+const fieldsToExtractRefrigeratorThirdLineChart = ["SHORT_WEEKS","REFRIGERATOR_ATAT"];
+const fieldsToExtractOtherThirdLineChart = ["SHORT_WEEKS","OTHERS_ATAT"];
 
 const productTableEcostarThirdLine = extractMultipleFields(thirdLineChart, fieldsToExtractEcostarThirdLineChart, thirdLineChartCustomFieldNameProducts);
 const productTableLedThirdLine = extractMultipleFields(thirdLineChart, fieldsToExtractLedThirdLineChart, thirdLineChartCustomFieldNameProducts);
