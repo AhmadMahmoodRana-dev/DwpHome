@@ -347,15 +347,15 @@ useEffect(() => {
 
 
 // OTHERS DATA
-const fifthPageCustomFieldNames = ["TOTAL_REVENUE", "TOTAL_REVENUE_PER", "YTD_REVENUE","PARTS","SERVICE_PER","VISIT_PER","INSTALL_PER"];
+const fifthPageCustomFieldNames = ["TOTAL_REVENUE", "TOTAL_REVENUE_PER", "YTD_REVENUE","PARTS","SERVICE_PER","VISIT_PER","INSTALL_PER","PART_PER"];
 
-const fieldsToExtractRawalpindiFifthPage = ["RWP_REVENUE", "RWP_REVENUE_PER", "RWP_YTD_REVENUE","RWP_PARTS","RWP_SERVICE_PER","RWP_VISIT_PER","RWP_INSTALL_PER"];
-const fieldsToExtractFaisalabadFifthPage = ["FSD_REVENUE", "FSD_REVENUE_PER", "FSD_YTD_REVENUE","FSD_PARTS","FSD_SERVICE_PER","FSD_VISIT_PER","FSD_INSTALL_PER"];
-const fieldsToExtractGujranwalaFifthPage = ["GUJ_REVENUE", "GUJ_REVENUE_PER", "GUJ_YTD_REVENUE","GUJ_PARTS","GUJ_SERVICE_PER","GUJ_VISIT_PER","GUJ_INSTALL_PER"];
-const fieldsToExtractLahoreFifthPage =     ["LHE_REVENUE", "LHE_REVENUE_PER", "LHE_YTD_REVENUE","LHE_PARTS","LHE_SERVICE_PER","LHE_VISIT_PER","LHE_INSTALL_PER"];
-const fieldsToExtractMultanFifthPage =     ["MUL_REVENUE", "MUL_REVENUE_PER", "MUL_YTD_REVENUE","MUL_PARTS","MUL_SERVICE_PER","MUL_VISIT_PER","MUL_INSTALL_PER"];
-const fieldsToExtractHyderabadFifthPage =  ["HYD_REVENUE", "HYD_REVENUE_PER", "HYD_YTD_REVENUE","HYD_PARTS","HYD_SERVICE_PER","HYD_VISIT_PER","HYD_INSTALL_PER"];
-const fieldsToExtractKarachiFifthPage =    ["KHI_REVENUE", "KHI_REVENUE_PER", "KHI_YTD_REVENUE","KHI_PARTS","KHI_SERVICE_PER","KHI_VISIT_PER","KHI_INSTALL_PER"];
+const fieldsToExtractRawalpindiFifthPage = ["RWP_REVENUE", "RWP_REVENUE_PER", "RWP_YTD_REVENUE","RWP_PARTS","RWP_SERVICE_PER","RWP_VISIT_PER","RWP_INSTALL_PER","RWP_PARTS_PER"];
+const fieldsToExtractFaisalabadFifthPage = ["FSD_REVENUE", "FSD_REVENUE_PER", "FSD_YTD_REVENUE","FSD_PARTS","FSD_SERVICE_PER","FSD_VISIT_PER","FSD_INSTALL_PER","FSD_PARTS_PER"];
+const fieldsToExtractGujranwalaFifthPage = ["GUJ_REVENUE", "GUJ_REVENUE_PER", "GUJ_YTD_REVENUE","GUJ_PARTS","GUJ_SERVICE_PER","GUJ_VISIT_PER","GUJ_INSTALL_PER","GUJ_PARTS_PER"];
+const fieldsToExtractLahoreFifthPage =     ["LHE_REVENUE", "LHE_REVENUE_PER", "LHE_YTD_REVENUE","LHE_PARTS","LHE_SERVICE_PER","LHE_VISIT_PER","LHE_INSTALL_PER","LHE_PARTS_PER"];
+const fieldsToExtractMultanFifthPage =     ["MUL_REVENUE", "MUL_REVENUE_PER", "MUL_YTD_REVENUE","MUL_PARTS","MUL_SERVICE_PER","MUL_VISIT_PER","MUL_INSTALL_PER","MUL_PARTS_PER"];
+const fieldsToExtractHyderabadFifthPage =  ["HYD_REVENUE", "HYD_REVENUE_PER", "HYD_YTD_REVENUE","HYD_PARTS","HYD_SERVICE_PER","HYD_VISIT_PER","HYD_INSTALL_PER","HYD_PARTS_PER"];
+const fieldsToExtractKarachiFifthPage =    ["KHI_REVENUE", "KHI_REVENUE_PER", "KHI_YTD_REVENUE","KHI_PARTS","KHI_SERVICE_PER","KHI_VISIT_PER","KHI_INSTALL_PER","KHI_PARTS_PER"];
 
 const OthersRawalpindiDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractRawalpindiFifthPage, fifthPageCustomFieldNames);
 const OthersFaisalabadDataFifthPage = extractMultipleFields(fifthPageOtherData, fieldsToExtractFaisalabadFifthPage, fifthPageCustomFieldNames);

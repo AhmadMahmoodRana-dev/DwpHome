@@ -24,6 +24,8 @@ const FifthMainCard = () => {
     INSTALL_CORPORATE: week.GREE_AC_INSTALL,
   }));
 
+  console.log("fifthPageOtherData",fifthPageOtherData)
+
   return (
     <>
       <div className="w-[300px] 2xl:w-[100%] first-div  h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
@@ -98,7 +100,7 @@ const FifthMainCard = () => {
 
             <div className=" font-semibold text-white">
               <SemiCircularProgressive
-                percentage={fifthPageOtherData[0]?.PARTS}
+                percentage={fifthPageOtherData[0]?.PART_PER}
               />
             </div>
           </div>

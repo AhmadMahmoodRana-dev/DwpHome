@@ -255,7 +255,7 @@ const FourthCard = ({ startWeek, endWeek }) => {
                 </h1>
 
                 <div className=" font-semibold text-white">
-                <SemiCircularProgressive percentage={item.PARTS}/>
+                <SemiCircularProgressive percentage={item.PART_PER}/>
                 </div>
               </div>
               <div className="handle-progress">

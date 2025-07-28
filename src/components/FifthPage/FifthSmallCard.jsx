@@ -11,6 +11,8 @@ const FifthSmallCard = ({ name, otherdata, toptable, lineChart }) => {
     INSTALL_CORPORATE: week.INSTALL_CORPORATE,
   }));
 
+  console.log("otherdata[0]?.PART_PER",otherdata[0]?.PART_PER)
+
   return (
     <div className="w-[300px] 2xl:w-[100%] first-div  h-auto mt-3 rounded-[10px] pl-4 pt-2 2xl:py-1 py-4">
       <h1 className="text-white font-bold text-[20px] 2xl:text-[1.1vw] ">
@@ -78,7 +80,7 @@ const FifthSmallCard = ({ name, otherdata, toptable, lineChart }) => {
           </h1>
 
           <div className=" font-semibold text-white">
-            <SemiCircularProgressive percentage={otherdata[0]?.PARTS ?? 0} />
+            <SemiCircularProgressive percentage={otherdata[0]?.PART_PER ?? 0} />
           </div>
         </div>
         <div className="handle-progress">
