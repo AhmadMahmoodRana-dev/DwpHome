@@ -241,6 +241,7 @@ useEffect(() => {
             },
           }
       );
+      console.log(dateId,"DATE")
       setFourthPageTableData(response2.data);
 
     } catch (error) {
@@ -255,13 +256,13 @@ useEffect(() => {
 // OTHERS DATA
 const fourthPageCustomFieldNames = ["TOTAL_PENDING_SETS", "TOTAL_PENDING_PER", "AGING","PTAT","PART_WAITING","UNDER_REPAIR","COMPLETED","OTHER"];
 
-const fieldsToExtractRawalpindiFourthPage = ["RWP_TOTAL_PENDING_SETS", "RWP_TOTAL_PENDING_PER", "RWP_AGING","RWP_PTAT","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHER"];
-const fieldsToExtractFaisalabadFourthPage = ["FSD_TOTAL_PENDING_SETS", "FSD_TOTAL_PENDING_PER", "FSD_AGING","FSD_PTAT","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHER"];
-const fieldsToExtractGujranwalaFourthPage = ["GUJ_TOTAL_PENDING_SETS", "GUJ_TOTAL_PENDING_PER", "GUJ_AGING","GUJ_PTAT","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHER"];
-const fieldsToExtractLahoreFourthPage = ["LHE_TOTAL_PENDING_SETS", "LHE_TOTAL_PENDING_PER", "LHE_AGING","LHE_PTAT","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHER"];
-const fieldsToExtractMultanFourthPage = ["MUL_TOTAL_PENDING_SETS", "MUL_TOTAL_PENDING_PER", "MUL_AGING","MUL_PTAT","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHER"];
-const fieldsToExtractHyderabadFourthPage = ["HYD_TOTAL_PENDING_SETS", "HYD_TOTAL_PENDING_PER", "HYD_AGING","HYD_PTAT","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHER"];
-const fieldsToExtractKarachiFourthPage = ["KHI_TOTAL_PENDING_SETS", "KHI_TOTAL_PENDING_PER", "KHI_AGING","KHI_PTAT","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHER"];
+const fieldsToExtractRawalpindiFourthPage = ["RWP_TOTAL_PENDING_SETS", "RWP_TOTAL_PENDING_PER", "RWP_AGING","RWP_PTAT","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHERS"];
+const fieldsToExtractFaisalabadFourthPage = ["FSD_TOTAL_PENDING_SETS", "FSD_TOTAL_PENDING_PER", "FSD_AGING","FSD_PTAT","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHERS"];
+const fieldsToExtractGujranwalaFourthPage = ["GUJ_TOTAL_PENDING_SETS", "GUJ_TOTAL_PENDING_PER", "GUJ_AGING","GUJ_PTAT","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHERS"];
+const fieldsToExtractLahoreFourthPage = ["LHE_TOTAL_PENDING_SETS", "LHE_TOTAL_PENDING_PER", "LHE_AGING","LHE_PTAT","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHERS"];
+const fieldsToExtractMultanFourthPage = ["MUL_TOTAL_PENDING_SETS", "MUL_TOTAL_PENDING_PER", "MUL_AGING","MUL_PTAT","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHERS"];
+const fieldsToExtractHyderabadFourthPage = ["HYD_TOTAL_PENDING_SETS", "HYD_TOTAL_PENDING_PER", "HYD_AGING","HYD_PTAT","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHERS"];
+const fieldsToExtractKarachiFourthPage = ["KHI_TOTAL_PENDING_SETS", "KHI_TOTAL_PENDING_PER", "KHI_AGING","KHI_PTAT","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHERS"];
 
 const OthersRawalpindiDataFourthPage = extractMultipleFields(fourthPageOtherData, fieldsToExtractRawalpindiFourthPage, fourthPageCustomFieldNames);
 const OthersFaisalabadDataFourthPage = extractMultipleFields(fourthPageOtherData, fieldsToExtractFaisalabadFourthPage, fourthPageCustomFieldNames);
@@ -541,13 +542,13 @@ useEffect(() => {
 
 const fourthLineChartCustomFieldName = ["DISPLAY_WEEK","PART_WAITING","UNDER_REPAIR","COMPLETED","OTHER"];
 
-const fieldsToExtractRawalpindiFourthLineChart = ["DISPLAY_WEEK","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHERS_1"];
-const fieldsToExtractFaisalabadFourthLineChart = ["DISPLAY_WEEK","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHERS_1"];
-const fieldsToExtractGujranwalaFourthLineChart = ["DISPLAY_WEEK","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHERS_1"];
-const fieldsToExtractLahoreFourthLineChart =     ["DISPLAY_WEEK","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHERS_1"];
-const fieldsToExtractMultanFourthLineChart =     ["DISPLAY_WEEK","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHERS_1"];
-const fieldsToExtractHyderabadFourthLineChart =  ["DISPLAY_WEEK","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHERS_1"];
-const fieldsToExtractKarachiFourthLineChart =    ["DISPLAY_WEEK","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHERS_1"];
+const fieldsToExtractRawalpindiFourthLineChart = ["DISPLAY_WEEK","RWP_PART_WAITING","RWP_UNDER_REPAIR","RWP_COMPLETED","RWP_OTHERS"];
+const fieldsToExtractFaisalabadFourthLineChart = ["DISPLAY_WEEK","FSD_PART_WAITING","FSD_UNDER_REPAIR","FSD_COMPLETED","FSD_OTHERS"];
+const fieldsToExtractGujranwalaFourthLineChart = ["DISPLAY_WEEK","GUJ_PART_WAITING","GUJ_UNDER_REPAIR","GUJ_COMPLETED","GUJ_OTHERS"];
+const fieldsToExtractLahoreFourthLineChart =     ["DISPLAY_WEEK","LHE_PART_WAITING","LHE_UNDER_REPAIR","LHE_COMPLETED","LHE_OTHERS"];
+const fieldsToExtractMultanFourthLineChart =     ["DISPLAY_WEEK","MUL_PART_WAITING","MUL_UNDER_REPAIR","MUL_COMPLETED","MUL_OTHERS"];
+const fieldsToExtractHyderabadFourthLineChart =  ["DISPLAY_WEEK","HYD_PART_WAITING","HYD_UNDER_REPAIR","HYD_COMPLETED","HYD_OTHERS"];
+const fieldsToExtractKarachiFourthLineChart =    ["DISPLAY_WEEK","KHI_PART_WAITING","KHI_UNDER_REPAIR","KHI_COMPLETED","KHI_OTHERS"];
 
 const LineChartRawalpindiDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractRawalpindiFourthLineChart, fourthLineChartCustomFieldName);
 const LineChartFaisalabadDataFourth = extractMultipleFields(fourthLineChart, fieldsToExtractFaisalabadFourthLineChart, fourthLineChartCustomFieldName);

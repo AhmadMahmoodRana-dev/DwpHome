@@ -7,6 +7,7 @@ const FourthSmallCard = ({ name, others, topTable, lineChart }) => {
   // TOP SECTION APIS
   const { filteredData } = useContext(Context);
   const [pieChartData, setPieChartData] = useState(null);
+  console.log(lineChart,"LineChartRawalpindiDataFourth")
 
 useEffect(() => {
   if (others && others.length > 0) {
